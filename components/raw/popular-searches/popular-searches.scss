@@ -1,0 +1,33 @@
+.popular-searches {
+    @include full-bleed-inset;
+    display: none;
+    font-family: $header-font;
+    font-size: 16px;
+    @include for-tablet-landscape-up {
+        display: block;
+        padding: 0;
+    }
+    
+    &-group {
+        margin-bottom: px-to-em(10, 16);
+        background: $light-grey;
+        padding: px-to-em(20, 16);
+    }
+
+    &-item {
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            margin: 0 0 px-to-em(12);
+            list-style-type: none;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

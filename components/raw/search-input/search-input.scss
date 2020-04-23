@@ -1,0 +1,162 @@
+$search-input-border-size: 5px;
+
+.search {
+
+    &-input-group {
+        display: flex;
+        background: $white;
+        font-size: responsive 20px 24px;
+        font-range: $mobile-portrait $tablet-portrait;
+        line-height: 1.33;
+        letter-spacing: -.1px;
+
+        &-outline {
+            border: $search-input-border-size solid $primary-blue;
+
+            .content-scheme-black & {
+                border-color: $black;
+            }
+        }
+
+        &-small {
+            font-size: responsive 16px 20px;
+            font-range: $mobile-portrait $tablet-portrait;
+        }
+    }
+
+    &-input {
+        border: none;
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        padding: px-to-em(15, 20) px-to-em(24, 20);
+        padding-right: 0;
+        font-family: $header-font;
+        outline: none;
+        color: $text-black;
+
+        @include for-tablet-portrait-up {
+            padding: 0em px-to-em(35, 24);
+            padding-right: 0;
+        }
+
+        .search-input-group-small & {
+            padding: px-to-em(8, 16) px-to-em(14, 16);
+            padding-right: 0;
+
+            @include for-tablet-portrait-up {
+                padding: 0em px-to-em(26, 20);
+                padding-right: 0;
+            }
+        }
+        
+        &-label {
+            @include hide-offscreen;
+        }
+
+        &::placeholder {
+            color: #777777;
+        }
+    }
+
+    &-button {
+        background: $yellow;
+        margin: 8px;
+        border: 2px solid $yellow;
+        padding: 0;
+        font-size: responsive 30px 34px;
+        font-range: $mobile-portrait $tablet-portrait;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+
+        .search-input-group-small & {
+            font-size: responsive 16px 20px;
+            font-range: $mobile-portrait $tablet-portrait;
+        }
+
+        .uod-icons-search {
+            width: px-to-em(48, 30);
+            line-height: 48 / 30 * 1;
+
+            .search-input-group-small & {
+                width: px-to-em(36, 16);
+                line-height: 36 / 16 * 1;
+            }
+        }
+
+        .search-input-group & {
+            margin: 3px;
+        }
+
+        @include for-tablet-portrait-up {
+            margin: 10px;
+
+            .uod-icons-search {
+                width: px-to-em(60, 34);
+                line-height: 60 / 34 * 1;
+
+                .search-input-group-small & {
+                    width: px-to-em(46, 20);
+                    line-height: 46 / 20 * 1;
+                }
+            }
+
+            .search-input-group & {
+                margin: 5px;
+            }
+        }
+
+
+        &:hover,
+        &:focus,
+        &:active {
+            .search-button-overlay {
+                width: 100%;
+
+                @supports (clip-path: polygon((-1px) -1px, -1px 101%, 101% 101%, 101% -1px)) {
+                    clip-path: polygon((-1px) -1px, -1px 101%, 101% 101%, 101% -1px);
+                }
+            }
+        }
+
+        &-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            color: $black;
+            overflow: hidden;
+            white-space: nowrap;
+            background: $white;
+            transition: width 0.3s $default-animation-curve;
+            border-radius: 1px;
+
+            @supports (clip-path: polygon((-1px) -1px, -1px 101%, -1px 101%, -1px -1px)) {
+                width: 100%;
+                white-space: normal;
+                transition: clip-path 0.3s $default-animation-curve;
+                clip-path: polygon((-1px) -1px, -1px 101%, -1px 101%, -1px -1px);
+            }
+
+            span {
+                display: inline-block;
+                padding: 0 1em;
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                margin: 0 -1em;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+

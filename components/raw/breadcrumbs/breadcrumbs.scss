@@ -1,0 +1,44 @@
+.breadcrumbs {
+    @include small-body-font;
+
+    width: 100%;
+
+    a {
+        @include underline-only-on-hover;
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-item {
+        margin: 0;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    &-separator {
+        margin: -.2em .5em 0 .2em;
+        vertical-align: middle;
+        color: $dark-grey;
+
+        .white &,
+        .black & {
+            @include link-colour($white);
+        }
+    }
+
+    &.black a {
+        @include link-colour($black);
+    }
+
+    &.white a {
+        @include link-colour($white);
+    }
+}

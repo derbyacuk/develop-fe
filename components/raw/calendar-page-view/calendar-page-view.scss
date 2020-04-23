@@ -1,0 +1,198 @@
+.calendar-page-view {
+
+	&-table {
+		border: 1px solid $dark-grey;
+
+		thead {
+
+			tr {
+				background: $light-grey;
+				color: $text-black;
+
+				&:first-child, &:nth-child(even) {
+					background: $light-grey;
+					color: $text-black;
+				}
+
+				th {
+					text-align: center;
+				}
+
+				a {
+
+					i {
+						position: relative;
+						top: 3px;
+					}
+				}
+			}
+		}
+
+		tr {
+			border-bottom: 1px dashed $dark-grey;
+
+			&:nth-child(even) {
+				background: $white;
+			}
+
+			&.calendar-dayrow {
+
+				span {
+			    	font-size: 1.2em;
+				    width: 30px;
+				    height: 30px;
+				    line-height: 30px;
+				    text-align: center;
+				    display: inline-block;
+				    font-weight: bold;
+				}
+
+				.cal-event:hover() + .tooltip-info {
+					display: block;
+				}
+
+				.tooltip-info {
+				    display: block;
+				    width: 200px;
+				    min-height: 100px;
+				    background-color: $white;
+				    border: 1px solid $black;
+				    position: absolute;
+				    margin-left: calc(100%/7);
+				    margin-top: -39px;
+				    z-index: 100;
+				    @include small-body-font;
+				    padding: 1em;
+				    display: none; 
+				
+					&:after, 
+					&:before {
+						right: 100%;
+						top: 26px;
+						border: solid transparent;
+						content: " ";
+						height: 0;
+						width: 0;
+						position: absolute;
+					    pointer-events: none; 
+					}
+
+					&:after {
+						border-color: transparent;
+						border-right-color: white;
+						border-width: 6px;
+						margin-top: -6px; 
+					}
+					&:before {
+						border-color: rgba(0, 0, 0, 0);
+						border-right-color: #000;
+						border-width: 7px;
+						margin-top: -7px; 
+					}
+					&.active {
+						display: block; 
+					}
+					
+					div.title {
+						font-size: 1em;
+						line-height: 1em;
+						margin-top: 0.1em;
+						margin-bottom: 0.1em; 
+					}
+					
+					div.info {
+						font-size: 0.80em;
+						margin-bottom: 0.3em; 
+
+						p {
+							font-size: 1em;
+							margin: 0px;
+							padding-bottom: 0px;
+							line-height: 1.5em; 
+						}
+					}
+
+					div.short-desc {
+						font-size: 0.80em; 
+						line-height: 1.5em;
+					}
+				}
+			}
+		}
+
+		th, td {
+			padding: 0;
+			width: calc(100%/7);
+			line-height: 2.5em;
+			border-right: 1px dashed $dark-grey;
+
+			a {
+				@include disable-underlines;
+				display: block;
+			}
+		}
+
+		td {
+			text-align: left;
+
+			> span {
+				opacity: 0.5;
+			}
+
+			a {
+
+				&.hasEvents, &.hasMoreEvents {
+					color: $primary-blue;
+				}
+			}
+
+			&.fillday {
+				color: $mid-grey;
+				background: $light-grey;
+			}
+
+			.cal-event {
+				@include small-body-font;
+			    line-height: 1.5em;
+			    display: block;
+			    max-height: 3rem;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    padding: 0.3em;
+			    background-color: $primary-blue;
+			    margin-bottom: 2px;
+			    color: $white;
+			    white-space: unset;
+
+			    a {
+			    	color: $white;
+			    }
+			}
+		}
+
+		.prev-next-link {
+			@include hide-offscreen;
+		}
+	}
+}
+
+
+/*
+.event-date-box {
+    display: inline-block;
+    width: 17.5%;
+  	min-width: 144px;
+    vertical-align: top;
+}
+
+.event-info-box {
+    display: inline-block;
+    width: 76%;
+    vertical-align: top;
+}
+
+
+.tooltip-info {
+	display: none !important;
+}
+*/

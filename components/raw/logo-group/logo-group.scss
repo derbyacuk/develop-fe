@@ -1,0 +1,58 @@
+.logo {
+	lost-column: 4/8 2;
+	padding: .75em .5em;
+
+	.logo-group-1-per-row & {
+		lost-column: 6/8 2;
+	}
+
+	@include for-tablet-portrait-up {
+		lost-column: 4/12 3;
+	}
+
+	@include for-tablet-landscape-up {
+		lost-column: 2/10 5;
+
+		.logo-group-2-per-row & {
+			lost-column: 4/12 3;
+		}
+	}
+
+	&-group { 
+		display: flex;
+        flex-wrap: wrap;
+        lost-utility: clearfix;
+        position: relative;
+        z-index: 1;
+        align-items: center;
+        margin-bottom: px-to-em(25, $body-font-size);
+        lost-align: center;
+
+        @include for-tablet-portrait-up {
+	        margin-bottom: px-to-em(40, $body-font-size-tablet-portrait-up);
+	    }
+
+        &-cta {
+        	text-align: center;
+        }
+	}
+
+	&-a {
+		@include disable-underlines;
+		display: block;
+	}
+
+	&-img {
+		max-height: 100px;
+		display: block;
+		margin: 0 auto;
+
+		.logo-group-1-per-row &,
+		.logo-group-2-per-row & {
+
+			@include for-tablet-landscape-up {
+				max-height: 125px;
+			}
+		}
+	}
+}

@@ -1,0 +1,76 @@
+.calendar-mini-view {
+
+	&-table {
+		margin-bottom: px-to-em(10, 16);
+		
+		thead {
+
+			tr {
+				background: $light-grey;
+				color: $text-black;
+
+				&:first-child, &:nth-child(even) {
+					background: $light-grey;
+					color: $text-black;
+				}
+
+				a {
+
+					i {
+						position: relative;
+						top: 3px;
+					}
+				}
+			}
+		}
+
+		tr {
+			border-bottom: 1px dashed $dark-grey;
+
+			&:nth-child(even) {
+				background: $white;
+			}
+		}
+
+		th, td {
+			text-align: center;
+			padding: 0;
+			width: calc(100%/7);
+			line-height: 2.5em;
+			border-right: 1px dashed $dark-grey;
+
+			a {
+				@include disable-underlines;
+				display: block;
+			}
+		}
+
+		td {
+
+			&.hasEvents {
+
+				a {
+					background: $primary-blue;
+					color: $white;
+					transition: background-color 0.15s $default-animation-curve;
+
+					&:hover {
+						background: darken($primary-blue, 10%);
+					}
+				}
+
+				&.outperiodday {
+					opacity: 0.5;
+				}
+			}
+
+			&.fillday {
+				color: $mid-grey;
+			}
+		}
+
+		.prev-next-link {
+			@include hide-offscreen;
+		}
+	}
+}

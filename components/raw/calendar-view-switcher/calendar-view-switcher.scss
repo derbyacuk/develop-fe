@@ -1,0 +1,9 @@
+.calendar-view-switcher {
+	margin-bottom: px-to-em(10, 16);
+    background: $light-grey;
+    padding: px-to-em(20, 16);
+
+    &-spacer {
+    	margin: 0 .25em;
+    }
+}

@@ -1,0 +1,74 @@
+/**
+ *  Global styling for buttons
+ *
+ *  Variants:
+ *      primary (yellow), 
+ *      secondary (blue),
+ *      black (black),
+ *      outline (mid-blue outline, white inset)
+ *      inverse (white outline, mid-blue inset)
+ *
+ *  Sizes:
+ *      large,
+ *      default,
+ *      small
+ */
+%button {
+    @include disable-underlines;
+    // to make the make targetting a specific button height easier, 
+    // here's some math to work out the padding needed for the button variants
+    $line-height: 1.3;
+    $small-vertical-padding: (43 - 4 - 16 * $line-height) / 16 / 2 + 0em;
+    $normal-vertical-padding: (49 - 4 - 18 * $line-height) / 18 / 2 + 0em;
+    $large-vertical-padding: (54 - 4 - 18 * $line-height) / 18 / 2 + 0em;
+
+    display: inline-block;
+    position: relative;
+    // this ensures that buttons placed next to other elements and themselves
+    // are spaced slightly apart from each other
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: solid 2px;
+    border-radius: 2px;
+    padding: $small-vertical-padding 1em;
+    text-align: center;
+    line-height: $line-height;
+    font-family: $header-font;
+    font-size: responsive 17px 18px;
+    font-range: $mobile-portrait $tablet-landscape;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: $small-vertical-padding;
+    padding-bottom: $small-vertical-padding;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+    @include for-tablet-portrait-up {
+        padding-top: $normal-vertical-padding;
+        padding-bottom: $normal-vertical-padding;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &,
+    &:link {
+        text-decoration: none;
+    }
+}
+
+.button {
+
+    &-outline {
+        @extend %button;
+        border-color: $mid-blue;
+        background: transparent;
+
+        &,
+        &:link {
+            color: $mid-blue;
+        } 
+    }
+}

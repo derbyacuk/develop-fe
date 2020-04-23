@@ -1,0 +1,30 @@
+.feature-block {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $white;
+    }
+
+    &-blue {
+        @extend .feature-block;
+        background: $primary-blue;
+    }
+
+    &-white {
+        @extend .feature-block;
+        background: $white;
+        color: $text-black;
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $text-black;
+        }
+    }
+}

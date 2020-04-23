@@ -1,0 +1,80 @@
+//
+// Classes which are specific to the integration of the Header and the Menu components
+//
+.header-dropdown-menu-container {
+    @include full-bleed-inset;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    right: 0;
+    min-height: 100vh;
+    z-index: 200;
+    pointer-events: none;
+
+    .main-navigation-panel {
+        transform: translateX(100%);
+        transition: transform .3s $default-animation-curve;
+    }
+
+    &-active {
+        overflow: visible;
+        pointer-events: all;
+
+        .main-navigation-panel {
+            transform: translateX(0);
+        }
+    }
+
+    @include for-largerthan-ipad-portrait {
+        top: 90px;
+        min-height: calc(100vh - 90px);
+    }
+
+    @media (min-width: 1780px) {
+        max-width: #{'calc(1780px + ((100vw - 1780px) / 2))'};
+    }
+
+    .main-navigation-panel {
+        @include full-bleed;
+        
+        @include for-largerthan-ipad-portrait {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin-right: 0;
+            margin-left: 0;
+
+            .main-navigation-panel-content {
+                min-height: calc(100vh - 90px);
+        
+                @media (min-width: 1780px) {
+                    padding-right: #{'calc((100vw - 1700px) / 2)'};
+                }
+            }
+        }
+
+        .main-navigation-close {
+            transform: rotate(-90deg);
+
+            @media (min-width: 1780px) {
+                margin-right: #{'calc((100vw - 1780px) / 2)'};
+            }
+        }
+
+        &-active {
+            display: block;
+            overflow: visible;
+        }
+
+        &-hidden {
+            display: none;
+        }
+
+        &.tofront {
+            z-index: 1;
+        }
+    }
+}
+

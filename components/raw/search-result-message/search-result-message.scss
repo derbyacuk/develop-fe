@@ -1,0 +1,10 @@
+.search-result-message {
+    margin-right: px-to-em(26, 17);
+    margin-bottom: px-to-em(26, 17);
+    border-bottom: 1px dashed $dark-grey;
+    padding-bottom: px-to-em(26, 17);
+
+    p {
+        color: $black;
+    }
+}

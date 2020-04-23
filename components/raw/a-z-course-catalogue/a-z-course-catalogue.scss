@@ -1,0 +1,37 @@
+.a-z-course-catalogue {
+
+	&-group {
+		lost-column: 8/8;
+    	flex: 1 0 auto; // for IE11
+		@include margin-small;
+		border-bottom: 1px solid $mid-grey;
+
+		@include for-largerthan-ipad-portrait {
+	        lost-offset: 2/16;
+	        lost-column: 12/16;
+	        flex: 1 0 auto; // for IE11
+	    }
+
+	    @include for-desktop-up {
+	        lost-offset: 4/16;
+	        lost-column: 8/16;
+	        flex: 1 0 auto; // for IE11
+	    }
+
+		&-list {
+			padding-left: 0;
+
+			&-item {
+				list-style-type: none;
+
+				&-back-to-top {
+					text-align: right;
+				}
+
+				&:last-child {
+					@include margin-small;
+				}
+			}
+		}
+	}
+}

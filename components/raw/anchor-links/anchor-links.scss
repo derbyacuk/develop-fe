@@ -1,0 +1,272 @@
+.anchor-links {
+    transition: box-shadow .5s $default-animation-curve;
+    box-shadow: none;
+
+    @include for-largerthan-ipad-portrait {
+        flex-direction: row;
+        box-shadow: none;
+    }
+
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+
+    @include for-largerthan-ipad-portrait {
+        box-shadow: none;
+    }
+
+    &-container {
+        @include margin-small;
+        position: relative;
+        z-index: 5;
+        height: px-to-em(60, 18);
+        max-width: 100%;
+
+        @include for-largerthan-ipad-portrait {
+            height: px-to-em(78, 18);
+            width: 100vw;
+            flex-direction: row;
+        }
+
+        &-dark {
+            background: $light-grey;
+        
+            @include for-largerthan-ipad-portrait {
+                box-shadow: none;
+                transition: box-shadow .5s $default-animation-curve;
+                box-shadow: none;
+                box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+
+    &-title {
+        @include body-font;
+        display: flex;
+        height: px-to-em(60, 18);
+
+        @include for-largerthan-ipad-portrait {
+            display: none;
+        }
+
+        a {
+            @include disable-underlines;
+        }
+
+        .anchor-links-dark & {
+            @include full-bleed;
+        }
+
+        &-link {
+            @include link-colour($text-black);
+            flex: 1;
+            padding: 0 fluid-margin();
+            line-height: px-to-em(60, 18);
+            font-weight: bold;
+        }
+
+        &-label {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        &-menu-icon {
+            margin-right: .5em;
+            line-height: px-to-em(60, 25);
+            font-size: px-to-em(25, 18);
+        }
+
+        &-title {
+            cursor: initial;
+            overflow: hidden;
+
+            .anchor-links.active & {
+                cursor: pointer;
+
+                &:hover {
+                    .anchor-links-title-close-icon {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+
+        &-toggle-icon {
+            transition: transform .3s $default-animation-curve, opacity .3s $default-animation-curve;
+            padding: 0 fluid-margin();
+            line-height: px-to-em(60, 25);
+            color: $text-black;
+            font-size: px-to-em(25, 18);
+
+            .anchor-links.active & {
+                transform: rotate(90deg);
+                opacity: 1;
+
+                &:before {
+                    content: $uod-icons-cross;
+                }
+            }
+        }
+    }
+
+    &-list {
+        margin: 0 0 1px;
+        padding: 0;
+        font-size: 0;
+        list-style-type: none;
+
+        .anchor-links-stacked & {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            @include for-largerthan-ipad-portrait {
+                flex-direction: row;
+            }
+        }
+
+        &-container {
+            transition: max-height .5s $default-animation-curve;
+            max-height: 0;
+            overflow: hidden;
+
+            .active & {
+                max-height: 1000px;
+                max-height: calc(100vh - #{px-to-em(60, 18)});
+                overflow-y: auto;
+
+                @include for-up-to-ipad-portrait {
+                    padding-bottom: 1px; //account for negative bottom margin on items
+                }
+            }
+
+            @include for-largerthan-ipad-portrait {
+                max-height: inherit;
+                overflow: visible;
+            }
+
+            .anchor-links-light & {
+
+                @include for-largerthan-ipad-portrait {
+                    border: 2px solid $black;
+                    display: inline-block;
+                }
+            }
+        }
+
+        &-item {
+            margin: 0;
+            height: px-to-em(50, 18);
+            min-width: px-to-em(50, 18);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            a {
+                @include underline-only-on-hover;
+            }
+
+            .anchor-links-stacked & {
+                display: flex;
+                flex: 0 1 auto;
+                font-size: 17px;
+                border-bottom: 1px dashed $dark-grey;
+
+                @include for-largerthan-ipad-portrait {
+                    height: px-to-em(78, 18);
+                    border-bottom: 0;
+                    border-left: 1px dashed $dark-grey;
+
+                    &:last-child {
+                        border-right: 1px dashed $dark-grey;
+
+                        &.active {
+                            border-right-color: $mid-grey;
+                            border-right-style: solid;
+                        }
+                    }
+
+                    &.active,
+                    &.active + & {
+                        border-left-color: $mid-grey;
+                        border-left-style: solid;
+                    }
+                }
+            }
+
+            .anchor-links-inline & {
+                display: inline-block;
+                @include header;
+                font-size: responsive 20px 28px;
+                font-range: $mobile-portrait $tablet-portrait;
+
+                @include for-largerthan-ipad-portrait {
+                    min-width: 48px;
+                    height: 48px;
+                }
+            }
+
+            &-link {
+                @include link-colour($text-black);
+                font-family: $header-font;
+                line-height: 1.29;
+                margin-bottom: -1px;
+                transition: background-color .3s $default-animation-curve;
+
+                @include for-largerthan-ipad-portrait {
+                    font-size: 17px;
+                    margin-bottom: 0;
+                }
+
+                .anchor-links-stacked & {
+                    align-items: center;
+                    display: flex;
+                    flex: 1 1 auto;
+                    font-size: 17px;
+                    padding: 1em;
+                    @include link-colour($text-black);
+                }
+
+                .anchor-links-inline & {
+                    font-size: responsive 20px 28px;
+                    font-range: $mobile-portrait $tablet-portrait;
+                    // padding: .25em .5em;
+                    text-align: center;
+                    @include link-colour($primary-blue);
+                    line-height: px-to-em(50, 18);
+                    display: block;
+
+                    @include for-largerthan-ipad-portrait {
+                        line-height: 48px;
+                    }
+                }
+
+                &.active {
+                    background: $mid-grey;
+                }
+
+                &.disabled {
+                    @include link-colour($mid-grey);
+                }
+            }
+        }
+    }
+
+    &-dark {
+        @include full-bleed-inset;
+        background: $light-grey;
+    }
+
+    &-light {
+        background: $white;
+        margin-left: $min-size;
+        margin-right: $min-size;
+        border: 2px solid $black;
+
+        @include for-largerthan-ipad-portrait {
+            text-align: center;
+            border: none;
+        }
+    }
+}

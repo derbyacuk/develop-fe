@@ -1,0 +1,138 @@
+.search-result {
+
+    &-filters-header {
+        position: relative;
+        padding-top: px-to-em(70, 17);
+
+        @include for-tablet-landscape-up {
+            padding-top: 0;
+        }
+    }
+
+    &-filters-submit-wrapper {
+        position: absolute;
+        top: 10px;
+
+        .button-yellow {
+            display: none;
+        }
+
+        @include for-tablet-landscape-up {
+            display: none;
+        }
+    }
+
+    &-navigation-close {
+        position: absolute;
+        top: px-to-em(26, 25);
+        right: 0;
+        width: 25px;
+        height: 25px;
+        line-height: 1;
+        font-size: px-to-em(25, 17);
+
+        @include for-tablet-landscape-up {
+            display: none;
+        }
+
+        a {
+            @include disable-underlines;
+
+            display: inline-block;
+            transition: transform .3s $default-animation-curve;
+            color: $white;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &-filters {
+        @include full-bleed-inset;
+        display: none;
+        font-family: $header-font;
+        font-size: 16px;
+
+        @include for-tablet-landscape-up {
+            display: block;
+            padding: 0;
+        }
+
+        &-group {
+            margin-bottom: px-to-em(10, 16);
+            background: $light-grey;
+            padding: px-to-em(20, 16);
+
+            > .form-group {
+                margin-bottom: 0;
+            }
+        }
+
+        &-active {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            background: $black;
+            min-height: 100vh;
+
+            @include for-tablet-landscape-up {
+                position: relative;
+                background: initial;
+                min-height: initial;
+            }
+        }
+
+        &-button {
+
+            @include for-tablet-landscape-up {
+                display: none;
+            }
+
+            .button-outline {
+                margin-bottom: 0;
+            }
+        }
+
+        &-collection {
+            max-height: #{'calc(100vh - ' + px-to-em(70, 16) + ')'};
+            overflow: scroll;
+
+            @include for-tablet-landscape-up {
+                max-height: 100%;
+                overflow: visible;
+            }
+        }
+    }
+
+    &-filter {
+        display: block;
+        position: relative;
+        margin-bottom: px-to-em(8, 16);
+
+        &-label {
+            display: inline-block;
+            cursor: pointer;
+            padding-top: px-to-em(4, 16);
+            padding-right: px-to-em(4, 16);
+            padding-bottom: px-to-em(4, 16);
+            padding-left: px-to-em(34, 16);
+            line-height: 1.15;
+        }
+
+        &-checkbox {
+            position: absolute;
+        }
+
+        &.disabled {
+            color: $dark-grey;
+        }
+    }
+}
+
+.icheckbox_flat-blue {
+    background: $white;
+}

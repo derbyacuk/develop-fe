@@ -1,0 +1,109 @@
+.course-teaser {
+    @include small-body-font;
+
+    border: #{px-to-em(6, 14)} solid $primary-blue;
+    padding: #{px-to-em(14, 14)} #{px-to-em(24, 14)} #{px-to-em(20, 14)};
+    margin-bottom: px-to-em(40, 14);
+    margin-top: px-to-em(30, 14);
+
+    @include for-tablet-portrait-up {
+        padding-bottom: px-to-em(24, 14);
+    }
+
+    &-description {
+        margin-bottom: px-to-em(20, 14);
+    }
+
+    &-course-tag,
+    &-course-level {
+        text-transform: uppercase;
+        font-family: $header-font;
+    }
+
+    &-course-level {
+        margin-top: px-to-em(13, 14);
+        margin-bottom: px-to-em(10, 14);
+    }
+
+    &-calltoaction {
+        margin-top: px-to-em(12, 14);
+
+        @include for-tablet-portrait-up {
+            margin-top: 0;
+            text-align: right;
+        }
+
+        .button {
+            margin-bottom: 0;
+        }
+    }
+
+    &-heading {
+        margin-bottom: px-to-em(17);
+    }
+
+    h5, .h5 {
+        @include disable-underlines;
+
+        a {
+            color: $primary-blue;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(transparent calc(100% - 2px), $primary-blue 2px);
+            background-size: 0% 100%;
+            display: inline;
+
+            &:hover,
+            &:focus {
+                animation: link-hover-animation-border .5s forwards $default-animation-curve;
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    &-key-stats {
+        display: table;
+        width: 100%;
+    }
+
+    &-key-stat {
+        display: table-row;
+        padding-bottom: px-to-em(10, 14);
+
+        &-label {
+            display: table-cell;
+            font-weight: bold;
+            font-family: $header-font;
+            color: $primary-blue;
+            font-size: px-to-em(16, 14);
+            width: 20%;
+            padding-right: px-to-em(10, 16);
+            padding-bottom: px-to-em(10, 16);
+            white-space: nowrap;
+        }
+
+        &-content {
+            display: table-cell;
+            font-size: px-to-em(15, 14);
+            padding-bottom: px-to-em(10, 15);
+        }
+
+        &-full-width {
+            display: table-caption;
+
+            .course-teaser-key-stat-label,
+            .course-teaser-key-stat-content {
+                display: table-row;
+            }
+
+            @include for-largerthan-ipad-portrait {
+
+                display: table-row;
+
+                .course-teaser-key-stat-label,
+                .course-teaser-key-stat-content {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+}

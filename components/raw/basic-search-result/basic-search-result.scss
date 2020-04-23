@@ -1,0 +1,144 @@
+// defining the colours as a collection allows us to loop through them and generate classnames based on the keys
+$search-result-pattern-colours: (
+    mid-blue: $mid-blue,
+    strawberry: $strawberry,
+    yellow: $yellow,
+    primary-blue: $primary-blue,
+    turquoise: $turquoise,
+    orange: $orange,
+    green: $green,
+    green-blue: $green-blue
+);
+
+.search-result {
+    @include small-body-font;
+    lost-flex-container: row;
+    margin-right: px-to-em(26, 14);
+    margin-bottom: px-to-em(26, 14);
+    border-bottom: 1px dashed $dark-grey;
+    padding-bottom: px-to-em(26, 14);
+    width: 100%;
+    color: $text-black;
+
+    &-tag {
+        margin-bottom: px-to-em(6, 14);
+        text-transform: uppercase;
+        font-family: $header-font;
+    }
+
+    &-with-tag {
+        margin-top: px-to-em(36, 14);
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &-heading {
+        margin-bottom: px-to-em(17);
+    }
+
+    &-teaser {
+        margin-bottom: px-to-em(20, 14);
+    }
+
+    &-image {
+        display: none;
+
+        @include for-tablet-portrait-up {
+            lost-column: 5/16;
+            display: block;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            lost-column: 3/10;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &-pattern {
+        display: none;
+
+        @include for-tablet-portrait-up {
+            lost-column: 5/16;
+            display: block;
+            padding-bottom: calc(100% * 5/16);
+        }
+
+        @include for-largerthan-ipad-portrait {
+            lost-column: 3/10;
+            display: block;
+            padding-bottom: calc(100% * 3/10);
+        }
+
+        @each $item, $colour in $search-result-pattern-colours {
+            &-#{$item} {
+
+                &.search-result-pattern-zigzag {
+                    @include pattern-zigzag($colour);
+                }
+
+                &.search-result-pattern-diagonal {
+                    @include pattern-diagonal($colour);
+                }
+
+                &.search-result-pattern-weave {
+                    @include pattern-weave($colour);
+                }
+            }
+        }
+    }
+
+    &-content {
+        lost-column: 10/10;
+
+        &.with-pattern,
+        &.with-image {
+            margin-top: -.3em;
+
+            @include for-tablet-portrait-up {
+                lost-column: 11/16;
+            }
+
+            @include for-largerthan-ipad-portrait {
+                lost-column: 7/10;
+            }
+        }
+    }
+
+    &-metadata {
+        @include body-font;
+    }
+
+    h5, .h5 {
+        a {
+            display: inline;
+            background-image: linear-gradient(transparent calc(100% - 2px), $primary-blue 2px);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            color: $primary-blue;
+
+            &:hover,
+            &:focus {
+                animation: link-hover-animation-border .5s forwards $default-animation-curve;
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    &-wrapper {
+        display: block;
+    }
+}
+
+/*
+    For go live listing pages as per the designs aren't possible
+    Using listing pages generated in T4 we want to give search results the same behaviour as a text block
+*/
+.center-align > .search-result-wrapper,  .center-align > .search-result-wrapper-container > .search-result-wrapper{
+    // mixin that sets a consistent columns width
+    @include uod-text-column;
+}

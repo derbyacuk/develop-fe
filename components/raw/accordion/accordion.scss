@@ -1,0 +1,148 @@
+.accordion-tab {
+    margin-bottom: $margin-extra-small;
+
+    &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0;
+
+        .full-width & {
+            @include full-bleed-inset;
+        }
+
+        &-container {
+            @include disable-underlines;
+
+            display: block;
+            transition: background-color .3s $default-animation-curve;
+            border-radius: 2px;
+            background: $light-grey;
+            padding: 13px 60px 13px 10px;
+
+            @include for-tablet-portrait-up {
+                padding: 15.5px 65px 15.5px 20px;
+            }
+
+            .full-width & {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            .accordion-scheme-dark & {
+                background-color: #191919;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $light-grey-hover;
+
+                .accordion-scheme-dark & {
+                    background-color: $text-black;
+                }
+            }
+        }
+
+        &-indicator {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            margin-top: -20px;
+            margin-left: 10px;
+            border: solid 2px $mid-blue;
+            border-radius: 2px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: $mid-blue;
+            font-size: 9px; // the width of the arrow indicator
+
+            @include for-tablet-portrait-up {
+                right: 20px;
+                margin-top: -22.5px;
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 11px;
+            }
+
+
+            .accordion-scheme-dark & {
+                border-color: $white;
+                color: $white;
+            }
+
+            .uod-icons {
+                transform: rotate(0deg);
+                transition: transform .3s $default-animation-curve;
+                transform-origin: 50%;
+
+                .active & {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+
+        a {
+            &,
+            &:link {
+                color: $primary-blue;
+            }
+
+            .accordion-scheme-dark & {
+                color: $white;
+            }
+        }
+
+        .accordion-scheme-dark & {
+            color: $white;
+        }
+    }
+
+    &-content {
+        position: relative;
+        transition: max-height .3s $default-animation-curve;
+        overflow: hidden;
+
+        &:focus {
+            outline: none;
+        }
+
+        &.active {
+            margin-bottom: $margin-extra-small;
+            border-bottom: 1px dashed $dark-grey;
+        }
+
+        &-inner {
+            padding: 10px;
+
+            @include for-tablet-portrait-up {
+                padding: $margin-extra-small;
+            }
+
+            .full-width & {
+                @include full-bleed-inset;
+
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                @include for-tablet-portrait-up {
+                    padding-top: $margin-extra-small;
+                    padding-bottom: $margin-extra-small;
+                }
+            }
+        }
+    }
+
+    .collapse {
+        transition: max-height .3s $default-animation-curve;
+        max-height: 0;
+
+        &.active {
+            max-height: 100vh;
+        }
+    }
+}

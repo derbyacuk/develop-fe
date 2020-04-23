@@ -1,0 +1,234 @@
+// defining the colours as a collection allows us to loop through them and generate classnames based on the keys
+$academic-profile-promo-pattern-colours: (
+    mid-blue: $mid-blue,
+    strawberry: $strawberry,
+    yellow: $yellow,
+    primary-blue: $primary-blue,
+    turquoise: $turquoise,
+    orange: $orange,
+    green: $green,
+    green-blue: $green-blue,
+    light-grey: $light-grey,
+);
+
+$mobile-image-width: #{'calc((100vw - (80px + 10px)) * 16/16)'};
+$tablet-image-width: #{'calc((100vw - (80px + 10px)) * 8/16)'};
+$desktop-image-width: #{'calc((100vw - (80px + 10px)) * 6/16)'};
+$large-desktop-image-width: #{'calc((1780px - (80px + 10px)) * 6/16)'};
+
+.academic-profile-promo {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: flex-end;
+    lost-column: 8/8;
+    lost-align: top-right;
+
+    @include for-largerthan-ipad-portrait {
+        lost-offset: 1/16;
+        lost-column: 14/16;
+    }
+
+    &-container {
+        @include margin-medium;
+        width: 100%;
+        min-height: $mobile-image-width;
+
+        @include for-tablet-portrait-up {
+            min-height: $tablet-image-width;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            min-height: $desktop-image-width;
+        }
+
+        @media (min-width: 1780px) {
+            min-height: $large-desktop-image-width;
+        }
+    }
+
+    &-panel {
+        position: relative;
+        // on mobile the absolutely positioned background should appear above the panel.
+        // we can achieve that by adding a margin to the top of the panel which is equal to the height of the image
+        margin-top: $mobile-image-width;
+        background: $white;
+
+        .academic-profile-promo-no-image + & {
+            margin-top: 0;
+        }
+
+        &-inner {
+            margin-top: 1.125rem;
+            margin-bottom: 0;
+
+            // for accessiblity we need to use an h2, but want it to look like an h3
+            h2 {
+                @extend .h3;
+            }
+
+            .button {
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-bottom: px-to-em(24, 17);
+            }
+        }
+
+        &-contact-details {
+            @include large-body-font;
+            margin: px-to-em(24, 22) 0;
+
+            &-heading {
+                @include header;
+            }
+
+            dt,
+            dd {
+                margin: 0;
+            }
+        }
+
+        @include for-tablet-portrait-up {
+            @include flexbox-width-without-columns(10, 16);
+            margin-top: $margin-small;
+            margin-right: 20px;
+            margin-left: 20px;
+            padding: 30px;
+
+            .academic-profile-promo-right-align & {
+                margin-right: 20px;
+            }
+
+            &-inner {
+                margin: 0;
+            }
+
+            .academic-profile-promo-no-image + & {
+                margin-top: $margin-small;
+            }
+        }
+
+        @include for-largerthan-ipad-portrait {
+            $single-column-width: #{'calc(' + ((1/14) * 100) + '% + (10px / 14))'};
+
+            @include flexbox-width-without-columns(8, 14);
+            margin-top: $margin-small;
+            margin-right: $single-column-width;
+            padding: 30px 40px;
+
+            .academic-profile-promo-right-align & {
+                margin-right: 20px;
+                margin-left: $single-column-width;
+            }
+        }
+    }
+
+    &-backdrop {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        @include for-tablet-portrait-up {
+            overflow: hidden;
+
+            .academic-profile-promo-right-align & {
+                justify-content: flex-end;
+            }
+        }
+
+        height: $mobile-image-width;
+
+        @include for-tablet-portrait-up {
+            height: $tablet-image-width;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            height: $desktop-image-width;
+        }
+
+        @media (min-width: 1780px) {
+            height: $large-desktop-image-width;
+        }
+    }
+
+    &-image-container {
+        position: relative;
+        margin: 0;
+        margin-bottom: 0;
+        width: 100%;
+        font-size: 0;
+
+        @include for-tablet-portrait-up {
+            width: auto;
+        }
+
+        img {
+            width: 100%;
+
+            @include for-tablet-portrait-up {
+                width: $tablet-image-width;
+                height: $tablet-image-width;
+            }
+
+            @include for-largerthan-ipad-portrait {
+                width: $desktop-image-width;
+                height: $desktop-image-width;
+            }
+
+            @media (min-width: 1780px) {
+                width: $large-desktop-image-width;
+                height: $large-desktop-image-width;
+            }
+        }
+    }
+
+    &-pattern {
+        &-background {
+            display: flex;
+            position: absolute;
+            top: -20px;
+            right: fluid-margin(true);
+            flex: 1;
+            width: 75%;
+            height: 100%;
+        }
+
+        @include for-tablet-portrait-up {
+            &-background {
+                top: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+
+        @each $item, $colour in $academic-profile-promo-pattern-colours {
+            &-#{$item} {
+
+                &.academic-profile-promo-pattern-zigzag {
+                    .academic-profile-promo-pattern-background {
+                        @include pattern-zigzag($colour);
+                    }
+                }
+
+                &.academic-profile-promo-pattern-diagonal {
+                    .academic-profile-promo-pattern-background {
+                        @include pattern-diagonal($colour);
+                    }
+                }
+
+                &.academic-profile-promo-pattern-weave {
+                    .academic-profile-promo-pattern-background {
+                        @include pattern-weave($colour);
+                    }
+                }
+            }
+        }
+    }
+}

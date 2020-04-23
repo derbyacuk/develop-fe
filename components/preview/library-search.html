@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Default | University of Derby FE Components</title>
+    <meta name="google" value="notranslate">
+    <link media="all" rel="stylesheet" href="../../styles/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+    <!-- Start: Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../icons/favicon-16x16.png">
+    <link rel="manifest" href="../../icons/site.webmanifest">
+    <link rel="mask-icon" href="../../icons/safari-pinned-tab.svg" color="#101d49">
+    <link rel="shortcut icon" href="../../icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="University of Derby">
+    <meta name="application-name" content="University of Derby">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="../../icons/browserconfig.xml">
+    <meta name="theme-color" content="#101d49">
+    <!-- End: Favicons -->
+</head>
+<body>
+
+    <main class="center-align">
+        <script src="//support.ebscohost.com/eit/scripts/ebscohostsearch.js" type="text/javascript"></script>
+<section class="form-wrapper">
+    <h2>Search Library Plus</h2>
+    <p>Enter your search term and choose the type of search. Your search results will open in a new tab.</p>
+    <form id="ebscohostCustomSearchBox" action="" onsubmit="return ebscoHostSearchGo(this);" method="post">
+        <div class="form-group field-required">
+	<label for="ebscohostsearchtext">Search term<span class="required">*</span></label>
+		<div>
+		<input id="ebscohostsearchtext" name="ebscohostsearchtext" class="form-control" type="text" placeholder="Search the library" aria-label="Search term" required>
+	</div>
+	</div>        <div class="form-group field-required">
+	<fieldset id="searchFieldSelector">
+		<legend>Search by<span class="required">*</span></legend>
+				<div>
+							<div class="radio radio-pretty radio-inline">
+					<label for="guidedField_0">
+						<input id="guidedField_0" type="radio" name="searchFieldSelector" value="" aria-label="Keyword" checked required> 
+						<span></span>
+						Keyword					</label>
+				</div>
+							<div class="radio radio-pretty radio-inline">
+					<label for="guidedField_1">
+						<input id="guidedField_1" type="radio" name="searchFieldSelector" value="TI" aria-label="Title" required> 
+						<span></span>
+						Title					</label>
+				</div>
+							<div class="radio radio-pretty radio-inline">
+					<label for="guidedField_2">
+						<input id="guidedField_2" type="radio" name="searchFieldSelector" value="AU" aria-label="Author" required> 
+						<span></span>
+						Author					</label>
+				</div>
+					</div>
+	</fieldset>
+	</div>        <hr>
+        <div class="submitButtons">
+            <button class="button-yellow button-giant" role="button" type="submit" tabindex="0" data-scroll>
+        Search
+            <span class="button-overlay"><span>
+                        Search
+                    </span></span></button>        </div>
+        <input id="ebscohostwindow" name="ebscohostwindow" type="hidden" value="1" />
+        <input id="ebscohosturl" name="ebscohosturl" type="hidden" value="http://ezproxy.derby.ac.uk/login?url=http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&scope=site&type=0&mode=bool&lang=en&authtype=ip" />
+        <input id="ebscohostsearchsrc" name="ebscohostsearchsrc" type="hidden" value="db" />
+        <input id="ebscohostsearchmode" name="ebscohostsearchmode" type="hidden" value="+" />
+        <input id="ebscohostkeywords" name="ebscohostkeywords" type="hidden" value="" />
+    </form>
+</section>
+    </main>
+
+    <!-- if not internet explorer use jquery-3.3.1.min.js -->
+    <!--[if !IE]> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <![endif]-->
+
+    <!-- if is internet explorer 9 or above use jquery-3.3.1.min.js -->
+    <!--[if gte IE 9]>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <![endif]-->
+
+    <!-- if is internet explorer 8 or less jquery-3.3.1.min.js -->
+    <!--[if lt IE 9]>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.14/jquery.min.js"></script>
+    <!-- <![endif]-->
+
+    <script src="../../app.js"></script>
+</body>
+</html>
+

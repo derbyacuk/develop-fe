@@ -1,0 +1,4 @@
+.in-page-search {
+	position: relative;
+	@include autocomplete-in-page-search;
+}

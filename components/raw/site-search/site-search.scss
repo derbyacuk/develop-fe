@@ -1,0 +1,133 @@
+.site-search {
+
+    &-inner-panel {
+        display: flex;
+        right: fluid-margin();
+        left: fluid-margin();
+        flex-direction: column;
+
+        .tt-menu {
+            display: block !important;
+
+            @include for-tablet-landscape-up {
+                lost-column: 6/13;
+                top: px-to-em(-16) !important;
+                left: calc( 100% + 10px) !important;
+                display: block !important;
+            }
+        }
+    }
+
+    &-title {
+        lost-column: 16/16;
+        lost-offset: 0/16;
+        margin-bottom: px-to-em(48);
+    }
+
+    &-input {
+        lost-column: 16/16;
+        lost-offset: 0/16;
+        flex: 0 0 auto;
+        position: relative;
+    }
+
+    &-results {
+        @include underline-only-on-hover;
+
+        lost-column: 15/16;
+        lost-offset: 0/16;
+        display: none;
+        margin-top: 65px;
+        font-family: $header-font;
+        display: block;
+
+        h5, .h5 {
+            margin-bottom: px-to-em(30, 24);
+        }
+
+        .tt-suggestion {
+            @include underline;
+            @include link-colour($white);
+            background-image: none;
+            display: block;
+            padding-right: 1em;
+            padding-bottom: px-to-em(14);
+            padding-top: px-to-em(14);
+            line-height: 22 / 20 + 0;
+            font-size: px-to-em(14);
+            font-weight: bold;
+            cursor: pointer;
+
+            &:nth-child(2) {
+                padding-top: 0; //take padding off the first suggestion, it's the 2nd element in the returned html
+            }
+
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(transparent calc(100% - .1em), $white .1em);
+            }
+
+            &:after {
+                content: '';
+                border-bottom: 1px dashed $dark-grey;
+                content: "";
+                border-bottom: 1px dashed $white;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top: calc( 100% - 0.1em);
+            }
+        }
+    }
+
+    @include for-largerthan-ipad-portrait {
+        &-title {
+            lost-column: 14/16;
+            lost-offset: 1/16;
+        }
+
+        &-input {
+            lost-column: 14/16;
+            lost-offset: 1/16;
+            flex: 0 0 auto;
+        }
+
+        &-results {
+            lost-column: 16/16;
+        }
+    }
+
+    @include for-tablet-landscape-up {
+
+        &-inner-panel {
+            flex-direction: row;
+        }
+
+        &-title {
+            lost-column: 12/13;
+            lost-offset: 1/13;
+        }
+
+        &-input {
+            lost-column: 8/13;
+            lost-offset: 1/13;
+            margin-top: px-to-em(16);
+            padding-right: 40px;
+            flex: 0 0 auto;
+        }
+
+        &-results {
+            lost-offset: 0/13;
+            lost-column: 13/13;
+            margin-top: 0;
+        }
+    }
+
+    @include for-desktop-up {
+
+        &-results {
+            lost-offset: 1/13;
+            lost-column: 13/13;
+        }
+    }
+}

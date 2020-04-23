@@ -1,0 +1,189 @@
+
+.section-navigation {
+    background: $black; 
+    max-width: 290px; 
+    position: relative;
+    @include margin-small;
+    z-index: 3;
+    width: 290px;
+
+    @include for-tablet-portrait-up {
+        margin-top: 20px;
+    }
+
+    @include for-desktop-up {
+        lost-offset: 2/16;
+    }
+
+    .section-navigation-wrapper-inner {
+        max-height: calc(100vh - 46px - 49px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &-title {
+        padding: 15px 40px 15px 15px;
+    }
+
+    &-link {
+        background: $black;
+        color: $white;
+        @include header;
+        @include disable-underlines;
+        font-size: responsive 16px 18px;
+        font-range: $mobile-portrait $tablet-portrait;
+        padding: 10px 15px 10px 40px;
+        display: block;
+        position: relative;
+        height: 46px;
+
+        &:link {
+            color: $white;
+        }
+
+        &:before {
+            @extend %uod-icons;
+            content: $uod-icons-menu;
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            margin-top: -9px;
+        }
+    } 
+ 
+    &-wrapper {
+        background: $black;
+        box-shadow: rgba($black, 0.3) 1px 1px 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        color: $white;
+        @include header;
+        @include disable-underlines;
+        font-size: responsive 16px 18px;
+        font-range: $mobile-portrait $tablet-portrait;
+        @include margin-small;
+        border-top: 1px solid $white;
+
+        &-show{
+            display: block !important;
+        }
+
+        > .uod-icons-cross {
+            font-size: 24px;
+            color: $white;
+            position: absolute;
+            right: 2px;
+            top: 4px;
+            padding: 8px;
+            cursor: pointer;
+            @include hover-rotate;
+        }
+
+        &-inner {
+
+            &-ul {
+                padding-left: 0;
+                margin-bottom: 0;
+
+                > li:last-child {
+                    
+                    > a, > a:link { 
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+
+            ul {
+                margin-top: 0;
+                list-style-type: none;
+
+                li {
+                    margin-bottom: 0;
+                    border-left: 10px solid $green-blue;
+                    background: $white;
+                    font-weight: normal;
+                    list-style-type: none;
+
+                    a,
+                    a:link {
+                        @include body-font;
+                        @include disable-underlines;
+                        font-family: $large-body-font;
+                        display: block;
+                        color: $text-black;
+                        transition: all .3s $default-animation-curve;
+                        padding-top: 10px;
+                        padding-right: 20px;
+                        padding-bottom: 10px;
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            height: 1px;
+                            right: 20px;
+                            left: 0;
+                            top: -1px;
+                            border: 1px dashed $dark-grey;
+                            z-index: 2;
+                            transition: all .3s $default-animation-curve;
+                        }
+
+                        &:hover {
+                            background: $white;
+                            font-weight: bold;
+
+                            &:before {
+                                visibility: hidden;
+                            }
+                        }
+                    }
+
+                    /* hide the border of the next element on hover */
+                    &:hover + li > a:before {
+                        visibility: hidden;
+                    }
+
+                    /* hide border of first child li and the next li to an active li */
+                    &:first-child, &.active + li {
+
+                        > a, > a:link {
+
+                            &:before {
+                                visibility: hidden;
+                            }
+                        }
+                    }
+
+                    > a, > a:link {
+                        background: rgba($black, 0.05);
+                        padding-left: 34px;
+
+                        &:before {
+                            left: 34px;
+                        }
+                    }
+
+                    ul {
+                        padding-left: 0;
+
+                        li {
+
+                            > a, > a:link {
+                                background: rgba($black, 0.025);
+                                padding-left: 40px;
+
+                                &:before {
+                                    left: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

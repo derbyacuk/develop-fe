@@ -1,0 +1,91 @@
+.image-group{
+    lost-column: 8/8 0;
+    position: relative;
+    // start: set default intra-component spacing (units are responsive and based on em values)
+    @include margin-medium;
+    
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+    // end: set default intra-component spacing (units are responsive and based on em values)
+
+    //if the image group has 2 images we need to add some extra padding as to compensate for image 2 being absolutely positioned
+    &-2-images {
+
+        @include for-tablet-portrait-up {
+            padding-bottom: 40px;
+        }
+
+        @include for-tablet-landscape-up {
+            padding-bottom: 60px;
+        }
+    }
+
+    &-image-fig {
+        margin: 0;
+        lost-column: 7/8 0;
+
+        @include clearfix;
+
+        @include for-tablet-portrait-up {
+            lost-column: 9/16 0;
+        }
+
+        @include for-tablet-landscape-up {
+            lost-column: 8/16 0;
+            lost-offset: 1/16;
+        }
+
+        &:nth-child(2) {
+            lost-offset: 1/8;
+            margin-top: -20px;
+
+            @include for-tablet-portrait-up {
+                lost-offset: 7/16;
+                position: absolute;
+                margin-top: 0;
+                top: 40px;
+            }
+
+            @include for-tablet-landscape-up {
+                lost-offset: 7/16;
+                top: 60px;
+            }
+        }
+
+        &:nth-child(3){
+            margin-top: -20px;
+            position: relative;
+         
+            @include for-tablet-portrait-up {
+                lost-offset: 2/16;
+                margin-top: -40px;
+            }
+
+            @include for-tablet-landscape-up {
+                lost-offset: 3/16;
+                margin-top: -60px;
+            }
+        }
+    }
+
+    &-image-img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+/* When an image group follows a text block adjust the margins... */
+.center-align > .text-block:not(.text-block-course-page-heading) + .image-group,
+.center-align > .text-block:not(.text-block-course-page-heading) + .image-group + .text-block:not(.text-block-course-page-heading) {
+    @include margin-medium-offset;
+
+    @include for-tablet-portrait-up {
+        @include margin-large-offset;
+    }
+}
+
+/* When an image embed follows an image embed... */
+.center-align > .image-group + .image-group {
+    @include margin-medium-offset;
+}

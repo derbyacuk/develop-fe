@@ -1,0 +1,139 @@
+
+.teaser-listing-title {
+	text-align: center;
+	width: 100%;
+}
+
+.teaser-listing-container {
+	@include body-font;
+	position: relative;
+	min-width: 100%;
+	min-height: 100vh;
+
+    @include margin-large;
+
+	.teaser-listing {
+		z-index:1;
+
+		.masonry-sizer, .teaser-group-item {
+			position: relative;
+			width: 49.75%;
+
+			@include for-phone-only {
+				width: 100%;
+			}
+		}
+
+	 	.gutter-sizer {
+			width: 0.25%;
+		}
+
+		.teaser-group-item {
+			overflow: hidden;
+			margin-bottom: 0.25%;
+
+			&:nth-child(odd) .teaser-group-item__content.teaser-group-item__content--small {
+				float: right;
+			}
+
+			&:nth-child(even) .teaser-group-item__content.teaser-group-item__content--small {
+				float: left;
+			}
+
+			&-link {
+				color: #fff;
+				text-decoration: none;
+				background: none;
+
+				&:hover {
+					.teaser-group-item-arrow{
+						animation: hover-indicator .5s 1;
+					}
+	            }
+			}
+
+	        &-arrow {
+	            display: inline-flex;
+	            color: $white;
+	            font-size: px-to-em(30, 17);
+	            width: 30px;
+	            height: 30px;
+	            align-self: flex-end;
+	            margin-bottom: -14px;
+
+	            i {
+	                transform: rotate(90deg) translateY(-3px);
+	                transform-origin: center center;
+	            }
+	        }
+
+			&__content {
+				color: #fff;
+				background-color: $primary-blue;
+				margin: 4px;
+
+				&--text{
+ 					padding: 1em;
+				}
+				&--small {
+					@include for-phone-only {
+						max-width: 100%;
+					}
+
+					max-width: 80%;
+				}
+				img {
+					max-width: 100%;
+				}
+
+				.teaser-tag {
+					font-size: responsive 17px 15px;
+					text-transform: uppercase;
+					line-height: 11px;
+				}
+
+				.teaser-author {
+					font-size: responsive 17px 15px;
+					line-height: 1;
+					font-weight: bold;
+					margin-bottom: 30px;
+				}
+
+				.teaser-postdate {
+					font-size: responsive 17px 15px;
+					line-height: 1;
+					margin-bottom: 30px;
+				}
+
+				.teaser-title {
+					font-size: responsive 18px 24px;
+					font-range: $mobile-portrait $tablet-landscape;
+					line-height: 26px;
+					font-weight: bold;
+					color: #fff;
+					padding: 17px 0;
+				}
+
+				.teaser-content {
+					font-size: responsive 17px 16px;
+					font-range: $mobile-portrait $tablet-landscape;
+				}
+			}
+		}
+	}
+}
+
+.teaser-loader {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	z-index: 2;
+
+	.spinner {
+		position: fixed;
+		left: 50%;
+	}
+}

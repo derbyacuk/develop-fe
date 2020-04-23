@@ -1,0 +1,474 @@
+// defining the colours as a collection allows us to loop through them and generate classnames based on the keys
+$module-list-pattern-colours: (
+    mid-blue: $mid-blue,
+    strawberry: $strawberry,
+    yellow: $yellow,
+    primary-blue: $primary-blue,
+    turquoise: $turquoise,
+    orange: $orange,
+    green: $green,
+    green-blue: $green-blue
+);
+
+.clear {
+	@include clearfix;
+}
+
+body.modal-open {
+	overflow: hidden !important;
+	position: fixed;
+}
+
+#is-mobile-layout {
+	@include for-largerthan-ipad-portrait {
+            display: none;
+    }
+
+	width: 1px;
+	height: 1px;
+	display: block;
+}
+.module-list {
+	box-sizing: border-box;
+
+	&-tabs {
+		width: 42%;
+	    background-color: #101d49;
+	    float: left;
+	    padding: 1em;
+	    padding-bottom: 0;
+	    @include for-up-to-ipad-portrait {
+	    	width: 100%;
+		}
+	}
+
+	&-tabs .tab.active {
+		.button-overlay {
+			transform: translateX(0);
+
+			span {
+                transform: translateX(0);
+            }
+		}
+	}
+
+	&-container {
+		will-change: height;
+		position: relative;
+		@include clearfix;
+		transition: height 0.25s;
+		margin-bottom : 60px;
+		clear: both;
+	}
+
+	&-menu {
+		background-color: $primary-blue;
+		padding: 22px;
+		grid-column: 1;
+		display: none;
+
+		&.active {
+			display: block;
+		}
+
+		&-heading {
+
+			color: $white;
+
+			&.optional:not(:first-of-type) {
+				margin-top: 22px;
+			}
+		}
+	}
+
+	&-module {
+		will-change: right, left;
+		min-height: 100%;
+		background-color: #fff;
+
+		position: absolute;
+		max-width: auto;
+		min-height: auto;
+		animation-duration: 0.3s;
+		animation-timing-function: ease-in;
+		animation-name: slideout;
+		transform: translateX(110%);
+		@include for-phone-only {
+			z-index: 4;
+    	}
+
+		&.active {
+			animation-duration: 0.25s;
+			animation-timing-function: ease-out;
+  			animation-name: slidein;
+  			transform: translateX(0%);
+		}
+
+
+		& .image-hero-scroll-to-content-arrow {
+			@include for-largerthan-ipad-portrait {
+				display: none;
+        	}
+
+			position: sticky;
+    		display: block;
+    		bottom: 2vh;
+    		right: 0px;
+    		float: right;
+    		top: 0px;
+
+			&.image-hero-white i.uod-icons-down-arrow {
+				color: $black;
+			}
+		}
+
+		&-back {
+
+			@include for-largerthan-ipad-portrait {
+	            display: none;
+	    	}
+		    &-details {
+		        display: flex;
+		        flex-direction: row;
+				font-family: $large-body-font;
+				font-weight: bold;
+		        border-bottom: 1px solid $dark-grey;
+				padding-bottom: px-to-em(10, 16);
+				margin-top: 0;
+				margin-bottom: px-to-em(10, 16);
+
+		        &-label {
+		        	display: inline-flex;
+		        	flex: 1;
+		        	color: $black;
+		        	line-height: 2;
+		        	margin-left: px-to-em(10, 16);
+		        	@include responsive('font-size', 14px, 16px, 768px, 1024px);
+		    	}
+
+		    	&-arrow {
+		        	display: inline-flex;
+		        	color: $black;
+		        	align-self: flex-end;
+
+		        	i {
+		        		@include responsive('font-size', 14px, 16px, 768px, 1024px);
+		            	transform: rotate(-90deg) translateY(-3px);
+		            	transform-origin: center center;
+		            	line-height: 2;
+		        	}
+		    	}
+		    }
+		}
+	}
+
+	&-menu-column {
+		@include for-largerthan-ipad-portrait {
+			position: static;
+			width: 42%;
+			float: left;
+		}
+	}
+
+	&-module-column {
+
+		@include for-largerthan-ipad-portrait {
+			position: relative;
+			width: 58%;
+			float: right;
+			overflow: hidden;
+			transition: height 0.5s;
+		}
+
+		@include clearfix;
+		z-index: 4;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 25px;
+		@include for-phone-only {
+			z-index: 4;
+		}
+	}
+
+	&-module-details {
+		position: relative;
+		z-index: 1;
+		background-color: $white;
+		padding: 20px;
+
+		@include for-largerthan-ipad-portrait {
+			padding: 60px;
+		}
+
+		&-code {
+			margin: 0;
+		}
+
+		&-abstract {
+			@include for-largerthan-ipad-portrait {
+   	          //margin-bottom: px-to-em(40, $body-font-size-tablet-portrait-up);
+   	    	}
+		}
+
+		&-full {
+			margin-top: 1rem;
+			@include for-largerthan-ipad-portrait {
+				position: relative;
+				height: 1px;
+				overflow: hidden;
+				&.active {
+					display: block;
+					height: auto;
+				}
+			}
+		}
+
+		&-back-link {
+			@include for-largerthan-ipad-portrait {
+				display: none;
+			}
+		}
+
+		/**
+		 * Drop all the headings by one 'h'
+		 * h3 = h4
+		 * h4 = h5
+		 * h5 = h6
+		 * h6 = h6 (no h7 style)
+		 */
+		h3, .h3 {
+		   @include header;
+
+		    font-size: responsive 20px 28px;
+		    font-range: $mobile-portrait $tablet-portrait;
+		    color: $primary-blue;
+		    line-height: 1.2;
+		    letter-spacing: -0.1px;
+
+		    @include for-tablet-portrait-up {
+		        line-height: 1.07;
+		        letter-spacing: normal;
+		        margin-bottom: px-to-em(20, 20);
+		    }
+
+			margin: 0;
+			margin-bottom: 22px;
+			font-size: responsive 20px 28px;
+    		font-range: $mobile-portrait $tablet-portrait;
+		}
+
+		h4, .h4 {
+		    @include header;
+		    font-size: responsive 18px 24px;
+		    font-range: $mobile-portrait $tablet-portrait;
+		    color: $primary-blue;
+		    line-height: 1.33;
+		    letter-spacing: -0.1px;
+		    margin-bottom: .5em;
+
+		    @include for-tablet-portrait-up {
+		        line-height: 1.08;
+		        letter-spacing: normal;
+		        margin-bottom: px-to-em(10, 18);
+		    }
+		}
+
+		h5, .h5 {
+		    @include header;
+
+		    font-size: responsive 16px 20px;
+		    font-range: $mobile-portrait $tablet-portrait;
+		    color: $primary-blue;
+		    line-height: 1.3;
+		    letter-spacing: -0.1px;
+		    margin-bottom: .5em;
+
+		    @include for-tablet-portrait-up {
+		        line-height: 1.1;
+		        letter-spacing: normal;
+		        margin-bottom: px-to-em(10, 16);
+		    }
+
+		}
+
+		&-tags {
+			margin-top: 15px;
+		}
+
+		&-tag {
+			display: inline-block;
+			padding: 13px;
+			margin-top: 4px;
+			font-family: $header-font;
+			font-weight: bold;
+			@include responsive('font-size', 19px, 19px, 768px, 1024px);
+			text-transform: uppercase;
+			line-height: 1;
+
+			&-credits {
+				background-color: $yellow;
+			}
+
+			&-core {
+				background-color: $orange;
+				color: $white;
+			}
+
+			&-optional {
+				background-color: $primary-blue;
+				color: $white;
+			}
+
+			&-type {
+				background-color: $turquoise;
+				color: $white;
+			}
+		}
+	}
+
+	&-backdrop {
+		position: relative;
+		@include for-largerthan-ipad-portrait {
+			padding: 100px 50px 100px 0;
+		}
+
+		padding: 20px;
+		padding-left: 0px;
+	}
+
+    &-pattern {
+        &-background {
+            display: flex;
+            position: absolute;
+            top: 0;
+            right: fluid-margin(true);
+            flex: 1;
+            width: 75%;
+            height: 100%;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            &-background {
+                top: 0;
+                right: 0;
+                left: 40%;
+                width: 60%;
+            }
+        }
+
+        @each $item, $colour in $module-list-pattern-colours {
+            &-#{$item} {
+
+                &.module-list-pattern-zigzag {
+                    .module-list-pattern-background {
+                        @include pattern-zigzag($colour);
+                    }
+                }
+
+                &.module-list-pattern-diagonal {
+                    .module-list-pattern-background {
+                        @include pattern-diagonal($colour);
+                    }
+                }
+
+                &.module-list-pattern-weave {
+                    .module-list-pattern-background {
+                        @include pattern-weave($colour);
+                    }
+                }
+            }
+        }
+    }
+
+	&-menu-item {
+
+	    @include link-colour($white);
+	    @include underline-only-on-hover;
+	    box-sizing: border-box;
+		background-position: 0 -3px;
+	    display: block;
+	    padding-bottom: px-to-em(20, 17);
+	    border-bottom: 1px dashed $dark-grey;
+
+	    &:hover,
+	    &:focus {
+	        border-bottom-color: $primary-blue;
+	        .open-days-list-arrow {
+	            animation: hover-indicator .5s 1;
+	        }
+	    }
+
+		&.active {
+			border-bottom: 1px solid $yellow;
+			background: none;
+		}
+
+		&.active > &-details > &-details-label, &.active > &-details > &-details-arrow {
+			color: $yellow;
+		}
+
+	    &-details {
+	        display: flex;
+	        flex-direction: row;
+	        margin-top: px-to-em(30, 17);
+
+	        &-label {
+	        	display: inline-flex;
+	        	flex: 1;
+	        	color: $white;
+	        	line-height: 1.29;
+	        	margin-right: px-to-em(20, 17);
+	        	@include responsive('font-size', 14px, 16px, 768px, 1024px);
+	    	}
+
+	    	&-arrow {
+	        	display: inline-flex;
+	        	color: $white;
+	        	//font-size: px-to-em(30, 17);
+	        	@include responsive('font-size', 14px, 16px, 768px, 1024px);
+	        	width: 30px;
+	        	height: 30px;
+	        	align-self: flex-end;
+	        	margin-bottom: -14px;
+
+	        	i {
+	            	transform: rotate(90deg) translateY(-3px);
+	            	transform-origin: center center;
+	        	}
+	    	}
+	    }
+
+	}
+}
+
+.module-details-scroll-wrapper {
+	position: relative;
+}
+
+.tags-first-row {
+	@include clearfix;
+}
+
+.module-expand, .module-expand:link, .module-expand:visited, .module-expand:hover, .module-expand:active {
+
+	@include for-largerthan-ipad-portrait {
+		display: inline-block;
+	}
+
+	display: none;
+	float: right;
+	padding: 12px;
+	margin-top: 4px;
+	border-radius: 2px;
+	border: solid 2px $black;
+	@include responsive('font-size', 16px, 16px, 768px, 1024px);
+	background: none;
+	background-color: $white;
+	font-family: $large-body-font;
+	font-weight: bold;
+	line-height: 1;
+	color: $black;
+}

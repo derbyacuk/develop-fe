@@ -1,0 +1,191 @@
+/**
+ * Additional styles for button elements that we don't want to include in the TinyMCE editor file
+ * The easiest way to exclude them is to include them in a separate file. Minfication tasks still
+ * merge it into the same output!
+ */
+%button-overlay {
+    &:hover,
+    &:focus,
+    &:active {
+        .button-overlay {
+            transform: translateX(0);
+
+            span {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .uod-icons {
+        margin-right: 10px;
+        vertical-align: text-top;
+
+        &-external-link {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+    }
+}
+
+.button {
+    // to make the make targetting a specific button height easier, 
+    // here's some math to work out the padding needed for the button variants
+    $line-height: 1.3;
+    $small-vertical-padding: (43 - 4 - 16 * $line-height) / 16 / 2 + 0em;
+    $normal-vertical-padding: (49 - 4 - 18 * $line-height) / 18 / 2 + 0em;
+    $large-vertical-padding: (54 - 4 - 18 * $line-height) / 18 / 2 + 0em;
+
+    &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform .3s $default-animation-curve;
+        background: $white;
+        padding-top: $small-vertical-padding;
+        padding-bottom: $small-vertical-padding;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: $text-black;
+
+        span {
+            display: inline-block !important; //overwrites display: inline !important on spans with in p tags
+            transform: translateX(100%);
+            transition: transform .3s $default-animation-curve;
+            margin: 0;
+            padding: 0 1em;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            margin: 0 -1em;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    
+        @include for-tablet-portrait-up {
+            padding-top: $normal-vertical-padding;
+            padding-bottom: $normal-vertical-padding;
+        }
+    }
+
+    &-giant {
+        font-size: responsive 18px 20px;
+        font-range: $mobile-portrait $tablet-landscape;
+        padding-top: $large-vertical-padding;
+        padding-bottom: $large-vertical-padding;
+        padding-right: 2.2em;
+        padding-left: 2.2em;
+
+        .button-overlay {
+            padding-top: $large-vertical-padding;
+            padding-bottom: $large-vertical-padding;
+
+            span {
+                margin: 0;
+                padding-right: 2.2em;
+                padding-left: 2.2em;
+            }
+        }
+    }
+
+    &-large {
+        font-size: responsive 17px 18px;
+        font-range: $mobile-portrait $tablet-landscape;
+        padding-top: $large-vertical-padding;
+        padding-bottom: $large-vertical-padding;
+
+        .button-overlay {
+            padding-top: $large-vertical-padding;
+            padding-bottom: $large-vertical-padding;
+        }
+    }
+
+    &-small {
+        font-size: responsive 14px 16px;
+        font-range: $mobile-portrait $tablet-landscape;
+        padding-top: $small-vertical-padding;
+        padding-bottom: $small-vertical-padding;
+
+        .button-overlay {
+            padding-top: $small-vertical-padding;
+            padding-bottom: $small-vertical-padding;
+        }
+    }
+
+    &-yellow {
+        @extend %button;
+        @extend %button-overlay;
+        border-color: $yellow;
+        background: $yellow;
+
+        &,
+        &:link {
+            color: $black;
+        }
+    }
+
+    &-outline {
+        @extend %button-overlay;
+
+        .button-overlay {
+            background: $mid-blue;
+            color: $white;
+        }
+    }
+
+    &-blue {
+        @extend %button;
+        @extend %button-overlay;
+        border-color: $mid-blue;
+        background: $mid-blue;
+
+        .button-overlay {
+            background: $white;
+            color: $mid-blue;
+        }
+
+        &,
+        &:link {
+            color: $white;
+        }
+    }
+
+    &-black {
+        @extend %button;
+        @extend %button-overlay;
+        border-color: $black;
+
+        .button-overlay {
+            background: $black;
+            color: $white;
+        }
+
+        &,
+        &:link {
+            color: $black;
+        }
+    }
+
+    &-white {
+        @extend %button;
+        @extend %button-overlay;
+        border-color: $white;
+
+        .button-overlay {
+            background: $white;
+            color: $black;
+        }
+
+        &,
+        &:link {
+            color: $white;
+        }
+    }
+}

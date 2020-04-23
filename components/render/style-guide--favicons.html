@@ -1,0 +1,244 @@
+
+
+<style>
+    .label {
+        color: magenta;
+        display: block;
+        margin: 3em 0 1em;
+    }
+
+    .ios-icon-example {
+        border-radius: 17.544%;
+    }
+
+    .chrome-icon-example {
+    }
+
+    .metro-icon-example {
+        background: #2b5797;
+    }
+</style>
+<h2>Favicons</h2>
+<p>For the sake of simplicity and long-term code management, this project uses a script as part of the build process to generate
+    favicons. The script itself is a configured setup of the npm module from the Realfavicongenerator.net website.</p>
+<p>Favicon generation using the script takes several seconds each time and the assets rarely change, so this process does not 
+    happen automatically as part of a build - the assets are generated and then committed to Git. To regenerate these assets
+    manually, run the following command: <pre>yarn run generate:favicons</pre></p>
+<p>For this demo website we have introduced markup to the HTML templates, but for the final production website it is recommended
+    to put all of the generated icon files in the root of the domain, as outlined in the
+    <a href="https://realfavicongenerator.net/faq">FAQ.</a> Previews of the generated icons are shown below.
+</p>
+<span class="label">Regular favicon</span>
+<table style="width:100%;">
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ico file</td>
+            <td>
+                <img src="../../icons/favicon.ico">
+            </td>
+        </tr>
+        <tr>
+            <td>32 x 32 PNG</td>
+            <td>
+                <img width="32" height="32" src="../../icons/favicon-32x32.png">
+            </td>
+        </tr>
+        <tr>
+            <td>16 x 16 PNG</td>
+            <td>
+                <img width="16" height="16" src="../../icons/favicon-16x16.png">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<span class="label">favicon ios</span>
+<table style="width:100%;">
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>57x57</td>
+            <td>
+                <img width="57" height="57" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>60x60</td>
+            <td>
+                <img width="60" height="60" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>72x72</td>
+            <td>
+                <img width="72" height="72" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>76x76</td>
+            <td>
+                <img width="76" height="76" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>114x114</td>
+            <td>
+                <img width="114" height="114" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>120x120</td>
+            <td>
+                <img width="120" height="120" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>144x144</td>
+            <td>
+                <img width="144" height="144" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>152x152</td>
+            <td>
+                <img width="152" height="152" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+        <tr>
+            <td>180x180</td>
+            <td>
+                <img width="180" height="180" class="ios-icon-example" src="../../icons/apple-touch-icon.png">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<span class="label">android chrome</span>
+<table style="width:100%;">
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>36x36</td>
+            <td>
+                <img width="36" height="36" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>48x48</td>
+            <td>
+                <img width="48" height="48" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>72x72</td>
+            <td>
+                <img width="72" height="72" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>96x96</td>
+            <td>
+                <img width="96" height="96" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>144x144</td>
+            <td>
+                <img width="144" height="144" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>192x192</td>
+            <td>
+                <img width="192" height="192" class="chrome-icon-example" src="../../icons/android-chrome-192x192.png">
+            </td>
+        </tr>
+        <tr>
+            <td>256x256</td>
+            <td>
+                <img width="256" height="256" class="chrome-icon-example" src="../../icons/android-chrome-512x512.png">
+            </td>
+        </tr>
+        <tr>
+            <td>384x384</td>
+            <td>
+                <img width="384" height="384" class="chrome-icon-example" src="../../icons/android-chrome-512x512.png">
+            </td>
+        </tr>
+        <tr>
+            <td>512x512</td>
+            <td>
+                <img width="512" height="512" class="chrome-icon-example" src="../../icons/android-chrome-512x512.png">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<span class="label">windows metro</span>
+<table style="width:100%;">
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>70x70</td>
+            <td>
+                <img width="70" height="70" class="metro-icon-example" src="../../icons/mstile-70x70.png">
+            </td>
+        </tr>
+        <tr>
+            <td>144x144</td>
+            <td>
+                <img width="144" height="144" class="metro-icon-example" src="../../icons/mstile-144x144.png">
+            </td>
+        </tr>
+        <tr>
+            <td>150x150</td>
+            <td>
+                <img width="150" height="150" class="metro-icon-example" src="../../icons/mstile-150x150.png">
+            </td>
+        </tr>
+        <tr>
+            <td>310x150</td>
+            <td>
+                <img width="310" height="150" class="metro-icon-example" src="../../icons/mstile-310x150.png">
+            </td>
+        </tr>
+        <tr>
+            <td>310x310</td>
+            <td>
+                <img width="310" height="310" class="metro-icon-example" src="../../icons/mstile-310x310.png">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<span class="label">browserconfig.xml</span>
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;browserconfig&gt;
+    &lt;msapplication&gt;
+        &lt;tile&gt;
+            &lt;square70x70logo src="/icons/mstile-70x70.png"/&gt;
+            &lt;square150x150logo src="/icons/mstile-150x150.png"/&gt;
+            &lt;wide310x150logo src="/icons/mstile-310x150.png"/&gt;
+            &lt;square310x310logo src="/icons/mstile-310x310.png"/&gt;
+            &lt;TileColor&gt;#2b5797&lt;/TileColor&gt;
+        &lt;/tile&gt;
+    &lt;/msapplication&gt;
+&lt;/browserconfig&gt;</code></pre>
+

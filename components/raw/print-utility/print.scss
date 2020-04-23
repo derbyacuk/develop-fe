@@ -1,0 +1,45 @@
+@media print {
+	footer, nav, .header-navigation{
+		display: none;
+	}
+
+	/* Change the style of H1 */
+	h1 {
+		color: $primary-blue;
+		box-shadow: none;
+	}
+	/* Hide interactive elements */
+	.sticky-call-to-action-container {
+		display: none;
+	}
+
+	.media-embed {
+		display: none;
+	}
+
+	.button, .button-outline, .button-blue, .button-black {
+		display: none;
+	}
+
+	/* Open the tabs up */
+	.accordion-tab .accordion-tab-content {
+		max-height: 100vh !important;
+		border-bottom: 1px dashed #b9b4b0 !important;
+	}
+
+	.accordion-tab-title-indicator {
+		display: none !important;
+	}
+
+	/* Hide Unistats as they don't load properly */
+	.unistats {
+		display: none;
+	}
+
+	/* Show the link target for all absolute links */
+	a[href^="http://"]:after, a[href^="https://"]:after {
+		content: " (" attr(href) ")";
+		font-size: 90%;
+	}
+
+}

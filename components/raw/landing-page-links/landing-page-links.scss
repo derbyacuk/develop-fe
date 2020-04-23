@@ -1,0 +1,153 @@
+.landing-page-links {
+    lost-column: 8/8 0;
+    // start: set default intra-component spacing (units are responsive and based on em values)
+    @include margin-medium;
+    
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+    // end: set default intra-component spacing (units are responsive and based on em values)
+
+    &-heading {
+        @include for-largerthan-ipad-portrait {
+            lost-offset: 1/16;
+            lost-column: 14/16;
+        }
+        
+        @include for-desktop-up {
+            lost-offset: 3/16;
+            lost-column: 11/16;
+        }
+    }
+
+    &-inner {
+        lost-column: 8/8 0;
+        position: relative;
+    }
+
+    &-zigzag {
+        .landing-page-links-pattern-background {
+            @include pattern-zigzag($light-grey);
+        }
+    }
+
+    &-diagonal {
+        .landing-page-links-pattern-background {
+            @include pattern-diagonal($light-grey);
+        }
+    }
+
+    &-weave {
+        .landing-page-links-pattern-background {
+            @include pattern-weave($light-grey);
+        }
+    }
+
+    &-pattern-background {
+        @include full-bleed;
+        position: absolute;
+        top: 10%;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+
+        @include for-largerthan-ipad-portrait {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    &-items {
+        display: flex;
+        flex-wrap: wrap;
+        lost-utility: clearfix;
+        position: relative;
+        z-index: 1;
+
+        &:before{
+            width: 0; //fixes bug in safari at certain browser widths
+        }
+
+        @include for-largerthan-ipad-portrait {
+            lost-column: 15/16;
+        }
+        
+        @include for-desktop-up {
+            lost-offset: 2/16;
+            lost-column: 12/16;
+        }
+    }
+
+    &-item {
+        lost-column: 4/8 2;
+        margin-bottom: 10px;
+        position: relative;
+
+        @include for-desktop-up {
+
+            &:hover {
+
+                .landing-page-links-item-text {
+                    max-height: 220px;
+                }
+            }
+        }
+
+        @include for-largerthan-ipad-portrait {
+            lost-column: 1/3 3;
+        }
+
+        &-a {
+            display: block;
+            @include disable-underlines;
+        }
+
+        &-img {
+            max-width: calc( 100% - 10px );
+            display: block;
+        }
+
+        &-details {
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+            left: 10px;
+            background: $primary-blue;
+            @include responsive('padding-top', 10px, 14px, $mobile-portrait, $desktop);
+            @include responsive('padding-bottom', 10px, 14px, $mobile-portrait, $desktop);
+            @include responsive('padding-left', 10px, 20px, $mobile-portrait, $desktop);
+            padding-right: 10px;
+        }
+
+        &-title {
+            color: $white;
+            margin: 0;
+            position: relative;
+            font-size: responsive 16px 24px;
+            font-range: $mobile-portrait $tablet-portrait;
+            @include responsive('padding-right', 24px, 28px, $mobile-portrait, $tablet-portrait);
+
+            &:after {
+                @extend %uod-icons;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transform: rotate(-90deg) translateY(-3px) translateX(-3px);
+                content: $uod-icons-down-arrow;
+                transform-origin: center center;
+            }
+        }
+
+        &-text {
+            overflow: hidden;
+            max-height: 0;
+            color: $white;
+            transition: max-height 0.3s $default-animation-curve;
+            padding-right: 10px;
+
+            > p {
+                padding-top: 10px;
+            }
+        }
+    }
+}

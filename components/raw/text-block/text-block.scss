@@ -1,0 +1,50 @@
+.text-block {
+    // mixin that sets a consistent columns width
+    @include uod-text-column;
+    
+    // start: set default intra-component spacing (units are responsive and based on em values)
+    @include margin-medium;
+    
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+    // end: set default intra-component spacing (units are responsive and based on em values)
+
+    @include for-desktop-up {
+        table {
+            lost-offset: -2/16;
+            lost-column: 20/16;
+        }
+    }
+
+    &-published-date {
+        // same margin as h5...
+        margin-bottom: .5em;
+
+        @include for-tablet-portrait-up {
+            margin-bottom: px-to-em(10, 18);
+        }
+    }
+
+    &-course-page-heading {
+        margin-bottom: 0;
+    }
+
+    // when we want a text block to display directly after another with margins replicating a pargraph, as opposed to a normal text block
+    &-display-inline {
+        @include margin-medium-offset;
+
+        @include for-tablet-portrait-up {
+            @include margin-large-offset;
+        }
+    }
+
+    img, iframe {
+        max-width: 100%;
+    }
+
+    a:not([class*="button"]) {
+        // word-wrap: break-word;
+        word-break: break-word;
+    }
+}

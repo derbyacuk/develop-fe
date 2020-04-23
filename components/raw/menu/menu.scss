@@ -1,0 +1,269 @@
+@mixin header-panel {
+    display: flex;
+
+    &-panel {
+        // fluid margins can result in annoying half-pixels. setting rtl direction in the container
+        // and resetting it to ltr in the child can get around this.
+        direction: rtl;
+
+        &,
+        .header & {
+            .h3, h3,
+            .h5, h5,
+            .h6, h6,
+            p,
+            a {
+                color: $white;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        &-content {
+            // fluid margins can result in annoying half-pixels. setting rtl direction in the container
+            // and resetting it to ltr in the child can get around this.
+            direction: ltr;
+            position: relative;
+            background: $black;
+            color: $white;
+            padding: px-to-em(40, 17) 0;
+            padding-right: fluid-margin();
+            padding-left: fluid-margin();
+            margin-left: fluid-margin();
+            min-height: 100vh;
+            overflow: visible;
+
+            @include for-largerthan-ipad-portrait {
+                lost-column: 13/16;
+                lost-offset: 3/16;
+                padding-left: 0;
+                padding-right: $max-size;
+                margin-right: -$max-size;
+            }
+        }
+    }
+
+    &-close {
+        position: absolute;
+        top: px-to-em(40, 25);
+        right: fluid-margin();
+        width: 25px;
+        height: 25px;
+        line-height: 1;
+        font-size: px-to-em(25, 17);
+
+        @include for-largerthan-ipad-portrait {
+            right: $max-size;
+        }
+
+        a {
+            @include disable-underlines;
+
+            &,
+            &:link {
+                display: inline-block;
+                transition: transform .3s $default-animation-curve;
+                color: $white;
+
+                &:hover {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+.main-navigation {
+    @include header-panel;
+
+    &-principle-menu,
+    &-secondary-menu {
+        a {
+            @include underline-only-on-hover;
+            @include link-colour($white);
+
+            display: block;
+            border-bottom: 1px dashed $dark-grey;
+
+            @include for-largerthan-ipad-portrait {
+                margin-right: px-to-em(60, 17);
+            }
+
+            &:hover {
+                border-bottom-color: $black;
+            }
+        }
+
+        p {
+            @include small-body-font;
+
+            padding-bottom: px-to-em(12, 14);
+            color: $light-grey;
+
+            @include for-phone-only {
+                display: none;
+            }
+        }
+
+        h6 {
+            margin-bottom: px-to-em(12, 20);
+        }
+
+        li {
+            margin-bottom: px-to-em(14);
+            list-style-type: none;
+        }
+    }
+
+    &-principle-menu {
+        @include for-largerthan-ipad-portrait {
+            lost-column: 4/13;
+            lost-offset: 1/13;
+        }
+
+        &-large {
+            @include for-largerthan-ipad-portrait {
+                lost-column: 8/13;
+                lost-offset: 1/13;
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    lost-utility: clearfix;
+                    position: relative;
+
+                    &:before {
+                        width: 100%;
+                    }
+                }
+
+                li {
+                    lost-column: 4/8 2;
+                }
+
+                a {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    &-secondary-menu {
+        @include for-largerthan-ipad-portrait {
+            lost-column: 4/13;
+        }
+    }
+
+    &-actions-menu {
+        &-panel {
+            margin-top: px-to-em(30, 17);
+            margin-bottom: px-to-em(30 - 20, 17);
+
+            &,
+            .header & {
+                .button-yellow {
+                    margin-bottom: 0;
+                    color: $black;
+                }
+            }
+
+            .light & {
+                a {
+                    color: $black;
+                }
+            }
+        }
+
+        @include for-largerthan-ipad-portrait {
+            lost-column: 4/13;
+
+            &-panel {
+                background: $text-black;
+                padding: px-to-em(30, 17);
+                margin-top: 0;
+
+                p {
+                    @include small-body-font;
+
+                    color: $light-grey;
+                }
+            }
+        }
+    }
+
+    &-title {
+        lost-column: 12/13;
+        lost-offset: 1/13;
+        margin-bottom: px-to-em(40, 17);
+    }
+
+    &-inner-panel {
+        margin-top: 50px;
+    }
+
+    &-case-studies {
+        display: none;
+
+        @include for-largerthan-ipad-portrait {
+            display: initial;
+        }
+
+
+        &-title {
+            font-family: $header-font;
+            font-size: px-to-em(15, 17);
+            line-height: px-to-em(11, 15);
+            text-transform: uppercase;
+            margin-bottom: 1em;
+        }
+    }
+
+    &-desktop {
+        display: none;
+
+        @include for-largerthan-ipad-portrait {
+            display: initial;
+        }
+    }
+
+    &-mobile {
+        display: initial;
+
+        @include for-largerthan-ipad-portrait {
+            display: none;
+        }
+    }
+
+    &-mobile-link {
+        @include disable-underlines;
+        width: 100%;
+        background: #191919;
+        border: none;
+        border-radius: 2px;
+        line-height: 50px;
+        padding: 0 10px;
+        font-size: responsive 20px 28px;
+        font-range: $mobile-portrait $tablet-portrait;
+        font-weight: bold;
+        font-family: $header-font;
+        margin-bottom: $margin-extra-small;
+        display: block;
+        transition: background-color .3s $default-animation-curve;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $text-black;
+        }
+
+        @include for-tablet-portrait-up {
+            padding: 0 $margin-extra-small;
+            height: 60px;
+            line-height: 60px;
+        }
+    }
+}

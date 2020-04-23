@@ -1,0 +1,200 @@
+@mixin full-viewport-full-bleed {
+    min-height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    // height: #{"calc(100% - " + 80 / 17 + 0rem + ")"};
+
+    // @include for-desktop-up {
+    //     height: #{"calc(100% - " + 120 / 17 + 0rem + ")"};
+    // }
+}
+
+.image-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; // for IE11
+
+    @include margin-medium;
+
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+
+    &-background-container {
+        @include full-viewport-full-bleed();
+        background: $mid-grey;
+        font-size: 0;
+    }
+
+    &-background-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-background-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
+    }
+
+    &-content {
+        @include full-bleed-inset;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto; // for IE11
+        min-height: #{'calc(100vh - 130px)'}; // for IE11 -> 100vh - height of the header
+    }
+
+    &-text-column {
+        @include uod-text-column;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: -40px;
+        flex: 1 0 auto; // for IE11
+    }
+
+    @include for-largerthan-ipad-portrait {
+        &-feature-block-container {
+            lost-column: 7/8;
+            flex: 0 0 auto; // for IE11
+        }
+    }
+
+    &-heading-wrapper {
+        flex: 0 0 auto; // for IE11
+        margin: 0 7px;
+
+        h1 {
+            font-weight: bold;
+
+            //above 400px we don't need to hyphenate
+            @media (min-width: 400px) {
+                hyphens: none;
+            }
+        }
+
+        &-light {
+
+            h1 {
+                font-weight: normal;
+
+                .image-hero-campaign-style & {
+                    background: $turquoise;
+                    box-shadow: 7px 0 0 $turquoise, (7px * -1) 0 0 $turquoise;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &-content-type-tag {
+        text-transform: uppercase;
+        color: $black;
+
+        @include for-largerthan-ipad-portrait {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            transform: rotate(-90deg) translateX(-100%);
+            text-align: right;
+            line-height: 1;
+            transform-origin: top left;
+        }
+
+
+        &-container {
+            position: relative;
+        }
+
+        .image-hero-white & {
+            color: $white;
+        }
+    }
+
+    &-navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: px-to-em(40, 17);
+
+        .image-hero-campaign-style & {
+
+            @include for-phone-only {
+                margin-bottom: px-to-em(80, 17);
+            }
+        }
+
+        .breadcrumbs {
+            flex: 1;
+            margin-bottom: 1em;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            flex-direction: row;
+
+            .breadcrumbs {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-scroll-to-content-arrow {
+        display: none;
+        position: absolute;
+        $bottom-margin: 10;
+        $arrow-height: 32;
+        $animation-distance: 20;
+        top: #{'calc(100vh - ' + px-to-em(($bottom-margin + $arrow-height + $animation-distance), 17) + ')'};
+        right: fluid-margin();
+
+        @include for-largerthan-ipad-portrait {
+            display: block;
+        }
+
+        &-animate {
+            animation: scroll-indicator 1.5s infinite;
+        }
+
+        i {
+            color: $black;
+            font-size: 25 / 17 + 0rem;
+        }
+
+        &.image-hero-white {
+            i {
+                color: $white;
+            }
+        }
+    }
+}
+
+// the animation keyframes for the "scroll down" arrow indicator
+@keyframes scroll-indicator {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+}

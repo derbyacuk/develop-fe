@@ -1,0 +1,393 @@
+// pictures used should be fixed at a 4x3 ratio (0.66) so this value is used for the sake of readability in calculations
+$image-aspect-ratio: 0.66;
+
+// the image and pattern backgrounds are positioned absolutely so that they can be overlapped by the panel itself
+// but the panel might not be tall enough to show all of the background image. We need to set a min-height on the
+// container panel to get around this. The min-height should always be the height of the image (and no more) and
+// because we reliably know the viewport width and the aspect ratio of the image, we can work this out.
+//
+// 100% viewport width - (40px margin * 2) - 10px gutter = the available space of 16 columns
+// available space divided into the number of columns = the image width
+// image width * aspect ratio of 4/3 = the image height
+
+$gutter: 10px;
+$margin: $max-size; // max-size comes from the fluid-margins calculations elsewhere. but above ipad portrait this is always 40px
+$maxWidth: 100vw;
+$totalColumns: 16;
+$imageColumns: 11;
+$widthRatio: $imageColumns / $totalColumns;
+
+// height = 100% viewport width * image aspect ratio - the margins either side of the image
+$image-height-mobile:#{"calc(" + 100vw * $image-aspect-ratio + " + " + fluid-margin(true) + ")"};
+
+// on tablet devices, the image width is 11 columns
+// I'm sorry, 130px is a magic number to make this work and I don't know why.
+$image-height-tablet:#{"calc((((" + $maxWidth + " - (130px)) * (" + $widthRatio + ")) - " + $gutter + ") * " + $image-aspect-ratio + ")"};
+
+// on desktop devices, the image width is 9 columns
+$imageColumns: 9;
+$widthRatio: $imageColumns / $totalColumns;
+// I'm sorry, 60px is a magic number to make this work and I don't know why.
+$image-height-desktop:#{"calc((((" + $maxWidth + " - (60px)) * (" + $widthRatio + ")) - " + $gutter + ") * " + $image-aspect-ratio + ")"};
+
+// the grid is capped at 1700px wide, so above that screen size we need to cap our max width calculations by using a fixed px instead of viewport width
+$maxWidth: 1780px;
+// I'm sorry, 60px is a magic number to make this work and I don't know why.
+$image-height-large-desktop:#{"calc((((" + $maxWidth + " - (60px)) * (" + $widthRatio + ")) - " + $gutter + ") * " + $image-aspect-ratio + ")"};
+
+.open-day-promo {
+    position: relative;
+    lost-column: 8/8;
+
+    @include for-desktop-up {
+        lost-offset: 1/16;
+        lost-column: 14/16;
+    }
+
+    &-container {
+        @include margin-medium; // spacing under the component
+        @include full-bleed; // on mobile, we want no gutters
+
+        // on tablet and above, we want that gutter back
+        @include for-tablet-portrait-up {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    &,
+    &-right-align {
+        lost-align: left; // counterintuative, but controls the positioning of the panel
+    }
+
+    &-left-align {
+        lost-align: right; // counterintuative, but controls the positioning of the panel
+    }
+
+    &-panel {
+        position: relative; // so that it overlaps the absoluely positioned background behind it.
+        background: $primary-blue;
+        width: 100%;
+        max-width: 100%;
+
+        $image-height: #{"calc(" + 100vw * $image-aspect-ratio + ")"}; // image is full width, so we just crop to keep the aspect ratio
+
+        &,
+        .open-day-promo-right-align & {
+            margin-top: $image-height;
+            margin-bottom: 0;
+        }
+
+        .open-day-promo-left-align &,
+        .open-day-promo-top-overlap & {
+            margin-top: 0;
+            margin-bottom: $image-height;
+        }
+
+        @include for-tablet-portrait-up {
+            lost-offset: 1/16;
+            lost-column: 14/16;
+
+            &,
+            .open-day-promo-left-align &,
+            .open-day-promo-right-align & {
+                // image height is (viewport width) minus the margin either side * 12 out of 16 columns * image aspect ratio
+                margin-top: #{"calc((" + 100vw + " - " + fluid-margin() + ") * " + $image-aspect-ratio * 12/16 + ")"};
+            }
+
+            .open-day-promo-left-align & {
+                margin-bottom: 0;
+            }
+
+            .open-day-promo-left-align & {
+                lost-move: -1/16;
+            }
+
+            .open-day-promo-top-overlap & {
+                margin-top: 0;
+                margin-bottom: #{'calc(' + $image-height + ' - ' + ($margin-large + 40px) + ')'};
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            &,
+            .open-day-promo-left-align &,
+            .open-day-promo-right-align & {
+                margin-top: $margin-small;
+            }
+
+            .open-day-promo-top-overlap & {
+                margin-bottom: 0;
+            }
+        }
+
+        &-inner {
+            margin: px-to-em(30, 17) fluid-margin();
+
+            // for accessiblity we need to use an h2, but want it to look like an h3
+            h2 {
+                @extend .h3;
+            }
+
+            &,
+            h2 {
+                color: $white;
+            }
+
+            .button {
+                margin-bottom: 0;
+            }
+
+            @include for-tablet-landscape-up {
+                margin-right: $max-size;
+                margin-left: $max-size;
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            lost-column: 6/14;
+            margin-top: $margin-small;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        @include for-tablet-portrait-up {
+            .open-day-promo-top-overlap & {
+                $overlap: 40px;
+                margin-top: -($margin-large + $overlap);
+            }
+        }
+    }
+
+    &-backdrop {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+
+        &,
+        .open-day-promo-right-align & {
+            justify-content: flex-end;
+        }
+
+        .open-day-promo-left-align & {
+            align-items: flex-end;
+            justify-content: flex-start;
+            
+            @include for-tablet-portrait-up {
+                align-items: flex-start;
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .open-day-promo-top-overlap & {
+            align-items: flex-end;
+            
+            @include for-tablet-landscape-up {
+                align-items: flex-start;
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            max-height: $image-height-tablet;
+        }
+
+        @include for-desktop-up {
+            max-height: $image-height-desktop;
+        }
+
+        @media (min-width: 1780px) {
+            max-height: $image-height-large-desktop;
+        }
+    }
+
+    &-image-container {
+        margin-bottom: 0;
+        font-size: 0;
+        position: relative;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        @include for-tablet-portrait-up {
+            lost-column: 12/16;
+            lost-align: left;
+        }
+
+        @include for-tablet-landscape-up {
+            lost-column: 10/14;
+            lost-align: right;
+            margin: 0;
+        }
+    }
+
+    &-pattern {
+        &-background {
+            position: absolute;
+            display: flex;
+            flex: 1;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+
+            $single-column-width: #{(1/14)*100 + '%'};
+
+            &,
+            .open-day-promo-right-align & {
+                right: $single-column-width;
+                left: 0;
+            }
+
+            .open-day-promo-left-align & {
+                right: 0;
+                left: $single-column-width;
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            &-background {
+                width: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        &-zigzag {
+            .open-day-promo-pattern-background {
+                @include pattern-zigzag($light-grey);
+            }
+        }
+
+        &-diagonal {
+            .open-day-promo-pattern-background {
+                @include pattern-diagonal($light-grey);
+            }
+        }
+
+        &-weave {
+            .open-day-promo-pattern-background {
+                @include pattern-weave($light-grey);
+            }
+        }
+    }
+}
+
+.open-days {
+    &-list {
+        margin: #{px-to-em(30, 17)} 0;
+        padding-left: 0;
+        list-style-type: none;
+
+        &item {
+            margin-bottom: 0;
+            padding: #{(px-to-em(20, 17))} 0 0;
+            list-style-type: none;
+
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+
+        &-link {
+            @include link-colour($white);
+            @include underline-only-on-hover;
+            
+            display: block;
+            padding-bottom: px-to-em(20, 17);
+            border-bottom: 1px dashed $dark-grey;
+
+            &:hover,
+            &:focus {
+                border-bottom-color: $primary-blue;
+
+                .open-days-list-arrow {
+                    animation: hover-indicator .5s 1;
+                }
+            }
+        }
+
+        &-details {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &-month {
+            @include header;
+            display: flex;
+            color: $white;
+            text-transform: uppercase;
+            font-size: responsive 15px 17px;
+            font-range: $mobile-portrait $tablet-landscape;
+            line-height: 0.73;
+            font-weight: normal;
+            padding-bottom: #{(px-to-em(7, 15))};
+        }
+
+        &-day {
+            @include header;
+            display: inline-flex;
+            font-size: responsive 50px 60px;
+            font-range: $mobile-portrait $tablet-landscape;
+            color: $green-blue;
+            line-height: 1;
+            margin-right: px-to-em(20, 50);
+        }
+
+        &-label {
+            display: inline-flex;
+            flex: 1;
+            color: $white;
+            line-height: 1.29;
+            margin-right: px-to-em(20, 17);
+        }
+
+        &-arrow {
+            display: inline-flex;
+            color: $white;
+            font-size: px-to-em(30, 17);
+            width: 30px;
+            height: 30px;
+            align-self: flex-end;
+            margin-bottom: -14px;
+
+            i {
+                transform: rotate(90deg) translateY(-3px);
+                transform-origin: center center;
+            }
+        }
+    }
+}
+
+// the animation keyframes for the "hover" arrow indicator
+@keyframes hover-indicator {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(20px, 0);
+        opacity: 0;
+    }
+
+    51% {
+        transform: translate(-20px, 0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}

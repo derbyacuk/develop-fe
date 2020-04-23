@@ -1,0 +1,85 @@
+
+
+<section class="form-wrapper">
+    <h2>Join our mailing list</h2>
+    <form name="signup" id="signup" action="https://qubamailer.co.uk/signup.ashx" method="post" onsubmit="return validate_signup(this, true)">
+                    <div role="alert" class="alert alert-success">
+			<p class="large">Thank you for subscribing</p><br>You'll recieve an email shortly asking you to confirm your subscription.</p>
+	</div>                <div class="form-group field-required">
+	<label for="email">Email<span class="required">*</span></label>
+		<div>
+		<input id="email" name="email" class="form-control" type="email" placeholder="Enter email address" aria-label="Email" required>
+	</div>
+	</div>        <div class="form-group field-required">
+	<label for="cd_FIRSTNAME">First name<span class="required">*</span></label>
+		<div>
+		<input id="cd_FIRSTNAME" name="cd_FIRSTNAME" class="form-control" type="text" aria-label="First name" required>
+	</div>
+	</div>        <div class="form-group field-required">
+	<label for="cd_LASTNAME">Last name<span class="required">*</span></label>
+		<div>
+		<input id="cd_LASTNAME" name="cd_LASTNAME" class="form-control" type="text" aria-label="Last name" required>
+	</div>
+	</div>        <p>The information you supply on this 'Events - Register with us' form will be held and processed in line with the Data Protection Act 2018 and GDPR.</p><p>We use this information to register you for your monthly events e-newsletter. This is managed by our Development and Alumni Relations Office.</p><p>We retain this data for up to five years, after such time we will contact you to check you still wish to receive the monthly events e-newsletter.</p><p>As a data subject you can withdraw that consent at any time by contacting <a href="mailto:gdpr@derby.ac.uk">gdpr@derby.ac.uk</a>.</p><p>Our Data Protection Officer (DPO) is James Eaglesfield (01332) 591762. Our Deputy DPO is Helen Rishworth (01332) 591954. Alternatively you can email <a href="mailto:gdpr@derby.ac.uk">gdpr@derby.ac.uk</a>.</p><p>Further information on how we handle your information can be found here on our <a href="https://www.derby.ac.uk/services/its/data-governance/privacy-notices/">privacy policy</a>.</p>
+        <div class="form-group field-required">
+	<fieldset id="ci_userConsentRadio">
+		<legend>I give my explicit consent for my details to be used to receive the monthly alumni e-newsletter.<span class="required">*</span></legend>
+				<div>
+							<div class="radio radio-pretty radio-inline">
+					<label for="ci_userConsentRadioYes">
+						<input id="ci_userConsentRadioYes" type="radio" name="ci_userConsentRadio" value="yes" aria-label="Yes" required> 
+						<span></span>
+						Yes					</label>
+				</div>
+							<div class="radio radio-pretty radio-inline">
+					<label for="ci_userConsentRadioNo">
+						<input id="ci_userConsentRadioNo" type="radio" name="ci_userConsentRadio" value="no" aria-label="No" required> 
+						<span></span>
+						No					</label>
+				</div>
+					</div>
+	</fieldset>
+	</div>        <div class="submitButtons">
+            <button class="button-yellow button-giant" title="Join our mailing list" role="button" type="submit" tabindex="0" data-scroll>
+        Sign up
+            <span class="button-overlay"><span>
+                        Sign up
+                    </span></span></button>        </div>
+        <input type="hidden" name="addressbookid" value="192852">
+        <input type="hidden" name="ci_isconsentform" value="true">
+        <input type="hidden" name="userid" value="22267">
+        <input type="hidden" name="SIG83b9612aa4d6f9a096e0c1679dacbec825104b73395e4cd4070afca648057acc" value="">
+        <!-- ReturnURL - when the user hits submit, they'll get sent here -->
+        <input type="hidden" name="ReturnURL" value="">
+        <input type="hidden" name="ci_userConsentText" value="The information you supply on this 'Events - Register with us' form will be held and processed in line with the Data Protection Act 2018 and GDPR.We use this information to register you for your monthly events e-newsletter. This is managed by our Development and Alumni Relations Office.We retain this data for up to five years, after such time we will contact you to check you still wish to receive the monthly events e-newsletter.As a data subject you can withdraw that consent at any time by contacting gdpr@derby.ac.uk.Our Data Protection Officer (DPO) is James Eaglesfield (01332) 591762. Our Deputy DPO is Helen Rishworth (01332) 591954. Alternatively you can email gdpr@derby.ac.uk.Further information on how we handle your information can be found here on our privacy policy.">
+        <input type="hidden" id="ci_consenturl" name="ci_consenturl" value="">
+    </form>
+</section>
+<script type="text/javascript">
+    <!--
+    var urlInput = document.getElementById("ci_consenturl");
+    if (urlInput != null && urlInput != 'undefined') {
+        urlInput.value = encodeURI(window.location.href);
+    }
+    function checkbox_Clicked(element) {
+        document.getElementById(element.id + "_unchecked").value = !element.checked;
+    }
+    function validate_signup(frm, showAlert) {
+        var emailAddress = frm.email.value;
+        var errorString = '';
+        if (emailAddress == '' || emailAddress.indexOf('@') == -1) {
+            errorString = 'Please enter your email address';
+        }
+        var checkBoxValue = frm.ci_userConsentRadioYes.checked;
+        if (checkBoxValue == false) {
+            errorString = 'You must accept the terms';
+        }
+        var isError = false;
+        if (errorString.length > 0) {
+            isError = true;
+            if (showAlert) alert(errorString);
+        }
+        return !isError;
+    }
+    //-->
+</script>

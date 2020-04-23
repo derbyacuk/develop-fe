@@ -1,0 +1,54 @@
+.feature-block {
+    @include large-body-font;
+    
+    background: $primary-blue;
+    padding: fluid-margin();
+    color: $white;
+
+    @include for-largerthan-ipad-portrait {
+        padding: $max-size;
+    }
+
+    a:not([class^='button']), a:link:not([class^='button']) {
+        background-image: linear-gradient(transparent calc(100% - .1em), $white .1em);
+        color: $white;
+    }
+
+    &-white {
+        @extend .feature-block;
+        background: $white;
+        color: $text-black;
+
+        a:not([class^='button']), a:link:not([class^='button']) {
+            background-image: linear-gradient(transparent calc(100% - .1em), $mid-blue .1em);
+            color: $mid-blue;
+        }
+    }
+
+    &-blue {
+        @extend .feature-block;
+        background: $primary-blue;
+    }
+
+    &-black {
+        @extend .feature-block;
+        background: $black;
+    }
+
+    &-turquoise {
+        @extend .feature-block;
+        background: $turquoise;
+    }
+}
+
+/*
+    When adding feature blocks to WYSIWYG areas in T4 the feature block class is applied to p tags
+    For styling multiple consequetive paragraphs as a feature block we need to do some offsetting...
+*/
+.text-block > .feature-block + .feature-block {
+    margin-top: -#{$margin-medium-offset};
+    
+    @include for-tablet-portrait-up {
+        margin-top: -#{$margin-large-offset};
+    }
+}

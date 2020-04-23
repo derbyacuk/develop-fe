@@ -1,0 +1,487 @@
+$pattern_colours: (
+    primary-blue: #101d49,
+    dark-grey: #b9b4b0,
+    mid-grey: #d7d2cf,
+    black: #000000,
+    white: #ffffff,
+    strawberry: #ee313e,
+    mid-blue: #2041cb,
+    light-grey: #eeeeee,
+    orange: #f85220,
+    turquoise: #018f99,
+    green: #37d68e,
+    yellow: #febf13,
+    green-blue: #37ddd1,
+    text-black: #333333
+);
+
+$desktop-pattern-padding: 60px;
+$tablet-pattern-padding: 80px;
+$mobile-pattern-padding: 20px;
+
+.pattern-hero {
+    @include margin-medium;
+
+    display: flex;
+    position: relative;
+    flex: 1 0 auto; // for IE11
+    flex-direction: column;
+
+    @each $item, $colour in $pattern_colours {
+        &-#{$item} {
+            background-color: $colour;
+            padding-bottom: px-to-em(80, 17);
+        }
+    }
+
+    // &-with-content, 
+    &-white { // avoid getting a double-height spacer at the bottom (because we have padding on the colour block)
+        padding-bottom: 0;
+    }
+
+    &-search-in-page {
+        @include full-bleed;
+        padding-bottom: 28px;
+
+        &:last-child {
+            margin-bottom: 0;
+
+            @include for-largerthan-ipad-portrait {
+                margin-bottom: -20px;
+            }
+        }
+    }
+
+    &-full-height {
+        margin-bottom: 160px;
+        min-height: 212px;
+        
+        @include for-tablet-portrait-up {
+            display: flex;
+            position: relative;
+            flex: 1 0 auto; // for IE11
+            flex-direction: column;
+            // min-height: #{'calc(100vh - ' + $margin-medium + ')'};
+
+            @each $item, $colour in $pattern_colours {
+                &.pattern-hero-#{$item} {
+                    // min-height: 100vh;
+                }
+            }
+
+            &.pattern-hero-white .pattern-hero-text-column {
+                // min-height: #{'calc(100vh - ' + $margin-medium + ')'};
+            }
+        }
+
+        .pattern-hero {
+            &-content {
+                @include for-tablet-portrait-up {
+                    $headerHeight: 130;
+                    $navigationHeight: 60;
+                    $disanceFromBottomOfContainer: 80;
+                    $combinedHeight: ($disanceFromBottomOfContainer + $navigationHeight + $headerHeight);
+
+                    // without this, the background of the header only fills the space it requires.
+                    // this calculates a height of 100% viewport height but takes into account the height of
+                    // the elements which are postion:absolute and don't affect the page height.
+                    // fortunately, that's simple to calculate because everything is of a consistant size at this breakpoint.
+                    // min-height: #{"calc(100vh - " + ($combinedHeight/17 + 0rem) + ")"};
+                }
+            }
+
+            &-contents {
+                flex: 1 0 auto; // for IE11
+            }
+
+            &-text-column {
+                flex: 1 0 auto; // for IE11
+                margin-bottom: -$margin-medium;
+            }
+
+            &-feature-block-container {
+                padding-left: fluid-margin();
+                padding-right: fluid-margin();
+
+                @include for-tablet-portrait-up {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
+                &-wrapper {
+                    justify-content: flex-end;
+                }
+            }
+        }
+
+        @each $item, $colour in $pattern_colours {
+            &.pattern-hero-#{$item} {
+                .pattern-hero-text-column {
+                    margin-bottom: -160px;
+                }
+            }
+        }
+
+        &.pattern-hero-white .pattern-hero-text-column {
+            margin-bottom: -$margin-medium;
+        }
+    }
+
+    &-background-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: fluid-margin();
+        right: fluid-margin();
+
+        .pattern-hero-with-calltoaction &,
+        .pattern-hero-search-in-page & {
+            top: 28px;
+        }
+
+        .pattern-hero-with-tag.pattern-hero-with-calltoaction & {
+            top: 44px;
+        }
+
+        @include for-tablet-portrait-up {
+            .pattern-hero-with-calltoaction &,
+            .pattern-hero-with-tag.pattern-hero-with-calltoaction & {
+                top: 0;
+            }
+            
+            .pattern-hero-with-breadcrumbs.pattern-hero-with-calltoaction &,
+            .pattern-hero-with-breadcrumbs.pattern-hero-with-tag.pattern-hero-with-calltoaction & {
+                top: -10px;
+            }
+        }
+
+        @include for-largerthan-ipad-portrait {
+            left: $max-size;
+            right: $max-size;
+        }
+
+        &-wrapper {
+            position: relative;
+        }
+
+        &-pattern {
+            width: 100%;
+            height: 100%;
+            lost-column: 8/8;
+
+            @include for-tablet-portrait-up {
+                lost-column: 14/16;
+                lost-offset: 1/16;
+            }
+
+            @include for-desktop-up {
+                lost-column: 14/16;
+                lost-offset: 1/16;
+            }
+
+            @each $item, $colour in $pattern_colours {
+
+                .pattern-hero-#{$item} & {
+                    @include for-desktop-up {
+                        lost-column: 13/16;
+                    }
+                }
+
+                &-#{$item} {
+                    &.pattern-hero-background-container-pattern-zigzag {
+                        @include pattern-zigzag($colour);
+                    }
+
+                    &.pattern-hero-background-container-pattern-diagonal {
+                        @include pattern-diagonal($colour);
+                    }
+
+                    &.pattern-hero-background-container-pattern-weave {
+                        @include pattern-weave($colour);
+                    }
+                }
+            }
+
+            .pattern-hero-search-in-page & {
+
+                @include for-tablet-portrait-up {
+                    lost-column: 14/16;
+                    lost-offset: 0/16;
+                }
+
+                @include for-desktop-up {
+                    lost-offset: 2/16;
+                    lost-column: 10/16;
+                }
+            }
+        }
+    }
+
+    &-content {
+        @include full-bleed-inset;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        flex: 1 0 auto; // for IE11
+    }
+
+    &-contents {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        flex: 1 0 auto; // for IE11
+
+        .pattern-hero-with-tag & {
+            padding-top: 28px;
+        }
+
+        @include for-tablet-portrait-up {
+            &,
+            .pattern-hero-with-tag &,
+            .pattern-hero-search-in-page & {
+                padding-top: $tablet-pattern-padding - 10px; // 60px target space, minus 10px to have a little overlap
+            }
+        }
+
+        @include for-desktop-up {
+            &,
+            .pattern-hero-with-tag & {
+                padding-top: $desktop-pattern-padding - 10px; // 60px target space, minus 10px to have a little overlap
+            }
+        }
+    }
+
+    &-text-column {
+        @include uod-text-column;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 auto; // for IE11
+        z-index: 1; // for the course page hero overlapping images
+        // align-items: flex-start;
+
+        .pattern-hero-search-in-page & {
+
+            //custom media query - only need a change from the pattern default behaviour for certain breakpoints
+            @media (min-width: $tablet-portrait) and (max-width: #{$desktop - 1}) {
+                lost-offset: 1/16;
+            }
+
+            @include for-desktop-up {
+                lost-offset: 3/16;
+                lost-column: 8/16;
+                flex-grow: 0; // for IE11
+                flex-shrink: 0; // for IE11
+                flex-basis: auto; // for IE11
+            }
+        }
+
+        @include for-tablet-portrait-up {
+            lost-column: 12/16;
+            lost-offset: 2/16;
+            flex-grow: 0; // for IE11
+            flex-shrink: 0; // for IE11
+            flex-basis: auto; // for IE11
+        }
+
+        @include for-desktop-up {
+            lost-offset: 3/16;
+            lost-column: 9/16;
+            flex-grow: 0; // for IE11
+            flex-shrink: 0; // for IE11
+            flex-basis: auto; // for IE11
+        }
+        
+        @include for-big-desktop-up {
+            lost-offset: 3/16;
+            lost-column: 7/16;
+            flex-grow: 0; // for IE11
+            flex-shrink: 0; // for IE11
+            flex-basis: auto; // for IE11
+        }
+    }
+
+    &-tag {
+        align-self: flex-start;
+        margin-bottom: (strip-units(8px)/17) + 0rem;
+    }
+
+    &-feature-block {
+        &-container {
+            @include full-bleed;
+
+            @include for-tablet-portrait-up {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            &-wrapper {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &-heading-wrapper {
+        flex: 0 0 auto; // for IE11
+        margin: 0 7px;
+        font-size: 0; // removes spurious padding from below the content
+
+        h1, h2 { 
+            font-weight: bold;
+
+            //above 400px we don't need to hyphenate
+            @media (min-width: 400px) {
+                hyphens: none;
+            }
+
+            &::after {
+                margin-bottom: 0;
+                content: '';
+            }
+
+            &.subheading {
+                font-weight: normal;
+            }
+
+            span { 
+                text-transform: none;
+            }
+        }
+
+        h1 {
+
+            &::after {
+                padding-bottom: #{28px/1.15};
+                font-size: 0; // removes spurious padding from below the content
+
+                @include for-tablet-portrait-up {
+                    padding-bottom: $tablet-pattern-padding;
+                }
+
+                @include for-desktop-up {
+                    padding-bottom: $desktop-pattern-padding;
+                }
+            }
+        }
+
+        h2 {
+
+            &::after {
+                
+                @include for-tablet-portrait-up {
+                    padding-bottom: 40px;
+                }
+            }
+        }
+
+        &-light {
+            h1 {
+                font-weight: normal;
+            }
+        }
+    }
+
+    &-content-type-tag {
+        padding-top: px-to-em(12, 17);
+        text-transform: uppercase;
+        color: $black;
+
+        @include for-tablet-portrait-up {
+            padding-top: 0;
+            padding-right: $tablet-pattern-padding - 10px;
+        }
+
+        @include for-desktop-up {
+            padding-top: 0;
+            padding-right: $desktop-pattern-padding - 10px;
+        }
+
+        @include for-tablet-portrait-up {
+            transform: rotate(-90deg) translateX(-100%);
+            transform-origin: top left;
+            display: inline-block;
+            position: absolute;
+            text-align: right;
+            left: 0;
+            line-height: 1;
+        }
+
+        &-container {
+            position: relative;
+        }
+
+        .pattern-hero-scheme-white & {
+            color: $white;
+        }
+    }
+
+    &-navigation {
+        @include full-bleed-inset;
+
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        z-index: 4;
+
+        .breadcrumbs {
+            flex: 1;
+            margin-bottom: 1em;
+        }
+
+        @include for-largerthan-ipad-portrait {
+            flex-direction: row;
+
+            .breadcrumbs {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-scroll-to-content-arrow {
+        display: none;
+        position: absolute;
+        $bottom-margin: 10;
+        $arrow-height: 32;
+        $animation-distance: 20;
+        top: #{'calc(100vh - ' + px-to-em(($bottom-margin + $arrow-height + $animation-distance), 17) + ')'};
+        right: fluid-margin();
+
+        @include for-largerthan-ipad-portrait {
+            display: block;
+        }
+
+        &-animate {
+            animation: scroll-indicator 1.5s infinite;
+        }
+
+        i {
+            color: $black;
+            font-size: 25 / 17 + 0rem;
+        }
+
+        &.pattern-hero-scheme-white {
+            i {
+                color: $white;
+            }
+        }
+    }
+
+    &-with-anchor-links {
+        
+        &.pattern-hero {
+            
+            & + .anchor-links-container {
+                @include margin-medium;
+            }
+        }
+    }
+}

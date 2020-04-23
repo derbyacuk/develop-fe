@@ -1,0 +1,165 @@
+$icon-colours: (
+    primary-blue: #101d49,
+    strawberry: #ee313e,
+    mid-blue: #2041cb,
+    light-grey: #eeeeee,
+    orange: #f85220,
+    turquoise: #018f99,
+    green: #37d68e,
+    yellow: #febf13,
+    green-blue: #37ddd1
+);
+
+.key-stats {
+
+    &-container {
+        lost-flex-container: row;
+        lost-column: 8/8;
+        margin-bottom: 40px;
+        justify-content: center;
+
+        @include for-largerthan-ipad-portrait {
+            lost-offset: 1/16;
+            lost-column: 14/16;
+        }
+
+        @include for-desktop-up {
+            lost-offset: 3/16;
+            lost-column: 10/16;
+        }
+    }
+
+    .text-block + .key-stats-container {
+        @include margin-medium-offset;
+
+        @include for-tablet-portrait-up {
+            @include margin-large-offset;
+        }
+    }
+}
+
+.key-stat {
+    lost-column: 6/8 0;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed $dark-grey;
+    padding: $margin-extra-small px-to-em(8);
+    text-align: center;
+    margin-right: 0 !important;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    @include for-tablet-portrait-up {
+        lost-offset: 0;
+        lost-column: 4/12;
+        margin-right: 0 !important;
+        border-right: 1px dashed $dark-grey;
+        border-bottom: 0;
+        padding: px-to-em(8) $margin-small;
+
+        &:last-child {
+            border-right: 0;
+        }
+
+        &:nth-child(3n) {
+            border-right: 0;
+            padding-right: 0;
+        }
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+
+    &-icon {
+        i {
+            margin-bottom: px-to-em(20, 72);
+            line-height: 1;
+            font-size: px-to-em(72);
+        }
+
+        @each $item, $colour in $icon-colours {
+            &.key-stat-icon-#{$item} {
+                color: $colour;
+            }
+        }
+    }
+
+    &-image {
+        height: 72px;
+        line-height: 1;
+        margin-bottom: px-to-em(20);
+
+        @each $item, $colour in $icon-colours {
+            &.key-stat-image-#{$item} {
+                color: $colour;
+
+                img path {
+                    fill: $colour;
+                }
+            }
+        }
+    }
+
+    &-image-stat {
+        display: block;
+        margin-bottom: 10px;
+
+        > img {
+            max-width: 100%;
+        }
+    }
+
+    &-icon,
+    &-image,
+    &-big-text,
+    &-subtitle,
+    &-footnote {
+        display: block;
+    }
+
+    &-subtitle {
+        line-height: #{(20/18) + 0};
+        color: $primary-blue;
+        font-family: $large-body-font;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &-footnote {
+        @include small-body-font;
+        margin-top: $margin-extra-small;
+        line-height: #{(19/14) + 0};
+    }
+
+    &-big-text {
+        margin-bottom: px-to-em(16, 90);
+        line-height: #{(64/90) + 0};
+        color: $primary-blue;
+        font-family: $large-body-font;
+        font-size: responsive 70px 90px;
+        font-range: 768px 1024px;
+        font-weight: bold;
+        letter-spacing: px-to-em(-2, 90);
+
+        sup {
+            top: -27px;
+            font-size: 50px;
+            @include responsive('top', -21px, -27px, 768px, 1024px);
+            @include responsive('font-size', 38px, 50px, 768px, 1024px);
+        }
+
+        sub {
+            bottom: 0;
+            font-size: 40px;
+            @include responsive('font-size', 31px, 50px, 768px, 1024px);
+        }
+
+        small {
+            font-size: 50px;
+            @include responsive('font-size', 38px, 50px, 768px, 1024px);
+        }
+    }
+}
+

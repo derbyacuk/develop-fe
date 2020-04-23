@@ -1,0 +1,18 @@
+.unistats-widget {
+    overflow: hidden;
+    border: 0px none transparent;
+    width: 100%;
+    background: $mid-grey;
+
+    &-wrapper {
+    	width: 100%;
+    }
+}
+
+.unistats {
+    .accordion-tab-content-inner {
+        display: flex;
+        justify-content: center
+    }
+}
+    

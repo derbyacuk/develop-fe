@@ -1,0 +1,75 @@
+.pagination-controls {
+    @include margin-large;
+    
+    text-align: right;
+
+    a {
+        @extend %button;
+        @extend %button-overlay;
+
+        &:last-child {
+            margin-right: 10px;
+        }
+
+        .button-overlay {
+            background: $mid-blue;
+            color: $white;
+        }
+
+        .uod-icons {
+        	margin-right: 0;
+    	    vertical-align: sub;
+        }
+    }
+
+    &-inner {
+        margin-right: -10px;
+
+        > span:not(.spacer) {
+            @extend .button-blue;
+        }
+    }
+
+    &-section-iterator {
+        
+        a {
+
+            &:first-child:before(), 
+            &:first-child .button-overlay > span:before() {
+                @extend %uod-icons;
+                content: $uod-icons-chevron-left;
+                vertical-align: sub;
+                margin-right: 0.3em;
+            }
+
+            &:last-child {
+                padding-right: calc(1.3em + 11px);
+
+                .button-overlay > span {
+                    padding-right: calc(1.3em + 11px);
+                }
+
+                &:before(), 
+                .button-overlay > span:before() {
+                    @extend %uod-icons;
+                    content: $uod-icons-chevron-right;
+                    vertical-align: sub;
+                    margin-left: 0.3em;
+                    position: absolute;
+                    right: 1em;
+                    top: 50%;
+                    margin-top: -9px;
+                }
+            }
+        }
+    }
+}
+
+/*
+    For go live listing pages as per the designs aren't possible
+    Using listing pages generated in T4 we want to give pagination controls the same behaviour as a text block
+*/
+.center-align > .pagination-controls {
+    // mixin that sets a consistent columns width
+    @include uod-text-column;
+}
