@@ -1,0 +1,59 @@
+
+
+<section class="text-block">
+  <h3>Induction Schedule</h3>
+  <p>Please use the search facility below to find the induction schedule for your course.</p>
+    <div class="search-input-group search-input-group-outline search-input-group-enrolment">
+    <label for="induction-search" class="search-input-label">Search for induction schedule by course name</label>
+      <input id="induction-search" aria-label="Search for induction schedule by course name" class="search-input" placeholder="Course name, e.g. 'Fine Art'" />
+      <div class="search-button" style="right: 0px; position:relative;"><i class="uod-icons uod-icons-search"></i> </div>
+    </div>
+    <div id="autoComplete"></div>
+</section>
+<script src="../../autoComplete.js"></script>
+
+<script>
+    new autoComplete({
+        data: {
+        src: async function() {
+            // Loading placeholder text
+            document.querySelector("#induction-search").setAttribute("placeholder", "Please wait - Loading courses...");
+            // Fetch External Data Source - TODO - replace with live list
+            const source = await fetch("/courselist.json");
+            const data = await source.json();
+            // Returns Fetched data
+            return data;
+            },
+            key: ['azname', 'keywords', 'abstract'],
+        },
+        selector: "#induction-search",
+        searchEngine: "strict",
+        maxResults: -1,
+        resultsList: {
+            render: true,
+            destination: document.querySelector("#autoComplete"),
+            element: "ul",
+        },
+        placeHolder: "eg Fine Art",
+        resultItem: {                          // Rendered result item            | (Optional)
+            content: (data, source) => {
+                if (!document.querySelectorAll(`[data-index="${data.index}"]`).length) {
+                    source.innerHTML = `
+                        <div class="search-result-wrapper">
+                            <section class="search-result">
+                                    <div class="search-result-content">
+                                        <div class="search-result-heading">
+                                        <div class="h5">
+                                            <a href="${data.value.url}" data-index="${data.index}">${data.value.name}</a>
+                                        </div>
+                                        </div>
+                                        <p class="search-result-teaser">${data.value.abstract}</p>
+                                    </div>
+                            </section>
+                        </div>`;
+                }
+            },
+            element: "li",
+        }
+    });
+</script>
