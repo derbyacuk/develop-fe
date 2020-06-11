@@ -319,7 +319,24 @@ $(<span class="hljs-string">'.text-block a[class*="button"], .feature-block a[cl
         <span class="hljs-attribute">word-break</span>: break-word;
     }
 }
-</pre>
+
+<span class="hljs-selector-tag">body</span><span class="hljs-selector-class">.blog</span> <span class="hljs-selector-class">.text-block</span>:not(<span class="hljs-selector-class">.ignore-overrides</span>){
+    &amp; <span class="hljs-selector-tag">h2</span> {
+        @<span class="hljs-keyword">include</span> h3;
+    }
+
+    &amp; <span class="hljs-selector-tag">h3</span> {
+        @<span class="hljs-keyword">include</span> h4;
+    }
+
+    &amp; <span class="hljs-selector-tag">h4</span> {
+        @<span class="hljs-keyword">include</span> h5;
+    }
+
+    &amp; <span class="hljs-selector-tag">h5</span> {
+        @<span class="hljs-keyword">include</span> h6;
+    }
+}</pre>
                             </code>
                             
                         </div>
@@ -335,7 +352,7 @@ $(<span class="hljs-string">'.text-block a[class*="button"], .feature-block a[cl
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.2 KB</span>
+                    <span class="Meta-value">1.4 KB</span>
                 </li>
             </ul>
         </div>
