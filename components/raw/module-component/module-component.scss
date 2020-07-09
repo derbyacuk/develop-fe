@@ -17,11 +17,49 @@ $module-list-pattern-colours: (
 body.modal-open {
 	overflow: hidden !important;
 	position: fixed;
+
+	.module-list {
+
+		&-backdrop {
+			max-height: 100vh;
+			height: 100vh;
+		}
+
+		&-module {
+			min-height: 100vh;
+			max-height: 100vh;
+			overflow: hidden;
+		}
+
+		&-module-details {
+			display: grid;
+			grid-template-rows: auto auto 1fr auto;
+			max-height: 100%;
+			min-height: 100%;
+
+			&-tags {
+				margin-bottom: 20px;
+
+				// Quick n dirty fix for Ios devices. 
+				// You get a bigger bottom margin. It just works...
+				&.isIos {
+					margin-bottom: 80px;
+				}
+			}
+		}
+	}
+
+	.module-details-scroll-wrapper {
+		max-height: 100%;
+		overflow: scroll;
+	}
 }
 
 #is-mobile-layout {
 	@include for-largerthan-ipad-portrait {
-            display: none;
+		width: 1px;
+		height: 0px;
+		display: block;
     }
 
 	width: 1px;
@@ -53,19 +91,29 @@ body.modal-open {
 	}
 
 	&-container {
+		@include for-largerthan-ipad-portrait {
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-columns: 42% 1fr;
+			grid-template-columns: 42% 1fr;
+			-ms-grid-rows: 1fr;
+			grid-template-rows: 1fr;
+		}
+
 		will-change: height;
 		position: relative;
 		@include clearfix;
 		transition: height 0.25s;
 		margin-bottom : 60px;
 		clear: both;
+		overflow: hidden;
 	}
 
 	&-menu {
 		background-color: $primary-blue;
 		padding: 22px;
 		grid-column: 1;
-		display: none;
+		display: block;
 
 		&.active {
 			display: block;
@@ -86,7 +134,7 @@ body.modal-open {
 		min-height: 100%;
 		background-color: #fff;
 
-		position: absolute;
+		position: relative;
 		max-width: auto;
 		min-height: auto;
 		animation-duration: 0.3s;
@@ -94,16 +142,17 @@ body.modal-open {
 		animation-name: slideout;
 		transform: translateX(110%);
 		@include for-phone-only {
-			z-index: 4;
+			z-index: 6;
     	}
-
-		&.active {
-			animation-duration: 0.25s;
-			animation-timing-function: ease-out;
-  			animation-name: slidein;
-  			transform: translateX(0%);
+		@include for-tablet-portrait-up {
+			&.active {
+				animation-duration: 0.25s;
+				animation-timing-function: ease-out;
+				animation-name: slidein;
+			}
 		}
-
+		
+		transform: translateX(0%);
 
 		& .image-hero-scroll-to-content-arrow {
 			@include for-largerthan-ipad-portrait {
@@ -163,19 +212,16 @@ body.modal-open {
 	}
 
 	&-menu-column {
-		@include for-largerthan-ipad-portrait {
 			position: static;
-			width: 42%;
-			float: left;
-		}
+			width: 100%;
 	}
 
 	&-module-column {
 
 		@include for-largerthan-ipad-portrait {
 			position: relative;
-			width: 58%;
-			float: right;
+			width: 100%;
+		 	//float: right;
 			overflow: hidden;
 			transition: height 0.5s;
 		}
@@ -184,17 +230,29 @@ body.modal-open {
 		z-index: 4;
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: -100%;
 		width: 100%;
 		overflow: hidden;
 		margin-bottom: 25px;
 		@include for-phone-only {
 			z-index: 4;
 		}
+
+		&.active {
+			right: 0;
+			@include for-phone-only {
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				min-height: 100vh;
+				max-height: 100vh;
+				z-index: 6;
+			}
+		}
 	}
 
 	&-module-details {
-		position: relative;
+		position: static;
 		z-index: 1;
 		background-color: $white;
 		padding: 20px;
@@ -258,7 +316,8 @@ body.modal-open {
 		&-tag {
 			display: inline-block;
 			padding: 13px;
-			margin-top: 4px;
+			margin-top: 0.25em;
+			margin-right: 0.25em;
 			font-family: $header-font;
 			font-weight: bold;
 			@include responsive('font-size', 19px, 19px, 768px, 1024px);
@@ -321,19 +380,22 @@ body.modal-open {
 
                 &.module-list-pattern-zigzag {
                     .module-list-pattern-background {
-                        @include pattern-zigzag($colour);
+						@include pattern-zigzag($colour);
+						z-index: -1;
                     }
                 }
 
                 &.module-list-pattern-diagonal {
                     .module-list-pattern-background {
-                        @include pattern-diagonal($colour);
+						@include pattern-diagonal($colour);
+						z-index: -1;
                     }
                 }
 
                 &.module-list-pattern-weave {
                     .module-list-pattern-background {
-                        @include pattern-weave($colour);
+						@include pattern-weave($colour);
+						z-index: -1;
                     }
                 }
             }
@@ -428,4 +490,8 @@ body.modal-open {
 	font-weight: bold;
 	line-height: 1;
 	color: $black;
+}
+
+.h3.module-list-menu-heading:not(:first-child) {
+	margin-top: 1em;
 }

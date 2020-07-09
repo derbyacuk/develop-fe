@@ -17,6 +17,13 @@
         }
     }
 
+    // Specifically for text blocks that may have run-on content (e.g. course modules)
+    &.run-on {
+        @include for-tablet-portrait-up {
+            @include margin-medium;
+        }
+    }
+
     &-published-date {
         // same margin as h5...
         margin-bottom: .5em;
