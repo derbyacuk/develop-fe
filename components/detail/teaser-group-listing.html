@@ -173,7 +173,9 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-bd1f96165d335576ae0187f5784f1a96-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"teaser-group-listing"</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> teaser = teaser %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> teasers = teasers %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"teaser-group-listing"</span>&gt;</span>
 	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> ( title or intro ) %}</span><span class="xml">
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@text-<span class="hljs-name">block</span>' with { 
             title: title,
