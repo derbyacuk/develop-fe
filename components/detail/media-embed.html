@@ -445,6 +445,15 @@ $(<span class="hljs-string">'.media-embed'</span>).each(<span class="hljs-functi
         <span class="hljs-attr">getCaptionFromTitleOrAlt</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">iframeMaxWidth</span>: $(<span class="hljs-string">'.media-embed-a'</span>, $(<span class="hljs-keyword">this</span>)).attr(<span class="hljs-string">'data-attr-iframe-max-width'</span>)
     });
+
+    $(<span class="hljs-keyword">this</span>).on(<span class="hljs-string">'onAfterOpen.lg'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+        <span class="hljs-keyword">let</span> target = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">".lg-video &gt; iframe"</span>)[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">let</span> src = target.getAttribute(<span class="hljs-string">"src"</span>);
+
+        src = src.replace(<span class="hljs-string">'youtube'</span>, <span class="hljs-string">'youtube-nocookie'</span>);
+        target.setAttribute(<span class="hljs-string">"src"</span>, src);
+
+    });
 });</pre>
                             </code>
                             
@@ -461,7 +470,7 @@ $(<span class="hljs-string">'.media-embed'</span>).each(<span class="hljs-functi
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">564 Bytes</span>
+                    <span class="Meta-value">842 Bytes</span>
                 </li>
             </ul>
         </div>

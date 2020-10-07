@@ -13,4 +13,14 @@ $('.media-gallery-images').lightGallery({
     },
 });
 
+$('.media-gallery-images').on('onBeforeSlide.lg',function(event){
+    let videos = document.querySelectorAll(".lg-video > iframe");
 
+    for(let video of videos) {
+        let src = video.getAttribute("src");
+
+        src = src.replace('youtube.com', 'youtube-nocookie.com');
+        video.setAttribute("src", src);
+    }
+
+});

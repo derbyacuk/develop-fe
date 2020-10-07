@@ -14100,6 +14100,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     controls: 1
   }
 });
+(0, _jquery.default)('.media-gallery-images').on('onBeforeSlide.lg', function (event) {
+  var videos = document.querySelectorAll(".lg-video > iframe");
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = videos[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var video = _step.value;
+      var src = video.getAttribute("src");
+      src = src.replace('youtube.com', 'youtube-nocookie.com');
+      video.setAttribute("src", src);
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+});
 
 /***/ }),
 /* 21 */
@@ -14845,6 +14873,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     },
     getCaptionFromTitleOrAlt: false,
     iframeMaxWidth: (0, _jquery.default)('.media-embed-a', (0, _jquery.default)(this)).attr('data-attr-iframe-max-width')
+  });
+  (0, _jquery.default)(this).on('onAfterOpen.lg', function (event) {
+    var target = document.querySelectorAll(".lg-video > iframe")[0];
+    var src = target.getAttribute("src");
+    src = src.replace('youtube', 'youtube-nocookie');
+    target.setAttribute("src", src);
   });
 });
 
