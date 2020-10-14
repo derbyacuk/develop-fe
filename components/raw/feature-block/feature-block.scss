@@ -39,6 +39,22 @@
         @extend .feature-block;
         background: $turquoise;
     }
+
+    &-gold {
+        @extend .feature-block;
+        background: $gold;
+        color: $text-black;
+
+        a:not([class^='button']), a:link:not([class^='button']) {
+            background-image: linear-gradient(transparent calc(100% - .1em), $mid-blue .1em);
+            color: $mid-blue;
+        }
+    }
+
+    &-pink {
+        @extend .feature-block;
+        background: $pink;
+    }
 }
 
 /*

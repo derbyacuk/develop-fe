@@ -364,6 +364,23 @@
 
 </pre>
         
+            <pre><span class="hljs-comment">&lt;!-- Pink --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-content"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-content-title h5"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>You can study a joint honours degree with Art<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-content-description"</span>&gt;</span>Use our University of Derby course finder to search for undergraduate degree courses including BA, BSc, and BEng, and postgraduate degree courses including MA, MSc, and MBA.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-content-calltoaction"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-outline"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"You can study a joint honours degree with Art"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
+        Browse available courses
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                        Browse available courses
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-pattern search-result-promo-pattern-diagonal search-result-promo-pattern-pink"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+</pre>
+        
             <pre><span class="hljs-comment">&lt;!-- With Image --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo search-result-promo-with-image"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-promo-content"</span>&gt;</span>
@@ -1848,6 +1865,125 @@
 </pre>
         
             <pre>
+<span class="hljs-comment">/* Pink */</span>
+{
+  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Acc"</span>,
+  <span class="hljs-attr">"filterGroups"</span>: [
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Filter by content type"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"result-type"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"radio"</span>,
+      <span class="hljs-attr">"filters"</span>: [
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Course"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"checked"</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type-course"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"News"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type-news"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=news"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Events"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type-events"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=events"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Staff"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-string">"0"</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type-staff"</span>,
+          <span class="hljs-attr">"disabled"</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=staff"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Case study"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-type-case-study"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=case-study"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Filter by level"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"level"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"level"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"checkbox"</span>,
+      <span class="hljs-attr">"filters"</span>: [
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Undergraduate"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"checked"</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-group-undergraduate"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;f.level%7CcourseLevel=Undergraduate&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Postgraduate"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-group-postgraduate"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;f.level%7CcourseLevel=Postgraduate&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Professional"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-group-professional"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;f.level%7CcourseLevel=Professional&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Filter by study option"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"study-option"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"study-option"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"checkbox"</span>,
+      <span class="hljs-attr">"filters"</span>: [
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Full-time"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"checked"</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-study-option-full-time"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses&amp;f.study+option%7CstudyOption=Full-time"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Part-time"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-study-option-part-time"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses&amp;f.study+option%7CstudyOption=Part-time"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Online"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-number">10</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-study-option-online"</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses&amp;f.study+option%7CstudyOption=Online"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"CPD"</span>,
+          <span class="hljs-attr">"count"</span>: <span class="hljs-string">"0"</span>,
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"result-study-option-cpd"</span>,
+          <span class="hljs-attr">"disabled"</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"?query=test&amp;collection=uod-meta&amp;f.result+type%7Ctype=courses&amp;f.study+option%7CstudyOption=CPD"</span>
+        }
+      ]
+    }
+  ],
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"You can study a joint honours degree with Art"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Use our University of Derby course finder to search for undergraduate degree courses including BA, BSc, and BEng, and postgraduate degree courses including MA, MSc, and MBA."</span>,
+  <span class="hljs-attr">"callToAction"</span>: {
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Browse available courses"</span>,
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+  },
+  <span class="hljs-attr">"pattern"</span>: <span class="hljs-string">"diagonal"</span>,
+  <span class="hljs-attr">"patternColour"</span>: <span class="hljs-string">"pink"</span>
+}
+
+</pre>
+        
+            <pre>
 <span class="hljs-comment">/* With Image */</span>
 {
   <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Acc"</span>,
@@ -2008,7 +2144,8 @@
     turquoise: <span class="hljs-variable">$turquoise</span>,
     orange: <span class="hljs-variable">$orange</span>,
     green: <span class="hljs-variable">$green</span>,
-    green-blue: <span class="hljs-variable">$green-blue</span>
+    green-blue: <span class="hljs-variable">$green-blue</span>,
+    pink: <span class="hljs-variable">$pink</span>,
 );
 
 <span class="hljs-selector-class">.search-result-promo</span> {
@@ -2174,7 +2311,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(13)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(14)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="promo-result--default.html">
@@ -2223,6 +2360,10 @@
             
                 <a href="promo-result--green-blue.html">
                     <span>Green Blue</span>
+                </a>, 
+            
+                <a href="promo-result--pink.html">
+                    <span>Pink</span>
                 </a>, 
             
                 <a href="promo-result--with-image.html">
@@ -2897,6 +3038,30 @@ paragraph and call to action button alongside either an image or a pattern eleme
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="full-page-comps--impact-report.html" data-pjax>
                 <span>Impact report</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="full-page-comps--pg-digital-prospectus.html" data-pjax>
+                <span>Postgraduate Digital Prospectus</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -4869,8 +5034,56 @@ paragraph and call to action button alongside either an image or a pattern eleme
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="image-hero--campaign-20-21-style.html" data-pjax>
-                <span>Campaign 20 21 style</span>
+            <a class="Tree-entityLink" href="image-hero--ug-campaign-20-21-style-turquoise.html" data-pjax>
+                <span>UG Campaign 20 21 style turquoise</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-campaign-20-21-style-pink.html" data-pjax>
+                <span>UG Campaign 20 21 style pink</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--pg-campaign-20-21-style.html" data-pjax>
+                <span>PG Campaign 20 21 style</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -4957,8 +5170,56 @@ paragraph and call to action button alongside either an image or a pattern eleme
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="image-hero-search--campaign-20-21-style.html" data-pjax>
-                <span>Campaign 20 21 style</span>
+            <a class="Tree-entityLink" href="image-hero-search--ug-campaign-20-21-style-turquoise.html" data-pjax>
+                <span>UG Campaign 20 21 style turquoise</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-campaign-20-21-style-pink.html" data-pjax>
+                <span>UG Campaign 20 21 style pink</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--pg-campaign-20-21-style.html" data-pjax>
+                <span>PG Campaign 20 21 style</span>
                 
 
 <div class="Status Status--unlabelled">
