@@ -24,6 +24,14 @@ $search-result-pattern-colours: (
         margin-bottom: px-to-em(6, 14);
         text-transform: uppercase;
         font-family: $header-font;
+
+        .search-result-with-tags & {
+            display: inline-block;
+        }
+    }
+
+    .tag {
+        margin: px-to-em(6, 14) 0 px-to-em(6, 14);
     }
 
     &-with-tag {
@@ -42,8 +50,13 @@ $search-result-pattern-colours: (
         margin-bottom: px-to-em(20, 14);
     }
 
+    &-since-live {
+        display: inline-block;
+    }
+
     &-image {
         display: none;
+        position: relative;
 
         @include for-tablet-portrait-up {
             lost-column: 5/16;
@@ -54,8 +67,38 @@ $search-result-pattern-colours: (
             lost-column: 3/10;
         }
 
+        .search-page-results-grid & {
+            display: block !important;
+            margin-bottom: px-to-em(6, 14);
+            lost-column: 16/16;
+        }
+
         img {
             max-width: 100%;
+            display: block;
+        }
+
+        a {
+            display: block;
+            @include disable-underlines;
+        }
+
+        &-runtime {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: $black;
+            color: $white;
+            font-weight: bold;
+            padding: 1px 4px;
+        }
+
+        &-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
         }
     }
 
@@ -107,6 +150,10 @@ $search-result-pattern-colours: (
                 lost-column: 7/10;
             }
         }
+
+        .search-page-results-grid & {
+            lost-column: 16/16;
+        }
     }
 
     &-metadata {
@@ -131,6 +178,13 @@ $search-result-pattern-colours: (
 
     &-wrapper {
         display: block;
+
+        .search-page-results-grid &:not(.search-result-wrapper-fullbleed) {
+
+            @include for-desktop-up {
+                lost-column: 8/16 2;
+            }
+        }
     }
 }
 

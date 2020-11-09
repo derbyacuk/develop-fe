@@ -128,6 +128,25 @@
         &-light {
             h1 {
                 font-weight: normal;
+
+                .content-scheme-turquoise & {
+                    background: $turquoise;
+                    box-shadow: 7px 0 0 $turquoise, (7px * -1) 0 0 $turquoise;
+                    color: $white;
+                }
+
+                .content-scheme-gold & {
+                    background: $gold;
+                    box-shadow: 7px 0 0 $gold, (7px * -1) 0 0 $gold;
+                    color: $white;
+                    color: $text-black;
+                }
+
+                .content-scheme-pink & {
+                    background: $pink;
+                    box-shadow: 7px 0 0 $pink, (7px * -1) 0 0 $pink;
+                    color: $white;
+                }
             }
         }
     }

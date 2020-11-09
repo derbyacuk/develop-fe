@@ -1,4 +1,5 @@
-import gumshoe from 'gumshoe'
+import 'gumshoejs/dist/gumshoe.polyfills.js'
+import Gumshoe from 'gumshoejs'
 import 'smooth-scroll/dist/js/smooth-scroll.polyfills.js'
 import SmoothScroll from 'smooth-scroll'
 import stickybits from 'stickybits'
@@ -7,7 +8,7 @@ import stickybits from 'stickybits'
 let elementExistsOnPage = $('[data-gumshoe-header]').length > 0;
 if (elementExistsOnPage) {
     // for linking the scroll position and the state of the navigation links
-    gumshoe.init({
+    var spy = new Gumshoe('ul[data-gumshoe-header]', {
         offset: 40,
         callback: (nav) => {
             // if no navigation element is in focus, default to selecting the first one.
@@ -18,7 +19,6 @@ if (elementExistsOnPage) {
             }
         }
     });
-
     // make the navigation sticky
     stickybits('.anchor-links-container', {
         useStickyClasses: true

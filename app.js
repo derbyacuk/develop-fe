@@ -10465,947 +10465,6 @@ module.exports = g;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * EvEmitter v1.1.0
- * Lil' event emitter
- * MIT License
- */
-
-/* jshint unused: true, undef: true, strict: true */
-
-( function( global, factory ) {
-  // universal module definition
-  /* jshint strict: false */ /* globals define, module, window */
-  if ( true ) {
-    // AMD - RequireJS
-    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS - Browserify, Webpack
-    module.exports = factory();
-  } else {
-    // Browser globals
-    global.EvEmitter = factory();
-  }
-
-}( typeof window != 'undefined' ? window : this, function() {
-
-"use strict";
-
-function EvEmitter() {}
-
-var proto = EvEmitter.prototype;
-
-proto.on = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // set events hash
-  var events = this._events = this._events || {};
-  // set listeners array
-  var listeners = events[ eventName ] = events[ eventName ] || [];
-  // only add once
-  if ( listeners.indexOf( listener ) == -1 ) {
-    listeners.push( listener );
-  }
-
-  return this;
-};
-
-proto.once = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // add event
-  this.on( eventName, listener );
-  // set once flag
-  // set onceEvents hash
-  var onceEvents = this._onceEvents = this._onceEvents || {};
-  // set onceListeners object
-  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
-  // set flag
-  onceListeners[ listener ] = true;
-
-  return this;
-};
-
-proto.off = function( eventName, listener ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  var index = listeners.indexOf( listener );
-  if ( index != -1 ) {
-    listeners.splice( index, 1 );
-  }
-
-  return this;
-};
-
-proto.emitEvent = function( eventName, args ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  // copy over to avoid interference if .off() in listener
-  listeners = listeners.slice(0);
-  args = args || [];
-  // once stuff
-  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
-
-  for ( var i=0; i < listeners.length; i++ ) {
-    var listener = listeners[i]
-    var isOnce = onceListeners && onceListeners[ listener ];
-    if ( isOnce ) {
-      // remove listener
-      // remove before trigger to prevent recursion
-      this.off( eventName, listener );
-      // unset once flag
-      delete onceListeners[ listener ];
-    }
-    // trigger listener
-    listener.apply( this, args );
-  }
-
-  return this;
-};
-
-proto.allOff = function() {
-  delete this._events;
-  delete this._onceEvents;
-};
-
-return EvEmitter;
-
-}));
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * getSize v2.0.3
- * measure size of elements
- * MIT license
- */
-
-/* jshint browser: true, strict: true, undef: true, unused: true */
-/* globals console: false */
-
-( function( window, factory ) {
-  /* jshint strict: false */ /* globals define, module */
-  if ( true ) {
-    // AMD
-    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS
-    module.exports = factory();
-  } else {
-    // browser global
-    window.getSize = factory();
-  }
-
-})( window, function factory() {
-'use strict';
-
-// -------------------------- helpers -------------------------- //
-
-// get a number from a string, not a percentage
-function getStyleSize( value ) {
-  var num = parseFloat( value );
-  // not a percent like '100%', and a number
-  var isValid = value.indexOf('%') == -1 && !isNaN( num );
-  return isValid && num;
-}
-
-function noop() {}
-
-var logError = typeof console == 'undefined' ? noop :
-  function( message ) {
-    console.error( message );
-  };
-
-// -------------------------- measurements -------------------------- //
-
-var measurements = [
-  'paddingLeft',
-  'paddingRight',
-  'paddingTop',
-  'paddingBottom',
-  'marginLeft',
-  'marginRight',
-  'marginTop',
-  'marginBottom',
-  'borderLeftWidth',
-  'borderRightWidth',
-  'borderTopWidth',
-  'borderBottomWidth'
-];
-
-var measurementsLength = measurements.length;
-
-function getZeroSize() {
-  var size = {
-    width: 0,
-    height: 0,
-    innerWidth: 0,
-    innerHeight: 0,
-    outerWidth: 0,
-    outerHeight: 0
-  };
-  for ( var i=0; i < measurementsLength; i++ ) {
-    var measurement = measurements[i];
-    size[ measurement ] = 0;
-  }
-  return size;
-}
-
-// -------------------------- getStyle -------------------------- //
-
-/**
- * getStyle, get style of element, check for Firefox bug
- * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
- */
-function getStyle( elem ) {
-  var style = getComputedStyle( elem );
-  if ( !style ) {
-    logError( 'Style returned ' + style +
-      '. Are you running this code in a hidden iframe on Firefox? ' +
-      'See https://bit.ly/getsizebug1' );
-  }
-  return style;
-}
-
-// -------------------------- setup -------------------------- //
-
-var isSetup = false;
-
-var isBoxSizeOuter;
-
-/**
- * setup
- * check isBoxSizerOuter
- * do on first getSize() rather than on page load for Firefox bug
- */
-function setup() {
-  // setup once
-  if ( isSetup ) {
-    return;
-  }
-  isSetup = true;
-
-  // -------------------------- box sizing -------------------------- //
-
-  /**
-   * Chrome & Safari measure the outer-width on style.width on border-box elems
-   * IE11 & Firefox<29 measures the inner-width
-   */
-  var div = document.createElement('div');
-  div.style.width = '200px';
-  div.style.padding = '1px 2px 3px 4px';
-  div.style.borderStyle = 'solid';
-  div.style.borderWidth = '1px 2px 3px 4px';
-  div.style.boxSizing = 'border-box';
-
-  var body = document.body || document.documentElement;
-  body.appendChild( div );
-  var style = getStyle( div );
-  // round value for browser zoom. desandro/masonry#928
-  isBoxSizeOuter = Math.round( getStyleSize( style.width ) ) == 200;
-  getSize.isBoxSizeOuter = isBoxSizeOuter;
-
-  body.removeChild( div );
-}
-
-// -------------------------- getSize -------------------------- //
-
-function getSize( elem ) {
-  setup();
-
-  // use querySeletor if elem is string
-  if ( typeof elem == 'string' ) {
-    elem = document.querySelector( elem );
-  }
-
-  // do not proceed on non-objects
-  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
-    return;
-  }
-
-  var style = getStyle( elem );
-
-  // if hidden, everything is 0
-  if ( style.display == 'none' ) {
-    return getZeroSize();
-  }
-
-  var size = {};
-  size.width = elem.offsetWidth;
-  size.height = elem.offsetHeight;
-
-  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
-
-  // get all measurements
-  for ( var i=0; i < measurementsLength; i++ ) {
-    var measurement = measurements[i];
-    var value = style[ measurement ];
-    var num = parseFloat( value );
-    // any 'auto', 'medium' value will be 0
-    size[ measurement ] = !isNaN( num ) ? num : 0;
-  }
-
-  var paddingWidth = size.paddingLeft + size.paddingRight;
-  var paddingHeight = size.paddingTop + size.paddingBottom;
-  var marginWidth = size.marginLeft + size.marginRight;
-  var marginHeight = size.marginTop + size.marginBottom;
-  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
-  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
-
-  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
-
-  // overwrite width and height if we can get it from style
-  var styleWidth = getStyleSize( style.width );
-  if ( styleWidth !== false ) {
-    size.width = styleWidth +
-      // add padding and border unless it's already including it
-      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
-  }
-
-  var styleHeight = getStyleSize( style.height );
-  if ( styleHeight !== false ) {
-    size.height = styleHeight +
-      // add padding and border unless it's already including it
-      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
-  }
-
-  size.innerWidth = size.width - ( paddingWidth + borderWidth );
-  size.innerHeight = size.height - ( paddingHeight + borderHeight );
-
-  size.outerWidth = size.width + marginWidth;
-  size.outerHeight = size.height + marginHeight;
-
-  return size;
-}
-
-return getSize;
-
-});
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.closeAllMenusExcept = closeAllMenusExcept;
-
-var _siteSearchIntegration = __webpack_require__(5);
-
-var menuContainerActive = 'header-dropdown-menu-container-active';
-var headerMenuActiveClass = 'main-navigation-panel-active';
-var headerMenuHiddenClass = 'main-navigation-panel-hidden';
-
-var toggleMenu = function toggleMenu(menuIdToShow) {
-  $('.header-navigation-menu-item a').removeClass('active');
-
-  if (menuIdToShow) {
-    var thisMenuIsAlreadyOpen = $("#".concat(menuIdToShow)).hasClass(headerMenuActiveClass);
-
-    if (thisMenuIsAlreadyOpen) {
-      closeAllMenusExcept();
-      closeMenu(menuIdToShow);
-      $("[aria-controls=\"".concat(menuIdToShow, "\"]")).removeClass('active').blur();
-    } else {
-      closeAllMenusExcept(menuIdToShow);
-      openMenu(menuIdToShow, true);
-      $("[aria-controls=\"".concat(menuIdToShow, "\"]")).addClass('active');
-    }
-  } else {
-    closeAllMenusExcept();
-  }
-};
-
-function closeAllMenusExcept(menuId) {
-  if (!menuId) {
-    $('.header-navigation-menu-item a').removeClass('active');
-    $('.header-dropdown-menu-container').removeClass(menuContainerActive).css({
-      minHeight: undefined
-    });
-  }
-
-  $('.main-navigation-desktop-content').not("#".concat(menuId)).removeClass(headerMenuActiveClass);
-}
-
-function closeMenu(menuId) {
-  $("#".concat(menuId)).removeClass(headerMenuActiveClass);
-}
-
-function openMenu(menuId, animated) {
-  (0, _siteSearchIntegration.hideSearch)();
-  $('.header-dropdown-menu-container').addClass(menuContainerActive);
-  setMinHeight();
-  $("#".concat(menuId)).addClass(headerMenuActiveClass).removeClass(headerMenuHiddenClass);
-  $('.main-navigation-desktop-content').not("#".concat(menuId)).addClass(headerMenuHiddenClass);
-}
-
-function setMinHeight() {
-  if ($('.main-navigation-panel-content').length) {
-    requestAnimationFrame(function () {
-      var minHeight = $('.main-navigation-panel-content').height();
-
-      if (minHeight > window.screen.availHeight) {
-        $('.header-dropdown-menu-container').css({
-          minHeight: minHeight
-        });
-      }
-    });
-  }
-} // when a menu item is clicked, toggle its associated menu
-
-
-$('.header-navigation-menu-item a').on('click', function (e) {
-  if ($(this).parent().hasClass('has-dropdown')) {
-    e.preventDefault();
-  }
-
-  toggleMenu($(this).attr('aria-controls'));
-});
-$('.main-navigation-close').on('click', function () {
-  closeAllMenusExcept();
-  var parentId = $(this).parents('.main-navigation-desktop-content').attr('id');
-  closeMenu(parentId);
-}); // open the mobile navigation when its button is clicked 
-// (which also overlays the menu over the button, so we don't have to worry about toggle behaviours)
-
-$('.header-navigation-mobile-menu').on('click', function () {
-  openMenu();
-}); // whenever the accordion menus in the mobile navigation open, 
-// we need to re-asses the minimum height of the menu so we don't crop any of the content.
-
-$('.main-navigation-mobile').on('ACCORDION_OPEN', setMinHeight); // whenever the window height changes, 
-// we need to re-asses the minimum height of the menu so we don't crop any of the content.
-
-$(window).on('resize', setMinHeight); // on page load, we need to asses the minimum height of the menu so we don't crop any of the content.
-
-setMinHeight();
-$(window).on('resize', function () {
-  var currentWidth = $(window).width();
-
-  if (currentWidth > 768) {
-    if ($('.' + headerMenuActiveClass).length === 0) {
-      closeAllMenusExcept();
-    }
-  }
-});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.hideSearch = hideSearch;
-
-var _menuIntegration = __webpack_require__(4);
-
-var timeoutReference;
-
-function toggleSiteSearchPanel() {
-  // if any other header menus are open, close them.
-  (0, _menuIntegration.closeAllMenusExcept)(); // make the search panel visible and active, to start it animating in
-
-  $('.header-site-search-container').toggleClass('header-site-search-container-hidden').toggleClass('header-site-search-container-active'); // set the header button state to reflect the state of the panel
-
-  $('.header-navigation-button.js-header-navigation-search').toggleClass('active');
-
-  if ($('.header-site-search-container').hasClass('header-site-search-container-active')) {
-    if (timeoutReference) {
-      clearTimeout(timeoutReference);
-      timeoutReference = undefined;
-    } // the panel animates in, but we don't want to focus until the animation is complete
-    // if we do, the viewport focusses on the panel and scrolls the page oddly.
-
-
-    timeoutReference = setTimeout(function () {
-      $('.header-site-search-container .search-input').focus();
-    }, 500);
-  } else {
-    // the hover state is the same as the focus state, so if we're closing the panel
-    // we also need to shift the button focus as well.
-    $(this).blur();
-  }
-}
-
-function hideSearch() {
-  // reset the classes on the site search container panel
-  $('.header-site-search-container').addClass('header-site-search-container-hidden').removeClass('header-site-search-container-active'); // reset header button state
-
-  $('.header-navigation-button.js-header-navigation-search').removeClass('active').blur();
-}
-
-$('.js-header-navigation-search').on('click', toggleSiteSearchPanel);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/**
-  stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
-  @version v3.3.2
-  @link https://github.com/dollarshaveclub/stickybits#readme
-  @author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
-  @license MIT
-**/
-/*
-  STICKYBITS 💉
-  --------
-  > a lightweight alternative to `position: sticky` polyfills 🍬
-  --------
-  - each method is documented above it our view the readme
-  - Stickybits does not manage polymorphic functionality (position like properties)
-  * polymorphic functionality: (in the context of describing Stickybits)
-    means making things like `position: sticky` be loosely supported with position fixed.
-    It also means that features like `useStickyClasses` takes on styles like `position: fixed`.
-  --------
-  defaults 🔌
-  --------
-  - version = `package.json` version
-  - userAgent = viewer browser agent
-  - target = DOM element selector
-  - noStyles = boolean
-  - offset = number
-  - parentClass = 'string'
-  - scrollEl = window || DOM element selector
-  - stickyClass = 'string'
-  - stuckClass = 'string'
-  - useStickyClasses = boolean
-  - verticalPosition = 'string'
-  --------
-  props🔌
-  --------
-  - p = props {object}
-  --------
-  instance note
-  --------
-  - stickybits parent methods return this
-  - stickybits instance methods return an instance item
-  --------
-  nomenclature
-  --------
-  - target => el => e
-  - props => o || p
-  - instance => item => it
-  --------
-  methods
-  --------
-  - .definePosition = defines sticky or fixed
-  - .addInstance = an array of objects for each Stickybits Target
-  - .getClosestParent = gets the parent for non-window scroll
-  - .getOffsetTop = gets the element offsetTop from the top level of the DOM
-  - .computeScrollOffsets = computes scroll position
-  - .toggleClasses = older browser toggler
-  - .manageState = manages sticky state
-  - .removeClass = older browser support class remover
-  - .removeInstance = removes an instance
-  - .cleanup = removes all Stickybits instances and cleans up dom from stickybits
-*/
-var Stickybits =
-/*#__PURE__*/
-function () {
-  function Stickybits(target, obj) {
-    var o = typeof obj !== 'undefined' ? obj : {};
-    this.version = '3.3.2';
-    this.userAgent = window.navigator.userAgent || 'no `userAgent` provided by the browser';
-    this.props = {
-      customStickyChangeNumber: o.customStickyChangeNumber || null,
-      noStyles: o.noStyles || false,
-      stickyBitStickyOffset: o.stickyBitStickyOffset || 0,
-      parentClass: o.parentClass || 'js-stickybit-parent',
-      scrollEl: document.querySelector(o.scrollEl) || window,
-      stickyClass: o.stickyClass || 'js-is-sticky',
-      stuckClass: o.stuckClass || 'js-is-stuck',
-      stickyChangeClass: o.stickyChangeClass || 'js-is-sticky--change',
-      useStickyClasses: o.useStickyClasses || false,
-      verticalPosition: o.verticalPosition || 'top'
-    };
-    var p = this.props;
-    /*
-      define positionVal
-      ----
-      -  uses a computed (`.definePosition()`)
-      -  defined the position
-    */
-
-    p.positionVal = this.definePosition() || 'fixed';
-    var vp = p.verticalPosition;
-    var ns = p.noStyles;
-    var pv = p.positionVal;
-    this.els = typeof target === 'string' ? document.querySelectorAll(target) : target;
-    if (!('length' in this.els)) this.els = [this.els];
-    this.instances = [];
-
-    for (var i = 0; i < this.els.length; i += 1) {
-      var el = this.els[i];
-      var styles = el.style; // set vertical position
-
-      styles[vp] = vp === 'top' && !ns ? p.stickyBitStickyOffset + "px" : '';
-      styles.position = pv !== 'fixed' ? pv : '';
-
-      if (pv === 'fixed' || p.useStickyClasses) {
-        var instance = this.addInstance(el, p); // instances are an array of objects
-
-        this.instances.push(instance);
-      }
-    }
-
-    return this;
-  }
-  /*
-    setStickyPosition ✔️
-    --------
-    —  most basic thing stickybits does
-    => checks to see if position sticky is supported
-    => defined the position to be used
-    => stickybits works accordingly
-  */
-
-
-  var _proto = Stickybits.prototype;
-
-  _proto.definePosition = function definePosition() {
-    var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
-    var test = document.head.style;
-
-    for (var i = 0; i < prefix.length; i += 1) {
-      test.position = prefix[i] + "sticky";
-    }
-
-    var stickyProp = test.position ? test.position : 'fixed';
-    test.position = '';
-    return stickyProp;
-  };
-  /*
-    addInstance ✔️
-    --------
-    — manages instances of items
-    - takes in an el and props
-    - returns an item object
-    ---
-    - target = el
-    - o = {object} = props
-      - scrollEl = 'string'
-      - verticalPosition = number
-      - off = boolean
-      - parentClass = 'string'
-      - stickyClass = 'string'
-      - stuckClass = 'string'
-    ---
-    - defined later
-      - parent = dom element
-      - state = 'string'
-      - offset = number
-      - stickyStart = number
-      - stickyStop = number
-    - returns an instance object
-  */
-
-
-  _proto.addInstance = function addInstance(el, props) {
-    var _this = this;
-
-    var item = {
-      el: el,
-      parent: el.parentNode,
-      props: props
-    };
-    this.isWin = this.props.scrollEl === window;
-    var se = this.isWin ? window : this.getClosestParent(item.el, item.props.scrollEl);
-    this.computeScrollOffsets(item);
-    item.parent.className += " " + props.parentClass;
-    item.state = 'default';
-
-    item.stateContainer = function () {
-      return _this.manageState(item);
-    };
-
-    se.addEventListener('scroll', item.stateContainer);
-    return item;
-  };
-  /*
-    --------
-    getParent 👨‍
-    --------
-    - a helper function that gets the target element's parent selected el
-    - only used for non `window` scroll elements
-    - supports older browsers
-  */
-
-
-  _proto.getClosestParent = function getClosestParent(el, match) {
-    // p = parent element
-    var p = match;
-    var e = el;
-    if (e.parentElement === p) return p; // traverse up the dom tree until we get to the parent
-
-    while (e.parentElement !== p) {
-      e = e.parentElement;
-    } // return parent element
-
-
-    return p;
-  };
-  /*
-    --------
-    getOffsetTop
-    --------
-    - a helper function that gets the offsetTop of the element
-    - from the top level of the DOM
-  */
-
-
-  _proto.getOffsetTop = function getOffsetTop(el) {
-    var offsetTop = 0;
-
-    do {
-      offsetTop = el.offsetTop + offsetTop;
-    } while (el = el.offsetParent);
-
-    return offsetTop;
-  };
-  /*
-    computeScrollOffsets 📊
-    ---
-    computeScrollOffsets for Stickybits
-    - defines
-      - offset
-      - start
-      - stop
-  */
-
-
-  _proto.computeScrollOffsets = function computeScrollOffsets(item) {
-    var it = item;
-    var p = it.props;
-    var el = it.el;
-    var parent = it.parent;
-    var isCustom = !this.isWin && p.positionVal === 'fixed';
-    var isBottom = p.verticalPosition !== 'bottom';
-    var scrollElOffset = isCustom ? this.getOffsetTop(p.scrollEl) : 0;
-    var stickyStart = isCustom ? this.getOffsetTop(parent) - scrollElOffset : this.getOffsetTop(parent);
-    var stickyChangeOffset = p.customStickyChangeNumber !== null ? p.customStickyChangeNumber : el.offsetHeight;
-    it.offset = scrollElOffset + p.stickyBitStickyOffset;
-    it.stickyStart = isBottom ? stickyStart - it.offset : 0;
-    it.stickyChange = it.stickyStart + stickyChangeOffset;
-    it.stickyStop = isBottom ? stickyStart + parent.offsetHeight - (it.el.offsetHeight + it.offset) : stickyStart + parent.offsetHeight;
-    return it;
-  };
-  /*
-    toggleClasses ⚖️
-    ---
-    toggles classes (for older browser support)
-    r = removed class
-    a = added class
-  */
-
-
-  _proto.toggleClasses = function toggleClasses(el, r, a) {
-    var e = el;
-    var cArray = e.className.split(' ');
-    if (a && cArray.indexOf(a) === -1) cArray.push(a);
-    var rItem = cArray.indexOf(r);
-    if (rItem !== -1) cArray.splice(rItem, 1);
-    e.className = cArray.join(' ');
-  };
-  /*
-    manageState 📝
-    ---
-    - defines the state
-      - normal
-      - sticky
-      - stuck
-  */
-
-
-  _proto.manageState = function manageState(item) {
-    // cache object
-    var it = item;
-    var e = it.el;
-    var p = it.props;
-    var state = it.state;
-    var start = it.stickyStart;
-    var change = it.stickyChange;
-    var stop = it.stickyStop;
-    var stl = e.style; // cache props
-
-    var ns = p.noStyles;
-    var pv = p.positionVal;
-    var se = p.scrollEl;
-    var sticky = p.stickyClass;
-    var stickyChange = p.stickyChangeClass;
-    var stuck = p.stuckClass;
-    var vp = p.verticalPosition;
-    /*
-      requestAnimationFrame
-      ---
-      - use rAF
-      - or stub rAF
-    */
-
-    var rAFStub = function rAFDummy(f) {
-      f();
-    };
-
-    var rAF = !this.isWin ? rAFStub : window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || rAFStub;
-    /*
-      define scroll vars
-      ---
-      - scroll
-      - notSticky
-      - isSticky
-      - isStuck
-    */
-
-    var tC = this.toggleClasses;
-    var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
-    var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
-    var isSticky = scroll <= start && state === 'sticky';
-    var isStuck = scroll >= stop && state === 'sticky';
-    /*
-      Unnamed arrow functions within this block
-      ---
-      - help wanted or discussion
-      - view test.stickybits.js
-        - `stickybits .manageState  `position: fixed` interface` for more awareness 👀
-    */
-
-    if (notSticky) {
-      it.state = 'sticky';
-      rAF(function () {
-        tC(e, stuck, sticky);
-        stl.position = pv;
-        if (ns) return;
-        stl.bottom = '';
-        stl[vp] = p.stickyBitStickyOffset + "px";
-      });
-    } else if (isSticky) {
-      it.state = 'default';
-      rAF(function () {
-        tC(e, sticky);
-        if (pv === 'fixed') stl.position = '';
-      });
-    } else if (isStuck) {
-      it.state = 'stuck';
-      rAF(function () {
-        tC(e, sticky, stuck);
-        if (pv !== 'fixed' || ns) return;
-        stl.top = '';
-        stl.bottom = '0';
-        stl.position = 'absolute';
-      });
-    }
-
-    var isStickyChange = scroll >= change && scroll <= stop;
-    var isNotStickyChange = scroll < change || scroll > stop;
-    var stub = 'stub'; // a stub css class to remove
-
-    if (isNotStickyChange) {
-      rAF(function () {
-        tC(e, stickyChange);
-      });
-    } else if (isStickyChange) {
-      rAF(function () {
-        tC(e, stub, stickyChange);
-      });
-    }
-
-    return it;
-  };
-
-  _proto.update = function update() {
-    for (var i = 0; i < this.instances.length; i += 1) {
-      var instance = this.instances[i];
-      this.computeScrollOffsets(instance);
-    }
-
-    return this;
-  };
-  /*
-    removes an instance 👋
-    --------
-    - cleanup instance
-  */
-
-
-  _proto.removeInstance = function removeInstance(instance) {
-    var e = instance.el;
-    var p = instance.props;
-    var tC = this.toggleClasses;
-    e.style.position = '';
-    e.style[p.verticalPosition] = '';
-    tC(e, p.stickyClass);
-    tC(e, p.stuckClass);
-    tC(e.parentNode, p.parentClass);
-  };
-  /*
-    cleanup 🛁
-    --------
-    - cleans up each instance
-    - clears instance
-  */
-
-
-  _proto.cleanup = function cleanup() {
-    for (var i = 0; i < this.instances.length; i += 1) {
-      var instance = this.instances[i];
-      instance.props.scrollEl.removeEventListener('scroll', instance.stateContainer);
-      this.removeInstance(instance);
-    }
-
-    this.manageState = false;
-    this.instances = [];
-  };
-
-  return Stickybits;
-}();
-/*
-  export
-  --------
-  exports StickBits to be used 🏁
-*/
-
-
-function stickybits(target, o) {
-  return new Stickybits(target, o);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (stickybits);
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! lightgallery - v1.6.11 - 2018-05-22
 * http://sachinchoolur.github.io/lightGallery/
 * Copyright (c) 2018 Sachin N; Licensed GPLv3 */
@@ -12771,7 +11830,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! lightgallery
 
 
 /***/ }),
-/* 8 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! lg-video - v1.2.2 - 2018-05-01
@@ -12779,6 +11838,947 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! lg-video - v
 * Copyright (c) 2018 Sachin N; Licensed GPLv3 */
 !function(a,b){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(a){return b(a)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=b(require("jquery")):b(a.jQuery)}(this,function(a){!function(){"use strict";function b(a,b,c,d){var e=this;if(e.core.$slide.eq(b).find(".lg-video").append(e.loadVideo(c,"lg-object",!0,b,d)),d)if(e.core.s.videojs)try{videojs(e.core.$slide.eq(b).find(".lg-html5").get(0),e.core.s.videojsOptions,function(){!e.videoLoaded&&e.core.s.autoplayFirstVideo&&this.play()})}catch(a){console.error("Make sure you have included videojs")}else!e.videoLoaded&&e.core.s.autoplayFirstVideo&&e.core.$slide.eq(b).find(".lg-html5").get(0).play()}function c(a,b){var c=this.core.$slide.eq(b).find(".lg-video-cont");c.hasClass("lg-has-iframe")||(c.css("max-width",this.core.s.videoMaxWidth),this.videoLoaded=!0)}function d(b,c,d){var e=this,f=e.core.$slide.eq(c),g=f.find(".lg-youtube").get(0),h=f.find(".lg-vimeo").get(0),i=f.find(".lg-dailymotion").get(0),j=f.find(".lg-vk").get(0),k=f.find(".lg-html5").get(0);if(g)g.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}',"*");else if(h)try{$f(h).api("pause")}catch(a){console.error("Make sure you have included froogaloop2 js")}else if(i)i.contentWindow.postMessage("pause","*");else if(k)if(e.core.s.videojs)try{videojs(k).pause()}catch(a){console.error("Make sure you have included videojs")}else k.pause();j&&a(j).attr("src",a(j).attr("src").replace("&autoplay","&noplay"));var l;l=e.core.s.dynamic?e.core.s.dynamicEl[d].src:e.core.$items.eq(d).attr("href")||e.core.$items.eq(d).attr("data-src");var m=e.core.isVideo(l,d)||{};(m.youtube||m.vimeo||m.dailymotion||m.vk)&&e.core.$outer.addClass("lg-hide-download")}var e={videoMaxWidth:"855px",autoplayFirstVideo:!0,youtubePlayerParams:!1,vimeoPlayerParams:!1,dailymotionPlayerParams:!1,vkPlayerParams:!1,videojs:!1,videojsOptions:{}},f=function(b){return this.core=a(b).data("lightGallery"),this.$el=a(b),this.core.s=a.extend({},e,this.core.s),this.videoLoaded=!1,this.init(),this};f.prototype.init=function(){var e=this;e.core.$el.on("hasVideo.lg.tm",b.bind(this)),e.core.$el.on("onAferAppendSlide.lg.tm",c.bind(this)),e.core.doCss()&&e.core.$items.length>1&&(e.core.s.enableSwipe||e.core.s.enableDrag)?e.core.$el.on("onSlideClick.lg.tm",function(){var a=e.core.$slide.eq(e.core.index);e.loadVideoOnclick(a)}):e.core.$slide.on("click.lg",function(){e.loadVideoOnclick(a(this))}),e.core.$el.on("onBeforeSlide.lg.tm",d.bind(this)),e.core.$el.on("onAfterSlide.lg.tm",function(a,b){e.core.$slide.eq(b).removeClass("lg-video-playing")}),e.core.s.autoplayFirstVideo&&e.core.$el.on("onAferAppendSlide.lg.tm",function(a,b){if(!e.core.lGalleryOn){var c=e.core.$slide.eq(b);setTimeout(function(){e.loadVideoOnclick(c)},100)}})},f.prototype.loadVideo=function(b,c,d,e,f){var g="",h=1,i="",j=this.core.isVideo(b,e)||{};if(d&&(h=this.videoLoaded?0:this.core.s.autoplayFirstVideo?1:0),j.youtube)i="?wmode=opaque&autoplay="+h+"&enablejsapi=1",this.core.s.youtubePlayerParams&&(i=i+"&"+a.param(this.core.s.youtubePlayerParams)),g='<iframe class="lg-video-object lg-youtube '+c+'" width="560" height="315" src="//www.youtube.com/embed/'+j.youtube[1]+i+'" frameborder="0" allowfullscreen></iframe>';else if(j.vimeo)i="?autoplay="+h+"&api=1",this.core.s.vimeoPlayerParams&&(i=i+"&"+a.param(this.core.s.vimeoPlayerParams)),g='<iframe class="lg-video-object lg-vimeo '+c+'" width="560" height="315"  src="//player.vimeo.com/video/'+j.vimeo[1]+i+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';else if(j.dailymotion)i="?wmode=opaque&autoplay="+h+"&api=postMessage",this.core.s.dailymotionPlayerParams&&(i=i+"&"+a.param(this.core.s.dailymotionPlayerParams)),g='<iframe class="lg-video-object lg-dailymotion '+c+'" width="560" height="315" src="//www.dailymotion.com/embed/video/'+j.dailymotion[1]+i+'" frameborder="0" allowfullscreen></iframe>';else if(j.html5){var k=f.substring(0,1);"."!==k&&"#"!==k||(f=a(f).html()),g=f}else j.vk&&(i="&autoplay="+h,this.core.s.vkPlayerParams&&(i=i+"&"+a.param(this.core.s.vkPlayerParams)),g='<iframe class="lg-video-object lg-vk '+c+'" width="560" height="315" src="//vk.com/video_ext.php?'+j.vk[1]+i+'" frameborder="0" allowfullscreen></iframe>');return g},f.prototype.loadVideoOnclick=function(a){var b=this;if(a.find(".lg-object").hasClass("lg-has-poster")&&a.find(".lg-object").is(":visible"))if(a.hasClass("lg-has-video")){var c=a.find(".lg-youtube").get(0),d=a.find(".lg-vimeo").get(0),e=a.find(".lg-dailymotion").get(0),f=a.find(".lg-html5").get(0);if(c)c.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}',"*");else if(d)try{$f(d).api("play")}catch(a){console.error("Make sure you have included froogaloop2 js")}else if(e)e.contentWindow.postMessage("play","*");else if(f)if(b.core.s.videojs)try{videojs(f).play()}catch(a){console.error("Make sure you have included videojs")}else f.play();a.addClass("lg-video-playing")}else{a.addClass("lg-video-playing lg-has-video");var g,h,i=function(c,d){if(a.find(".lg-video").append(b.loadVideo(c,"",!1,b.core.index,d)),d)if(b.core.s.videojs)try{videojs(b.core.$slide.eq(b.core.index).find(".lg-html5").get(0),b.core.s.videojsOptions,function(){this.play()})}catch(a){console.error("Make sure you have included videojs")}else b.core.$slide.eq(b.core.index).find(".lg-html5").get(0).play()};b.core.s.dynamic?(g=b.core.s.dynamicEl[b.core.index].src,h=b.core.s.dynamicEl[b.core.index].html,i(g,h)):(g=b.core.$items.eq(b.core.index).attr("href")||b.core.$items.eq(b.core.index).attr("data-src"),h=b.core.$items.eq(b.core.index).attr("data-html"),i(g,h));var j=a.find(".lg-object");a.find(".lg-video").append(j),a.find(".lg-video-object").hasClass("lg-html5")||(a.removeClass("lg-complete"),a.find(".lg-video-object").on("load.lg error.lg",function(){a.addClass("lg-complete")}))}},f.prototype.destroy=function(){this.videoLoaded=!1},a.fn.lightGallery.modules.video=f}()});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * EvEmitter v1.1.0
+ * Lil' event emitter
+ * MIT License
+ */
+
+/* jshint unused: true, undef: true, strict: true */
+
+( function( global, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /* globals define, module, window */
+  if ( true ) {
+    // AMD - RequireJS
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS - Browserify, Webpack
+    module.exports = factory();
+  } else {
+    // Browser globals
+    global.EvEmitter = factory();
+  }
+
+}( typeof window != 'undefined' ? window : this, function() {
+
+"use strict";
+
+function EvEmitter() {}
+
+var proto = EvEmitter.prototype;
+
+proto.on = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // set events hash
+  var events = this._events = this._events || {};
+  // set listeners array
+  var listeners = events[ eventName ] = events[ eventName ] || [];
+  // only add once
+  if ( listeners.indexOf( listener ) == -1 ) {
+    listeners.push( listener );
+  }
+
+  return this;
+};
+
+proto.once = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // add event
+  this.on( eventName, listener );
+  // set once flag
+  // set onceEvents hash
+  var onceEvents = this._onceEvents = this._onceEvents || {};
+  // set onceListeners object
+  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+  // set flag
+  onceListeners[ listener ] = true;
+
+  return this;
+};
+
+proto.off = function( eventName, listener ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  var index = listeners.indexOf( listener );
+  if ( index != -1 ) {
+    listeners.splice( index, 1 );
+  }
+
+  return this;
+};
+
+proto.emitEvent = function( eventName, args ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  // copy over to avoid interference if .off() in listener
+  listeners = listeners.slice(0);
+  args = args || [];
+  // once stuff
+  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+  for ( var i=0; i < listeners.length; i++ ) {
+    var listener = listeners[i]
+    var isOnce = onceListeners && onceListeners[ listener ];
+    if ( isOnce ) {
+      // remove listener
+      // remove before trigger to prevent recursion
+      this.off( eventName, listener );
+      // unset once flag
+      delete onceListeners[ listener ];
+    }
+    // trigger listener
+    listener.apply( this, args );
+  }
+
+  return this;
+};
+
+proto.allOff = function() {
+  delete this._events;
+  delete this._onceEvents;
+};
+
+return EvEmitter;
+
+}));
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * getSize v2.0.3
+ * measure size of elements
+ * MIT license
+ */
+
+/* jshint browser: true, strict: true, undef: true, unused: true */
+/* globals console: false */
+
+( function( window, factory ) {
+  /* jshint strict: false */ /* globals define, module */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory();
+  } else {
+    // browser global
+    window.getSize = factory();
+  }
+
+})( window, function factory() {
+'use strict';
+
+// -------------------------- helpers -------------------------- //
+
+// get a number from a string, not a percentage
+function getStyleSize( value ) {
+  var num = parseFloat( value );
+  // not a percent like '100%', and a number
+  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+  return isValid && num;
+}
+
+function noop() {}
+
+var logError = typeof console == 'undefined' ? noop :
+  function( message ) {
+    console.error( message );
+  };
+
+// -------------------------- measurements -------------------------- //
+
+var measurements = [
+  'paddingLeft',
+  'paddingRight',
+  'paddingTop',
+  'paddingBottom',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'marginBottom',
+  'borderLeftWidth',
+  'borderRightWidth',
+  'borderTopWidth',
+  'borderBottomWidth'
+];
+
+var measurementsLength = measurements.length;
+
+function getZeroSize() {
+  var size = {
+    width: 0,
+    height: 0,
+    innerWidth: 0,
+    innerHeight: 0,
+    outerWidth: 0,
+    outerHeight: 0
+  };
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    size[ measurement ] = 0;
+  }
+  return size;
+}
+
+// -------------------------- getStyle -------------------------- //
+
+/**
+ * getStyle, get style of element, check for Firefox bug
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+ */
+function getStyle( elem ) {
+  var style = getComputedStyle( elem );
+  if ( !style ) {
+    logError( 'Style returned ' + style +
+      '. Are you running this code in a hidden iframe on Firefox? ' +
+      'See https://bit.ly/getsizebug1' );
+  }
+  return style;
+}
+
+// -------------------------- setup -------------------------- //
+
+var isSetup = false;
+
+var isBoxSizeOuter;
+
+/**
+ * setup
+ * check isBoxSizerOuter
+ * do on first getSize() rather than on page load for Firefox bug
+ */
+function setup() {
+  // setup once
+  if ( isSetup ) {
+    return;
+  }
+  isSetup = true;
+
+  // -------------------------- box sizing -------------------------- //
+
+  /**
+   * Chrome & Safari measure the outer-width on style.width on border-box elems
+   * IE11 & Firefox<29 measures the inner-width
+   */
+  var div = document.createElement('div');
+  div.style.width = '200px';
+  div.style.padding = '1px 2px 3px 4px';
+  div.style.borderStyle = 'solid';
+  div.style.borderWidth = '1px 2px 3px 4px';
+  div.style.boxSizing = 'border-box';
+
+  var body = document.body || document.documentElement;
+  body.appendChild( div );
+  var style = getStyle( div );
+  // round value for browser zoom. desandro/masonry#928
+  isBoxSizeOuter = Math.round( getStyleSize( style.width ) ) == 200;
+  getSize.isBoxSizeOuter = isBoxSizeOuter;
+
+  body.removeChild( div );
+}
+
+// -------------------------- getSize -------------------------- //
+
+function getSize( elem ) {
+  setup();
+
+  // use querySeletor if elem is string
+  if ( typeof elem == 'string' ) {
+    elem = document.querySelector( elem );
+  }
+
+  // do not proceed on non-objects
+  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+    return;
+  }
+
+  var style = getStyle( elem );
+
+  // if hidden, everything is 0
+  if ( style.display == 'none' ) {
+    return getZeroSize();
+  }
+
+  var size = {};
+  size.width = elem.offsetWidth;
+  size.height = elem.offsetHeight;
+
+  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+
+  // get all measurements
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    var value = style[ measurement ];
+    var num = parseFloat( value );
+    // any 'auto', 'medium' value will be 0
+    size[ measurement ] = !isNaN( num ) ? num : 0;
+  }
+
+  var paddingWidth = size.paddingLeft + size.paddingRight;
+  var paddingHeight = size.paddingTop + size.paddingBottom;
+  var marginWidth = size.marginLeft + size.marginRight;
+  var marginHeight = size.marginTop + size.marginBottom;
+  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+
+  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+
+  // overwrite width and height if we can get it from style
+  var styleWidth = getStyleSize( style.width );
+  if ( styleWidth !== false ) {
+    size.width = styleWidth +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+  }
+
+  var styleHeight = getStyleSize( style.height );
+  if ( styleHeight !== false ) {
+    size.height = styleHeight +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+  }
+
+  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+
+  size.outerWidth = size.width + marginWidth;
+  size.outerHeight = size.height + marginHeight;
+
+  return size;
+}
+
+return getSize;
+
+});
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.closeAllMenusExcept = closeAllMenusExcept;
+
+var _siteSearchIntegration = __webpack_require__(7);
+
+var menuContainerActive = 'header-dropdown-menu-container-active';
+var headerMenuActiveClass = 'main-navigation-panel-active';
+var headerMenuHiddenClass = 'main-navigation-panel-hidden';
+
+var toggleMenu = function toggleMenu(menuIdToShow) {
+  $('.header-navigation-menu-item a').removeClass('active');
+
+  if (menuIdToShow) {
+    var thisMenuIsAlreadyOpen = $("#".concat(menuIdToShow)).hasClass(headerMenuActiveClass);
+
+    if (thisMenuIsAlreadyOpen) {
+      closeAllMenusExcept();
+      closeMenu(menuIdToShow);
+      $("[aria-controls=\"".concat(menuIdToShow, "\"]")).removeClass('active').blur();
+    } else {
+      closeAllMenusExcept(menuIdToShow);
+      openMenu(menuIdToShow, true);
+      $("[aria-controls=\"".concat(menuIdToShow, "\"]")).addClass('active');
+    }
+  } else {
+    closeAllMenusExcept();
+  }
+};
+
+function closeAllMenusExcept(menuId) {
+  if (!menuId) {
+    $('.header-navigation-menu-item a').removeClass('active');
+    $('.header-dropdown-menu-container').removeClass(menuContainerActive).css({
+      minHeight: undefined
+    });
+  }
+
+  $('.main-navigation-desktop-content').not("#".concat(menuId)).removeClass(headerMenuActiveClass);
+}
+
+function closeMenu(menuId) {
+  $("#".concat(menuId)).removeClass(headerMenuActiveClass);
+}
+
+function openMenu(menuId, animated) {
+  (0, _siteSearchIntegration.hideSearch)();
+  $('.header-dropdown-menu-container').addClass(menuContainerActive);
+  setMinHeight();
+  $("#".concat(menuId)).addClass(headerMenuActiveClass).removeClass(headerMenuHiddenClass);
+  $('.main-navigation-desktop-content').not("#".concat(menuId)).addClass(headerMenuHiddenClass);
+}
+
+function setMinHeight() {
+  if ($('.main-navigation-panel-content').length) {
+    requestAnimationFrame(function () {
+      var minHeight = $('.main-navigation-panel-content').height();
+
+      if (minHeight > window.screen.availHeight) {
+        $('.header-dropdown-menu-container').css({
+          minHeight: minHeight
+        });
+      }
+    });
+  }
+} // when a menu item is clicked, toggle its associated menu
+
+
+$('.header-navigation-menu-item a').on('click', function (e) {
+  if ($(this).parent().hasClass('has-dropdown')) {
+    e.preventDefault();
+  }
+
+  toggleMenu($(this).attr('aria-controls'));
+});
+$('.main-navigation-close').on('click', function () {
+  closeAllMenusExcept();
+  var parentId = $(this).parents('.main-navigation-desktop-content').attr('id');
+  closeMenu(parentId);
+}); // open the mobile navigation when its button is clicked 
+// (which also overlays the menu over the button, so we don't have to worry about toggle behaviours)
+
+$('.header-navigation-mobile-menu').on('click', function () {
+  openMenu();
+}); // whenever the accordion menus in the mobile navigation open, 
+// we need to re-asses the minimum height of the menu so we don't crop any of the content.
+
+$('.main-navigation-mobile').on('ACCORDION_OPEN', setMinHeight); // whenever the window height changes, 
+// we need to re-asses the minimum height of the menu so we don't crop any of the content.
+
+$(window).on('resize', setMinHeight); // on page load, we need to asses the minimum height of the menu so we don't crop any of the content.
+
+setMinHeight();
+$(window).on('resize', function () {
+  var currentWidth = $(window).width();
+
+  if (currentWidth > 768) {
+    if ($('.' + headerMenuActiveClass).length === 0) {
+      closeAllMenusExcept();
+    }
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hideSearch = hideSearch;
+
+var _menuIntegration = __webpack_require__(6);
+
+var timeoutReference;
+
+function toggleSiteSearchPanel() {
+  // if any other header menus are open, close them.
+  (0, _menuIntegration.closeAllMenusExcept)(); // make the search panel visible and active, to start it animating in
+
+  $('.header-site-search-container').toggleClass('header-site-search-container-hidden').toggleClass('header-site-search-container-active'); // set the header button state to reflect the state of the panel
+
+  $('.header-navigation-button.js-header-navigation-search').toggleClass('active');
+
+  if ($('.header-site-search-container').hasClass('header-site-search-container-active')) {
+    if (timeoutReference) {
+      clearTimeout(timeoutReference);
+      timeoutReference = undefined;
+    } // the panel animates in, but we don't want to focus until the animation is complete
+    // if we do, the viewport focusses on the panel and scrolls the page oddly.
+
+
+    timeoutReference = setTimeout(function () {
+      $('.header-site-search-container .search-input').focus();
+    }, 500);
+  } else {
+    // the hover state is the same as the focus state, so if we're closing the panel
+    // we also need to shift the button focus as well.
+    $(this).blur();
+  }
+}
+
+function hideSearch() {
+  // reset the classes on the site search container panel
+  $('.header-site-search-container').addClass('header-site-search-container-hidden').removeClass('header-site-search-container-active'); // reset header button state
+
+  $('.header-navigation-button.js-header-navigation-search').removeClass('active').blur();
+}
+
+$('.js-header-navigation-search').on('click', toggleSiteSearchPanel);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/**
+  stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
+  @version v3.3.2
+  @link https://github.com/dollarshaveclub/stickybits#readme
+  @author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
+  @license MIT
+**/
+/*
+  STICKYBITS 💉
+  --------
+  > a lightweight alternative to `position: sticky` polyfills 🍬
+  --------
+  - each method is documented above it our view the readme
+  - Stickybits does not manage polymorphic functionality (position like properties)
+  * polymorphic functionality: (in the context of describing Stickybits)
+    means making things like `position: sticky` be loosely supported with position fixed.
+    It also means that features like `useStickyClasses` takes on styles like `position: fixed`.
+  --------
+  defaults 🔌
+  --------
+  - version = `package.json` version
+  - userAgent = viewer browser agent
+  - target = DOM element selector
+  - noStyles = boolean
+  - offset = number
+  - parentClass = 'string'
+  - scrollEl = window || DOM element selector
+  - stickyClass = 'string'
+  - stuckClass = 'string'
+  - useStickyClasses = boolean
+  - verticalPosition = 'string'
+  --------
+  props🔌
+  --------
+  - p = props {object}
+  --------
+  instance note
+  --------
+  - stickybits parent methods return this
+  - stickybits instance methods return an instance item
+  --------
+  nomenclature
+  --------
+  - target => el => e
+  - props => o || p
+  - instance => item => it
+  --------
+  methods
+  --------
+  - .definePosition = defines sticky or fixed
+  - .addInstance = an array of objects for each Stickybits Target
+  - .getClosestParent = gets the parent for non-window scroll
+  - .getOffsetTop = gets the element offsetTop from the top level of the DOM
+  - .computeScrollOffsets = computes scroll position
+  - .toggleClasses = older browser toggler
+  - .manageState = manages sticky state
+  - .removeClass = older browser support class remover
+  - .removeInstance = removes an instance
+  - .cleanup = removes all Stickybits instances and cleans up dom from stickybits
+*/
+var Stickybits =
+/*#__PURE__*/
+function () {
+  function Stickybits(target, obj) {
+    var o = typeof obj !== 'undefined' ? obj : {};
+    this.version = '3.3.2';
+    this.userAgent = window.navigator.userAgent || 'no `userAgent` provided by the browser';
+    this.props = {
+      customStickyChangeNumber: o.customStickyChangeNumber || null,
+      noStyles: o.noStyles || false,
+      stickyBitStickyOffset: o.stickyBitStickyOffset || 0,
+      parentClass: o.parentClass || 'js-stickybit-parent',
+      scrollEl: document.querySelector(o.scrollEl) || window,
+      stickyClass: o.stickyClass || 'js-is-sticky',
+      stuckClass: o.stuckClass || 'js-is-stuck',
+      stickyChangeClass: o.stickyChangeClass || 'js-is-sticky--change',
+      useStickyClasses: o.useStickyClasses || false,
+      verticalPosition: o.verticalPosition || 'top'
+    };
+    var p = this.props;
+    /*
+      define positionVal
+      ----
+      -  uses a computed (`.definePosition()`)
+      -  defined the position
+    */
+
+    p.positionVal = this.definePosition() || 'fixed';
+    var vp = p.verticalPosition;
+    var ns = p.noStyles;
+    var pv = p.positionVal;
+    this.els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+    if (!('length' in this.els)) this.els = [this.els];
+    this.instances = [];
+
+    for (var i = 0; i < this.els.length; i += 1) {
+      var el = this.els[i];
+      var styles = el.style; // set vertical position
+
+      styles[vp] = vp === 'top' && !ns ? p.stickyBitStickyOffset + "px" : '';
+      styles.position = pv !== 'fixed' ? pv : '';
+
+      if (pv === 'fixed' || p.useStickyClasses) {
+        var instance = this.addInstance(el, p); // instances are an array of objects
+
+        this.instances.push(instance);
+      }
+    }
+
+    return this;
+  }
+  /*
+    setStickyPosition ✔️
+    --------
+    —  most basic thing stickybits does
+    => checks to see if position sticky is supported
+    => defined the position to be used
+    => stickybits works accordingly
+  */
+
+
+  var _proto = Stickybits.prototype;
+
+  _proto.definePosition = function definePosition() {
+    var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
+    var test = document.head.style;
+
+    for (var i = 0; i < prefix.length; i += 1) {
+      test.position = prefix[i] + "sticky";
+    }
+
+    var stickyProp = test.position ? test.position : 'fixed';
+    test.position = '';
+    return stickyProp;
+  };
+  /*
+    addInstance ✔️
+    --------
+    — manages instances of items
+    - takes in an el and props
+    - returns an item object
+    ---
+    - target = el
+    - o = {object} = props
+      - scrollEl = 'string'
+      - verticalPosition = number
+      - off = boolean
+      - parentClass = 'string'
+      - stickyClass = 'string'
+      - stuckClass = 'string'
+    ---
+    - defined later
+      - parent = dom element
+      - state = 'string'
+      - offset = number
+      - stickyStart = number
+      - stickyStop = number
+    - returns an instance object
+  */
+
+
+  _proto.addInstance = function addInstance(el, props) {
+    var _this = this;
+
+    var item = {
+      el: el,
+      parent: el.parentNode,
+      props: props
+    };
+    this.isWin = this.props.scrollEl === window;
+    var se = this.isWin ? window : this.getClosestParent(item.el, item.props.scrollEl);
+    this.computeScrollOffsets(item);
+    item.parent.className += " " + props.parentClass;
+    item.state = 'default';
+
+    item.stateContainer = function () {
+      return _this.manageState(item);
+    };
+
+    se.addEventListener('scroll', item.stateContainer);
+    return item;
+  };
+  /*
+    --------
+    getParent 👨‍
+    --------
+    - a helper function that gets the target element's parent selected el
+    - only used for non `window` scroll elements
+    - supports older browsers
+  */
+
+
+  _proto.getClosestParent = function getClosestParent(el, match) {
+    // p = parent element
+    var p = match;
+    var e = el;
+    if (e.parentElement === p) return p; // traverse up the dom tree until we get to the parent
+
+    while (e.parentElement !== p) {
+      e = e.parentElement;
+    } // return parent element
+
+
+    return p;
+  };
+  /*
+    --------
+    getOffsetTop
+    --------
+    - a helper function that gets the offsetTop of the element
+    - from the top level of the DOM
+  */
+
+
+  _proto.getOffsetTop = function getOffsetTop(el) {
+    var offsetTop = 0;
+
+    do {
+      offsetTop = el.offsetTop + offsetTop;
+    } while (el = el.offsetParent);
+
+    return offsetTop;
+  };
+  /*
+    computeScrollOffsets 📊
+    ---
+    computeScrollOffsets for Stickybits
+    - defines
+      - offset
+      - start
+      - stop
+  */
+
+
+  _proto.computeScrollOffsets = function computeScrollOffsets(item) {
+    var it = item;
+    var p = it.props;
+    var el = it.el;
+    var parent = it.parent;
+    var isCustom = !this.isWin && p.positionVal === 'fixed';
+    var isBottom = p.verticalPosition !== 'bottom';
+    var scrollElOffset = isCustom ? this.getOffsetTop(p.scrollEl) : 0;
+    var stickyStart = isCustom ? this.getOffsetTop(parent) - scrollElOffset : this.getOffsetTop(parent);
+    var stickyChangeOffset = p.customStickyChangeNumber !== null ? p.customStickyChangeNumber : el.offsetHeight;
+    it.offset = scrollElOffset + p.stickyBitStickyOffset;
+    it.stickyStart = isBottom ? stickyStart - it.offset : 0;
+    it.stickyChange = it.stickyStart + stickyChangeOffset;
+    it.stickyStop = isBottom ? stickyStart + parent.offsetHeight - (it.el.offsetHeight + it.offset) : stickyStart + parent.offsetHeight;
+    return it;
+  };
+  /*
+    toggleClasses ⚖️
+    ---
+    toggles classes (for older browser support)
+    r = removed class
+    a = added class
+  */
+
+
+  _proto.toggleClasses = function toggleClasses(el, r, a) {
+    var e = el;
+    var cArray = e.className.split(' ');
+    if (a && cArray.indexOf(a) === -1) cArray.push(a);
+    var rItem = cArray.indexOf(r);
+    if (rItem !== -1) cArray.splice(rItem, 1);
+    e.className = cArray.join(' ');
+  };
+  /*
+    manageState 📝
+    ---
+    - defines the state
+      - normal
+      - sticky
+      - stuck
+  */
+
+
+  _proto.manageState = function manageState(item) {
+    // cache object
+    var it = item;
+    var e = it.el;
+    var p = it.props;
+    var state = it.state;
+    var start = it.stickyStart;
+    var change = it.stickyChange;
+    var stop = it.stickyStop;
+    var stl = e.style; // cache props
+
+    var ns = p.noStyles;
+    var pv = p.positionVal;
+    var se = p.scrollEl;
+    var sticky = p.stickyClass;
+    var stickyChange = p.stickyChangeClass;
+    var stuck = p.stuckClass;
+    var vp = p.verticalPosition;
+    /*
+      requestAnimationFrame
+      ---
+      - use rAF
+      - or stub rAF
+    */
+
+    var rAFStub = function rAFDummy(f) {
+      f();
+    };
+
+    var rAF = !this.isWin ? rAFStub : window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || rAFStub;
+    /*
+      define scroll vars
+      ---
+      - scroll
+      - notSticky
+      - isSticky
+      - isStuck
+    */
+
+    var tC = this.toggleClasses;
+    var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
+    var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
+    var isSticky = scroll <= start && state === 'sticky';
+    var isStuck = scroll >= stop && state === 'sticky';
+    /*
+      Unnamed arrow functions within this block
+      ---
+      - help wanted or discussion
+      - view test.stickybits.js
+        - `stickybits .manageState  `position: fixed` interface` for more awareness 👀
+    */
+
+    if (notSticky) {
+      it.state = 'sticky';
+      rAF(function () {
+        tC(e, stuck, sticky);
+        stl.position = pv;
+        if (ns) return;
+        stl.bottom = '';
+        stl[vp] = p.stickyBitStickyOffset + "px";
+      });
+    } else if (isSticky) {
+      it.state = 'default';
+      rAF(function () {
+        tC(e, sticky);
+        if (pv === 'fixed') stl.position = '';
+      });
+    } else if (isStuck) {
+      it.state = 'stuck';
+      rAF(function () {
+        tC(e, sticky, stuck);
+        if (pv !== 'fixed' || ns) return;
+        stl.top = '';
+        stl.bottom = '0';
+        stl.position = 'absolute';
+      });
+    }
+
+    var isStickyChange = scroll >= change && scroll <= stop;
+    var isNotStickyChange = scroll < change || scroll > stop;
+    var stub = 'stub'; // a stub css class to remove
+
+    if (isNotStickyChange) {
+      rAF(function () {
+        tC(e, stickyChange);
+      });
+    } else if (isStickyChange) {
+      rAF(function () {
+        tC(e, stub, stickyChange);
+      });
+    }
+
+    return it;
+  };
+
+  _proto.update = function update() {
+    for (var i = 0; i < this.instances.length; i += 1) {
+      var instance = this.instances[i];
+      this.computeScrollOffsets(instance);
+    }
+
+    return this;
+  };
+  /*
+    removes an instance 👋
+    --------
+    - cleanup instance
+  */
+
+
+  _proto.removeInstance = function removeInstance(instance) {
+    var e = instance.el;
+    var p = instance.props;
+    var tC = this.toggleClasses;
+    e.style.position = '';
+    e.style[p.verticalPosition] = '';
+    tC(e, p.stickyClass);
+    tC(e, p.stuckClass);
+    tC(e.parentNode, p.parentClass);
+  };
+  /*
+    cleanup 🛁
+    --------
+    - cleans up each instance
+    - clears instance
+  */
+
+
+  _proto.cleanup = function cleanup() {
+    for (var i = 0; i < this.instances.length; i += 1) {
+      var instance = this.instances[i];
+      instance.props.scrollEl.removeEventListener('scroll', instance.stateContainer);
+      this.removeInstance(instance);
+    }
+
+    this.manageState = false;
+    this.instances = [];
+  };
+
+  return Stickybits;
+}();
+/*
+  export
+  --------
+  exports StickBits to be used 🏁
+*/
+
+
+function stickybits(target, o) {
+  return new Stickybits(target, o);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (stickybits);
+
 
 /***/ }),
 /* 9 */
@@ -12807,8 +12807,6 @@ __webpack_require__(20);
 
 __webpack_require__(21);
 
-__webpack_require__(25);
-
 __webpack_require__(26);
 
 __webpack_require__(27);
@@ -12817,23 +12815,21 @@ __webpack_require__(28);
 
 __webpack_require__(29);
 
-__webpack_require__(31);
+__webpack_require__(30);
 
 __webpack_require__(32);
 
-__webpack_require__(39);
+__webpack_require__(33);
 
 __webpack_require__(40);
 
+__webpack_require__(41);
+
 __webpack_require__(42);
 
-__webpack_require__(56);
+__webpack_require__(44);
 
-__webpack_require__(57);
-
-__webpack_require__(58);
-
-__webpack_require__(59);
+__webpack_require__(46);
 
 __webpack_require__(60);
 
@@ -12844,6 +12840,14 @@ __webpack_require__(62);
 __webpack_require__(63);
 
 __webpack_require__(64);
+
+__webpack_require__(65);
+
+__webpack_require__(66);
+
+__webpack_require__(67);
+
+__webpack_require__(68);
 
 // styles
 // javascript
@@ -12919,9 +12923,9 @@ if ($('.sticky-call-to-action-container').length) {
 "use strict";
 
 
-__webpack_require__(4);
+__webpack_require__(6);
 
-__webpack_require__(5);
+__webpack_require__(7);
 
 /***/ }),
 /* 13 */
@@ -14055,7 +14059,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _stickybits = _interopRequireDefault(__webpack_require__(6));
+var _stickybits = _interopRequireDefault(__webpack_require__(8));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14084,9 +14088,9 @@ if (!(0, _jquery.default)(".section-navigation-wrapper-inner-ul").length) {
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _lightgallery = _interopRequireDefault(__webpack_require__(7));
+var _lightgallery = _interopRequireDefault(__webpack_require__(2));
 
-__webpack_require__(8);
+__webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14136,13 +14140,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var _gumshoe = _interopRequireDefault(__webpack_require__(22));
+__webpack_require__(22);
 
-__webpack_require__(23);
+var _gumshoejs = _interopRequireDefault(__webpack_require__(23));
 
-var _smoothScroll = _interopRequireDefault(__webpack_require__(24));
+__webpack_require__(24);
 
-var _stickybits = _interopRequireDefault(__webpack_require__(6));
+var _smoothScroll = _interopRequireDefault(__webpack_require__(25));
+
+var _stickybits = _interopRequireDefault(__webpack_require__(8));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14151,7 +14157,7 @@ var elementExistsOnPage = $('[data-gumshoe-header]').length > 0;
 
 if (elementExistsOnPage) {
   // for linking the scroll position and the state of the navigation links
-  _gumshoe.default.init({
+  var spy = new _gumshoejs.default('ul[data-gumshoe-header]', {
     offset: 40,
     callback: function callback(nav) {
       // if no navigation element is in focus, default to selecting the first one.
@@ -14162,7 +14168,6 @@ if (elementExistsOnPage) {
       }
     }
   }); // make the navigation sticky
-
 
   (0, _stickybits.default)('.anchor-links-container', {
     useStickyClasses: true
@@ -14195,15 +14200,544 @@ if (elementExistsOnPage) {
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! gumshoe v3.5.0 | (c) 2017 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
-!(function(e,t){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (t(e)),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)})("undefined"!=typeof global?global:this.window||this.global,(function(e){"use strict";var t,n,o,r,a,c,i,l={},s="querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_"),u=[],f={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",container:e,offset:0,activeClass:"active",scrollDelay:!1,callback:function(){}},d=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;r<a;r++)t.call(n,e[r],r,e)},v=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var r=function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=v(!0,e[o],n[o]):e[o]=n[o])};n<o;n++){var a=arguments[n];r(a)}return e},m=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},g=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},h=function(e){var n=0;if(e.offsetParent){do n+=e.offsetTop,e=e.offsetParent;while(e)}else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},p=function(t){var n=t.getBoundingClientRect();return n.top>=0&&n.left>=0&&n.bottom<=(e.innerHeight||document.documentElement.clientHeight)&&n.right<=(e.innerWidth||document.documentElement.clientWidth)},y=function(){u.sort((function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0}))};l.setDistances=function(){o=g(),a=r?m(r)+h(r):0,d(u,(function(e){e.distance=h(e.target)})),y()};var b=function(){var e=document.querySelectorAll(t.selector);d(e,(function(e){if(e.hash){var t=document.querySelector(e.hash);t&&u.push({nav:e,target:t,parent:"li"===e.parentNode.tagName.toLowerCase()?e.parentNode:null,distance:0})}}))},H=function(){c&&(c.nav.classList.remove(t.activeClass),c.parent&&c.parent.classList.remove(t.activeClass))},C=function(e){H(),e.nav.classList.add(t.activeClass),e.parent&&e.parent.classList.add(t.activeClass),t.callback(e),c={nav:e.nav,parent:e.parent}};l.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&p(u[0].target))return C(u[0]),u[0];for(var r=0,a=u.length;r<a;r++){var c=u[r];if(c.distance<=n)return C(c),c}H(),t.callback()};var L=function(){d(u,(function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav,parent:e.parent})}))};l.destroy=function(){t&&(t.container.removeEventListener("resize",j,!1),t.container.removeEventListener("scroll",j,!1),u=[],t=null,n=null,o=null,r=null,a=null,c=null,i=null)};var E=function(e){window.clearTimeout(n),n=setTimeout((function(){l.setDistances(),l.getCurrentNav()}),66)},j=function(e){n||(n=setTimeout((function(){n=null,"scroll"===e.type&&l.getCurrentNav(),"resize"===e.type&&(l.setDistances(),l.getCurrentNav())}),66))};return l.init=function(e){s&&(l.destroy(),t=v(f,e||{}),r=document.querySelector(t.selectorHeader),b(),0!==u.length&&(L(),l.setDistances(),l.getCurrentNav(),t.container.addEventListener("resize",j,!1),t.scrollDelay?t.container.addEventListener("scroll",E,!1):t.container.addEventListener("scroll",j,!1)))},l}));
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * gumshoejs v5.1.2
+ * A simple, framework-agnostic scrollspy script.
+ * (c) 2019 Chris Ferdinandi
+ * MIT License
+ * http://github.com/cferdinandi/gumshoe
+ */
+
+/**
+ * Element.closest() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+ */
+if (!Element.prototype.closest) {
+	if (!Element.prototype.matches) {
+		Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+	}
+	Element.prototype.closest = function (s) {
+		var el = this;
+		var ancestor = this;
+		if (!document.documentElement.contains(el)) return null;
+		do {
+			if (ancestor.matches(s)) return ancestor;
+			ancestor = ancestor.parentElement;
+		} while (ancestor !== null);
+		return null;
+	};
+}
+/**
+ * CustomEvent() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
+ */
+(function () {
+
+	if (typeof window.CustomEvent === "function") return false;
+
+	function CustomEvent(event, params) {
+		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		var evt = document.createEvent('CustomEvent');
+		evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+		return evt;
+	}
+
+	CustomEvent.prototype = window.Event.prototype;
+
+	window.CustomEvent = CustomEvent;
+	
+})();
+(function (root, factory) {
+	if ( true ) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return factory(root);
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.Gumshoe = factory(root);
+	}
+})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this, (function (window) {
+
+	'use strict';
+
+	//
+	// Defaults
+	//
+
+	var defaults = {
+
+		// Active classes
+		navClass: 'active',
+		contentClass: 'active',
+
+		// Nested navigation
+		nested: false,
+		nestedClass: 'active',
+
+		// Offset & reflow
+		offset: 0,
+		reflow: false,
+
+		// Event support
+		events: true
+
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * Merge two or more objects together.
+	 * @param   {Object}   objects  The objects to merge together
+	 * @returns {Object}            Merged values of defaults and options
+	 */
+	var extend = function () {
+		var merged = {};
+		Array.prototype.forEach.call(arguments, (function (obj) {
+			for (var key in obj) {
+				if (!obj.hasOwnProperty(key)) return;
+				merged[key] = obj[key];
+			}
+		}));
+		return merged;
+	};
+
+	/**
+	 * Emit a custom event
+	 * @param  {String} type   The event type
+	 * @param  {Node}   elem   The element to attach the event to
+	 * @param  {Object} detail Any details to pass along with the event
+	 */
+	var emitEvent = function (type, elem, detail) {
+
+		// Make sure events are enabled
+		if (!detail.settings.events) return;
+
+		// Create a new event
+		var event = new CustomEvent(type, {
+			bubbles: true,
+			cancelable: true,
+			detail: detail
+		});
+
+		// Dispatch the event
+		elem.dispatchEvent(event);
+
+	};
+
+	/**
+	 * Get an element's distance from the top of the Document.
+	 * @param  {Node} elem The element
+	 * @return {Number}    Distance from the top in pixels
+	 */
+	var getOffsetTop = function (elem) {
+		var location = 0;
+		if (elem.offsetParent) {
+			while (elem) {
+				location += elem.offsetTop;
+				elem = elem.offsetParent;
+			}
+		}
+		return location >= 0 ? location : 0;
+	};
+
+	/**
+	 * Sort content from first to last in the DOM
+	 * @param  {Array} contents The content areas
+	 */
+	var sortContents = function (contents) {
+		if(contents) {
+			contents.sort((function (item1, item2) {
+				var offset1 = getOffsetTop(item1.content);
+				var offset2 = getOffsetTop(item2.content);
+				if (offset1 < offset2) return -1;
+				return 1;
+			}));
+		}
+	};
+
+	/**
+	 * Get the offset to use for calculating position
+	 * @param  {Object} settings The settings for this instantiation
+	 * @return {Float}           The number of pixels to offset the calculations
+	 */
+	var getOffset = function (settings) {
+
+		// if the offset is a function run it
+		if (typeof settings.offset === 'function') {
+			return parseFloat(settings.offset());
+		}
+
+		// Otherwise, return it as-is
+		return parseFloat(settings.offset);
+
+	};
+
+	/**
+	 * Get the document element's height
+	 * @private
+	 * @returns {Number}
+	 */
+	var getDocumentHeight = function () {
+		return Math.max(
+			document.body.scrollHeight, document.documentElement.scrollHeight,
+			document.body.offsetHeight, document.documentElement.offsetHeight,
+			document.body.clientHeight, document.documentElement.clientHeight
+		);
+	};
+
+	/**
+	 * Determine if an element is in view
+	 * @param  {Node}    elem     The element
+	 * @param  {Object}  settings The settings for this instantiation
+	 * @param  {Boolean} bottom   If true, check if element is above bottom of viewport instead
+	 * @return {Boolean}          Returns true if element is in the viewport
+	 */
+	var isInView = function (elem, settings, bottom) {
+		var bounds = elem.getBoundingClientRect();
+		var offset = getOffset(settings);
+		if (bottom) {
+			return parseInt(bounds.bottom, 10) < (window.innerHeight || document.documentElement.clientHeight);
+		}
+		return parseInt(bounds.top, 10) <= offset;
+	};
+
+	/**
+	 * Check if at the bottom of the viewport
+	 * @return {Boolean} If true, page is at the bottom of the viewport
+	 */
+	var isAtBottom = function () {
+		if (window.innerHeight + window.pageYOffset >= getDocumentHeight()) return true;
+		return false;
+	};
+
+	/**
+	 * Check if the last item should be used (even if not at the top of the page)
+	 * @param  {Object} item     The last item
+	 * @param  {Object} settings The settings for this instantiation
+	 * @return {Boolean}         If true, use the last item
+	 */
+	var useLastItem = function (item, settings) {
+		if (isAtBottom() && isInView(item.content, settings, true)) return true;
+		return false;
+	};
+
+	/**
+	 * Get the active content
+	 * @param  {Array}  contents The content areas
+	 * @param  {Object} settings The settings for this instantiation
+	 * @return {Object}          The content area and matching navigation link
+	 */
+	var getActive = function (contents, settings) {
+		var last = contents[contents.length-1];
+		if (useLastItem(last, settings)) return last;
+		for (var i = contents.length - 1; i >= 0; i--) {
+			if (isInView(contents[i].content, settings)) return contents[i];
+		}
+	};
+
+	/**
+	 * Deactivate parent navs in a nested navigation
+	 * @param  {Node}   nav      The starting navigation element
+	 * @param  {Object} settings The settings for this instantiation
+	 */
+	var deactivateNested = function (nav, settings) {
+
+		// If nesting isn't activated, bail
+		if (!settings.nested || !nav.parentNode) return;
+
+		// Get the parent navigation
+		var li = nav.parentNode.closest('li');
+		if (!li) return;
+
+		// Remove the active class
+		li.classList.remove(settings.nestedClass);
+
+		// Apply recursively to any parent navigation elements
+		deactivateNested(li, settings);
+
+	};
+
+	/**
+	 * Deactivate a nav and content area
+	 * @param  {Object} items    The nav item and content to deactivate
+	 * @param  {Object} settings The settings for this instantiation
+	 */
+	var deactivate = function (items, settings) {
+
+		// Make sure there are items to deactivate
+		if (!items) return;
+
+		// Get the parent list item
+		var li = items.nav.closest('li');
+		if (!li) return;
+
+		// Remove the active class from the nav and content
+		li.classList.remove(settings.navClass);
+		items.content.classList.remove(settings.contentClass);
+
+		// Deactivate any parent navs in a nested navigation
+		deactivateNested(li, settings);
+
+		// Emit a custom event
+		emitEvent('gumshoeDeactivate', li, {
+			link: items.nav,
+			content: items.content,
+			settings: settings
+		});
+
+	};
+
+
+	/**
+	 * Activate parent navs in a nested navigation
+	 * @param  {Node}   nav      The starting navigation element
+	 * @param  {Object} settings The settings for this instantiation
+	 */
+	var activateNested = function (nav, settings) {
+
+		// If nesting isn't activated, bail
+		if (!settings.nested) return;
+
+		// Get the parent navigation
+		var li = nav.parentNode.closest('li');
+		if (!li) return;
+
+		// Add the active class
+		li.classList.add(settings.nestedClass);
+
+		// Apply recursively to any parent navigation elements
+		activateNested(li, settings);
+
+	};
+
+	/**
+	 * Activate a nav and content area
+	 * @param  {Object} items    The nav item and content to activate
+	 * @param  {Object} settings The settings for this instantiation
+	 */
+	var activate = function (items, settings) {
+
+		// Make sure there are items to activate
+		if (!items) return;
+
+		// Get the parent list item
+		var li = items.nav.closest('li');
+		if (!li) return;
+
+		// Add the active class to the nav and content
+		li.classList.add(settings.navClass);
+		items.content.classList.add(settings.contentClass);
+
+		// Activate any parent navs in a nested navigation
+		activateNested(li, settings);
+
+		// Emit a custom event
+		emitEvent('gumshoeActivate', li, {
+			link: items.nav,
+			content: items.content,
+			settings: settings
+		});
+
+	};
+
+	/**
+	 * Create the Constructor object
+	 * @param {String} selector The selector to use for navigation items
+	 * @param {Object} options  User options and settings
+	 */
+	var Constructor = function (selector, options) {
+
+		//
+		// Variables
+		//
+
+		var publicAPIs = {};
+		var navItems, contents, current, timeout, settings;
+
+
+		//
+		// Methods
+		//
+
+		/**
+		 * Set variables from DOM elements
+		 */
+		publicAPIs.setup = function () {
+
+			// Get all nav items
+			navItems = document.querySelectorAll(selector);
+
+			// Create contents array
+			contents = [];
+
+			// Loop through each item, get it's matching content, and push to the array
+			Array.prototype.forEach.call(navItems, (function (item) {
+
+				// Get the content for the nav item
+				var content = document.getElementById(decodeURIComponent(item.hash.substr(1)));
+				if (!content) return;
+
+				// Push to the contents array
+				contents.push({
+					nav: item,
+					content: content
+				});
+
+			}));
+
+			// Sort contents by the order they appear in the DOM
+			sortContents(contents);
+
+		};
+
+		/**
+		 * Detect which content is currently active
+		 */
+		publicAPIs.detect = function () {
+
+			// Get the active content
+			var active = getActive(contents, settings);
+
+			// if there's no active content, deactivate and bail
+			if (!active) {
+				if (current) {
+					deactivate(current, settings);
+					current = null;
+				}
+				return;
+			}
+
+			// If the active content is the one currently active, do nothing
+			if (current && active.content === current.content) return;
+
+			// Deactivate the current content and activate the new content
+			deactivate(current, settings);
+			activate(active, settings);
+
+			// Update the currently active content
+			current = active;
+
+		};
+
+		/**
+		 * Detect the active content on scroll
+		 * Debounced for performance
+		 */
+		var scrollHandler = function (event) {
+
+			// If there's a timer, cancel it
+			if (timeout) {
+				window.cancelAnimationFrame(timeout);
+			}
+
+			// Setup debounce callback
+			timeout = window.requestAnimationFrame(publicAPIs.detect);
+
+		};
+
+		/**
+		 * Update content sorting on resize
+		 * Debounced for performance
+		 */
+		var resizeHandler = function (event) {
+
+			// If there's a timer, cancel it
+			if (timeout) {
+				window.cancelAnimationFrame(timeout);
+			}
+
+			// Setup debounce callback
+			timeout = window.requestAnimationFrame((function () {
+				sortContents(contents);
+				publicAPIs.detect();
+			}));
+
+		};
+
+		/**
+		 * Destroy the current instantiation
+		 */
+		publicAPIs.destroy = function () {
+
+			// Undo DOM changes
+			if (current) {
+				deactivate(current, settings);
+			}
+
+			// Remove event listeners
+			window.removeEventListener('scroll', scrollHandler, false);
+			if (settings.reflow) {
+				window.removeEventListener('resize', resizeHandler, false);
+			}
+
+			// Reset variables
+			contents = null;
+			navItems = null;
+			current = null;
+			timeout = null;
+			settings = null;
+
+		};
+
+		/**
+		 * Initialize the current instantiation
+		 */
+		var init = function () {
+
+			// Merge user options into defaults
+			settings = extend(defaults, options || {});
+
+			// Setup variables based on the current DOM
+			publicAPIs.setup();
+
+			// Find the currently active content
+			publicAPIs.detect();
+
+			// Setup event listeners
+			window.addEventListener('scroll', scrollHandler, false);
+			if (settings.reflow) {
+				window.addEventListener('resize', resizeHandler, false);
+			}
+
+		};
+
+
+		//
+		// Initialize and return the public APIs
+		//
+
+		init();
+		return publicAPIs;
+
+	};
+
+
+	//
+	// Return the Constructor
+	//
+
+	return Constructor;
+
+}));
+
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! gumshoejs v5.1.2 | (c) 2019 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
+!(function(e,t){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return t(e)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=t(e):e.Gumshoe=t(e)})("undefined"!=typeof global?global:"undefined"!=typeof window?window:this,(function(e){"use strict";var t={navClass:"active",contentClass:"active",nested:!1,nestedClass:"active",offset:0,reflow:!1,events:!0},n=function(e,t,n){if(n.settings.events){var o=new CustomEvent(e,{bubbles:!0,cancelable:!0,detail:n});t.dispatchEvent(o)}},o=function(e){var t=0;if(e.offsetParent)for(;e;)t+=e.offsetTop,e=e.offsetParent;return t>=0?t:0},s=function(e){e&&e.sort((function(e,t){return o(e.content)<o(t.content)?-1:1}))},c=function(t,n,o){var s=t.getBoundingClientRect(),c=(function(e){return"function"==typeof e.offset?parseFloat(e.offset()):parseFloat(e.offset)})(n);return o?parseInt(s.bottom,10)<(e.innerHeight||document.documentElement.clientHeight):parseInt(s.top,10)<=c},i=function(){return e.innerHeight+e.pageYOffset>=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},r=function(e,t){var n=e[e.length-1];if(function(e,t){return!(!i()||!c(e.content,t,!0))}(n,t))return n;for(var o=e.length-1;o>=0;o--)if(c(e[o].content,t))return e[o]},a=function(e,t){if(t.nested&&e.parentNode){var n=e.parentNode.closest("li");n&&(n.classList.remove(t.nestedClass),a(n,t))}},l=function(e,t){if(e){var o=e.nav.closest("li");o&&(o.classList.remove(t.navClass),e.content.classList.remove(t.contentClass),a(o,t),n("gumshoeDeactivate",o,{link:e.nav,content:e.content,settings:t}))}},u=function(e,t){if(t.nested){var n=e.parentNode.closest("li");n&&(n.classList.add(t.nestedClass),u(n,t))}};return function(o,c){var i,a,f,d,v,m={};m.setup=function(){i=document.querySelectorAll(o),a=[],Array.prototype.forEach.call(i,(function(e){var t=document.getElementById(decodeURIComponent(e.hash.substr(1)));t&&a.push({nav:e,content:t})})),s(a)},m.detect=function(){var e=r(a,v);e?f&&e.content===f.content||(l(f,v),(function(e,t){if(e){var o=e.nav.closest("li");o&&(o.classList.add(t.navClass),e.content.classList.add(t.contentClass),u(o,t),n("gumshoeActivate",o,{link:e.nav,content:e.content,settings:t}))}})(e,v),f=e):f&&(l(f,v),f=null)};var p=function(t){d&&e.cancelAnimationFrame(d),d=e.requestAnimationFrame(m.detect)},h=function(t){d&&e.cancelAnimationFrame(d),d=e.requestAnimationFrame((function(){s(a),m.detect()}))};m.destroy=function(){f&&l(f,v),e.removeEventListener("scroll",p,!1),v.reflow&&e.removeEventListener("resize",h,!1),a=null,i=null,f=null,d=null,v=null};return v=(function(){var e={};return Array.prototype.forEach.call(arguments,(function(t){for(var n in t){if(!t.hasOwnProperty(n))return;e[n]=t[n]}})),e})(t,c||{}),m.setup(),m.detect(),e.addEventListener("scroll",p,!1),v.reflow&&e.addEventListener("resize",h,!1),m}}));
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14837,7 +15371,7 @@ if (window.Element && !Element.prototype.closest) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! smooth-scroll v12.1.5 | (c) 2017 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
@@ -14846,7 +15380,7 @@ if (window.Element && !Element.prototype.closest) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14854,9 +15388,9 @@ if (window.Element && !Element.prototype.closest) {
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _lightgallery = _interopRequireDefault(__webpack_require__(7));
+var _lightgallery = _interopRequireDefault(__webpack_require__(2));
 
-__webpack_require__(8);
+__webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14883,7 +15417,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 });
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14899,12 +15433,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _jquery.default)('.search-result-filters').toggleClass('search-result-filters-active');
 }); // In the Funnelback set up each filter's value is a url, on change we need to load the page with that url
 
-(0, _jquery.default)('.search-result-filters input').change(function (event) {
-  window.location.replace((0, _jquery.default)(this).val());
-});
+if (!(0, _jquery.default)('.not-main-search')) {
+  (0, _jquery.default)('.search-result-filters input').change(function (event) {
+    window.location.replace((0, _jquery.default)(this).val());
+  });
+}
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14925,7 +15461,7 @@ $('.text-block a[class*="button"], .feature-block a[class*="button"]').each(func
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14983,13 +15519,13 @@ function search_data(form_id, search_term, search_list) {
 }
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var _fuse = _interopRequireDefault(__webpack_require__(30));
+var _fuse = _interopRequireDefault(__webpack_require__(31));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15050,7 +15586,7 @@ $('[name="q"]').on('keyup', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -16057,7 +16593,7 @@ module.exports = Fuse;
 //# sourceMappingURL=fuse.js.map
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16222,7 +16758,7 @@ if ((0, _jquery.default)("#quizContainer").length) {
 }
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16230,9 +16766,9 @@ if ((0, _jquery.default)("#quizContainer").length) {
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _masonryLayout = _interopRequireDefault(__webpack_require__(33));
+var _masonryLayout = _interopRequireDefault(__webpack_require__(34));
 
-var _imagesloaded = _interopRequireDefault(__webpack_require__(38));
+var _imagesloaded = _interopRequireDefault(__webpack_require__(39));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16265,7 +16801,7 @@ if ((0, _jquery.default)('.teaser-listing-container').length > 0) {
 }
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -16282,8 +16818,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(34),
-        __webpack_require__(3)
+        __webpack_require__(35),
+        __webpack_require__(5)
       ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -16512,7 +17048,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -16528,10 +17064,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD - RequireJS
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(2),
-        __webpack_require__(3),
-        __webpack_require__(35),
-        __webpack_require__(37)
+        __webpack_require__(4),
+        __webpack_require__(5),
+        __webpack_require__(36),
+        __webpack_require__(38)
       ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter, getSize, utils, Item ) {
         return factory( window, EvEmitter, getSize, utils, Item);
       }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -17456,7 +17992,7 @@ return Outlayer;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17473,7 +18009,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(36)
+      __webpack_require__(37)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( matchesSelector ) {
       return factory( window, matchesSelector );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -17704,7 +18240,7 @@ return utils;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17767,7 +18303,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17780,8 +18316,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   if ( true ) {
     // AMD - RequireJS
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(2),
-        __webpack_require__(3)
+        __webpack_require__(4),
+        __webpack_require__(5)
       ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -18328,7 +18864,7 @@ return Item;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -18345,7 +18881,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(2)
+      __webpack_require__(4)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
       return factory( window, EvEmitter );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -18712,7 +19248,7 @@ return ImagesLoaded;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18934,13 +19470,1425 @@ function showBanner() {
 }
 
 /***/ }),
-/* 40 */
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = _interopRequireDefault(__webpack_require__(0));
+
+var _lightgallery = _interopRequireDefault(__webpack_require__(2));
+
+__webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery.default)('.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content').each(function () {
+  (0, _jquery.default)(this).lightGallery({
+    selector: 'a',
+    download: false,
+    videoMaxWidth: '1080px',
+    youtubePlayerParams: {
+      modestbranding: 1,
+      showinfo: 1,
+      rel: 0,
+      controls: 1
+    },
+    getCaptionFromTitleOrAlt: false,
+    iframeMaxWidth: '100%'
+  });
+  (0, _jquery.default)(this).on('onAfterOpen.lg', function (event) {
+    var target = document.querySelectorAll(".lg-video > iframe")[0];
+    var src = target.getAttribute("src");
+    src = src.replace('youtube', 'youtube-nocookie');
+    target.setAttribute("src", src);
+  });
+});
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = _interopRequireDefault(__webpack_require__(0));
+
+var _chosenJs = _interopRequireDefault(__webpack_require__(43));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+document.addEventListener('initchosen', function () {
+  var subjectSelect = (0, _jquery.default)('#subject').chosen();
+  subjectSelect.change(function (e) {
+    var event = new Event('updated');
+    document.querySelector("#subject").dispatchEvent(event);
+  });
+});
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {(function() {
+  var $, AbstractChosen, Chosen, SelectParser,
+    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  SelectParser = (function() {
+    function SelectParser() {
+      this.options_index = 0;
+      this.parsed = [];
+    }
+
+    SelectParser.prototype.add_node = function(child) {
+      if (child.nodeName.toUpperCase() === "OPTGROUP") {
+        return this.add_group(child);
+      } else {
+        return this.add_option(child);
+      }
+    };
+
+    SelectParser.prototype.add_group = function(group) {
+      var group_position, i, len, option, ref, results1;
+      group_position = this.parsed.length;
+      this.parsed.push({
+        array_index: group_position,
+        group: true,
+        label: group.label,
+        title: group.title ? group.title : void 0,
+        children: 0,
+        disabled: group.disabled,
+        classes: group.className
+      });
+      ref = group.childNodes;
+      results1 = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        option = ref[i];
+        results1.push(this.add_option(option, group_position, group.disabled));
+      }
+      return results1;
+    };
+
+    SelectParser.prototype.add_option = function(option, group_position, group_disabled) {
+      if (option.nodeName.toUpperCase() === "OPTION") {
+        if (option.text !== "") {
+          if (group_position != null) {
+            this.parsed[group_position].children += 1;
+          }
+          this.parsed.push({
+            array_index: this.parsed.length,
+            options_index: this.options_index,
+            value: option.value,
+            text: option.text,
+            html: option.innerHTML,
+            title: option.title ? option.title : void 0,
+            selected: option.selected,
+            disabled: group_disabled === true ? group_disabled : option.disabled,
+            group_array_index: group_position,
+            group_label: group_position != null ? this.parsed[group_position].label : null,
+            classes: option.className,
+            style: option.style.cssText
+          });
+        } else {
+          this.parsed.push({
+            array_index: this.parsed.length,
+            options_index: this.options_index,
+            empty: true
+          });
+        }
+        return this.options_index += 1;
+      }
+    };
+
+    return SelectParser;
+
+  })();
+
+  SelectParser.select_to_array = function(select) {
+    var child, i, len, parser, ref;
+    parser = new SelectParser();
+    ref = select.childNodes;
+    for (i = 0, len = ref.length; i < len; i++) {
+      child = ref[i];
+      parser.add_node(child);
+    }
+    return parser.parsed;
+  };
+
+  AbstractChosen = (function() {
+    function AbstractChosen(form_field, options1) {
+      this.form_field = form_field;
+      this.options = options1 != null ? options1 : {};
+      this.label_click_handler = bind(this.label_click_handler, this);
+      if (!AbstractChosen.browser_is_supported()) {
+        return;
+      }
+      this.is_multiple = this.form_field.multiple;
+      this.set_default_text();
+      this.set_default_values();
+      this.setup();
+      this.set_up_html();
+      this.register_observers();
+      this.on_ready();
+    }
+
+    AbstractChosen.prototype.set_default_values = function() {
+      this.click_test_action = (function(_this) {
+        return function(evt) {
+          return _this.test_active_click(evt);
+        };
+      })(this);
+      this.activate_action = (function(_this) {
+        return function(evt) {
+          return _this.activate_field(evt);
+        };
+      })(this);
+      this.active_field = false;
+      this.mouse_on_container = false;
+      this.results_showing = false;
+      this.result_highlighted = null;
+      this.is_rtl = this.options.rtl || /\bchosen-rtl\b/.test(this.form_field.className);
+      this.allow_single_deselect = (this.options.allow_single_deselect != null) && (this.form_field.options[0] != null) && this.form_field.options[0].text === "" ? this.options.allow_single_deselect : false;
+      this.disable_search_threshold = this.options.disable_search_threshold || 0;
+      this.disable_search = this.options.disable_search || false;
+      this.enable_split_word_search = this.options.enable_split_word_search != null ? this.options.enable_split_word_search : true;
+      this.group_search = this.options.group_search != null ? this.options.group_search : true;
+      this.search_contains = this.options.search_contains || false;
+      this.single_backstroke_delete = this.options.single_backstroke_delete != null ? this.options.single_backstroke_delete : true;
+      this.max_selected_options = this.options.max_selected_options || Infinity;
+      this.inherit_select_classes = this.options.inherit_select_classes || false;
+      this.display_selected_options = this.options.display_selected_options != null ? this.options.display_selected_options : true;
+      this.display_disabled_options = this.options.display_disabled_options != null ? this.options.display_disabled_options : true;
+      this.include_group_label_in_selected = this.options.include_group_label_in_selected || false;
+      this.max_shown_results = this.options.max_shown_results || Number.POSITIVE_INFINITY;
+      this.case_sensitive_search = this.options.case_sensitive_search || false;
+      return this.hide_results_on_select = this.options.hide_results_on_select != null ? this.options.hide_results_on_select : true;
+    };
+
+    AbstractChosen.prototype.set_default_text = function() {
+      if (this.form_field.getAttribute("data-placeholder")) {
+        this.default_text = this.form_field.getAttribute("data-placeholder");
+      } else if (this.is_multiple) {
+        this.default_text = this.options.placeholder_text_multiple || this.options.placeholder_text || AbstractChosen.default_multiple_text;
+      } else {
+        this.default_text = this.options.placeholder_text_single || this.options.placeholder_text || AbstractChosen.default_single_text;
+      }
+      this.default_text = this.escape_html(this.default_text);
+      return this.results_none_found = this.form_field.getAttribute("data-no_results_text") || this.options.no_results_text || AbstractChosen.default_no_result_text;
+    };
+
+    AbstractChosen.prototype.choice_label = function(item) {
+      if (this.include_group_label_in_selected && (item.group_label != null)) {
+        return "<b class='group-name'>" + (this.escape_html(item.group_label)) + "</b>" + item.html;
+      } else {
+        return item.html;
+      }
+    };
+
+    AbstractChosen.prototype.mouse_enter = function() {
+      return this.mouse_on_container = true;
+    };
+
+    AbstractChosen.prototype.mouse_leave = function() {
+      return this.mouse_on_container = false;
+    };
+
+    AbstractChosen.prototype.input_focus = function(evt) {
+      if (this.is_multiple) {
+        if (!this.active_field) {
+          return setTimeout(((function(_this) {
+            return function() {
+              return _this.container_mousedown();
+            };
+          })(this)), 50);
+        }
+      } else {
+        if (!this.active_field) {
+          return this.activate_field();
+        }
+      }
+    };
+
+    AbstractChosen.prototype.input_blur = function(evt) {
+      if (!this.mouse_on_container) {
+        this.active_field = false;
+        return setTimeout(((function(_this) {
+          return function() {
+            return _this.blur_test();
+          };
+        })(this)), 100);
+      }
+    };
+
+    AbstractChosen.prototype.label_click_handler = function(evt) {
+      if (this.is_multiple) {
+        return this.container_mousedown(evt);
+      } else {
+        return this.activate_field();
+      }
+    };
+
+    AbstractChosen.prototype.results_option_build = function(options) {
+      var content, data, data_content, i, len, ref, shown_results;
+      content = '';
+      shown_results = 0;
+      ref = this.results_data;
+      for (i = 0, len = ref.length; i < len; i++) {
+        data = ref[i];
+        data_content = '';
+        if (data.group) {
+          data_content = this.result_add_group(data);
+        } else {
+          data_content = this.result_add_option(data);
+        }
+        if (data_content !== '') {
+          shown_results++;
+          content += data_content;
+        }
+        if (options != null ? options.first : void 0) {
+          if (data.selected && this.is_multiple) {
+            this.choice_build(data);
+          } else if (data.selected && !this.is_multiple) {
+            this.single_set_selected_text(this.choice_label(data));
+          }
+        }
+        if (shown_results >= this.max_shown_results) {
+          break;
+        }
+      }
+      return content;
+    };
+
+    AbstractChosen.prototype.result_add_option = function(option) {
+      var classes, option_el;
+      if (!option.search_match) {
+        return '';
+      }
+      if (!this.include_option_in_results(option)) {
+        return '';
+      }
+      classes = [];
+      if (!option.disabled && !(option.selected && this.is_multiple)) {
+        classes.push("active-result");
+      }
+      if (option.disabled && !(option.selected && this.is_multiple)) {
+        classes.push("disabled-result");
+      }
+      if (option.selected) {
+        classes.push("result-selected");
+      }
+      if (option.group_array_index != null) {
+        classes.push("group-option");
+      }
+      if (option.classes !== "") {
+        classes.push(option.classes);
+      }
+      option_el = document.createElement("li");
+      option_el.className = classes.join(" ");
+      if (option.style) {
+        option_el.style.cssText = option.style;
+      }
+      option_el.setAttribute("data-option-array-index", option.array_index);
+      option_el.innerHTML = option.highlighted_html || option.html;
+      if (option.title) {
+        option_el.title = option.title;
+      }
+      return this.outerHTML(option_el);
+    };
+
+    AbstractChosen.prototype.result_add_group = function(group) {
+      var classes, group_el;
+      if (!(group.search_match || group.group_match)) {
+        return '';
+      }
+      if (!(group.active_options > 0)) {
+        return '';
+      }
+      classes = [];
+      classes.push("group-result");
+      if (group.classes) {
+        classes.push(group.classes);
+      }
+      group_el = document.createElement("li");
+      group_el.className = classes.join(" ");
+      group_el.innerHTML = group.highlighted_html || this.escape_html(group.label);
+      if (group.title) {
+        group_el.title = group.title;
+      }
+      return this.outerHTML(group_el);
+    };
+
+    AbstractChosen.prototype.results_update_field = function() {
+      this.set_default_text();
+      if (!this.is_multiple) {
+        this.results_reset_cleanup();
+      }
+      this.result_clear_highlight();
+      this.results_build();
+      if (this.results_showing) {
+        return this.winnow_results();
+      }
+    };
+
+    AbstractChosen.prototype.reset_single_select_options = function() {
+      var i, len, ref, result, results1;
+      ref = this.results_data;
+      results1 = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        result = ref[i];
+        if (result.selected) {
+          results1.push(result.selected = false);
+        } else {
+          results1.push(void 0);
+        }
+      }
+      return results1;
+    };
+
+    AbstractChosen.prototype.results_toggle = function() {
+      if (this.results_showing) {
+        return this.results_hide();
+      } else {
+        return this.results_show();
+      }
+    };
+
+    AbstractChosen.prototype.results_search = function(evt) {
+      if (this.results_showing) {
+        return this.winnow_results();
+      } else {
+        return this.results_show();
+      }
+    };
+
+    AbstractChosen.prototype.winnow_results = function(options) {
+      var escapedQuery, fix, i, len, option, prefix, query, ref, regex, results, results_group, search_match, startpos, suffix, text;
+      this.no_results_clear();
+      results = 0;
+      query = this.get_search_text();
+      escapedQuery = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+      regex = this.get_search_regex(escapedQuery);
+      ref = this.results_data;
+      for (i = 0, len = ref.length; i < len; i++) {
+        option = ref[i];
+        option.search_match = false;
+        results_group = null;
+        search_match = null;
+        option.highlighted_html = '';
+        if (this.include_option_in_results(option)) {
+          if (option.group) {
+            option.group_match = false;
+            option.active_options = 0;
+          }
+          if ((option.group_array_index != null) && this.results_data[option.group_array_index]) {
+            results_group = this.results_data[option.group_array_index];
+            if (results_group.active_options === 0 && results_group.search_match) {
+              results += 1;
+            }
+            results_group.active_options += 1;
+          }
+          text = option.group ? option.label : option.text;
+          if (!(option.group && !this.group_search)) {
+            search_match = this.search_string_match(text, regex);
+            option.search_match = search_match != null;
+            if (option.search_match && !option.group) {
+              results += 1;
+            }
+            if (option.search_match) {
+              if (query.length) {
+                startpos = search_match.index;
+                prefix = text.slice(0, startpos);
+                fix = text.slice(startpos, startpos + query.length);
+                suffix = text.slice(startpos + query.length);
+                option.highlighted_html = (this.escape_html(prefix)) + "<em>" + (this.escape_html(fix)) + "</em>" + (this.escape_html(suffix));
+              }
+              if (results_group != null) {
+                results_group.group_match = true;
+              }
+            } else if ((option.group_array_index != null) && this.results_data[option.group_array_index].search_match) {
+              option.search_match = true;
+            }
+          }
+        }
+      }
+      this.result_clear_highlight();
+      if (results < 1 && query.length) {
+        this.update_results_content("");
+        return this.no_results(query);
+      } else {
+        this.update_results_content(this.results_option_build());
+        if (!(options != null ? options.skip_highlight : void 0)) {
+          return this.winnow_results_set_highlight();
+        }
+      }
+    };
+
+    AbstractChosen.prototype.get_search_regex = function(escaped_search_string) {
+      var regex_flag, regex_string;
+      regex_string = this.search_contains ? escaped_search_string : "(^|\\s|\\b)" + escaped_search_string + "[^\\s]*";
+      if (!(this.enable_split_word_search || this.search_contains)) {
+        regex_string = "^" + regex_string;
+      }
+      regex_flag = this.case_sensitive_search ? "" : "i";
+      return new RegExp(regex_string, regex_flag);
+    };
+
+    AbstractChosen.prototype.search_string_match = function(search_string, regex) {
+      var match;
+      match = regex.exec(search_string);
+      if (!this.search_contains && (match != null ? match[1] : void 0)) {
+        match.index += 1;
+      }
+      return match;
+    };
+
+    AbstractChosen.prototype.choices_count = function() {
+      var i, len, option, ref;
+      if (this.selected_option_count != null) {
+        return this.selected_option_count;
+      }
+      this.selected_option_count = 0;
+      ref = this.form_field.options;
+      for (i = 0, len = ref.length; i < len; i++) {
+        option = ref[i];
+        if (option.selected) {
+          this.selected_option_count += 1;
+        }
+      }
+      return this.selected_option_count;
+    };
+
+    AbstractChosen.prototype.choices_click = function(evt) {
+      evt.preventDefault();
+      this.activate_field();
+      if (!(this.results_showing || this.is_disabled)) {
+        return this.results_show();
+      }
+    };
+
+    AbstractChosen.prototype.keydown_checker = function(evt) {
+      var ref, stroke;
+      stroke = (ref = evt.which) != null ? ref : evt.keyCode;
+      this.search_field_scale();
+      if (stroke !== 8 && this.pending_backstroke) {
+        this.clear_backstroke();
+      }
+      switch (stroke) {
+        case 8:
+          this.backstroke_length = this.get_search_field_value().length;
+          break;
+        case 9:
+          if (this.results_showing && !this.is_multiple) {
+            this.result_select(evt);
+          }
+          this.mouse_on_container = false;
+          break;
+        case 13:
+          if (this.results_showing) {
+            evt.preventDefault();
+          }
+          break;
+        case 27:
+          if (this.results_showing) {
+            evt.preventDefault();
+          }
+          break;
+        case 32:
+          if (this.disable_search) {
+            evt.preventDefault();
+          }
+          break;
+        case 38:
+          evt.preventDefault();
+          this.keyup_arrow();
+          break;
+        case 40:
+          evt.preventDefault();
+          this.keydown_arrow();
+          break;
+      }
+    };
+
+    AbstractChosen.prototype.keyup_checker = function(evt) {
+      var ref, stroke;
+      stroke = (ref = evt.which) != null ? ref : evt.keyCode;
+      this.search_field_scale();
+      switch (stroke) {
+        case 8:
+          if (this.is_multiple && this.backstroke_length < 1 && this.choices_count() > 0) {
+            this.keydown_backstroke();
+          } else if (!this.pending_backstroke) {
+            this.result_clear_highlight();
+            this.results_search();
+          }
+          break;
+        case 13:
+          evt.preventDefault();
+          if (this.results_showing) {
+            this.result_select(evt);
+          }
+          break;
+        case 27:
+          if (this.results_showing) {
+            this.results_hide();
+          }
+          break;
+        case 9:
+        case 16:
+        case 17:
+        case 18:
+        case 38:
+        case 40:
+        case 91:
+          break;
+        default:
+          this.results_search();
+          break;
+      }
+    };
+
+    AbstractChosen.prototype.clipboard_event_checker = function(evt) {
+      if (this.is_disabled) {
+        return;
+      }
+      return setTimeout(((function(_this) {
+        return function() {
+          return _this.results_search();
+        };
+      })(this)), 50);
+    };
+
+    AbstractChosen.prototype.container_width = function() {
+      if (this.options.width != null) {
+        return this.options.width;
+      } else {
+        return this.form_field.offsetWidth + "px";
+      }
+    };
+
+    AbstractChosen.prototype.include_option_in_results = function(option) {
+      if (this.is_multiple && (!this.display_selected_options && option.selected)) {
+        return false;
+      }
+      if (!this.display_disabled_options && option.disabled) {
+        return false;
+      }
+      if (option.empty) {
+        return false;
+      }
+      return true;
+    };
+
+    AbstractChosen.prototype.search_results_touchstart = function(evt) {
+      this.touch_started = true;
+      return this.search_results_mouseover(evt);
+    };
+
+    AbstractChosen.prototype.search_results_touchmove = function(evt) {
+      this.touch_started = false;
+      return this.search_results_mouseout(evt);
+    };
+
+    AbstractChosen.prototype.search_results_touchend = function(evt) {
+      if (this.touch_started) {
+        return this.search_results_mouseup(evt);
+      }
+    };
+
+    AbstractChosen.prototype.outerHTML = function(element) {
+      var tmp;
+      if (element.outerHTML) {
+        return element.outerHTML;
+      }
+      tmp = document.createElement("div");
+      tmp.appendChild(element);
+      return tmp.innerHTML;
+    };
+
+    AbstractChosen.prototype.get_single_html = function() {
+      return "<a class=\"chosen-single chosen-default\">\n  <span>" + this.default_text + "</span>\n  <div><b></b></div>\n</a>\n<div class=\"chosen-drop\">\n  <div class=\"chosen-search\">\n    <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" />\n  </div>\n  <ul class=\"chosen-results\"></ul>\n</div>";
+    };
+
+    AbstractChosen.prototype.get_multi_html = function() {
+      return "<ul class=\"chosen-choices\">\n  <li class=\"search-field\">\n    <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" value=\"" + this.default_text + "\" />\n  </li>\n</ul>\n<div class=\"chosen-drop\">\n  <ul class=\"chosen-results\"></ul>\n</div>";
+    };
+
+    AbstractChosen.prototype.get_no_results_html = function(terms) {
+      return "<li class=\"no-results\">\n  " + this.results_none_found + " <span>" + (this.escape_html(terms)) + "</span>\n</li>";
+    };
+
+    AbstractChosen.browser_is_supported = function() {
+      if ("Microsoft Internet Explorer" === window.navigator.appName) {
+        return document.documentMode >= 8;
+      }
+      if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator.userAgent) || /Windows Phone/i.test(window.navigator.userAgent) || /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator.userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
+        return false;
+      }
+      return true;
+    };
+
+    AbstractChosen.default_multiple_text = "Select Some Options";
+
+    AbstractChosen.default_single_text = "Select an Option";
+
+    AbstractChosen.default_no_result_text = "No results match";
+
+    return AbstractChosen;
+
+  })();
+
+  $ = jQuery;
+
+  $.fn.extend({
+    chosen: function(options) {
+      if (!AbstractChosen.browser_is_supported()) {
+        return this;
+      }
+      return this.each(function(input_field) {
+        var $this, chosen;
+        $this = $(this);
+        chosen = $this.data('chosen');
+        if (options === 'destroy') {
+          if (chosen instanceof Chosen) {
+            chosen.destroy();
+          }
+          return;
+        }
+        if (!(chosen instanceof Chosen)) {
+          $this.data('chosen', new Chosen(this, options));
+        }
+      });
+    }
+  });
+
+  Chosen = (function(superClass) {
+    extend(Chosen, superClass);
+
+    function Chosen() {
+      return Chosen.__super__.constructor.apply(this, arguments);
+    }
+
+    Chosen.prototype.setup = function() {
+      this.form_field_jq = $(this.form_field);
+      return this.current_selectedIndex = this.form_field.selectedIndex;
+    };
+
+    Chosen.prototype.set_up_html = function() {
+      var container_classes, container_props;
+      container_classes = ["chosen-container"];
+      container_classes.push("chosen-container-" + (this.is_multiple ? "multi" : "single"));
+      if (this.inherit_select_classes && this.form_field.className) {
+        container_classes.push(this.form_field.className);
+      }
+      if (this.is_rtl) {
+        container_classes.push("chosen-rtl");
+      }
+      container_props = {
+        'class': container_classes.join(' '),
+        'title': this.form_field.title
+      };
+      if (this.form_field.id.length) {
+        container_props.id = this.form_field.id.replace(/[^\w]/g, '_') + "_chosen";
+      }
+      this.container = $("<div />", container_props);
+      this.container.width(this.container_width());
+      if (this.is_multiple) {
+        this.container.html(this.get_multi_html());
+      } else {
+        this.container.html(this.get_single_html());
+      }
+      this.form_field_jq.hide().after(this.container);
+      this.dropdown = this.container.find('div.chosen-drop').first();
+      this.search_field = this.container.find('input').first();
+      this.search_results = this.container.find('ul.chosen-results').first();
+      this.search_field_scale();
+      this.search_no_results = this.container.find('li.no-results').first();
+      if (this.is_multiple) {
+        this.search_choices = this.container.find('ul.chosen-choices').first();
+        this.search_container = this.container.find('li.search-field').first();
+      } else {
+        this.search_container = this.container.find('div.chosen-search').first();
+        this.selected_item = this.container.find('.chosen-single').first();
+      }
+      this.results_build();
+      this.set_tab_index();
+      return this.set_label_behavior();
+    };
+
+    Chosen.prototype.on_ready = function() {
+      return this.form_field_jq.trigger("chosen:ready", {
+        chosen: this
+      });
+    };
+
+    Chosen.prototype.register_observers = function() {
+      this.container.on('touchstart.chosen', (function(_this) {
+        return function(evt) {
+          _this.container_mousedown(evt);
+        };
+      })(this));
+      this.container.on('touchend.chosen', (function(_this) {
+        return function(evt) {
+          _this.container_mouseup(evt);
+        };
+      })(this));
+      this.container.on('mousedown.chosen', (function(_this) {
+        return function(evt) {
+          _this.container_mousedown(evt);
+        };
+      })(this));
+      this.container.on('mouseup.chosen', (function(_this) {
+        return function(evt) {
+          _this.container_mouseup(evt);
+        };
+      })(this));
+      this.container.on('mouseenter.chosen', (function(_this) {
+        return function(evt) {
+          _this.mouse_enter(evt);
+        };
+      })(this));
+      this.container.on('mouseleave.chosen', (function(_this) {
+        return function(evt) {
+          _this.mouse_leave(evt);
+        };
+      })(this));
+      this.search_results.on('mouseup.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_mouseup(evt);
+        };
+      })(this));
+      this.search_results.on('mouseover.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_mouseover(evt);
+        };
+      })(this));
+      this.search_results.on('mouseout.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_mouseout(evt);
+        };
+      })(this));
+      this.search_results.on('mousewheel.chosen DOMMouseScroll.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_mousewheel(evt);
+        };
+      })(this));
+      this.search_results.on('touchstart.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_touchstart(evt);
+        };
+      })(this));
+      this.search_results.on('touchmove.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_touchmove(evt);
+        };
+      })(this));
+      this.search_results.on('touchend.chosen', (function(_this) {
+        return function(evt) {
+          _this.search_results_touchend(evt);
+        };
+      })(this));
+      this.form_field_jq.on("chosen:updated.chosen", (function(_this) {
+        return function(evt) {
+          _this.results_update_field(evt);
+        };
+      })(this));
+      this.form_field_jq.on("chosen:activate.chosen", (function(_this) {
+        return function(evt) {
+          _this.activate_field(evt);
+        };
+      })(this));
+      this.form_field_jq.on("chosen:open.chosen", (function(_this) {
+        return function(evt) {
+          _this.container_mousedown(evt);
+        };
+      })(this));
+      this.form_field_jq.on("chosen:close.chosen", (function(_this) {
+        return function(evt) {
+          _this.close_field(evt);
+        };
+      })(this));
+      this.search_field.on('blur.chosen', (function(_this) {
+        return function(evt) {
+          _this.input_blur(evt);
+        };
+      })(this));
+      this.search_field.on('keyup.chosen', (function(_this) {
+        return function(evt) {
+          _this.keyup_checker(evt);
+        };
+      })(this));
+      this.search_field.on('keydown.chosen', (function(_this) {
+        return function(evt) {
+          _this.keydown_checker(evt);
+        };
+      })(this));
+      this.search_field.on('focus.chosen', (function(_this) {
+        return function(evt) {
+          _this.input_focus(evt);
+        };
+      })(this));
+      this.search_field.on('cut.chosen', (function(_this) {
+        return function(evt) {
+          _this.clipboard_event_checker(evt);
+        };
+      })(this));
+      this.search_field.on('paste.chosen', (function(_this) {
+        return function(evt) {
+          _this.clipboard_event_checker(evt);
+        };
+      })(this));
+      if (this.is_multiple) {
+        return this.search_choices.on('click.chosen', (function(_this) {
+          return function(evt) {
+            _this.choices_click(evt);
+          };
+        })(this));
+      } else {
+        return this.container.on('click.chosen', function(evt) {
+          evt.preventDefault();
+        });
+      }
+    };
+
+    Chosen.prototype.destroy = function() {
+      $(this.container[0].ownerDocument).off('click.chosen', this.click_test_action);
+      if (this.form_field_label.length > 0) {
+        this.form_field_label.off('click.chosen');
+      }
+      if (this.search_field[0].tabIndex) {
+        this.form_field_jq[0].tabIndex = this.search_field[0].tabIndex;
+      }
+      this.container.remove();
+      this.form_field_jq.removeData('chosen');
+      return this.form_field_jq.show();
+    };
+
+    Chosen.prototype.search_field_disabled = function() {
+      this.is_disabled = this.form_field.disabled || this.form_field_jq.parents('fieldset').is(':disabled');
+      this.container.toggleClass('chosen-disabled', this.is_disabled);
+      this.search_field[0].disabled = this.is_disabled;
+      if (!this.is_multiple) {
+        this.selected_item.off('focus.chosen', this.activate_field);
+      }
+      if (this.is_disabled) {
+        return this.close_field();
+      } else if (!this.is_multiple) {
+        return this.selected_item.on('focus.chosen', this.activate_field);
+      }
+    };
+
+    Chosen.prototype.container_mousedown = function(evt) {
+      var ref;
+      if (this.is_disabled) {
+        return;
+      }
+      if (evt && ((ref = evt.type) === 'mousedown' || ref === 'touchstart') && !this.results_showing) {
+        evt.preventDefault();
+      }
+      if (!((evt != null) && ($(evt.target)).hasClass("search-choice-close"))) {
+        if (!this.active_field) {
+          if (this.is_multiple) {
+            this.search_field.val("");
+          }
+          $(this.container[0].ownerDocument).on('click.chosen', this.click_test_action);
+          this.results_show();
+        } else if (!this.is_multiple && evt && (($(evt.target)[0] === this.selected_item[0]) || $(evt.target).parents("a.chosen-single").length)) {
+          evt.preventDefault();
+          this.results_toggle();
+        }
+        return this.activate_field();
+      }
+    };
+
+    Chosen.prototype.container_mouseup = function(evt) {
+      if (evt.target.nodeName === "ABBR" && !this.is_disabled) {
+        return this.results_reset(evt);
+      }
+    };
+
+    Chosen.prototype.search_results_mousewheel = function(evt) {
+      var delta;
+      if (evt.originalEvent) {
+        delta = evt.originalEvent.deltaY || -evt.originalEvent.wheelDelta || evt.originalEvent.detail;
+      }
+      if (delta != null) {
+        evt.preventDefault();
+        if (evt.type === 'DOMMouseScroll') {
+          delta = delta * 40;
+        }
+        return this.search_results.scrollTop(delta + this.search_results.scrollTop());
+      }
+    };
+
+    Chosen.prototype.blur_test = function(evt) {
+      if (!this.active_field && this.container.hasClass("chosen-container-active")) {
+        return this.close_field();
+      }
+    };
+
+    Chosen.prototype.close_field = function() {
+      $(this.container[0].ownerDocument).off("click.chosen", this.click_test_action);
+      this.active_field = false;
+      this.results_hide();
+      this.container.removeClass("chosen-container-active");
+      this.clear_backstroke();
+      this.show_search_field_default();
+      this.search_field_scale();
+      return this.search_field.blur();
+    };
+
+    Chosen.prototype.activate_field = function() {
+      if (this.is_disabled) {
+        return;
+      }
+      this.container.addClass("chosen-container-active");
+      this.active_field = true;
+      this.search_field.val(this.search_field.val());
+      return this.search_field.focus();
+    };
+
+    Chosen.prototype.test_active_click = function(evt) {
+      var active_container;
+      active_container = $(evt.target).closest('.chosen-container');
+      if (active_container.length && this.container[0] === active_container[0]) {
+        return this.active_field = true;
+      } else {
+        return this.close_field();
+      }
+    };
+
+    Chosen.prototype.results_build = function() {
+      this.parsing = true;
+      this.selected_option_count = null;
+      this.results_data = SelectParser.select_to_array(this.form_field);
+      if (this.is_multiple) {
+        this.search_choices.find("li.search-choice").remove();
+      } else {
+        this.single_set_selected_text();
+        if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
+          this.search_field[0].readOnly = true;
+          this.container.addClass("chosen-container-single-nosearch");
+        } else {
+          this.search_field[0].readOnly = false;
+          this.container.removeClass("chosen-container-single-nosearch");
+        }
+      }
+      this.update_results_content(this.results_option_build({
+        first: true
+      }));
+      this.search_field_disabled();
+      this.show_search_field_default();
+      this.search_field_scale();
+      return this.parsing = false;
+    };
+
+    Chosen.prototype.result_do_highlight = function(el) {
+      var high_bottom, high_top, maxHeight, visible_bottom, visible_top;
+      if (el.length) {
+        this.result_clear_highlight();
+        this.result_highlight = el;
+        this.result_highlight.addClass("highlighted");
+        maxHeight = parseInt(this.search_results.css("maxHeight"), 10);
+        visible_top = this.search_results.scrollTop();
+        visible_bottom = maxHeight + visible_top;
+        high_top = this.result_highlight.position().top + this.search_results.scrollTop();
+        high_bottom = high_top + this.result_highlight.outerHeight();
+        if (high_bottom >= visible_bottom) {
+          return this.search_results.scrollTop((high_bottom - maxHeight) > 0 ? high_bottom - maxHeight : 0);
+        } else if (high_top < visible_top) {
+          return this.search_results.scrollTop(high_top);
+        }
+      }
+    };
+
+    Chosen.prototype.result_clear_highlight = function() {
+      if (this.result_highlight) {
+        this.result_highlight.removeClass("highlighted");
+      }
+      return this.result_highlight = null;
+    };
+
+    Chosen.prototype.results_show = function() {
+      if (this.is_multiple && this.max_selected_options <= this.choices_count()) {
+        this.form_field_jq.trigger("chosen:maxselected", {
+          chosen: this
+        });
+        return false;
+      }
+      this.container.addClass("chosen-with-drop");
+      this.results_showing = true;
+      this.search_field.focus();
+      this.search_field.val(this.get_search_field_value());
+      this.winnow_results();
+      return this.form_field_jq.trigger("chosen:showing_dropdown", {
+        chosen: this
+      });
+    };
+
+    Chosen.prototype.update_results_content = function(content) {
+      return this.search_results.html(content);
+    };
+
+    Chosen.prototype.results_hide = function() {
+      if (this.results_showing) {
+        this.result_clear_highlight();
+        this.container.removeClass("chosen-with-drop");
+        this.form_field_jq.trigger("chosen:hiding_dropdown", {
+          chosen: this
+        });
+      }
+      return this.results_showing = false;
+    };
+
+    Chosen.prototype.set_tab_index = function(el) {
+      var ti;
+      if (this.form_field.tabIndex) {
+        ti = this.form_field.tabIndex;
+        this.form_field.tabIndex = -1;
+        return this.search_field[0].tabIndex = ti;
+      }
+    };
+
+    Chosen.prototype.set_label_behavior = function() {
+      this.form_field_label = this.form_field_jq.parents("label");
+      if (!this.form_field_label.length && this.form_field.id.length) {
+        this.form_field_label = $("label[for='" + this.form_field.id + "']");
+      }
+      if (this.form_field_label.length > 0) {
+        return this.form_field_label.on('click.chosen', this.label_click_handler);
+      }
+    };
+
+    Chosen.prototype.show_search_field_default = function() {
+      if (this.is_multiple && this.choices_count() < 1 && !this.active_field) {
+        this.search_field.val(this.default_text);
+        return this.search_field.addClass("default");
+      } else {
+        this.search_field.val("");
+        return this.search_field.removeClass("default");
+      }
+    };
+
+    Chosen.prototype.search_results_mouseup = function(evt) {
+      var target;
+      target = $(evt.target).hasClass("active-result") ? $(evt.target) : $(evt.target).parents(".active-result").first();
+      if (target.length) {
+        this.result_highlight = target;
+        this.result_select(evt);
+        return this.search_field.focus();
+      }
+    };
+
+    Chosen.prototype.search_results_mouseover = function(evt) {
+      var target;
+      target = $(evt.target).hasClass("active-result") ? $(evt.target) : $(evt.target).parents(".active-result").first();
+      if (target) {
+        return this.result_do_highlight(target);
+      }
+    };
+
+    Chosen.prototype.search_results_mouseout = function(evt) {
+      if ($(evt.target).hasClass("active-result") || $(evt.target).parents('.active-result').first()) {
+        return this.result_clear_highlight();
+      }
+    };
+
+    Chosen.prototype.choice_build = function(item) {
+      var choice, close_link;
+      choice = $('<li />', {
+        "class": "search-choice"
+      }).html("<span>" + (this.choice_label(item)) + "</span>");
+      if (item.disabled) {
+        choice.addClass('search-choice-disabled');
+      } else {
+        close_link = $('<a />', {
+          "class": 'search-choice-close',
+          'data-option-array-index': item.array_index
+        });
+        close_link.on('click.chosen', (function(_this) {
+          return function(evt) {
+            return _this.choice_destroy_link_click(evt);
+          };
+        })(this));
+        choice.append(close_link);
+      }
+      return this.search_container.before(choice);
+    };
+
+    Chosen.prototype.choice_destroy_link_click = function(evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      if (!this.is_disabled) {
+        return this.choice_destroy($(evt.target));
+      }
+    };
+
+    Chosen.prototype.choice_destroy = function(link) {
+      if (this.result_deselect(link[0].getAttribute("data-option-array-index"))) {
+        if (this.active_field) {
+          this.search_field.focus();
+        } else {
+          this.show_search_field_default();
+        }
+        if (this.is_multiple && this.choices_count() > 0 && this.get_search_field_value().length < 1) {
+          this.results_hide();
+        }
+        link.parents('li').first().remove();
+        return this.search_field_scale();
+      }
+    };
+
+    Chosen.prototype.results_reset = function() {
+      this.reset_single_select_options();
+      this.form_field.options[0].selected = true;
+      this.single_set_selected_text();
+      this.show_search_field_default();
+      this.results_reset_cleanup();
+      this.trigger_form_field_change();
+      if (this.active_field) {
+        return this.results_hide();
+      }
+    };
+
+    Chosen.prototype.results_reset_cleanup = function() {
+      this.current_selectedIndex = this.form_field.selectedIndex;
+      return this.selected_item.find("abbr").remove();
+    };
+
+    Chosen.prototype.result_select = function(evt) {
+      var high, item;
+      if (this.result_highlight) {
+        high = this.result_highlight;
+        this.result_clear_highlight();
+        if (this.is_multiple && this.max_selected_options <= this.choices_count()) {
+          this.form_field_jq.trigger("chosen:maxselected", {
+            chosen: this
+          });
+          return false;
+        }
+        if (this.is_multiple) {
+          high.removeClass("active-result");
+        } else {
+          this.reset_single_select_options();
+        }
+        high.addClass("result-selected");
+        item = this.results_data[high[0].getAttribute("data-option-array-index")];
+        item.selected = true;
+        this.form_field.options[item.options_index].selected = true;
+        this.selected_option_count = null;
+        if (this.is_multiple) {
+          this.choice_build(item);
+        } else {
+          this.single_set_selected_text(this.choice_label(item));
+        }
+        if (this.is_multiple && (!this.hide_results_on_select || (evt.metaKey || evt.ctrlKey))) {
+          if (evt.metaKey || evt.ctrlKey) {
+            this.winnow_results({
+              skip_highlight: true
+            });
+          } else {
+            this.search_field.val("");
+            this.winnow_results();
+          }
+        } else {
+          this.results_hide();
+          this.show_search_field_default();
+        }
+        if (this.is_multiple || this.form_field.selectedIndex !== this.current_selectedIndex) {
+          this.trigger_form_field_change({
+            selected: this.form_field.options[item.options_index].value
+          });
+        }
+        this.current_selectedIndex = this.form_field.selectedIndex;
+        evt.preventDefault();
+        return this.search_field_scale();
+      }
+    };
+
+    Chosen.prototype.single_set_selected_text = function(text) {
+      if (text == null) {
+        text = this.default_text;
+      }
+      if (text === this.default_text) {
+        this.selected_item.addClass("chosen-default");
+      } else {
+        this.single_deselect_control_build();
+        this.selected_item.removeClass("chosen-default");
+      }
+      return this.selected_item.find("span").html(text);
+    };
+
+    Chosen.prototype.result_deselect = function(pos) {
+      var result_data;
+      result_data = this.results_data[pos];
+      if (!this.form_field.options[result_data.options_index].disabled) {
+        result_data.selected = false;
+        this.form_field.options[result_data.options_index].selected = false;
+        this.selected_option_count = null;
+        this.result_clear_highlight();
+        if (this.results_showing) {
+          this.winnow_results();
+        }
+        this.trigger_form_field_change({
+          deselected: this.form_field.options[result_data.options_index].value
+        });
+        this.search_field_scale();
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    Chosen.prototype.single_deselect_control_build = function() {
+      if (!this.allow_single_deselect) {
+        return;
+      }
+      if (!this.selected_item.find("abbr").length) {
+        this.selected_item.find("span").first().after("<abbr class=\"search-choice-close\"></abbr>");
+      }
+      return this.selected_item.addClass("chosen-single-with-deselect");
+    };
+
+    Chosen.prototype.get_search_field_value = function() {
+      return this.search_field.val();
+    };
+
+    Chosen.prototype.get_search_text = function() {
+      return $.trim(this.get_search_field_value());
+    };
+
+    Chosen.prototype.escape_html = function(text) {
+      return $('<div/>').text(text).html();
+    };
+
+    Chosen.prototype.winnow_results_set_highlight = function() {
+      var do_high, selected_results;
+      selected_results = !this.is_multiple ? this.search_results.find(".result-selected.active-result") : [];
+      do_high = selected_results.length ? selected_results.first() : this.search_results.find(".active-result").first();
+      if (do_high != null) {
+        return this.result_do_highlight(do_high);
+      }
+    };
+
+    Chosen.prototype.no_results = function(terms) {
+      var no_results_html;
+      no_results_html = this.get_no_results_html(terms);
+      this.search_results.append(no_results_html);
+      return this.form_field_jq.trigger("chosen:no_results", {
+        chosen: this
+      });
+    };
+
+    Chosen.prototype.no_results_clear = function() {
+      return this.search_results.find(".no-results").remove();
+    };
+
+    Chosen.prototype.keydown_arrow = function() {
+      var next_sib;
+      if (this.results_showing && this.result_highlight) {
+        next_sib = this.result_highlight.nextAll("li.active-result").first();
+        if (next_sib) {
+          return this.result_do_highlight(next_sib);
+        }
+      } else {
+        return this.results_show();
+      }
+    };
+
+    Chosen.prototype.keyup_arrow = function() {
+      var prev_sibs;
+      if (!this.results_showing && !this.is_multiple) {
+        return this.results_show();
+      } else if (this.result_highlight) {
+        prev_sibs = this.result_highlight.prevAll("li.active-result");
+        if (prev_sibs.length) {
+          return this.result_do_highlight(prev_sibs.first());
+        } else {
+          if (this.choices_count() > 0) {
+            this.results_hide();
+          }
+          return this.result_clear_highlight();
+        }
+      }
+    };
+
+    Chosen.prototype.keydown_backstroke = function() {
+      var next_available_destroy;
+      if (this.pending_backstroke) {
+        this.choice_destroy(this.pending_backstroke.find("a").first());
+        return this.clear_backstroke();
+      } else {
+        next_available_destroy = this.search_container.siblings("li.search-choice").last();
+        if (next_available_destroy.length && !next_available_destroy.hasClass("search-choice-disabled")) {
+          this.pending_backstroke = next_available_destroy;
+          if (this.single_backstroke_delete) {
+            return this.keydown_backstroke();
+          } else {
+            return this.pending_backstroke.addClass("search-choice-focus");
+          }
+        }
+      }
+    };
+
+    Chosen.prototype.clear_backstroke = function() {
+      if (this.pending_backstroke) {
+        this.pending_backstroke.removeClass("search-choice-focus");
+      }
+      return this.pending_backstroke = null;
+    };
+
+    Chosen.prototype.search_field_scale = function() {
+      var div, i, len, style, style_block, styles, width;
+      if (!this.is_multiple) {
+        return;
+      }
+      style_block = {
+        position: 'absolute',
+        left: '-1000px',
+        top: '-1000px',
+        display: 'none',
+        whiteSpace: 'pre'
+      };
+      styles = ['fontSize', 'fontStyle', 'fontWeight', 'fontFamily', 'lineHeight', 'textTransform', 'letterSpacing'];
+      for (i = 0, len = styles.length; i < len; i++) {
+        style = styles[i];
+        style_block[style] = this.search_field.css(style);
+      }
+      div = $('<div />').css(style_block);
+      div.text(this.get_search_field_value());
+      $('body').append(div);
+      width = div.width() + 25;
+      div.remove();
+      if (this.container.is(':visible')) {
+        width = Math.min(this.container.outerWidth() - 10, width);
+      }
+      return this.search_field.width(width);
+    };
+
+    Chosen.prototype.trigger_form_field_change = function(extra) {
+      this.form_field_jq.trigger("input", extra);
+      return this.form_field_jq.trigger("change", extra);
+    };
+
+    return Chosen;
+
+  })(AbstractChosen);
+
+}).call(this);
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var _objectFitVideos = _interopRequireDefault(__webpack_require__(41));
+var _objectFitVideos = _interopRequireDefault(__webpack_require__(45));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18977,7 +20925,7 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ (function(module, exports) {
 
 /**
@@ -19249,7 +21197,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
 
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19257,7 +21205,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _youtubePlayer = _interopRequireDefault(__webpack_require__(43));
+var _youtubePlayer = _interopRequireDefault(__webpack_require__(47));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19355,7 +21303,7 @@ function vidRescale() {
 }
 
 /***/ }),
-/* 43 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19367,15 +21315,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _sister = __webpack_require__(44);
+var _sister = __webpack_require__(48);
 
 var _sister2 = _interopRequireDefault(_sister);
 
-var _loadYouTubeIframeApi = __webpack_require__(45);
+var _loadYouTubeIframeApi = __webpack_require__(49);
 
 var _loadYouTubeIframeApi2 = _interopRequireDefault(_loadYouTubeIframeApi);
 
-var _YouTubePlayer = __webpack_require__(47);
+var _YouTubePlayer = __webpack_require__(51);
 
 var _YouTubePlayer2 = _interopRequireDefault(_YouTubePlayer);
 
@@ -19454,7 +21402,7 @@ exports.default = function (maybeElementId) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19522,7 +21470,7 @@ module.exports = Sister;
 
 
 /***/ }),
-/* 45 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19532,7 +21480,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _loadScript = __webpack_require__(46);
+var _loadScript = __webpack_require__(50);
 
 var _loadScript2 = _interopRequireDefault(_loadScript);
 
@@ -19577,7 +21525,7 @@ exports.default = function (emitter) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ (function(module, exports) {
 
 
@@ -19648,7 +21596,7 @@ function ieOnEnd (script, cb) {
 
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19658,19 +21606,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _debug = __webpack_require__(48);
+var _debug = __webpack_require__(52);
 
 var _debug2 = _interopRequireDefault(_debug);
 
-var _functionNames = __webpack_require__(52);
+var _functionNames = __webpack_require__(56);
 
 var _functionNames2 = _interopRequireDefault(_functionNames);
 
-var _eventNames = __webpack_require__(53);
+var _eventNames = __webpack_require__(57);
 
 var _eventNames2 = _interopRequireDefault(_eventNames);
 
-var _FunctionStateMap = __webpack_require__(54);
+var _FunctionStateMap = __webpack_require__(58);
 
 var _FunctionStateMap2 = _interopRequireDefault(_FunctionStateMap);
 
@@ -19850,7 +21798,7 @@ exports.default = YouTubePlayer;
 module.exports = exports['default'];
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19859,7 +21807,7 @@ module.exports = exports['default'];
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(50);
+exports = module.exports = __webpack_require__(54);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -20039,10 +21987,10 @@ function localstorage() {
   } catch (e) {}
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(49)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -20232,7 +22180,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -20248,7 +22196,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(51);
+exports.humanize = __webpack_require__(55);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -20440,7 +22388,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports) {
 
 /**
@@ -20598,7 +22546,7 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20616,7 +22564,7 @@ exports.default = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 'loadVideoB
 module.exports = exports['default'];
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20636,7 +22584,7 @@ exports.default = ['ready', 'stateChange', 'playbackQualityChange', 'playbackRat
 module.exports = exports['default'];
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20646,7 +22594,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _PlayerStates = __webpack_require__(55);
+var _PlayerStates = __webpack_require__(59);
 
 var _PlayerStates2 = _interopRequireDefault(_PlayerStates);
 
@@ -20673,7 +22621,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20693,14 +22641,14 @@ exports.default = {
 module.exports = exports["default"];
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20734,14 +22682,14 @@ if (heroElementExistsOnPage) {
 }
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20781,7 +22729,7 @@ $('#apply-online-form').submit(function (e) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20854,7 +22802,7 @@ $('#select-1, #select-2').on('change', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20886,13 +22834,13 @@ $(window).on('load', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, exports) {
 
 !function(){"use strict";if("undefined"!=typeof window){var t=window.navigator.userAgent.match(/Edge\/(\d{2})\./),e=!!t&&parseInt(t[1],10)>=16;if("objectFit"in document.documentElement.style!=!1&&!e)return void(window.objectFitPolyfill=function(){return!1});var i=function(t){var e=window.getComputedStyle(t,null),i=e.getPropertyValue("position"),n=e.getPropertyValue("overflow"),o=e.getPropertyValue("display");i&&"static"!==i||(t.style.position="relative"),"hidden"!==n&&(t.style.overflow="hidden"),o&&"inline"!==o||(t.style.display="block"),0===t.clientHeight&&(t.style.height="100%"),-1===t.className.indexOf("object-fit-polyfill")&&(t.className=t.className+" object-fit-polyfill")},n=function(t){var e=window.getComputedStyle(t,null),i={"max-width":"none","max-height":"none","min-width":"0px","min-height":"0px",top:"auto",right:"auto",bottom:"auto",left:"auto","margin-top":"0px","margin-right":"0px","margin-bottom":"0px","margin-left":"0px"};for(var n in i){e.getPropertyValue(n)!==i[n]&&(t.style[n]=i[n])}},o=function(t,e,i){var n,o,l,a,d;if(i=i.split(" "),i.length<2&&(i[1]=i[0]),"x"===t)n=i[0],o=i[1],l="left",a="right",d=e.clientWidth;else{if("y"!==t)return;n=i[1],o=i[0],l="top",a="bottom",d=e.clientHeight}return n===l||o===l?void(e.style[l]="0"):n===a||o===a?void(e.style[a]="0"):"center"===n||"50%"===n?(e.style[l]="50%",void(e.style["margin-"+l]=d/-2+"px")):n.indexOf("%")>=0?(n=parseInt(n),void(n<50?(e.style[l]=n+"%",e.style["margin-"+l]=d*(n/-100)+"px"):(n=100-n,e.style[a]=n+"%",e.style["margin-"+a]=d*(n/-100)+"px"))):void(e.style[l]=n)},l=function(t){var e=t.dataset?t.dataset.objectFit:t.getAttribute("data-object-fit"),l=t.dataset?t.dataset.objectPosition:t.getAttribute("data-object-position");e=e||"cover",l=l||"50% 50%";var a=t.parentNode;i(a),n(t),t.style.position="absolute",t.style.height="100%",t.style.width="auto","scale-down"===e&&(t.style.height="auto",t.clientWidth<a.clientWidth&&t.clientHeight<a.clientHeight?(o("x",t,l),o("y",t,l)):(e="contain",t.style.height="100%")),"none"===e?(t.style.width="auto",t.style.height="auto",o("x",t,l),o("y",t,l)):"cover"===e&&t.clientWidth>a.clientWidth||"contain"===e&&t.clientWidth<a.clientWidth?(t.style.top="0",t.style.marginTop="0",o("x",t,l)):"scale-down"!==e&&(t.style.width="100%",t.style.height="auto",t.style.left="0",t.style.marginLeft="0",o("y",t,l))},a=function(t){if(void 0===t)t=document.querySelectorAll("[data-object-fit]");else if(t&&t.nodeName)t=[t];else{if("object"!=typeof t||!t.length||!t[0].nodeName)return!1;t=t}for(var i=0;i<t.length;i++)if(t[i].nodeName){var n=t[i].nodeName.toLowerCase();"img"!==n||e?"video"===n&&(t[i].readyState>0?l(t[i]):t[i].addEventListener("loadedmetadata",function(){l(this)})):t[i].complete?l(t[i]):t[i].addEventListener("load",function(){l(this)})}return!0};document.addEventListener("DOMContentLoaded",function(){a()}),window.addEventListener("resize",function(){a()}),window.objectFitPolyfill=a}}();
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20922,7 +22870,7 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20949,7 +22897,7 @@ $(document).ready(function () {
 });
 
 (function () {
-  if ($(".pagination-controls").length === 0) {
+  if ($(".pagination-controls").length === 0 && $(".search-result-wrapper[data-position]").length !== 0) {
     var items = $("[data-position]").filter(function () {
       if (parseInt($(this).data("position")) > 0) {
         return $(this);

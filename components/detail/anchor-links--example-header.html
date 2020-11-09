@@ -436,7 +436,8 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-keyword">import</span> gumshoe <span class="hljs-keyword">from</span> <span class="hljs-string">'gumshoe'</span>
+                                <pre><span class="hljs-keyword">import</span> <span class="hljs-string">'gumshoejs/dist/gumshoe.polyfills.js'</span>
+<span class="hljs-keyword">import</span> Gumshoe <span class="hljs-keyword">from</span> <span class="hljs-string">'gumshoejs'</span>
 <span class="hljs-keyword">import</span> <span class="hljs-string">'smooth-scroll/dist/js/smooth-scroll.polyfills.js'</span>
 <span class="hljs-keyword">import</span> SmoothScroll <span class="hljs-keyword">from</span> <span class="hljs-string">'smooth-scroll'</span>
 <span class="hljs-keyword">import</span> stickybits <span class="hljs-keyword">from</span> <span class="hljs-string">'stickybits'</span>
@@ -445,7 +446,7 @@
 <span class="hljs-keyword">let</span> elementExistsOnPage = $(<span class="hljs-string">'[data-gumshoe-header]'</span>).length &gt; <span class="hljs-number">0</span>;
 <span class="hljs-keyword">if</span> (elementExistsOnPage) {
     <span class="hljs-comment">// for linking the scroll position and the state of the navigation links</span>
-    gumshoe.init({
+    <span class="hljs-keyword">var</span> spy = <span class="hljs-keyword">new</span> Gumshoe(<span class="hljs-string">'ul[data-gumshoe-header]'</span>, {
         <span class="hljs-attr">offset</span>: <span class="hljs-number">40</span>,
         <span class="hljs-attr">callback</span>: <span class="hljs-function">(<span class="hljs-params">nav</span>) =&gt;</span> {
             <span class="hljs-comment">// if no navigation element is in focus, default to selecting the first one.</span>
@@ -456,7 +457,6 @@
             }
         }
     });
-
     <span class="hljs-comment">// make the navigation sticky</span>
     stickybits(<span class="hljs-string">'.anchor-links-container'</span>, {
         <span class="hljs-attr">useStickyClasses</span>: <span class="hljs-literal">true</span>
@@ -1851,6 +1851,54 @@ to exist elsewhere on the page which matches the configuration.</p>
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing--case-studies.html" data-pjax>
                 <span>Case Studies</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-live.html" data-pjax>
+                <span>Derby On Demand Live</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-static.html" data-pjax>
+                <span>Derby On Demand Static</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -6276,6 +6324,54 @@ to exist elsewhere on the page which matches the configuration.</p>
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-campaign-20-21-style-pink.html" data-pjax>
+                <span>UG Campaign 20 21 style pink</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--pg-campaign-20-21-style.html" data-pjax>
+                <span>PG Campaign 20 21 style</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -8327,6 +8423,30 @@ to exist elsewhere on the page which matches the configuration.</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--360-view.html" data-pjax>
+                <span>360 View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--academic-profile.html" data-pjax>
                 <span>Academic Profile</span>
                 
@@ -8425,6 +8545,30 @@ to exist elsewhere on the page which matches the configuration.</p>
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--news.html" data-pjax>
                 <span>News</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--video.html" data-pjax>
+                <span>Video</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -7,6 +7,8 @@ $('.search-result-filters-button [role=button],.search-result-filters-submit-wra
 });
 
 // In the Funnelback set up each filter's value is a url, on change we need to load the page with that url
-$('.search-result-filters input').change(function(event){
-	window.location.replace($(this).val());
-});
+if (!$('.not-main-search')) {
+    $('.search-result-filters input').change(function(event){
+        window.location.replace($(this).val());
+    });
+}

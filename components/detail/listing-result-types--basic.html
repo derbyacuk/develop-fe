@@ -131,6 +131,12 @@
         
         
         
+        <li class="Browser-tab Browser-tab--resources" data-role="tab">
+            <a href="#browser-24187c4d7278ac0b8425aaf79ceaa636-panel-assets">Assets</a>
+        </li>
+        
+        
+        
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
@@ -297,6 +303,81 @@
     
 
 
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-24187c4d7278ac0b8425aaf79ceaa636-panel-assets">
+    <div class="FileBrowser">
+
+        <div class="FileBrowser-selectWrapper">
+            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select">
+                
+                <option value="file-f34110d8450c83b89fc1c7dfd679e3cb">listing-result-types.js</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="FileBrowser-item is-active" id="file-f34110d8450c83b89fc1c7dfd679e3cb" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-keyword">import</span> $ <span class="hljs-keyword">from</span> <span class="hljs-string">'jquery'</span>
+<span class="hljs-keyword">import</span> lightgallery <span class="hljs-keyword">from</span> <span class="hljs-string">'lightgallery'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'../../../../node_modules/lg-video/dist/lg-video.min.js'</span>
+
+$(<span class="hljs-string">'.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+
+    $(<span class="hljs-keyword">this</span>).lightGallery({
+        <span class="hljs-attr">selector</span>: <span class="hljs-string">'a'</span>,
+        <span class="hljs-attr">download</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">videoMaxWidth</span>: <span class="hljs-string">'1080px'</span>,
+        <span class="hljs-attr">youtubePlayerParams</span>: {
+            <span class="hljs-attr">modestbranding</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">showinfo</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">rel</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">controls</span>: <span class="hljs-number">1</span>
+        },
+        <span class="hljs-attr">getCaptionFromTitleOrAlt</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">iframeMaxWidth</span>: <span class="hljs-string">'100%'</span>
+    });
+
+    $(<span class="hljs-keyword">this</span>).on(<span class="hljs-string">'onAfterOpen.lg'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+        <span class="hljs-keyword">let</span> target = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">".lg-video &gt; iframe"</span>)[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">let</span> src = target.getAttribute(<span class="hljs-string">"src"</span>);
+
+        src = src.replace(<span class="hljs-string">'youtube'</span>, <span class="hljs-string">'youtube-nocookie'</span>);
+        target.setAttribute(<span class="hljs-string">"src"</span>, src);
+
+    });
+});</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/listing-result-types/listing-result-types.js"><span>/components/raw/listing-result-types/listing-result-types.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">components/components/search-results/listing-result-types/listing-result-types.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">943 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
+
+
     
     <div class="Browser-panel" data-role="tab-panel" id="browser-24187c4d7278ac0b8425aaf79ceaa636-panel-info">
     <ul class="Meta">
@@ -310,11 +391,15 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(8)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="">
                     <span>Basic</span>
+                </a>, 
+            
+                <a href="listing-result-types--360-view.html">
+                    <span>360 View</span>
                 </a>, 
             
                 <a href="listing-result-types--academic-profile.html">
@@ -335,6 +420,10 @@
             
                 <a href="listing-result-types--news.html">
                     <span>News</span>
+                </a>, 
+            
+                <a href="listing-result-types--video.html">
+                    <span>Video</span>
                 </a>
             
             </span>
@@ -1316,6 +1405,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing--case-studies.html" data-pjax>
                 <span>Case Studies</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-live.html" data-pjax>
+                <span>Derby On Demand Live</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-static.html" data-pjax>
+                <span>Derby On Demand Static</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -5741,6 +5878,54 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-campaign-20-21-style-pink.html" data-pjax>
+                <span>UG Campaign 20 21 style pink</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--pg-campaign-20-21-style.html" data-pjax>
+                <span>PG Campaign 20 21 style</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -7792,6 +7977,30 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--360-view.html" data-pjax>
+                <span>360 View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--academic-profile.html" data-pjax>
                 <span>Academic Profile</span>
                 
@@ -7890,6 +8099,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--news.html" data-pjax>
                 <span>News</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--video.html" data-pjax>
+                <span>Video</span>
                 
 
 <div class="Status Status--unlabelled">

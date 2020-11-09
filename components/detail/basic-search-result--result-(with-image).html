@@ -162,7 +162,12 @@
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-wrapper"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-image"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/listing-pages/nde-image.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"image"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/listing-pages/nde-image.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"image"</span> /&gt;</span>
+                 
+                 
+                 
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-content with-image"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-heading"</span>&gt;</span>
@@ -179,21 +184,39 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-a7ae013eea0db787fb89fa1436812fd6-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-with-tag</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-wrapper</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> fullbleed %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-wrapper-fullbleed</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> position %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-position</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ position }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-with-tag</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tags %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-with-tags</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> type %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-</span></span></span><span class="hljs-template-variable">{{ type }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> image %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-image"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> image.srcset %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> src in image.srcset %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ src.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ src.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> transcript %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-sub-html</span>=<span class="hljs-string">"&lt;p class='view-transcript'&gt;&lt;a href='</span></span></span><span class="hljs-template-variable">{{ transcript }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">'&gt;View </span></span></span><span class="hljs-template-variable">{{ mediaName }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> video transcript</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> audioDescription %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> and audio description</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&lt;/a&gt;&lt;/p&gt;"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> type == '360-view' %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-iframe</span>=<span class="hljs-string">"true"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> image.srcset %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> src in image.srcset %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ src.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ src.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> /&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> type == 'video' %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-play search-result-play-button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> type == '360-view' %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/images/360-view-white-v2.svg"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-360-image"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"> 
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> overlay %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-image-overlay"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"> 
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> runtime %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-image-runtime"</span>&gt;</span></span><span class="hljs-template-variable">{{ runtime }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"> 
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> pattern %}</span><span class="xml">
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-pattern search-result-pattern-</span></span></span><span class="hljs-template-variable">{{ pattern }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> patternColour %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-pattern-</span></span></span><span class="hljs-template-variable">{{ patternColour }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> search-result-pattern-green-blue</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-content</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> image %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> with-image</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> pattern %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> with-pattern</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-tag"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tags %}</span><span class="xml">
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> tag in tags %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tag</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag.color %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> tag-</span></span></span><span class="hljs-template-variable">{{ tag.color }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> tag-</span></span></span><span class="hljs-template-variable">{{ tag.label|<span class="hljs-keyword">lower</span> }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>&amp;nbsp;&amp;nbsp;
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-tag"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag }}</span><span class="xml">&amp;nbsp;•&amp;nbsp;</span><span class="hljs-template-variable">{{ sincelive }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-heading"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h5"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> subtitle %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"subheading"</span>&gt;</span></span><span class="hljs-template-variable">{{ subtitle }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h5"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> transcript %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-sub-html</span>=<span class="hljs-string">"&lt;p class='view-transcript'&gt;&lt;a href='</span></span></span><span class="hljs-template-variable">{{ transcript }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">'&gt;View </span></span></span><span class="hljs-template-variable">{{ mediaName }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> video transcript</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> audioDescription %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> and audio description</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&lt;/a&gt;&lt;/p&gt;"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> type == '360-view' %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-iframe</span>=<span class="hljs-string">"true"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> subtitle %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h5 subheading"</span>&gt;</span></span><span class="hljs-template-variable">{{ subtitle }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-result-teaser"</span>&gt;</span></span><span class="hljs-template-variable">{{ teasertext }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
             </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> metadata %}</span><span class="xml">
@@ -382,6 +405,14 @@
         <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">6</span>, <span class="hljs-number">14</span>);
         <span class="hljs-attribute">text-transform</span>: uppercase;
         <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$header-font</span>;
+
+        <span class="hljs-selector-class">.search-result-with-tags</span> &amp; {
+            <span class="hljs-attribute">display</span>: inline-block;
+        }
+    }
+
+    <span class="hljs-selector-class">.tag</span> {
+        <span class="hljs-attribute">margin</span>: px-to-em(<span class="hljs-number">6</span>, <span class="hljs-number">14</span>) <span class="hljs-number">0</span> px-to-em(<span class="hljs-number">6</span>, <span class="hljs-number">14</span>);
     }
 
     &amp;-with-tag {
@@ -400,8 +431,13 @@
         <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">20</span>, <span class="hljs-number">14</span>);
     }
 
+    &amp;-since-live {
+        <span class="hljs-attribute">display</span>: inline-block;
+    }
+
     &amp;-image {
         <span class="hljs-attribute">display</span>: none;
+        <span class="hljs-attribute">position</span>: relative;
 
         @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
             lost-column: <span class="hljs-number">5</span>/<span class="hljs-number">16</span>;
@@ -412,8 +448,38 @@
             lost-column: <span class="hljs-number">3</span>/<span class="hljs-number">10</span>;
         }
 
+        <span class="hljs-selector-class">.search-page-results-grid</span> &amp; {
+            <span class="hljs-attribute">display</span>: block <span class="hljs-meta">!important</span>;
+            <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">6</span>, <span class="hljs-number">14</span>);
+            lost-column: <span class="hljs-number">16</span>/<span class="hljs-number">16</span>;
+        }
+
         <span class="hljs-selector-tag">img</span> {
             <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+            <span class="hljs-attribute">display</span>: block;
+        }
+
+        <span class="hljs-selector-tag">a</span> {
+            <span class="hljs-attribute">display</span>: block;
+            @<span class="hljs-keyword">include</span> disable-underlines;
+        }
+
+        &amp;-runtime {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">bottom</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">right</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">background</span>: <span class="hljs-variable">$black</span>;
+            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+            <span class="hljs-attribute">font-weight</span>: bold;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">1px</span> <span class="hljs-number">4px</span>;
+        }
+
+        &amp;-overlay {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
         }
     }
 
@@ -465,6 +531,10 @@
                 lost-column: <span class="hljs-number">7</span>/<span class="hljs-number">10</span>;
             }
         }
+
+        <span class="hljs-selector-class">.search-page-results-grid</span> &amp; {
+            lost-column: <span class="hljs-number">16</span>/<span class="hljs-number">16</span>;
+        }
     }
 
     &amp;-metadata {
@@ -489,6 +559,13 @@
 
     &amp;-wrapper {
         <span class="hljs-attribute">display</span>: block;
+
+        <span class="hljs-selector-class">.search-page-results-grid</span> &amp;:not(<span class="hljs-selector-class">.search-result-wrapper-fullbleed</span>) {
+
+            @<span class="hljs-keyword">include</span> for-desktop-up {
+                lost-column: <span class="hljs-number">8</span>/<span class="hljs-number">16</span> <span class="hljs-number">2</span>;
+            }
+        }
     }
 }
 
@@ -515,7 +592,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.4 KB</span>
+                    <span class="Meta-value">4.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -660,12 +737,22 @@
 <li><strong>patternColour</strong> [Required, string “primary-blue”, “dark-grey”, “mid-grey”, “black”, “white”, “strawberry”, “mid-blue”, “light-grey”, “orange”, “turquoise”, “green”, “yellow”, “green-blue” or “text-black”, <em>default</em> “green-blue”]</li>
 <li><strong>image</strong> [Optional, Image]</li>
 <li><strong>metadata</strong> [Optional, Array of {key, value} pairs]</li>
+<li><strong>position</strong> [Optional, Integer]</li>
+<li><strong>type</strong> [optional, String]</li>
+<li><strong>runtime</strong> [optional, String]</li>
+<li><strong>sincelive</strong> [optional, String]</li>
+<li><strong>tags</strong> [optional, Array of tag]</li>
 </ul>
 <h3 id="image">Image</h3>
 <ul>
 <li><strong>path</strong> [required, string(path)]</li>
 <li><strong>alt</strong> [required, string]</li>
 <li><strong>srcset</strong> [optional, Array of srcset] </li>
+</ul>
+<h3 id="tag">Tag</h3>
+<ul>
+<li><strong>color</strong> [required, string(path)]</li>
+<li><strong>label</strong> [required, string]</li>
 </ul>
 
         
@@ -1604,6 +1691,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing--case-studies.html" data-pjax>
                 <span>Case Studies</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-live.html" data-pjax>
+                <span>Derby On Demand Live</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing--derby-on-demand-static.html" data-pjax>
+                <span>Derby On Demand Static</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -6029,6 +6164,54 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-campaign-20-21-style-pink.html" data-pjax>
+                <span>UG Campaign 20 21 style pink</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--pg-campaign-20-21-style.html" data-pjax>
+                <span>PG Campaign 20 21 style</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -8080,6 +8263,30 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--360-view.html" data-pjax>
+                <span>360 View</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--academic-profile.html" data-pjax>
                 <span>Academic Profile</span>
                 
@@ -8178,6 +8385,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="listing-result-types--news.html" data-pjax>
                 <span>News</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="listing-result-types--video.html" data-pjax>
+                <span>Video</span>
                 
 
 <div class="Status Status--unlabelled">
