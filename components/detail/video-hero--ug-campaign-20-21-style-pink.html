@@ -1440,30 +1440,31 @@ stateNames;
 
         <span class="hljs-selector-tag">h1</span> {
             <span class="hljs-attribute">font-weight</span>: bold;
+
+            <span class="hljs-selector-class">.content-scheme-turquoise</span> &amp; {
+                <span class="hljs-attribute">background</span>: <span class="hljs-variable">$turquoise</span>;
+                <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$turquoise</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$turquoise</span>;
+                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+            }
+
+            <span class="hljs-selector-class">.content-scheme-gold</span> &amp; {
+                <span class="hljs-attribute">background</span>: <span class="hljs-variable">$gold</span>;
+                <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>;
+                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$text-black</span>;
+            }
+
+            <span class="hljs-selector-class">.content-scheme-pink</span> &amp; {
+                <span class="hljs-attribute">background</span>: <span class="hljs-variable">$pink</span>;
+                <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$pink</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$pink</span>;
+                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+            }
         }
 
         &amp;-light {
+
             <span class="hljs-selector-tag">h1</span> {
                 <span class="hljs-attribute">font-weight</span>: normal;
-
-                <span class="hljs-selector-class">.content-scheme-turquoise</span> &amp; {
-                    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$turquoise</span>;
-                    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$turquoise</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$turquoise</span>;
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-                }
-
-                <span class="hljs-selector-class">.content-scheme-gold</span> &amp; {
-                    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$gold</span>;
-                    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>;
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$text-black</span>;
-                }
-
-                <span class="hljs-selector-class">.content-scheme-pink</span> &amp; {
-                    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$pink</span>;
-                    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$pink</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$pink</span>;
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-                }
             }
         }
     }
