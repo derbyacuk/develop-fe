@@ -19484,26 +19484,33 @@ __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery.default)('.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content').each(function () {
-  (0, _jquery.default)(this).lightGallery({
-    selector: 'a',
-    download: false,
-    videoMaxWidth: '1080px',
-    youtubePlayerParams: {
-      modestbranding: 1,
-      showinfo: 1,
-      rel: 0,
-      controls: 1
-    },
-    getCaptionFromTitleOrAlt: false,
-    iframeMaxWidth: '100%'
+function applyLightGallery() {
+  (0, _jquery.default)('.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content').each(function () {
+    (0, _jquery.default)(this).lightGallery({
+      selector: 'a',
+      download: false,
+      videoMaxWidth: '1080px',
+      youtubePlayerParams: {
+        modestbranding: 1,
+        showinfo: 1,
+        rel: 0,
+        controls: 1
+      },
+      getCaptionFromTitleOrAlt: false,
+      iframeMaxWidth: '100%'
+    });
+    (0, _jquery.default)(this).on('onAfterOpen.lg', function (event) {
+      var target = document.querySelectorAll(".lg-video > iframe")[0];
+      var src = target.getAttribute("src");
+      src = src.replace('youtube', 'youtube-nocookie');
+      target.setAttribute("src", src);
+    });
   });
-  (0, _jquery.default)(this).on('onAfterOpen.lg', function (event) {
-    var target = document.querySelectorAll(".lg-video > iframe")[0];
-    var src = target.getAttribute("src");
-    src = src.replace('youtube', 'youtube-nocookie');
-    target.setAttribute("src", src);
-  });
+}
+
+applyLightGallery();
+(0, _jquery.default)(document).on('dod-items-updated', function () {
+  applyLightGallery();
 });
 
 /***/ }),

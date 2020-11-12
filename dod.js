@@ -13,6 +13,7 @@ let filterSubjects      = [];
 let loadedCount = 0;
 let perPage     = 20;
 
+let itemWrapper = null;
 
 // Custom Event listener fired from chosen on change.
 function subjectInputEventListener() {
@@ -88,7 +89,7 @@ function getData() {
             }
         }
     }
-    httpRequest.open('GET', 'https://derbyacuk-cms01-test.terminalfour.net/site-assets/feeds/derby-on-demand/feed.json');
+    httpRequest.open('GET', 'https://www.derby.ac.uk/site-assets/feeds/derby-on-demand/feed.json');
 
     httpRequest.send();
 }
@@ -217,7 +218,7 @@ function createCheckboxFilterGroup(items, type, count) {
         let checkboxOuter = document.createElement("div");
         checkboxOuter.classList.add("checkbox", "checkbox-pretty");
         let checkboxLabel = document.createElement("label");
-        checkboxLabel.setAttribute("for", type + "-" + item);
+        checkboxLabel.setAttribute("for", type + "-" + item.toLowerCase().replaceAll(" ", "-"));
         let checkboxText = UCFirst(item);
         if (count.hasOwnProperty(item)) {
             checkboxText += ' (' + count[item] + ')';
@@ -225,7 +226,7 @@ function createCheckboxFilterGroup(items, type, count) {
         checkboxLabelText = document.createTextNode(checkboxText);
         checkboxOuter.appendChild(checkboxLabel);
         let checkbox = document.createElement("input");
-        checkbox.setAttribute("id", type + "-" + item);
+        checkbox.setAttribute("id", type + "-" + item.toLowerCase().replaceAll(" ", "-"));
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("name", type);
         checkbox.setAttribute("value", item);
@@ -375,7 +376,7 @@ function filterData() {
     outerloop:
     for (let item of data) {
 
-        let itemCategories = item.category.split('|');
+        let itemCategory = item.category.split('|')[0];
         let itemSubjects = item.subject.split('|');
         let itemType = item.type;
 
@@ -391,6 +392,7 @@ function filterData() {
         // Promos ALWAYS get displayed
         // Note - this appears to have changed. Some promos have subjects now
         if (itemType === 'promo') {
+    
             if (itemSubjects) {
                 for (itemSubject of itemSubjects) {
                     if (itemSubject == "") {
@@ -400,6 +402,7 @@ function filterData() {
 
                     if ( (itemSubject) && (categories.indexOf('Subject') !== -1)) {
                         if (subjects.indexOf(itemSubject) !== -1) {
+
                             filteredData.push(item);
                             continue outerloop;
                         }
@@ -408,14 +411,12 @@ function filterData() {
             }
         }
 
-        for (itemCategory of itemCategories) {
-            if (itemCategory !== 'Subject') {
-                if (categories.indexOf(itemCategory) !== -1) {
-                    filteredData.push(item);
-                    continue outerloop;
-                }
+        if (itemCategory !== 'Subject') {
+            if (categories.indexOf(itemCategory) !== -1) {
+                filteredData.push(item);
+                continue outerloop;
             }
-        };
+        }
 
         for (itemSubject of itemSubjects) {
             if ( (itemSubject) && (categories.indexOf('Subject') !== -1)) {
@@ -482,39 +483,63 @@ function outputData() {
 
     let containerText = '<section class="search-page-results-grid-section">';
     let category = '';
-    let isFirst = true;
 
     container.innerHTML = '';
 
     // Wrapper class (not for promos) search-page-results-grid-section
     items.forEach((item, index) => {
 
-        if (!isFirst && item.category !== category) {
-            containerText += "</section></div>";
+        if (index === 0) {
+            openWrapper('');
+            appendToWrapper(item.output);
+            closeWrapper();
+            return;
         }
 
-
-        if (item.category !== category && item.type !== 'promo' && !isFirst) {
-            containerText += '<div class="search-page-results-grid-category-wrapper" data-category="' + item.category.toLowerCase().replace(" ", "-") + '">';
-            containerText += '<h2' + ' id="' + item.category.toLowerCase().replace(" ", "-") + '">' + item.category + "</h2>";
-        }
-
-        if (isFirst || item.category !== category) {
-            containerText += '<section class="search-page-results-grid-section" >';
+        if (item.category !== category) {
+            closeWrapper();
             category = item.category;
-
+            container.insertAdjacentHTML('beforeend', '<h2' + ' id="' + item.category.toLowerCase().replaceAll(" ", "-") + '">' + item.category + "</h2>");
+            openWrapper(item.category);
         }
 
-        isFirst = false;
-        containerText += item.output;
+        if (item.type == 'promo') {
+            closeWrapper();
+            container.insertAdjacentHTML('beforeend', item.output);
+            openWrapper(item.category);
+            return;
+        } else {
+            appendToWrapper(item.output);
+        }
+
     });
 
-    containerText += "</section>";
+    closeWrapper();
 
-    container.innerHTML = containerText;
     addTracking();
+    document.dispatchEvent(new Event('dod-items-updated'));
+
 }
 
+
+function openWrapper(category) {
+    itemWrapper = null;
+    itemWrapper = document.createElement('section');
+    itemWrapper.classList.add('search-page-results-grid-section');
+    itemWrapper.setAttribute('data-category', category.toLowerCase().replaceAll(" ", "-"));
+    return;
+}
+
+function appendToWrapper(string) {
+    itemWrapper.insertAdjacentHTML('beforeend', string);
+}
+
+function closeWrapper() {
+    if (itemWrapper) {
+        container.appendChild(itemWrapper);
+    }
+    return;
+}
 /**
  * UCFirst - uppercase the first letter of a string
  * @param {string} str 
