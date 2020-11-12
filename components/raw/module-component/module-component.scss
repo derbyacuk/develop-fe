@@ -113,7 +113,7 @@ body.modal-open {
 		background-color: $primary-blue;
 		padding: 22px;
 		grid-column: 1;
-		display: block;
+		display: none;
 
 		&.active {
 			display: block;
