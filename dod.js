@@ -1,7 +1,7 @@
 var data = [];
 const validParams       = ['subject', 'country', 'category'];
 const container         = document.querySelector(".search-page-results-column");
-const filterContainer   = document.querySelector(".search-page-filters-column");
+const filterContainer   = document.querySelector(".search-result-filters-collection");
 
 var subjectInput        = document.querySelector("select[name='subject']");
 var categoryInputs      = document.querySelectorAll("input[name='category']");
