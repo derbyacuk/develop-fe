@@ -569,7 +569,7 @@ function addTracking() {
             let category = '';
             let title = target.querySelector(".search-result-heading").innerText;
             let type = target.querySelector(".search-result-tag").innerText.split("•")[0].trim();
-            let container = target.closest(".search-page-results-grid-category-wrapper");
+            let container = target.closest(".search-page-results-grid-section");
             if (container) {
                 category = container.getAttribute("data-category");
             }
