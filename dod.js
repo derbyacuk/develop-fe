@@ -379,16 +379,8 @@ function filterData() {
         let itemCategory = item.category.split('|')[0];
         let itemSubjects = item.subject.split('|');
         let itemType = item.type;
-        let countryList = [
-            'UK',
-            'United Kingdom',
-            'England',
-            'Scotland',
-            'Wales',
-            'Northern Ireland',
-        ];
 
-        if ( (countryList.indexOf(country) !== -1) && item.international) {
+        if ( (!country) && item.international) {
             continue;
         }
 
