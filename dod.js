@@ -360,8 +360,8 @@ function initialiseLocalStorage() {
 
     paramsToLocalStorage();
     setFormOptions();
+    window.history.replaceState(null, null, window.location.pathname);
     document.dispatchEvent(new Event('initchosen'));
-
 
 }
 
