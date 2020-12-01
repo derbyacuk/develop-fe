@@ -71,7 +71,49 @@ function ModuleComponent() {
             self.makeActive(this);
 		});
 
-		this.tabsContainer.appendChild(button);
+		if (this.hasModules(stage)) {
+			this.tabsContainer.appendChild(button);
+		}
+	}
+
+	/**
+	 * hasModules - Check if a stage has any modules. Used for
+	 * skipping tabs that are empty.
+	 */
+	this.hasModules = function(stage) {
+		for( var categoryItr = 0; categoryItr < stage.categories.length; categoryItr ++) {
+			if (!stage.categories[categoryItr].modules.length) {
+				return false;
+			} else {
+
+				if (this.categoryHasModules(stage.categories[categoryItr])) {
+					return true;
+				}
+			}
+
+		}
+
+		return false;
+	}
+
+	/**
+	 * categoryHasModules - Check if a specific category has any modules. Used for
+	 * skipping menus that are empty and to drive hasModules.
+	 */
+	this.categoryHasModules = function(category) {
+
+		for (var i = 0; i < category.modules.length; i++) {
+			var moduleCode = category.modules[i];
+			var module = {};
+			module = moduleData.modules[moduleCode];
+			if (!module) {
+				continue;
+			} else if (module.hasOwnProperty("code")) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
@@ -83,27 +125,32 @@ function ModuleComponent() {
 		for( var categoryItr = 0; categoryItr < stage.categories.length; categoryItr ++) {
 			let category = stage.categories[categoryItr];
 			let modules = category.modules;
-			let subTitle = document.createElement("div");
-			subTitle.setAttribute("class", "h3 module-list-menu-heading");
-			subTitle.textContent = category.title + " modules";
-			this.moduleSelectionMenu.appendChild(subTitle);
-			
-			for (var moduleItr = 0; moduleItr < modules.length; moduleItr++) {
+			if (modules.length) {
+				if (this.categoryHasModules(category)) {
+					let subTitle = document.createElement("div");
+					subTitle.setAttribute("class", "h3 module-list-menu-heading");
+					subTitle.textContent = category.title + " modules";
+					this.moduleSelectionMenu.appendChild(subTitle);
+					
+					for (var moduleItr = 0; moduleItr < modules.length; moduleItr++) {
 
-				let moduleID = modules[moduleItr];
-				let module = moduleData.modules[moduleID];
-				let menuIsActive = false;
+						let moduleID = modules[moduleItr];
+						let module = moduleData.modules[moduleID];
+						let menuIsActive = false;
 
-				if (categoryItr == 0 && moduleItr == 0 && !isMobileLayout()) {
-					menuIsActive = true;
-					self.loadModule(module, category.title);
+						if (categoryItr == 0 && moduleItr == 0 && !isMobileLayout()) {
+							menuIsActive = true;
+							self.loadModule(module, category.title);
+						}
+
+						let moduleNode = this.createMenuItem(moduleID, module, category.title, menuIsActive);
+
+						if (moduleNode) {
+							this.moduleSelectionMenu.appendChild(moduleNode);
+						}
+					}
 				}
 
-                let moduleNode = this.createMenuItem(moduleID, module, category.title, menuIsActive);
-
-                if (moduleNode) {
-                    this.moduleSelectionMenu.appendChild(moduleNode);
-                }
 			}
 			
 		}
@@ -280,14 +327,8 @@ if (moduleData.pathways.length > 1) {
     let pathwayContainer = document.createElement("div");
         pathwayContainer.classList.add("text-block", "run-on");
 
-    let pathwayHeading = document.createElement("div");
-        pathwayHeading.classList.add("h3");
-        pathwayHeading.innerText = "What do you want to study?";
-
-        pathwayContainer.appendChild(pathwayHeading);
-
     let pathwayText = document.createElement("p");
-        pathwayText.innerText = 'This course can be studied in a number of different ways called "pathways". Which pathway you choose will determine the focus of your course and the modules that you will take. Please choose a pathway from the following selection:';
+        pathwayText.innerText = 'This course enables you to select a pathway so that your degree is tailored specifically for you. Each pathway allows you to gain specific skills depending on your personal interests and career aspirations and will determine the focus of your course and the modules that you will take. Please choose a pathway by selecting one from the drop-down below:';
 
         pathwayContainer.appendChild(pathwayText);
 
