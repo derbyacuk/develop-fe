@@ -167,7 +167,7 @@ function ModuleComponent() {
 		menuDetailWrapper.setAttribute("class", "module-list-menu-item-details");
 		let menuDetailLabel = document.createElement("div");
 		menuDetailLabel.setAttribute("class", "module-list-menu-item-details-label");
-		menuDetailLabel.textContent = module.title;
+		menuDetailLabel.innerHTML = module.title;
 		menuDetailWrapper.appendChild(menuDetailLabel);
 		let menuDetailArrowWrapper = document.createElement("div");
 		menuDetailArrowWrapper.setAttribute("class","module-list-menu-item-details-arrow");
