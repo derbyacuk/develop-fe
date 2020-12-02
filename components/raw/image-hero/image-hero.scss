@@ -64,6 +64,16 @@
         justify-content: space-between;
         margin-bottom: -40px;
         flex: 1 0 auto; // for IE11
+
+        .heading-position-left & {
+
+            @include for-desktop-up {
+                lost-offset: 2/16;
+                lost-column: 11/16;
+                flex: 1 0 auto; // for IE11
+                margin-top: -60px;
+            }
+        }
     }
 
     @include for-largerthan-ipad-portrait {
@@ -85,12 +95,6 @@
                 hyphens: none;
             }
 
-            .content-scheme-turquoise & {
-                background: $turquoise;
-                box-shadow: 7px 0 0 $turquoise, (7px * -1) 0 0 $turquoise;
-                color: $white;
-            }
-
             .content-scheme-gold & {
                 background: $gold;
                 box-shadow: 7px 0 0 $gold, (7px * -1) 0 0 $gold;
@@ -98,11 +102,14 @@
                 color: $text-black;
             }
 
-            .content-scheme-pink & {
-                background: $pink;
-                box-shadow: 7px 0 0 $pink, (7px * -1) 0 0 $pink;
-                color: $white;
-            }
+            @each $item, $colour in $content_scheme_colours {
+
+                .content-scheme-#{$item} & {
+                    background: $colour;
+                    box-shadow: 7px 0 0 $colour, (7px * -1) 0 0 $colour;
+                    color: $white;
+                }
+            } 
         }
 
         &-light {
@@ -142,7 +149,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        margin-bottom: px-to-em(40, 17);
+        margin-bottom: px-to-em(30, 17);
 
         .image-hero-campaign-style & {
 
@@ -190,6 +197,34 @@
         &.image-hero-white {
             i {
                 color: $white;
+            }
+        }
+    }
+
+    //allow the content scheme to set other headings in page
+    &-content-scheme {
+
+        @each $item, $colour in $content_scheme_colours {
+
+            &-#{$item} + div + .center-align {
+
+                .accordion, 
+                .text-block,
+                .landing-page-links {
+
+                    h2, .h2,
+                    h3, .h3,
+                    h4, .h4,
+                    h5, .h5,
+                    h6, .h6 {
+                        color: $colour;
+                    }
+                }
+
+                .horizontal-rule {
+                    color: $colour;
+                    background: $colour;
+                }
             }
         }
     }

@@ -1,0 +1,12 @@
+.horizontal-rule {
+	@include full-bleed;
+	border-width: 0;
+	height: px-to-em(20, 17);
+	color: $primary-blue;
+	background: $primary-blue;
+	@include margin-medium;
+    
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+}

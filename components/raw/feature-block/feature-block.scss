@@ -25,19 +25,12 @@
         }
     }
 
-    &-blue {
-        @extend .feature-block;
-        background: $primary-blue;
-    }
+    @each $item, $colour in $content_scheme_colours {
 
-    &-black {
-        @extend .feature-block;
-        background: $black;
-    }
-
-    &-turquoise {
-        @extend .feature-block;
-        background: $turquoise;
+        &-#{$item} {
+            @extend .feature-block;
+            background: $colour;
+        }
     }
 
     &-gold {
@@ -49,11 +42,6 @@
             background-image: linear-gradient(transparent calc(100% - .1em), $mid-blue .1em);
             color: $mid-blue;
         }
-    }
-
-    &-pink {
-        @extend .feature-block;
-        background: $pink;
     }
 }
 
