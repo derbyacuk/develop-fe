@@ -8,15 +8,11 @@
     }
     // end: set default intra-component spacing (units are responsive and based on em values)
 
-    &-heading {
-        @include for-largerthan-ipad-portrait {
-            lost-offset: 1/16;
-            lost-column: 14/16;
-        }
-        
-        @include for-desktop-up {
-            lost-offset: 3/16;
-            lost-column: 11/16;
+    .text-block + .landing-page-links-inner {
+        @include margin-medium-offset;
+
+        @include for-tablet-portrait-up {
+            @include margin-large-offset;
         }
     }
 
