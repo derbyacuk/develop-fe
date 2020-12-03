@@ -71,7 +71,11 @@
                 lost-offset: 2/16;
                 lost-column: 11/16;
                 flex: 1 0 auto; // for IE11
-                margin-top: -40px;
+                margin-top: -20px;
+
+                .image-hero-with-calltoaction & {
+                    margin-top: -40px;
+                }
             }
         }
     }
