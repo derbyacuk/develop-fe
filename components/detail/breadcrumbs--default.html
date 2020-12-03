@@ -316,9 +316,12 @@
         <span class="hljs-attribute">vertical-align</span>: middle;
         <span class="hljs-attribute">color</span>: <span class="hljs-variable">$dark-grey</span>;
 
-        <span class="hljs-selector-class">.white</span> &amp;,
-        <span class="hljs-selector-class">.black</span> &amp; {
+        <span class="hljs-selector-class">.white</span> &amp; {
             @<span class="hljs-keyword">include</span> link-colour(<span class="hljs-variable">$white</span>);
+        }
+
+        <span class="hljs-selector-class">.black</span> &amp; {
+            @<span class="hljs-keyword">include</span> link-colour(<span class="hljs-variable">$black</span>);
         }
     }
 
@@ -346,7 +349,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">691 Bytes</span>
+                    <span class="Meta-value">745 Bytes</span>
                 </li>
             </ul>
         </div>

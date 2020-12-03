@@ -28,9 +28,12 @@
         vertical-align: middle;
         color: $dark-grey;
 
-        .white &,
-        .black & {
+        .white & {
             @include link-colour($white);
+        }
+
+        .black & {
+            @include link-colour($black);
         }
     }
 
