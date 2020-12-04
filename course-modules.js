@@ -121,7 +121,8 @@ function ModuleComponent() {
 	 */
 	this.createMenu = function (stage) {
 		this.moduleSelectionMenu.innerHTML = "";
-	
+		let loadModule = true;
+
 		for( var categoryItr = 0; categoryItr < stage.categories.length; categoryItr ++) {
 			let category = stage.categories[categoryItr];
 			let modules = category.modules;
@@ -138,9 +139,10 @@ function ModuleComponent() {
 						let module = moduleData.modules[moduleID];
 						let menuIsActive = false;
 
-						if (categoryItr == 0 && moduleItr == 0 && !isMobileLayout()) {
+						if (!isMobileLayout() && loadModule == true) {
 							menuIsActive = true;
 							self.loadModule(module, category.title);
+							loadModule = false;
 						}
 
 						let moduleNode = this.createMenuItem(moduleID, module, category.title, menuIsActive);
