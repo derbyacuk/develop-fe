@@ -32,7 +32,6 @@ $search-input-border-size: 5px;
         padding: px-to-em(15, 20) px-to-em(24, 20);
         padding-right: 0;
         font-family: $header-font;
-        outline: none;
         color: $text-black;
 
         @include for-tablet-portrait-up {
