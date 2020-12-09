@@ -229,6 +229,14 @@
                     color: $colour;
                     background: $colour;
                 }
+
+                //if the scheme is dark override the same colour on quote blocks to match...
+                @if (str-index(#{$item}, 'dark-')) { 
+                    .basic-quote-pattern-#{str-replace($item, 'dark-', '')}.basic-quote-pattern-diagonal .basic-quote-pattern-background, 
+                    .basic-quote-pattern-#{str-replace($item, 'dark-', '')}.basic-quote-pattern-diagonal .basic-quote-pattern-mobile-background {
+                        @include pattern-diagonal($colour);
+                    }
+                }
             }
         }
     }

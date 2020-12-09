@@ -205,12 +205,6 @@
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"quote-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-variable">{{quote}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"quote-name"</span>&gt;</span></span><span class="hljs-template-variable">{{name}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"quote-title"</span>&gt;</span></span><span class="hljs-template-variable">{{title}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> callToAction and callToAction.label and callToAction.href %}</span><span class="xml">
-		                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"quote-title"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="button.html">@button</a>' with {
-		                    label: callToAction.label,
-		                    href: callToAction.href
-		                } %}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -389,48 +383,6 @@
         <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
     }
 
-    &amp;-blue,
-    &amp;-black {
-        <span class="hljs-selector-class">.basic-quote-panel</span> {
-            <span class="hljs-attribute">background</span>: <span class="hljs-variable">$primary-blue</span>;
-
-            &amp;,
-            <span class="hljs-selector-tag">h2</span> {
-                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-            }
-
-            &amp;-inner {
-                <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">20px</span>;
-                <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20px</span>;
-
-                <span class="hljs-selector-class">.button</span> {
-                    <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">18</span>, <span class="hljs-number">16</span>);
-                }
-
-                @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-                    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-                    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
-
-                    <span class="hljs-selector-class">.button</span> {
-                        <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-                    }
-                }
-            }
-        }
-    }
-
-    &amp;-black {
-        <span class="hljs-selector-class">.basic-quote-panel</span> {
-            <span class="hljs-attribute">background</span>: <span class="hljs-variable">$black</span>;
-
-            <span class="hljs-selector-class">.button</span> {
-                <span class="hljs-selector-class">.button-overlay</span> {
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
-                }
-            }
-        }
-    }
-
     &amp;-<span class="hljs-attribute">right</span>-align {
         lost-align: top-left;
     }
@@ -604,21 +556,9 @@
         @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$basic-quote-pattern-colours</span> {
             &amp;-#{<span class="hljs-variable">$item</span>} {
 
-                &amp;<span class="hljs-selector-class">.basic-quote-pattern-zigzag</span> {
-                    <span class="hljs-selector-class">.basic-quote-pattern-background</span>, <span class="hljs-selector-class">.basic-quote-pattern-mobile-background</span> {
-                        @<span class="hljs-keyword">include</span> pattern-zigzag(<span class="hljs-variable">$colour</span>);
-                    }
-                }
-
                 &amp;<span class="hljs-selector-class">.basic-quote-pattern-diagonal</span> {
                     <span class="hljs-selector-class">.basic-quote-pattern-background</span>, <span class="hljs-selector-class">.basic-quote-pattern-mobile-background</span> {
                         @<span class="hljs-keyword">include</span> pattern-diagonal(<span class="hljs-variable">$colour</span>);
-                    }
-                }
-
-                &amp;<span class="hljs-selector-class">.basic-quote-pattern-weave</span> {
-                    <span class="hljs-selector-class">.basic-quote-pattern-background</span>, <span class="hljs-selector-class">.basic-quote-pattern-mobile-background</span> {
-                        @<span class="hljs-keyword">include</span> pattern-weave(<span class="hljs-variable">$colour</span>);
                     }
                 }
             }
@@ -641,7 +581,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">10.6 KB</span>
+                    <span class="Meta-value">9.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -747,15 +687,6 @@
             <strong class="Meta-key">Filesystem Path:</strong>
             <span class="Meta-value">components/components/quote-block/quote-block.twig</span>
         </li>
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">References <em class="Meta-count">(1)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="button.html">@<span>button</span></a>
-            
-            </span>
-        </li class="Meta-item">
         
         
     </ul>

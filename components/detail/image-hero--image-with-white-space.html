@@ -1264,256 +1264,264 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre>@<span class="hljs-keyword">mixin</span> full-viewport-full-bleed {
-    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">100vh</span>;
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-    <span class="hljs-comment">// height: #{"calc(100% - " + 80 / 17 + 0rem + ")"};</span>
+                                <pre>@mixin full-viewport-full-bleed {
+    min-height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    // height: #{"calc(100% - " + 80 / 17 + 0rem + ")"};
 
-    <span class="hljs-comment">// @include for-desktop-up {</span>
-    <span class="hljs-comment">//     height: #{"calc(100% - " + 120 / 17 + 0rem + ")"};</span>
-    <span class="hljs-comment">// }</span>
+    // @include for-desktop-up {
+    //     height: #{"calc(100% - " + 120 / 17 + 0rem + ")"};
+    // }
 }
 
-<span class="hljs-selector-class">.image-hero</span> {
-    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">100vh</span>;
-    <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">display</span>: flex;
-    <span class="hljs-attribute">flex-direction</span>: column;
-    <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
+.image-hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; // for IE11
 
-    @<span class="hljs-keyword">include</span> margin-medium;
+    @include margin-medium;
 
-    @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-        @<span class="hljs-keyword">include</span> margin-large;
+    @include for-tablet-portrait-up {
+        @include margin-large;
     }
 
-    &amp;-<span class="hljs-attribute">background</span>-container {
-        @<span class="hljs-keyword">include</span> full-viewport-full-bleed();
-        <span class="hljs-attribute">background</span>: <span class="hljs-variable">$mid-grey</span>;
-        <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;
+    &amp;-background-container {
+        @include full-viewport-full-bleed();
+        background: $mid-grey;
+        font-size: 0;
     }
 
-    &amp;-<span class="hljs-attribute">background</span>-<span class="hljs-selector-tag">img</span> {
-        <span class="hljs-attribute">position</span>: absolute;
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-selector-tag">object</span>-fit: cover;
+    &amp;-background-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    &amp;-<span class="hljs-attribute">background</span>-<span class="hljs-selector-tag">video</span> {
-        <span class="hljs-attribute">position</span>: absolute;
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-selector-tag">object</span>-fit: cover;
-        <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'object-fit: cover;'</span>;
+    &amp;-background-video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
     }
 
-    &amp;-<span class="hljs-attribute">content</span> {
-        @<span class="hljs-keyword">include</span> full-bleed-inset;
+    &amp;-content {
+        @include full-bleed-inset;
 
-        <span class="hljs-attribute">position</span>: relative;
-        <span class="hljs-attribute">display</span>: flex;
-        <span class="hljs-attribute">flex-direction</span>: column;
-        <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
-        <span class="hljs-attribute">min-height</span>: #{<span class="hljs-string">'calc(100vh - 130px)'</span>}; <span class="hljs-comment">// for IE11 -&gt; 100vh - height of the header</span>
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto; // for IE11
+        min-height: #{'calc(100vh - 130px)'}; // for IE11 -&gt; 100vh - height of the header
     }
 
     &amp;-text-column {
-        @<span class="hljs-keyword">include</span> uod-text-column;
+        @include uod-text-column;
 
-        <span class="hljs-attribute">position</span>: relative;
-        <span class="hljs-attribute">display</span>: flex;
-        <span class="hljs-attribute">flex-direction</span>: column;
-        <span class="hljs-attribute">justify-content</span>: space-between;
-        <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">40px</span>;
-        <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: -40px;
+        flex: 1 0 auto; // for IE11
 
-        <span class="hljs-selector-class">.heading-position-left</span> &amp; {
+        .heading-position-left &amp; {
 
-            @<span class="hljs-keyword">include</span> for-desktop-up {
-                lost-offset: <span class="hljs-number">2</span>/<span class="hljs-number">16</span>;
-                lost-column: <span class="hljs-number">11</span>/<span class="hljs-number">16</span>;
-                <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
-                <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">20px</span>;
+            @include for-desktop-up {
+                lost-offset: 2/16;
+                lost-column: 11/16;
+                flex: 1 0 auto; // for IE11
+                margin-top: -20px;
 
-                <span class="hljs-selector-class">.image-hero-with-calltoaction</span> &amp; {
-                    <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">40px</span>;
+                .image-hero-with-calltoaction &amp; {
+                    margin-top: -40px;
                 }
             }
         }
     }
 
-    @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+    @include for-largerthan-ipad-portrait {
         &amp;-feature-block-container {
-            lost-column: <span class="hljs-number">7</span>/<span class="hljs-number">8</span>;
-            <span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
+            lost-column: 7/8;
+            flex: 0 0 auto; // for IE11
         }
     }
 
     &amp;-heading-wrapper {
-        <span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
-        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">7px</span>;
+        flex: 0 0 auto; // for IE11
+        margin: 0 7px;
 
-        <span class="hljs-selector-tag">h1</span> {
-            <span class="hljs-attribute">font-weight</span>: bold;
+        h1 {
+            font-weight: bold;
 
-            <span class="hljs-comment">//above 400px we don't need to hyphenate</span>
-            @<span class="hljs-keyword">media</span> (min-width: 400px) {
-                <span class="hljs-attribute">hyphens</span>: none;
+            //above 400px we don't need to hyphenate
+            @media (min-width: 400px) {
+                hyphens: none;
             }
 
-            <span class="hljs-selector-class">.content-scheme-gold</span> &amp; {
-                <span class="hljs-attribute">background</span>: <span class="hljs-variable">$gold</span>;
-                <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$gold</span>;
-                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$text-black</span>;
+            .content-scheme-gold &amp; {
+                background: $gold;
+                box-shadow: 7px 0 0 $gold, (7px * -1) 0 0 $gold;
+                color: $white;
+                color: $text-black;
             }
 
-            @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$content_scheme_colours</span> {
+            @each $item, $colour in $content_scheme_colours {
 
-                <span class="hljs-selector-class">.content-scheme-</span>#{<span class="hljs-variable">$item</span>} &amp; {
-                    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$colour</span>;
-                    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$colour</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-variable">$colour</span>;
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+                .content-scheme-#{$item} &amp; {
+                    background: $colour;
+                    box-shadow: 7px 0 0 $colour, (7px * -1) 0 0 $colour;
+                    color: $white;
                 }
             } 
         }
 
         &amp;-light {
 
-            <span class="hljs-selector-tag">h1</span> {
-                <span class="hljs-attribute">font-weight</span>: normal;
+            h1 {
+                font-weight: normal;
             }
         }
     }
 
-    &amp;-<span class="hljs-attribute">content</span>-type-tag {
-        <span class="hljs-attribute">text-transform</span>: uppercase;
-        <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
+    &amp;-content-type-tag {
+        text-transform: uppercase;
+        color: $black;
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
-            <span class="hljs-attribute">display</span>: inline-block;
-            <span class="hljs-attribute">position</span>: absolute;
-            <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-            <span class="hljs-attribute">transform</span>: rotate(-<span class="hljs-number">90deg</span>) translateX(-<span class="hljs-number">100%</span>);
-            <span class="hljs-attribute">text-align</span>: right;
-            <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-            <span class="hljs-attribute">transform-origin</span>: top left;
+        @include for-largerthan-ipad-portrait {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            transform: rotate(-90deg) translateX(-100%);
+            text-align: right;
+            line-height: 1;
+            transform-origin: top left;
         }
 
 
         &amp;-container {
-            <span class="hljs-attribute">position</span>: relative;
+            position: relative;
         }
 
-        <span class="hljs-selector-class">.image-hero-white</span> &amp; {
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+        .image-hero-white &amp; {
+            color: $white;
         }
     }
 
     &amp;-navigation {
-        <span class="hljs-attribute">display</span>: flex;
-        <span class="hljs-attribute">flex-direction</span>: column;
-        <span class="hljs-attribute">align-items</span>: center;
-        <span class="hljs-attribute">justify-content</span>: flex-end;
-        <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">30</span>, <span class="hljs-number">17</span>);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: px-to-em(30, 17);
 
-        <span class="hljs-selector-class">.image-hero-campaign-style</span> &amp; {
+        .image-hero-campaign-style &amp; {
 
-            @<span class="hljs-keyword">include</span> for-phone-only {
-                <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">80</span>, <span class="hljs-number">17</span>);
+            @include for-phone-only {
+                margin-bottom: px-to-em(80, 17);
             }
         }
 
-        <span class="hljs-selector-class">.breadcrumbs</span> {
-            <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;
-            <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
+        .breadcrumbs {
+            flex: 1;
+            margin-bottom: 1em;
         }
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
-            <span class="hljs-attribute">flex-direction</span>: row;
+        @include for-largerthan-ipad-portrait {
+            flex-direction: row;
 
-            <span class="hljs-selector-class">.breadcrumbs</span> {
-                <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+            .breadcrumbs {
+                margin-bottom: 0;
             }
         }
     }
 
-    &amp;-scroll-to-<span class="hljs-attribute">content</span>-arrow {
-        <span class="hljs-attribute">display</span>: none;
-        <span class="hljs-attribute">position</span>: absolute;
-        <span class="hljs-variable">$bottom-margin</span>: <span class="hljs-number">10</span>;
-        <span class="hljs-variable">$arrow-height</span>: <span class="hljs-number">32</span>;
-        <span class="hljs-variable">$animation-distance</span>: <span class="hljs-number">20</span>;
-        <span class="hljs-attribute">top</span>: #{<span class="hljs-string">'calc(100vh - '</span> + px-to-em((<span class="hljs-variable">$bottom-margin</span> + <span class="hljs-variable">$arrow-height</span> + <span class="hljs-variable">$animation-distance</span>), <span class="hljs-number">17</span>) + <span class="hljs-string">')'</span>};
-        <span class="hljs-attribute">right</span>: fluid-margin();
+    &amp;-scroll-to-content-arrow {
+        display: none;
+        position: absolute;
+        $bottom-margin: 10;
+        $arrow-height: 32;
+        $animation-distance: 20;
+        top: #{'calc(100vh - ' + px-to-em(($bottom-margin + $arrow-height + $animation-distance), 17) + ')'};
+        right: fluid-margin();
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
-            <span class="hljs-attribute">display</span>: block;
+        @include for-largerthan-ipad-portrait {
+            display: block;
         }
 
         &amp;-animate {
-            <span class="hljs-attribute">animation</span>: scroll-indicator <span class="hljs-number">1.5s</span> infinite;
+            animation: scroll-indicator 1.5s infinite;
         }
 
-        <span class="hljs-selector-tag">i</span> {
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
-            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">25</span> / <span class="hljs-number">17</span> + <span class="hljs-number">0rem</span>;
+        i {
+            color: $black;
+            font-size: 25 / 17 + 0rem;
         }
 
-        &amp;<span class="hljs-selector-class">.image-hero-white</span> {
-            <span class="hljs-selector-tag">i</span> {
-                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+        &amp;.image-hero-white {
+            i {
+                color: $white;
             }
         }
     }
 
-    <span class="hljs-comment">//allow the content scheme to set other headings in page</span>
-    &amp;-<span class="hljs-attribute">content</span>-scheme {
+    //allow the content scheme to set other headings in page
+    &amp;-content-scheme {
 
-        @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$content_scheme_colours</span> {
+        @each $item, $colour in $content_scheme_colours {
 
-            &amp;-#{<span class="hljs-variable">$item</span>} + <span class="hljs-selector-tag">div</span> + <span class="hljs-selector-class">.center-align</span> {
+            &amp;-#{$item} + div + .center-align {
 
-                <span class="hljs-selector-class">.accordion</span>, 
-                <span class="hljs-selector-class">.text-block</span>,
-                <span class="hljs-selector-class">.landing-page-links</span> {
+                .accordion, 
+                .text-block,
+                .landing-page-links {
 
-                    <span class="hljs-selector-tag">h2</span>,
-                    <span class="hljs-selector-tag">h3</span>,
-                    <span class="hljs-selector-tag">h4</span>,
-                    <span class="hljs-selector-tag">h5</span>,
-                    <span class="hljs-selector-tag">h6</span> {
-                        <span class="hljs-attribute">color</span>: <span class="hljs-variable">$colour</span>;
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        color: $colour;
                     }
                 }
 
-                <span class="hljs-selector-class">.horizontal-rule</span> {
-                    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$colour</span>;
-                    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$colour</span>;
+                .horizontal-rule {
+                    color: $colour;
+                    background: $colour;
+                }
+
+                //if the scheme is dark override the same colour on quote blocks to match...
+                @if (str-index(#{$item}, 'dark-')) { 
+                    .basic-quote-pattern-#{str-replace($item, 'dark-', '')}.basic-quote-pattern-diagonal .basic-quote-pattern-background, 
+                    .basic-quote-pattern-#{str-replace($item, 'dark-', '')}.basic-quote-pattern-diagonal .basic-quote-pattern-mobile-background {
+                        @include pattern-diagonal($colour);
+                    }
                 }
             }
         }
     }
 }
 
-<span class="hljs-comment">// the animation keyframes for the "scroll down" arrow indicator</span>
+// the animation keyframes for the "scroll down" arrow indicator
 @keyframes scroll-indicator {
     0% {
-        <span class="hljs-attribute">transform</span>: translate(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-        <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+        transform: translate(0, 0);
+        opacity: 0;
     }
 
     50% {
-        <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+        opacity: 1;
     }
 
     100% {
-        <span class="hljs-attribute">transform</span>: translate(<span class="hljs-number">0</span>, <span class="hljs-number">20px</span>);
-        <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+        transform: translate(0, 20px);
+        opacity: 0;
     }
 }
 </pre>
@@ -1532,7 +1540,7 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.6 KB</span>
+                    <span class="Meta-value">6.2 KB</span>
                 </li>
             </ul>
         </div>

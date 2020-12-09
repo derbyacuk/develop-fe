@@ -123,48 +123,6 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         width: 100%;
     }
 
-    &-blue,
-    &-black {
-        .basic-quote-panel {
-            background: $primary-blue;
-
-            &,
-            h2 {
-                color: $white;
-            }
-
-            &-inner {
-                margin-right: 20px;
-                margin-left: 20px;
-
-                .button {
-                    margin-bottom: px-to-em(18, 16);
-                }
-
-                @include for-tablet-portrait-up {
-                    margin-right: 0;
-                    margin-left: 0;
-
-                    .button {
-                        margin-bottom: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    &-black {
-        .basic-quote-panel {
-            background: $black;
-
-            .button {
-                .button-overlay {
-                    color: $black;
-                }
-            }
-        }
-    }
-
     &-right-align {
         lost-align: top-left;
     }
@@ -338,21 +296,9 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         @each $item, $colour in $basic-quote-pattern-colours {
             &-#{$item} {
 
-                &.basic-quote-pattern-zigzag {
-                    .basic-quote-pattern-background, .basic-quote-pattern-mobile-background {
-                        @include pattern-zigzag($colour);
-                    }
-                }
-
                 &.basic-quote-pattern-diagonal {
                     .basic-quote-pattern-background, .basic-quote-pattern-mobile-background {
                         @include pattern-diagonal($colour);
-                    }
-                }
-
-                &.basic-quote-pattern-weave {
-                    .basic-quote-pattern-background, .basic-quote-pattern-mobile-background {
-                        @include pattern-weave($colour);
                     }
                 }
             }
