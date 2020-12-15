@@ -453,12 +453,12 @@ function sortData(items) {
     // weight, then sort by date. Weighted items are sorted in ascending
     // order, so 999 appears above 1
     weightedItems.sort((a,b) => {
-        if (a.weight > b.weight) return -1;
-        if (a.weight < b.weight) return 1;
+        if (a.weight > b.weight) return 1;
+        if (a.weight < b.weight) return -1;
 
         if (a.weight === b.weight) {
-            if (a.date > b.date) return -1;
-            if (a.date < b.date) return 1;
+            if (a.date > b.date) return 1;
+            if (a.date < b.date) return -1;
         }
 
         return 0;
@@ -471,7 +471,7 @@ function sortData(items) {
         })
     }
 
-    return weightedItems;
+    return filteredItems;
 }
 
 /* outputData - filter and sort items and then spit them out into an html
