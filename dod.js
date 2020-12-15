@@ -453,8 +453,8 @@ function sortData(items) {
     // weight, then sort by date. Weighted items are sorted in ascending
     // order, so 999 appears above 1
     weightedItems.sort((a,b) => {
-        if (a.weight > b.weight) return 1;
-        if (a.weight < b.weight) return -1;
+        if (a.weight > b.weight) return -1;
+        if (a.weight < b.weight) return 1;
 
         if (a.weight === b.weight) {
             if (a.date > b.date) return -1;
@@ -471,7 +471,7 @@ function sortData(items) {
         })
     }
 
-    return filteredItems;
+    return weightedItems;
 }
 
 /* outputData - filter and sort items and then spit them out into an html
@@ -480,7 +480,6 @@ function outputData() {
 
     let items = filterData();
     items = sortData(items);
-
     let containerText = '<section class="search-page-results-grid-section">';
     let category = '';
 
