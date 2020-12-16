@@ -162,7 +162,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group field-required"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"saddr"</span>&gt;</span>Your postcode<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"saddr"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"saddr"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"eg DE22 1GB"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Your postcode"</span> <span class="hljs-attr">required</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"saddr"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"saddr"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"eg DE22 1GB"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Your postcode"</span> <span class="hljs-attr">required</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"postal-code"</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
@@ -217,7 +217,8 @@
             ariaLabel: 'Your postcode',
             placeholder: 'eg DE22 1GB',
             type: 'text',
-            required: true
+            required: true,
+            autocomplete: 'postal-code',
         } %}</span><span class="xml">
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="input.html">@input</a>-choice' with {
             id: 'daddr',
