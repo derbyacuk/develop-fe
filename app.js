@@ -13610,8 +13610,9 @@ __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery.default)('.media-gallery-images').lightGallery({
+(0, _jquery.default)('.media-gallery-images-ul').lightGallery({
   download: false,
+  selector: 'li a',
   videoMaxWidth: '1080px',
   youtubePlayerParams: {
     modestbranding: 1,

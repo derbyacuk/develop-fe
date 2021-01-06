@@ -165,7 +165,9 @@
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"is-mobile-layout"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- Start of Tabs --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tabsContainer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs-ul"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tabsContainer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- End of Tabs --&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-container"</span>&gt;</span>
@@ -472,18 +474,11 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-block-course-page-heading text-block"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"region"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"what-you-will-study"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"module-intro"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"what-you-will-study"</span> <span class="hljs-attr">data-scroll-id</span>=<span class="hljs-string">"what-you-will-study"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"outline: none;"</span>&gt;</span>What you will study<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isJH %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Example modules are shown below, 
-	the modules available as a Joint Honours student will be dependent on the 
-	subject that you combine with. In your first year, modules will be defined 
-	for you, and will be dependent on your subject combination to ensure you 
-	have the best fit. In your second and third years, module availability and 
-	the number of modules you are required to take will depend on whether you 
-	choose this subject as a major, joint or minor. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"is-mobile-layout"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- Start of Tabs --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tabsContainer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-tabs-ul"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tabsContainer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- End of Tabs --&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"module-list-container"</span>&gt;</span>
@@ -546,7 +541,6 @@
         
             
             <pre>{
-  <span class="hljs-attr">"isJH"</span>: <span class="hljs-literal">null</span>,
   <span class="hljs-attr">"moduleData"</span>: {
     <span class="hljs-attr">"pathways"</span>: [
       {
@@ -1049,6 +1043,17 @@
 	    @<span class="hljs-keyword">include</span> for-up-to-ipad-portrait {
 	    	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 		}
+
+		&amp;-<span class="hljs-selector-tag">ul</span> {
+			<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+			<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+		}
+
+		&amp;-<span class="hljs-selector-tag">li</span> {
+			<span class="hljs-attribute">list-style-type</span>: none;
+            <span class="hljs-attribute">display</span>: inline;
+            <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;
+		}
 	}
 
 	&amp;-tabs <span class="hljs-selector-class">.tab</span><span class="hljs-selector-class">.active</span> {
@@ -1097,6 +1102,15 @@
 			&amp;<span class="hljs-selector-class">.optional</span>:not(:first-of-type) {
 				<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">22px</span>;
 			}
+		}
+
+		&amp;-<span class="hljs-selector-tag">ul</span> {
+			<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+		}
+
+		&amp;-<span class="hljs-selector-tag">li</span> {
+			<span class="hljs-attribute">list-style-type</span>: none;
+			<span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
 		}
 	}
 
@@ -1481,7 +1495,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">9.4 KB</span>
+                    <span class="Meta-value">9.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -1515,8 +1529,8 @@
                     <span>No Pathways</span>
                 </a>, 
             
-                <a href="module-component--joint-honours.html">
-                    <span>Joint Honours</span>
+                <a href="module-component--with-core-and-optional-modules.html">
+                    <span>With Core And Optional Modules</span>
                 </a>
             
             </span>
@@ -8487,8 +8501,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="module-component--joint-honours.html" data-pjax>
-                <span>Joint Honours</span>
+            <a class="Tree-entityLink" href="module-component--with-core-and-optional-modules.html" data-pjax>
+                <span>With Core And Optional Modules</span>
                 
 
 <div class="Status Status--unlabelled">

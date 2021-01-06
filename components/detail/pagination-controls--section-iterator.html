@@ -195,7 +195,8 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f9ad385d3e748ade3cc5f8968f53c147-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <pre><span class="xml"></span><span class="hljs-comment">{# NB - the HTML structure of the pagination mark up is dependant on what T4 generates  #}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
     <span class="hljs-selector-class">.label</span> {
         <span class="hljs-attribute">color</span>: magenta;
         <span class="hljs-attribute">display</span>: block;
@@ -344,7 +345,7 @@ $(<span class="hljs-string">'.pagination-controls'</span>).each(<span class="hlj
     &amp;-inner {
         <span class="hljs-attribute">margin-right</span>: -<span class="hljs-number">10px</span>;
 
-        &gt; <span class="hljs-selector-tag">span</span>:not(<span class="hljs-selector-class">.spacer</span>) {
+        <span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.currentpage</span> {
             @<span class="hljs-keyword">extend</span> .button-blue;
         }
     }
@@ -7344,8 +7345,8 @@ $(<span class="hljs-string">'.pagination-controls'</span>).each(<span class="hlj
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="module-component--joint-honours.html" data-pjax>
-                <span>Joint Honours</span>
+            <a class="Tree-entityLink" href="module-component--with-core-and-optional-modules.html" data-pjax>
+                <span>With Core And Optional Modules</span>
                 
 
 <div class="Status Status--unlabelled">

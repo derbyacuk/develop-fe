@@ -55,6 +55,8 @@ function ModuleComponent() {
 	 * @param {object} stage The module stage to create tabs for
 	 */
 	this.createTab = function (stage, isActive) {
+		let listItem = document.createElement('li');
+		listItem.setAttribute("class", "module-list-tabs-li");
 		let button = document.createElement('a');
 		button.setAttribute("class", "tab button-large button-blue");
 		button.setAttribute("role", "button");
@@ -70,9 +72,10 @@ function ModuleComponent() {
 			self.createMenu(stage);
             self.makeActive(this);
 		});
+		listItem.appendChild(button);
 
 		if (this.hasModules(stage)) {
-			this.tabsContainer.appendChild(button);
+			this.tabsContainer.appendChild(listItem);
 		}
 	}
 
@@ -132,6 +135,8 @@ function ModuleComponent() {
 					subTitle.setAttribute("class", "h3 module-list-menu-heading");
 					subTitle.textContent = category.title + " modules";
 					this.moduleSelectionMenu.appendChild(subTitle);
+					let moduleList = document.createElement("ul");
+					moduleList.setAttribute("class", "module-list-menu-ul");
 					
 					for (var moduleItr = 0; moduleItr < modules.length; moduleItr++) {
 
@@ -148,9 +153,11 @@ function ModuleComponent() {
 						let moduleNode = this.createMenuItem(moduleID, module, category.title, menuIsActive);
 
 						if (moduleNode) {
-							this.moduleSelectionMenu.appendChild(moduleNode);
+							moduleList.appendChild(moduleNode);
 						}
 					}
+
+					this.moduleSelectionMenu.appendChild(moduleList);
 				}
 
 			}
@@ -160,6 +167,8 @@ function ModuleComponent() {
 
 	this.createMenuItem = function(moduleID, module, status, isActive) {
         if (!module) {return false;}
+        let menuListItem = document.createElement("li");
+        menuListItem.setAttribute("class","module-list-menu-li");
 		let menuItem = document.createElement("a");
 		menuItem.setAttribute("class","module-list-menu-item");
 		menuItem.setAttribute("href", "");
@@ -188,8 +197,9 @@ function ModuleComponent() {
                 document.body.classList.add("modal-open");
  			}
 		});
+		menuListItem.appendChild(menuItem);
 
-		return menuItem;
+		return menuListItem;
 	}
 
 	this.makeActive = function (target) {

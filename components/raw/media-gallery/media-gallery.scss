@@ -22,7 +22,8 @@
         }
     }
 
-    &-images {
+    &-images-ul {
+        padding-left: 0;
         display: flex;
         flex-wrap: wrap;
         lost-utility: clearfix;
@@ -40,62 +41,69 @@
         overflow: hidden;
     }
 
-    &-image-a {
-        lost-column: 4/8 2 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        @include disable-underlines();
-        position: relative;
-        display: block;
+    &-image {
 
-        @include for-largerthan-ipad-portrait {
-            lost-column: 4/16 4 10px;
-        }
+        &-li {
+            lost-column: 4/8 2 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            @include disable-underlines();
+            position: relative;
+            display: block;
 
-        @include for-desktop-up {
-            lost-column: 3/12 4 10px;
-        }
+            @include for-largerthan-ipad-portrait {
+                lost-column: 4/16 4 10px;
+            }
 
-        &:hover {
-
-            .media-gallery-image-a-overlay{
-                opacity: 1;
-                background-color: rgba($black, 0.65);
-
-                > i {
-                    opacity: 1;
-                }
+            @include for-desktop-up {
+                lost-column: 3/12 4 10px;
             }
         }
 
-        &-img {
-            max-width: 100%;
+        &-a {
             display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
 
-        &-overlay {
-            background-color: rgba($black, 0);
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: background-color 0.15s $default-animation-curve;
-            z-index: 2;
+            &:hover {
 
-            > i {
-                left: 50%;
-                margin-left: -17px;
-                margin-top: -17px;
-                opacity: 0;
+                .media-gallery-image-a-overlay{
+                    opacity: 1;
+                    background-color: rgba($black, 0.65);
+
+                    > i {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &-img {
+                max-width: 100%;
+                display: block;
                 position: absolute;
-                top: 50%;
-                font-size: 34px;
-                color: #FFFFFF;
-                transition: opacity 0.3s $default-animation-curve;
+                top: 0;
+                left: 0;
+            }
+
+            &-overlay {
+                background-color: rgba($black, 0);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: background-color 0.15s $default-animation-curve;
+                z-index: 2;
+
+                > i {
+                    left: 50%;
+                    margin-left: -17px;
+                    margin-top: -17px;
+                    opacity: 0;
+                    position: absolute;
+                    top: 50%;
+                    font-size: 34px;
+                    color: #FFFFFF;
+                    transition: opacity 0.3s $default-animation-curve;
+                }
             }
         }
     }

@@ -2,8 +2,9 @@ import $ from 'jquery'
 import lightgallery from 'lightgallery'
 import '../../../node_modules/lg-video/dist/lg-video.min.js'
 
-$('.media-gallery-images').lightGallery({
+$('.media-gallery-images-ul').lightGallery({
     download: false,
+    selector: 'li a',
     videoMaxWidth: '1080px',
     youtubePlayerParams: {
         modestbranding: 1,
