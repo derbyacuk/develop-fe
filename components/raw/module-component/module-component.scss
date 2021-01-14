@@ -260,7 +260,7 @@ body.modal-open {
 
 		&.active {
 			right: 0;
-			@include for-phone-only {
+			@include for-up-to-ipad-portrait {
 				position: fixed;
 				width: 100vw;
 				height: 100vh;
