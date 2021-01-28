@@ -21,8 +21,9 @@ if ($('.sticky-call-to-action-container').length) {
             }
         }
 
-        var sectionNavigation = $('.section-navigation-wrapper-inner-ul');
-        if (sectionNavigation.length > 0) {
+        var sectionNavigationUl = $('.section-navigation-wrapper-inner-ul'),
+        sectionNavigation = $('.section-navigation');
+        if (sectionNavigationUl.length > 0) {
             // if we're up to section nav add class to allow cta to sit alongside section nav
             if (scroll >= (sectionNavigation.offset().top - $('.sticky-call-to-action').height())) {
                 $('.sticky-call-to-action-fixed').addClass('sticky-call-to-action-fixed-with-section-navigation');

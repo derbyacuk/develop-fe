@@ -12899,9 +12899,10 @@ if ($('.sticky-call-to-action-container').length) {
       }
     }
 
-    var sectionNavigation = $('.section-navigation-wrapper-inner-ul');
+    var sectionNavigationUl = $('.section-navigation-wrapper-inner-ul'),
+        sectionNavigation = $('.section-navigation');
 
-    if (sectionNavigation.length > 0) {
+    if (sectionNavigationUl.length > 0) {
       // if we're up to section nav add class to allow cta to sit alongside section nav
       if (scroll >= sectionNavigation.offset().top - $('.sticky-call-to-action').height()) {
         $('.sticky-call-to-action-fixed').addClass('sticky-call-to-action-fixed-with-section-navigation'); // if under 600px the section nav is full width so set our margin to take height of section nav into account

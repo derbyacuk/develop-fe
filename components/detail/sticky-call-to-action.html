@@ -254,8 +254,9 @@
             }
         }
 
-        <span class="hljs-keyword">var</span> sectionNavigation = $(<span class="hljs-string">'.section-navigation-wrapper-inner-ul'</span>);
-        <span class="hljs-keyword">if</span> (sectionNavigation.length &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">var</span> sectionNavigationUl = $(<span class="hljs-string">'.section-navigation-wrapper-inner-ul'</span>),
+        sectionNavigation = $(<span class="hljs-string">'.section-navigation'</span>);
+        <span class="hljs-keyword">if</span> (sectionNavigationUl.length &gt; <span class="hljs-number">0</span>) {
             <span class="hljs-comment">// if we're up to section nav add class to allow cta to sit alongside section nav</span>
             <span class="hljs-keyword">if</span> (scroll &gt;= (sectionNavigation.offset().top - $(<span class="hljs-string">'.sticky-call-to-action'</span>).height())) {
                 $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).addClass(<span class="hljs-string">'sticky-call-to-action-fixed-with-section-navigation'</span>);
