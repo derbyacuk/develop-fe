@@ -12899,7 +12899,7 @@ if ($('.sticky-call-to-action-container').length) {
       }
     }
 
-    var sectionNavigation = $('.section-navigation');
+    var sectionNavigation = $('.section-navigation-wrapper-inner-ul');
 
     if (sectionNavigation.length > 0) {
       // if we're up to section nav add class to allow cta to sit alongside section nav
