@@ -1,11 +1,15 @@
 
 .section-navigation {
     background: $black; 
-    max-width: 290px; 
+    max-width: 100%; 
     position: relative;
     @include margin-small;
     z-index: 3;
-    width: 290px;
+    width: 100%;
+
+    &-open {
+        z-index: 6;
+    }
 
     @include for-tablet-portrait-up {
         margin-top: 20px;
@@ -13,6 +17,15 @@
 
     @include for-desktop-up {
         lost-offset: 2/16;
+    }
+
+    @include for-tablet-portrait-up {
+        width: 290px;
+        max-width: 290px; 
+
+        &.js-is-sticky {
+            top: 20px !important; //soz! using to override inline top:0; added by stickybits - only want a top adding over 600px
+        }
     }
 
     .section-navigation-wrapper-inner {

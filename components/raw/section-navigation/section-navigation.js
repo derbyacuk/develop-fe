@@ -10,13 +10,17 @@ $('.section-navigation-wrapper').hide();
 
 $('.section-navigation-link').click(function (e) {
     e.preventDefault();
-    $('.section-navigation-wrapper').slideToggle();
+    $('.section-navigation-wrapper').slideToggle(function(){
+    	$('.section-navigation').toggleClass('section-navigation-open');
+    });
 });
 
 $('.section-navigation-wrapper > .uod-icons-cross').click(function (e) {
     e.preventDefault();
-    $('.section-navigation-wrapper').slideUp();
+    $('.section-navigation-wrapper').slideUp(function(){
+    	$('.section-navigation').removeClass('section-navigation-open');
+    });
 });
 
 
-stickybits('.section-navigation');
+stickybits('.section-navigation', { useStickyClasses: true });

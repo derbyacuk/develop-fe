@@ -382,16 +382,20 @@ $(<span class="hljs-string">'.section-navigation-wrapper'</span>).hide();
 
 $(<span class="hljs-string">'.section-navigation-link'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     e.preventDefault();
-    $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideToggle();
+    $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideToggle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    	$(<span class="hljs-string">'.section-navigation'</span>).toggleClass(<span class="hljs-string">'section-navigation-open'</span>);
+    });
 });
 
 $(<span class="hljs-string">'.section-navigation-wrapper &gt; .uod-icons-cross'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     e.preventDefault();
-    $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideUp();
+    $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideUp(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    	$(<span class="hljs-string">'.section-navigation'</span>).removeClass(<span class="hljs-string">'section-navigation-open'</span>);
+    });
 });
 
 
-stickybits(<span class="hljs-string">'.section-navigation'</span>);
+stickybits(<span class="hljs-string">'.section-navigation'</span>, { <span class="hljs-attr">useStickyClasses</span>: <span class="hljs-literal">true</span> });
 </pre>
                             </code>
                             
@@ -408,7 +412,7 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">577 Bytes</span>
+                    <span class="Meta-value">779 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -424,11 +428,15 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
                                 <pre>
 <span class="hljs-selector-class">.section-navigation</span> {
     <span class="hljs-attribute">background</span>: <span class="hljs-variable">$black</span>; 
-    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">290px</span>; 
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>; 
     <span class="hljs-attribute">position</span>: relative;
     @<span class="hljs-keyword">include</span> margin-small;
     <span class="hljs-attribute">z-index</span>: <span class="hljs-number">3</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">290px</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+    &amp;-open {
+        <span class="hljs-attribute">z-index</span>: <span class="hljs-number">6</span>;
+    }
 
     @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
         <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;
@@ -436,6 +444,15 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
 
     @<span class="hljs-keyword">include</span> for-desktop-up {
         lost-offset: <span class="hljs-number">2</span>/<span class="hljs-number">16</span>;
+    }
+
+    @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">290px</span>;
+        <span class="hljs-attribute">max-width</span>: <span class="hljs-number">290px</span>; 
+
+        &amp;<span class="hljs-selector-class">.js-is-sticky</span> {
+            <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span> <span class="hljs-meta">!important</span>; <span class="hljs-comment">//soz! using to override inline top:0; added by stickybits - only want a top adding over 600px</span>
+        }
     }
 
     <span class="hljs-selector-class">.section-navigation-wrapper-inner</span> {
@@ -626,7 +643,7 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.1 KB</span>
+                    <span class="Meta-value">5.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -699,7 +716,7 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(8)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="full-page-comps--basic-page.html">@<span>full-page-comps--basic-page</span></a>, 
@@ -711,6 +728,10 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
                 <a href="listing--blog-homepage.html">@<span>listing--blog-homepage</span></a>, 
             
                 <a href="listing--t4.html">@<span>listing--t4</span></a>, 
+            
+                <a href="pattern-hero--with-section-navigation.html">@<span>pattern-hero--with-section-navigation</span></a>, 
+            
+                <a href="pattern-hero--with-section-navigation-and-long-cta.html">@<span>pattern-hero--with-section-navigation-and-long-cta</span></a>, 
             
                 <a href="section-navigation--in-context.html">@<span>section-navigation--in-context</span></a>
             
@@ -4564,6 +4585,54 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>);
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero--with-lots-of-content.html" data-pjax>
                 <span>With Lots Of Content</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--with-section-navigation.html" data-pjax>
+                <span>With Section Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--with-section-navigation-and-long-cta.html" data-pjax>
+                <span>With Section Navigation And Long Cta</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -234,12 +234,8 @@
                                 <pre><span class="hljs-comment">//FYI this doesn't use stickybits as that constraints to the container an element is within</span>
 <span class="hljs-keyword">if</span> ($(<span class="hljs-string">'.sticky-call-to-action-container'</span>).length) {
 
-    <span class="hljs-keyword">const</span> breakpoint = <span class="hljs-number">600</span>; <span class="hljs-comment">// the target width at which the sticky behaviours should apply (tablet and above)</span>
+    $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'scroll resize'</span>, () =&gt; {
 
-    $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'scroll'</span>, () =&gt; {
-        <span class="hljs-keyword">if</span> ($(<span class="hljs-built_in">window</span>).width() &lt; breakpoint) {
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-        }
         <span class="hljs-keyword">var</span> scroll = $(<span class="hljs-built_in">window</span>).scrollTop() + <span class="hljs-number">20</span>;
         <span class="hljs-keyword">if</span> (scroll &gt; $(<span class="hljs-string">'.sticky-call-to-action-container'</span>).offset().top) {
             $(<span class="hljs-string">'.sticky-call-to-action'</span>).addClass(<span class="hljs-string">'sticky-call-to-action-hidden'</span>);
@@ -257,12 +253,22 @@
                 $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).css(<span class="hljs-string">'marginTop'</span>, <span class="hljs-number">0</span>)
             }
         }
-    })
 
-    $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'resize'</span>, () =&gt; {
-        <span class="hljs-keyword">if</span> ($(<span class="hljs-built_in">window</span>).width() &lt; breakpoint) {
-            $(<span class="hljs-string">'.sticky-call-to-action'</span>).removeClass(<span class="hljs-string">'sticky-call-to-action-hidden'</span>);
-            $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).addClass(<span class="hljs-string">'sticky-call-to-action-hidden'</span>);
+        <span class="hljs-keyword">var</span> sectionNavigation = $(<span class="hljs-string">'.section-navigation'</span>);
+        <span class="hljs-keyword">if</span> (sectionNavigation.length &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// if we're up to section nav add class to allow cta to sit alongside section nav</span>
+            <span class="hljs-keyword">if</span> (scroll &gt;= (sectionNavigation.offset().top - $(<span class="hljs-string">'.sticky-call-to-action'</span>).height())) {
+                $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).addClass(<span class="hljs-string">'sticky-call-to-action-fixed-with-section-navigation'</span>);
+                <span class="hljs-comment">// if under 600px the section nav is full width so set our margin to take height of section nav into account</span>
+                <span class="hljs-keyword">if</span> ($(<span class="hljs-built_in">window</span>).width() &lt; <span class="hljs-number">600</span>) {
+                    $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).css(<span class="hljs-string">'marginTop'</span>, sectionNavigation.height());
+                } <span class="hljs-keyword">else</span> {
+                    $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).css(<span class="hljs-string">'marginTop'</span>, <span class="hljs-number">0</span>);
+                }
+            } <span class="hljs-keyword">else</span> {
+                $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).removeClass(<span class="hljs-string">'sticky-call-to-action-fixed-with-section-navigation'</span>);
+                $(<span class="hljs-string">'.sticky-call-to-action-fixed'</span>).css(<span class="hljs-string">'marginTop'</span>, <span class="hljs-number">0</span>);
+            }
         }
     })
 }
@@ -282,7 +288,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.5 KB</span>
+                    <span class="Meta-value">2.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -296,6 +302,7 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-selector-class">.sticky</span> {
+
     &amp;-call-to-action {
         <span class="hljs-attribute">text-align</span>: right;
         <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>; <span class="hljs-comment">// to avoid spurious bottom padding when measuring the component</span>
@@ -314,6 +321,20 @@
             <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span>;
             <span class="hljs-attribute">z-index</span>: <span class="hljs-number">2</span>;
             <span class="hljs-attribute">transition</span>: margin-top .<span class="hljs-number">3s</span> <span class="hljs-variable">$default-animation-curve</span>;
+
+            <span class="hljs-comment">/*
+                Fix stop a sticky cta overlapping a section navigation
+            */</span>
+            &amp;-with-<span class="hljs-selector-tag">section</span>-navigation {
+                
+                @<span class="hljs-keyword">media</span> (min-width: <span class="hljs-variable">$tablet-portrait</span>) and (max-width: 768px) {
+                    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">40%</span>;
+                    <span class="hljs-comment">// 100% - width of section navigation - 20px for spacing - 2x fluid margin</span>
+                    <span class="hljs-attribute">max-width</span>: calc(<span class="hljs-number">100%</span> - <span class="hljs-number">290px</span> - <span class="hljs-number">20px</span> - (calc(#{fluid-margin()}*<span class="hljs-number">2</span>)));
+                    <span class="hljs-attribute">right</span>: <span class="hljs-variable">$min-size</span>;
+                    <span class="hljs-attribute">right</span>: fluid-margin();
+                }
+            }
         }
 
         &amp;-hidden {
@@ -337,7 +358,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">557 Bytes</span>
+                    <span class="Meta-value">1.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -4326,6 +4347,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero--with-lots-of-content.html" data-pjax>
                 <span>With Lots Of Content</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--with-section-navigation.html" data-pjax>
+                <span>With Section Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--with-section-navigation-and-long-cta.html" data-pjax>
+                <span>With Section Navigation And Long Cta</span>
                 
 
 <div class="Status Status--unlabelled">

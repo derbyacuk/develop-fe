@@ -1,4 +1,5 @@
 .sticky {
+
     &-call-to-action {
         text-align: right;
         font-size: 0; // to avoid spurious bottom padding when measuring the component
@@ -17,6 +18,20 @@
             top: 20px;
             z-index: 2;
             transition: margin-top .3s $default-animation-curve;
+
+            /*
+                Fix stop a sticky cta overlapping a section navigation
+            */
+            &-with-section-navigation {
+                
+                @media (min-width: $tablet-portrait) and (max-width: 768px) {
+                    max-width: 40%;
+                    // 100% - width of section navigation - 20px for spacing - 2x fluid margin
+                    max-width: calc(100% - 290px - 20px - (calc(#{fluid-margin()}*2)));
+                    right: $min-size;
+                    right: fluid-margin();
+                }
+            }
         }
 
         &-hidden {
