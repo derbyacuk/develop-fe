@@ -225,6 +225,45 @@
             }
         }
     }
+
+    &.new-campaign-poc {
+
+        .video-hero-text-column {
+            margin-left: 0 !important;
+        }
+
+        h1 {
+            line-height: 1;
+            color: $pink;
+            background: #030303;
+            box-shadow: 7px 0 0 #030303, (7px * -1) 0 0 #030303;
+        }
+
+        .feature-block {
+            color: $pink;
+            background: #030303;
+        }
+
+        .video-hero-search-content-container {
+
+            @include for-tablet-portrait-up {
+                lost-offset: 0/16;
+            }
+
+            @include for-tablet-landscape-up { 
+                lost-column: 10/16;
+                flex-basis: auto;
+            }
+
+            @include for-desktop-up {
+                lost-offset: 0/16;
+                lost-column: 9/16;
+                flex-basis: auto;
+            }
+
+            max-width: 800px !important;
+        }
+    }
 }
 
 // the animation keyframes for the "scroll down" arrow indicator
