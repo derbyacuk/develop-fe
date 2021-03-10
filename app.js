@@ -19036,6 +19036,16 @@ function applyLightGallery() {
       target.setAttribute("src", src);
     });
   });
+
+  if (openVideo) {
+    if (document.querySelector('.search-page-results-grid-section > .search-result-wrapper > .search-result')) {
+      if (document.querySelector('.search-page-results-grid-section > .search-result-wrapper > .search-result').classList.contains('search-result-video')) {
+        document.querySelector('.search-result-video > .search-result-image > a').click();
+        console.log(openVideo);
+        openVideo = false;
+      }
+    }
+  }
 }
 
 applyLightGallery();

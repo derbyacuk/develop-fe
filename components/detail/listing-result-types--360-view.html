@@ -373,6 +373,18 @@
 
         });
     });
+
+    <span class="hljs-keyword">if</span> (openVideo) {
+        
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-page-results-grid-section &gt; .search-result-wrapper &gt; .search-result'</span>)) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-page-results-grid-section &gt; .search-result-wrapper &gt; .search-result'</span>).classList.contains(<span class="hljs-string">'search-result-video'</span>)) {
+            <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-result-video &gt; .search-result-image &gt; a'</span>).click();
+            <span class="hljs-built_in">console</span>.log(openVideo);
+            openVideo = <span class="hljs-literal">false</span>;
+            }
+        }
+    }
+    
 }
 
 applyLightGallery();
@@ -395,7 +407,7 @@ $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'dod
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.2 KB</span>
+                    <span class="Meta-value">1.7 KB</span>
                 </li>
             </ul>
         </div>
