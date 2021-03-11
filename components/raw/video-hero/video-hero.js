@@ -23,7 +23,8 @@ function getNextVid() {
 }
 
 var tv,
-stateNames;
+stateNames,
+timer;
 /**
  * @see https://developers.google.com/youtube/iframe_api_reference#Events
  */
@@ -39,7 +40,7 @@ stateNames;
 if ($('.tv').length && !!self.vid === true) {
 
     tv = YouTubePlayer('tv', {
-        playerVars: {autoplay: 1, autohide: 1, modestbranding: 1, rel: 0, showinfo: 0, controls: 0, disablekb: 1, enablejsapi: 0, iv_load_policy: 3},
+        playerVars: {autoplay: 1, autohide: 1, modestbranding: 1, rel: 0, showinfo: 0, controls: 0, disablekb: 0, enablejsapi: 0, iv_load_policy: 3},
     });
 
     if ($('.tv').is(":visible")) {
@@ -60,20 +61,67 @@ if ($('.tv').length && !!self.vid === true) {
 
             if (event.data == 1) {
                 vidRescale();
-                $("#tv").addClass("active");
+                activateVideo();
+                // if we don't want the video to loop set timeout to deactivate the video a second before it stops
+                // this will stop the YouTube related videos flashing up at the end
+                if (!self.vid[currVid]['loop']){
+                    timer = new Timer(deactivateVideo, ((self.vid[currVid]['endSeconds'] - 1) * 1000));
+                }
             }
 
-            if (event.data == 2 || event.data == 0) {
-                $("#tv").removeClass("active");
-                getNextVid();
-                tv.loadVideoById(self.vid[currVid]);
+            if (event.data == 0) {
+                deactivateVideo();
+                if (self.vid[currVid]['loop']){
+                    getNextVid();
+                    tv.loadVideoById(self.vid[currVid]);
+                    tv.playVideo();
+                }
+            }
+        });
+
+        $("#pause").click(function(e){
+            e.preventDefault();
+            if ($(this).text().indexOf('Pause') != -1) {
+                tv.pauseVideo();
+                if (typeof(timer) !== 'undefined') timer.pause();
+                $(this).html('Play<span class="button-overlay"><span>Play</span></span>');
+            } else {
                 tv.playVideo();
+                if (typeof(timer) !== 'undefined') timer.resume();
+                $(this).html('Pause<span class="button-overlay"><span>Pause</span></span>');
             }
         });
     }
 
+    function activateVideo() {
+        $("#tv, #pause").addClass("active");
+        $(".video-hero-scroll-to-content-arrow").removeClass("active");
+    }
+
+    function deactivateVideo() {
+        $("#tv, #pause").removeClass("active");
+        $(".video-hero-scroll-to-content-arrow").addClass("active");
+    }
+
     $(window).on('resize', vidRescale);
 }
+
+var Timer = function(callback, delay) {
+        var timerId, start, remaining = delay;
+
+        this.pause = function() {
+            window.clearTimeout(timerId);
+            remaining -= Date.now() - start;
+        };
+
+        this.resume = function() {
+            start = Date.now();
+            window.clearTimeout(timerId);
+            timerId = window.setTimeout(callback, remaining);
+        };
+
+        this.resume();
+    };
 
 function vidRescale(){
     var w = $('.video-hero').first().width()+200,

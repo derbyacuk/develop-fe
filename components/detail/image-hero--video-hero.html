@@ -1568,6 +1568,75 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
     }
 }
 
+// UG Campaign 2022 style is a bit different...
+.ug-2022-hero-brand-heading.ug-2022-hero.image-hero,
+.ug-2022-hero-brand-heading.ug-2022-hero.video-hero { 
+ 
+    h1 strong {
+        font-size: responsive 50px 90px;
+        font-range: $mobile-portrait $tablet-landscape;
+        font-family: flood-std, sans-serif; 
+        font-weight: 400; 
+        font-style: 'normal';
+    }
+}
+
+
+.ug-2022-hero.image-hero,
+.ug-2022-hero.video-hero, {
+
+    h1 {
+        background: none;
+        box-shadow: none;
+        
+        strong {
+            color: $pink;
+        }
+
+        &amp;::after {
+            margin-bottom: px-to-em(20, 70);
+            content: '';
+        }
+    }
+
+    [class*="-hero-text-column"] {
+        margin-left: 0 !important;
+        margin-top: calc(100vh/5);
+    }
+
+    [class*="-hero-search-content-container"] {
+
+        @include for-tablet-portrait-up {
+            lost-offset: 0/16;
+        }
+
+        @include for-tablet-landscape-up { 
+            lost-column: 10/16;
+            flex-basis: auto;
+        }
+
+        @include for-desktop-up {
+            lost-offset: 0/16;
+            lost-column: 9/16;
+            flex-basis: auto;
+        }
+
+        max-width: 800px !important;
+    }
+
+    [class*="-hero-background-container"], 
+    [class*="-hero-background-container"] {
+        background: $black;
+    }
+
+    [class*="-hero-background-img"], 
+    [class*="-hero-background-video"] {
+        @media (max-width: #{$desktop - 1}) {
+            max-height: 100vh;
+        }
+    }
+}
+
 // the animation keyframes for the "scroll down" arrow indicator
 @keyframes scroll-indicator {
     0% {
@@ -1600,7 +1669,7 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.2 KB</span>
+                    <span class="Meta-value">7.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -1623,7 +1692,7 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(19)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(21)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="image-hero--default.html">
@@ -1700,6 +1769,14 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
             
                 <a href="image-hero--with-content-scheme-applied-to-main-content.html">
                     <span>With content scheme applied to main content</span>
+                </a>, 
+            
+                <a href="image-hero--ug-2022-brand-heading.html">
+                    <span>UG 2022 brand heading</span>
+                </a>, 
+            
+                <a href="image-hero--ug-2022.html">
+                    <span>UG 2022 normal heading</span>
                 </a>
             
             </span>
@@ -4693,6 +4770,54 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -4930,6 +5055,54 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="image-hero-search--dark-green-scheme.html" data-pjax>
                 <span>Green scheme</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7624,8 +7797,32 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7832,8 +8029,32 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero-search--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">

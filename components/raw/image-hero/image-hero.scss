@@ -242,6 +242,75 @@
     }
 }
 
+// UG Campaign 2022 style is a bit different...
+.ug-2022-hero-brand-heading.ug-2022-hero.image-hero,
+.ug-2022-hero-brand-heading.ug-2022-hero.video-hero { 
+ 
+    h1 strong {
+        font-size: responsive 50px 90px;
+        font-range: $mobile-portrait $tablet-landscape;
+        font-family: flood-std, sans-serif; 
+        font-weight: 400; 
+        font-style: 'normal';
+    }
+}
+
+
+.ug-2022-hero.image-hero,
+.ug-2022-hero.video-hero, {
+
+    h1 {
+        background: none;
+        box-shadow: none;
+        
+        strong {
+            color: $pink;
+        }
+
+        &::after {
+            margin-bottom: px-to-em(20, 70);
+            content: '';
+        }
+    }
+
+    [class*="-hero-text-column"] {
+        margin-left: 0 !important;
+        margin-top: calc(100vh/5);
+    }
+
+    [class*="-hero-search-content-container"] {
+
+        @include for-tablet-portrait-up {
+            lost-offset: 0/16;
+        }
+
+        @include for-tablet-landscape-up { 
+            lost-column: 10/16;
+            flex-basis: auto;
+        }
+
+        @include for-desktop-up {
+            lost-offset: 0/16;
+            lost-column: 9/16;
+            flex-basis: auto;
+        }
+
+        max-width: 800px !important;
+    }
+
+    [class*="-hero-background-container"], 
+    [class*="-hero-background-container"] {
+        background: $black;
+    }
+
+    [class*="-hero-background-img"], 
+    [class*="-hero-background-video"] {
+        @media (max-width: #{$desktop - 1}) {
+            max-height: 100vh;
+        }
+    }
+}
+
 // the animation keyframes for the "scroll down" arrow indicator
 @keyframes scroll-indicator {
     0% {

@@ -164,10 +164,10 @@
         <span class="hljs-string">'videoId'</span>: <span class="hljs-string">'pTRX8tFOYgU'</span>,
         <span class="hljs-string">'startSeconds'</span>: <span class="hljs-number">0</span>,
         <span class="hljs-string">'endSeconds'</span>: <span class="hljs-number">35</span>,
-        <span class="hljs-string">'suggestedQuality'</span>: <span class="hljs-string">'hd720'</span>
+        <span class="hljs-string">'suggestedQuality'</span>: <span class="hljs-string">'hd720'</span>,
+        <span class="hljs-string">'loop'</span>: <span class="hljs-number">1</span>
     }];
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero video-hero-black"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-container"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Image Hero - "</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/video-hero/pTRX8tFOYgU-maxresdefault.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-object-fit</span> /&gt;</span>
@@ -839,7 +839,11 @@
             }
         }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-black"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pause"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
+        Pause
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                        Pause
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-scroll-to-content-arrow video-hero-scroll-to-content-arrow-animate video-hero-black"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-down-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -850,18 +854,15 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-60a43fd2edd4be3f7e9609bb1918c2cc-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-   self.vid  = [
-   {<span class="hljs-string">'videoId'</span>: <span class="hljs-string">'pTRX8tFOYgU'</span>,<span class="hljs-string">'startSeconds'</span>: <span class="hljs-number">0</span>, <span class="hljs-string">'endSeconds'</span>: <span class="hljs-number">35</span>, <span class="hljs-string">'suggestedQuality'</span>: <span class="hljs-string">'hd720'</span>}
-    ];
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> initCode %}</span><span class="xml"></span><span class="hljs-template-variable">{{ initCode }}</span><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> scheme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> video-hero-</span></span></span><span class="hljs-template-variable">{{ scheme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> additionalClasses %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ additionalClasses }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-container"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Image Hero - </span></span></span><span class="hljs-template-variable">{{ image.alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> image.srcset %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> src in image.srcset %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ src.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ src.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ image.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">data-object-fit</span> /&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> initCode %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tv"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"screen mute"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tv"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="header.html">@header</a>' with {
         transparent: true,
@@ -923,6 +924,13 @@
         }
     }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> initCode %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="button.html">@button</a>' with {
+            label: 'Pause',
+            href: '#',
+            id: 'pause',
+        } %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-scroll-to-content-arrow video-hero-scroll-to-content-arrow-animate</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> scheme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> video-hero-</span></span></span><span class="hljs-template-variable">{{ scheme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-down-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
@@ -1166,7 +1174,8 @@
     <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/images/nature-connections-scarlet-honeyeater-bird-red-feathers.jpg"</span>,
     <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Scarlet honey eater bird"</span>
   },
-  <span class="hljs-attr">"breadcrumbs"</span>: <span class="hljs-literal">null</span>
+  <span class="hljs-attr">"breadcrumbs"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"initCode"</span>: <span class="hljs-string">"&lt;script&gt;self.vid  = [{'videoId': 'pTRX8tFOYgU','startSeconds': 0, 'endSeconds': 35, 'suggestedQuality': 'hd720', 'loop': 1}];&lt;/script&gt;"</span>
 }</pre>
             
         
@@ -1225,7 +1234,8 @@
 }
 
 <span class="hljs-keyword">var</span> tv,
-stateNames;
+stateNames,
+timer;
 <span class="hljs-comment">/**
  * @see https://developers.google.com/youtube/iframe_api_reference#Events
  */</span>
@@ -1241,7 +1251,7 @@ stateNames;
 <span class="hljs-keyword">if</span> ($(<span class="hljs-string">'.tv'</span>).length &amp;&amp; !!self.vid === <span class="hljs-literal">true</span>) {
 
     tv = YouTubePlayer(<span class="hljs-string">'tv'</span>, {
-        <span class="hljs-attr">playerVars</span>: {<span class="hljs-attr">autoplay</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">autohide</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">modestbranding</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">rel</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">showinfo</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">controls</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">disablekb</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">enablejsapi</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">iv_load_policy</span>: <span class="hljs-number">3</span>},
+        <span class="hljs-attr">playerVars</span>: {<span class="hljs-attr">autoplay</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">autohide</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">modestbranding</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">rel</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">showinfo</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">controls</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">disablekb</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">enablejsapi</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">iv_load_policy</span>: <span class="hljs-number">3</span>},
     });
 
     <span class="hljs-keyword">if</span> ($(<span class="hljs-string">'.tv'</span>).is(<span class="hljs-string">":visible"</span>)) {
@@ -1262,20 +1272,67 @@ stateNames;
 
             <span class="hljs-keyword">if</span> (event.data == <span class="hljs-number">1</span>) {
                 vidRescale();
-                $(<span class="hljs-string">"#tv"</span>).addClass(<span class="hljs-string">"active"</span>);
+                activateVideo();
+                <span class="hljs-comment">// if we don't want the video to loop set timeout to deactivate the video a second before it stops</span>
+                <span class="hljs-comment">// this will stop the YouTube related videos flashing up at the end</span>
+                <span class="hljs-keyword">if</span> (!self.vid[currVid][<span class="hljs-string">'loop'</span>]){
+                    timer = <span class="hljs-keyword">new</span> Timer(deactivateVideo, ((self.vid[currVid][<span class="hljs-string">'endSeconds'</span>] - <span class="hljs-number">1</span>) * <span class="hljs-number">1000</span>));
+                }
             }
 
-            <span class="hljs-keyword">if</span> (event.data == <span class="hljs-number">2</span> || event.data == <span class="hljs-number">0</span>) {
-                $(<span class="hljs-string">"#tv"</span>).removeClass(<span class="hljs-string">"active"</span>);
-                getNextVid();
-                tv.loadVideoById(self.vid[currVid]);
+            <span class="hljs-keyword">if</span> (event.data == <span class="hljs-number">0</span>) {
+                deactivateVideo();
+                <span class="hljs-keyword">if</span> (self.vid[currVid][<span class="hljs-string">'loop'</span>]){
+                    getNextVid();
+                    tv.loadVideoById(self.vid[currVid]);
+                    tv.playVideo();
+                }
+            }
+        });
+
+        $(<span class="hljs-string">"#pause"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+            e.preventDefault();
+            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).text().indexOf(<span class="hljs-string">'Pause'</span>) != <span class="hljs-number">-1</span>) {
+                tv.pauseVideo();
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(timer) !== <span class="hljs-string">'undefined'</span>) timer.pause();
+                $(<span class="hljs-keyword">this</span>).html(<span class="hljs-string">'Play&lt;span class="button-overlay"&gt;&lt;span&gt;Play&lt;/span&gt;&lt;/span&gt;'</span>);
+            } <span class="hljs-keyword">else</span> {
                 tv.playVideo();
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(timer) !== <span class="hljs-string">'undefined'</span>) timer.resume();
+                $(<span class="hljs-keyword">this</span>).html(<span class="hljs-string">'Pause&lt;span class="button-overlay"&gt;&lt;span&gt;Pause&lt;/span&gt;&lt;/span&gt;'</span>);
             }
         });
     }
 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activateVideo</span>(<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#tv, #pause"</span>).addClass(<span class="hljs-string">"active"</span>);
+        $(<span class="hljs-string">".video-hero-scroll-to-content-arrow"</span>).removeClass(<span class="hljs-string">"active"</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deactivateVideo</span>(<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#tv, #pause"</span>).removeClass(<span class="hljs-string">"active"</span>);
+        $(<span class="hljs-string">".video-hero-scroll-to-content-arrow"</span>).addClass(<span class="hljs-string">"active"</span>);
+    }
+
     $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'resize'</span>, vidRescale);
 }
+
+<span class="hljs-keyword">var</span> Timer = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">callback, delay</span>) </span>{
+        <span class="hljs-keyword">var</span> timerId, start, remaining = delay;
+
+        <span class="hljs-keyword">this</span>.pause = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-built_in">window</span>.clearTimeout(timerId);
+            remaining -= <span class="hljs-built_in">Date</span>.now() - start;
+        };
+
+        <span class="hljs-keyword">this</span>.resume = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            start = <span class="hljs-built_in">Date</span>.now();
+            <span class="hljs-built_in">window</span>.clearTimeout(timerId);
+            timerId = <span class="hljs-built_in">window</span>.setTimeout(callback, remaining);
+        };
+
+        <span class="hljs-keyword">this</span>.resume();
+    };
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vidRescale</span>(<span class="hljs-params"></span>)</span>{
     <span class="hljs-keyword">var</span> w = $(<span class="hljs-string">'.video-hero'</span>).first().width()+<span class="hljs-number">200</span>,
@@ -1288,7 +1345,8 @@ stateNames;
         tv.setSize(h/<span class="hljs-number">9</span>*<span class="hljs-number">16</span>, h);
         $(<span class="hljs-string">'.tv .screen'</span>).css({<span class="hljs-string">'left'</span>: -($(<span class="hljs-string">'.tv .screen'</span>).outerWidth()-w)/<span class="hljs-number">2</span>});
     }
-}</pre>
+}
+</pre>
                             </code>
                             
                         </div>
@@ -1304,7 +1362,7 @@ stateNames;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">3.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -1353,37 +1411,46 @@ stateNames;
         <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">2</span>;
     }
 
-    <span class="hljs-selector-class">.tv</span> {<span class="hljs-attribute">display</span>: none;}
+    <span class="hljs-selector-class">.tv</span> {
+        <span class="hljs-attribute">display</span>: none;
 
-    @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-	<span class="hljs-selector-class">.tv</span> {
-      <span class="hljs-attribute">display</span>: block;
-	  <span class="hljs-attribute">position</span>: relative;
-	  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-	  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+            <span class="hljs-attribute">display</span>: block;
+            <span class="hljs-attribute">position</span>: relative;
+            <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+            <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+            <span class="hljs-attribute">overflow</span>: hidden;
 
-	  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-	  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+            <span class="hljs-selector-class">.screen</span> {
+                <span class="hljs-attribute">position</span>: absolute;
+                <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
+                <span class="hljs-attribute">margin</span>: auto;
+                <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">transition</span>: opacity .<span class="hljs-number">5s</span>;
 
-	  <span class="hljs-attribute">overflow</span>: hidden;
-	  <span class="hljs-selector-class">.screen</span> {
-	    <span class="hljs-attribute">position</span>: absolute;
-	    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-	    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-	    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
-	    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-	    <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
+                &amp;<span class="hljs-selector-class">.active</span> {
+                    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+                }
+            }
+        }
+    }
 
-	    <span class="hljs-attribute">margin</span>: auto;
+    <span class="hljs-selector-id">#pause</span> {
+        <span class="hljs-attribute">position</span>: absolute;
+        <span class="hljs-attribute">bottom</span>: <span class="hljs-number">10px</span>;
+        <span class="hljs-attribute">right</span>: <span class="hljs-number">10px</span>;
+        <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+        <span class="hljs-attribute">display</span>: none;
 
-	    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
-	    <span class="hljs-attribute">transition</span>: opacity .<span class="hljs-number">5s</span>;
-
-	    &amp;<span class="hljs-selector-class">.active</span> {
-	      <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
-	    }
-	  }
-	}
+        &amp;<span class="hljs-selector-class">.active</span> {
+            <span class="hljs-attribute">display</span>: block;
+        }
     }
 
     &amp;-<span class="hljs-attribute">background</span>-container {
@@ -1525,8 +1592,10 @@ stateNames;
         <span class="hljs-attribute">top</span>: #{<span class="hljs-string">'calc(100vh - '</span> + px-to-em((<span class="hljs-variable">$bottom-margin</span> + <span class="hljs-variable">$arrow-height</span> + <span class="hljs-variable">$animation-distance</span>), <span class="hljs-number">17</span>) + <span class="hljs-string">')'</span>};
         <span class="hljs-attribute">right</span>: fluid-margin();
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
-            <span class="hljs-attribute">display</span>: block;
+        &amp;<span class="hljs-selector-class">.active</span> {
+            @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+                <span class="hljs-attribute">display</span>: block;
+            }
         }
 
         &amp;-animate {
@@ -1542,45 +1611,6 @@ stateNames;
             <span class="hljs-selector-tag">i</span> {
                 <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
             }
-        }
-    }
-
-    &amp;<span class="hljs-selector-class">.new-campaign-poc</span> {
-
-        <span class="hljs-selector-class">.video-hero-text-column</span> {
-            <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-        }
-
-        <span class="hljs-selector-tag">h1</span> {
-            <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$pink</span>;
-            <span class="hljs-attribute">background</span>: <span class="hljs-number">#030303</span>;
-            <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#030303</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#030303</span>;
-        }
-
-        <span class="hljs-selector-class">.feature-block</span> {
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$pink</span>;
-            <span class="hljs-attribute">background</span>: <span class="hljs-number">#030303</span>;
-        }
-
-        <span class="hljs-selector-class">.video-hero-search-content-container</span> {
-
-            @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-                lost-offset: <span class="hljs-number">0</span>/<span class="hljs-number">16</span>;
-            }
-
-            @<span class="hljs-keyword">include</span> for-tablet-landscape-up { 
-                lost-column: <span class="hljs-number">10</span>/<span class="hljs-number">16</span>;
-                <span class="hljs-attribute">flex-basis</span>: auto;
-            }
-
-            @<span class="hljs-keyword">include</span> for-desktop-up {
-                lost-offset: <span class="hljs-number">0</span>/<span class="hljs-number">16</span>;
-                lost-column: <span class="hljs-number">9</span>/<span class="hljs-number">16</span>;
-                <span class="hljs-attribute">flex-basis</span>: auto;
-            }
-
-            <span class="hljs-attribute">max-width</span>: <span class="hljs-number">800px</span> <span class="hljs-meta">!important</span>;
         }
     }
 }
@@ -1617,7 +1647,7 @@ stateNames;
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6 KB</span>
+                    <span class="Meta-value">5.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -1640,7 +1670,7 @@ stateNames;
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(10)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(11)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="video-hero--default.html">
@@ -1679,8 +1709,12 @@ stateNames;
                     <span>PG Campaign 20 21 style</span>
                 </a>, 
             
-                <a href="video-hero--new-campaign-poc.html">
-                    <span>New Campaign Poc</span>
+                <a href="video-hero--ug-2022-brand-heading.html">
+                    <span>UG 2022 brand heading</span>
+                </a>, 
+            
+                <a href="video-hero--ug-2022.html">
+                    <span>UG 2022 normal heading</span>
                 </a>
             
             </span>
@@ -1709,7 +1743,7 @@ stateNames;
         </li>
         
         <li class="Meta-item">
-            <strong class="Meta-key">References <em class="Meta-count">(4)</em>:</strong>
+            <strong class="Meta-key">References <em class="Meta-count">(5)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="header.html">@<span>header</span></a>, 
@@ -1718,14 +1752,16 @@ stateNames;
             
                 <a href="sticky-call-to-action.html">@<span>sticky-call-to-action</span></a>, 
             
-                <a href="feature-block.html">@<span>feature-block</span></a>
+                <a href="feature-block.html">@<span>feature-block</span></a>, 
+            
+                <a href="button.html">@<span>button</span></a>
             
             </span>
         </li class="Meta-item">
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(8)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(9)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="video-hero-search.html">@<span>video-hero-search</span></a>, 
@@ -1742,7 +1778,9 @@ stateNames;
             
                 <a href="video-hero-search--video-hero.html">@<span>video-hero-search--video-hero</span></a>, 
             
-                <a href="video-hero-search--new-campaign-poc.html">@<span>video-hero-search--new-campaign-poc</span></a>
+                <a href="video-hero-search--ug-2022-brand-heading.html">@<span>video-hero-search--ug-2022-brand-heading</span></a>, 
+            
+                <a href="video-hero-search--ug-2022.html">@<span>video-hero-search--ug-2022</span></a>
             
             </span>
         </li>
@@ -1755,7 +1793,7 @@ stateNames;
     <div class="Prose Prose--condensed">
         
         <p>#Video Hero</p>
-<p>The video header displays a full bleed video as the background to the hero as an alternative to the image hero. It has all the features of the image hero, and includes an image hero fallback for mobile devices. Multiple videos may be specified, the first video chosen at random, and then others played sequentially. Videos will fade in and out to the image hero fallback when transitioning between videos. Videos may have a defined start and end offset. In addition, videos will autoplay and are muted (currently there is no option to unmute a video, although there is provision for this feature to be added if desired).</p>
+<p>The video header displays a full bleed video as the background to the hero as an alternative to the image hero. It has all the features of the image hero, and includes an image hero fallback for mobile devices. Multiple videos may be specified, the first video chosen at random, and then others played sequentially. Videos will fade in and out to the image hero fallback when transitioning between videos. Videos may have a defined start and end offset. In addition, videos will autoplay and are muted (currently there is no option to unmute a video, although there is provision for this feature to be added if desired). An individual video can be set to only play once.</p>
 <h2 id="key-features">Key features</h2>
 <ul>
 <li>Full bleed video hero</li>
@@ -1779,6 +1817,7 @@ stateNames;
 <li><strong>breadcrumbs</strong> [optional, boolean, default <em>false</em>]</li>
 <li><strong>scheme</strong> [Optional, string “white”, “blue” or “black”, <em>default</em> “blue”]</li>
 <li><strong>contentScheme</strong> [Optional, string “blue” or “black”, <em>default</em> “blue”]</li>
+<li><strong>initCode</strong> [required, string]</li>
 </ul>
 <h3 id="linkobject">LinkObject</h3>
 <ul>
@@ -4686,6 +4725,54 @@ stateNames;
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -4923,6 +5010,54 @@ stateNames;
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="image-hero-search--dark-green-scheme.html" data-pjax>
                 <span>Green scheme</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7617,8 +7752,32 @@ stateNames;
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7825,8 +7984,32 @@ stateNames;
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero-search--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">

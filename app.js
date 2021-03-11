@@ -20774,7 +20774,7 @@ function getNextVid() {
   }
 }
 
-var tv, stateNames;
+var tv, stateNames, timer;
 /**
  * @see https://developers.google.com/youtube/iframe_api_reference#Events
  */
@@ -20789,6 +20789,16 @@ stateNames = {
 };
 
 if ((0, _jquery.default)('.tv').length && !!self.vid === true) {
+  var activateVideo = function activateVideo() {
+    (0, _jquery.default)("#tv, #pause").addClass("active");
+    (0, _jquery.default)(".video-hero-scroll-to-content-arrow").removeClass("active");
+  };
+
+  var deactivateVideo = function deactivateVideo() {
+    (0, _jquery.default)("#tv, #pause").removeClass("active");
+    (0, _jquery.default)(".video-hero-scroll-to-content-arrow").addClass("active");
+  };
+
   tv = (0, _youtubePlayer.default)('tv', {
     playerVars: {
       autoplay: 1,
@@ -20797,7 +20807,7 @@ if ((0, _jquery.default)('.tv').length && !!self.vid === true) {
       rel: 0,
       showinfo: 0,
       controls: 0,
-      disablekb: 1,
+      disablekb: 0,
       enablejsapi: 0,
       iv_load_policy: 3
     }
@@ -20817,20 +20827,60 @@ if ((0, _jquery.default)('.tv').length && !!self.vid === true) {
 
       if (event.data == 1) {
         vidRescale();
-        (0, _jquery.default)("#tv").addClass("active");
+        activateVideo(); // if we don't want the video to loop set timeout to deactivate the video a second before it stops
+        // this will stop the YouTube related videos flashing up at the end
+
+        if (!self.vid[currVid]['loop']) {
+          timer = new Timer(deactivateVideo, (self.vid[currVid]['endSeconds'] - 1) * 1000);
+        }
       }
 
-      if (event.data == 2 || event.data == 0) {
-        (0, _jquery.default)("#tv").removeClass("active");
-        getNextVid();
-        tv.loadVideoById(self.vid[currVid]);
+      if (event.data == 0) {
+        deactivateVideo();
+
+        if (self.vid[currVid]['loop']) {
+          getNextVid();
+          tv.loadVideoById(self.vid[currVid]);
+          tv.playVideo();
+        }
+      }
+    });
+    (0, _jquery.default)("#pause").click(function (e) {
+      e.preventDefault();
+
+      if ((0, _jquery.default)(this).text().indexOf('Pause') != -1) {
+        tv.pauseVideo();
+        if (typeof timer !== 'undefined') timer.pause();
+        (0, _jquery.default)(this).html('Play<span class="button-overlay"><span>Play</span></span>');
+      } else {
         tv.playVideo();
+        if (typeof timer !== 'undefined') timer.resume();
+        (0, _jquery.default)(this).html('Pause<span class="button-overlay"><span>Pause</span></span>');
       }
     });
   }
 
   (0, _jquery.default)(window).on('resize', vidRescale);
 }
+
+var Timer = function Timer(callback, delay) {
+  var timerId,
+      start,
+      remaining = delay;
+
+  this.pause = function () {
+    window.clearTimeout(timerId);
+    remaining -= Date.now() - start;
+  };
+
+  this.resume = function () {
+    start = Date.now();
+    window.clearTimeout(timerId);
+    timerId = window.setTimeout(callback, remaining);
+  };
+
+  this.resume();
+};
 
 function vidRescale() {
   var w = (0, _jquery.default)('.video-hero').first().width() + 200,

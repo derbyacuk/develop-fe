@@ -34,37 +34,46 @@
         z-index: -2;
     }
 
-    .tv {display: none;}
+    .tv {
+        display: none;
 
-    @include for-tablet-portrait-up {
-	.tv {
-      display: block;
-	  position: relative;
-	  top: 0;
-	  left: 0;
+        @include for-largerthan-ipad-portrait {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
 
-	  width: 100%;
-	  height: 100%;
+            .screen {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                margin: auto;
+                opacity: 0;
+                transition: opacity .5s;
 
-	  overflow: hidden;
-	  .screen {
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: -1;
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 
-	    margin: auto;
+    #pause {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        margin-bottom: 0;
+        display: none;
 
-	    opacity: 0;
-	    transition: opacity .5s;
-
-	    &.active {
-	      opacity: 1;
-	    }
-	  }
-	}
+        &.active {
+            display: block;
+        }
     }
 
     &-background-container {
@@ -206,8 +215,10 @@
         top: #{'calc(100vh - ' + px-to-em(($bottom-margin + $arrow-height + $animation-distance), 17) + ')'};
         right: fluid-margin();
 
-        @include for-largerthan-ipad-portrait {
-            display: block;
+        &.active {
+            @include for-largerthan-ipad-portrait {
+                display: block;
+            }
         }
 
         &-animate {
@@ -223,45 +234,6 @@
             i {
                 color: $white;
             }
-        }
-    }
-
-    &.new-campaign-poc {
-
-        .video-hero-text-column {
-            margin-left: 0 !important;
-        }
-
-        h1 {
-            line-height: 1;
-            color: $pink;
-            background: #030303;
-            box-shadow: 7px 0 0 #030303, (7px * -1) 0 0 #030303;
-        }
-
-        .feature-block {
-            color: $pink;
-            background: #030303;
-        }
-
-        .video-hero-search-content-container {
-
-            @include for-tablet-portrait-up {
-                lost-offset: 0/16;
-            }
-
-            @include for-tablet-landscape-up { 
-                lost-column: 10/16;
-                flex-basis: auto;
-            }
-
-            @include for-desktop-up {
-                lost-offset: 0/16;
-                lost-column: 9/16;
-                flex-basis: auto;
-            }
-
-            max-width: 800px !important;
         }
     }
 }

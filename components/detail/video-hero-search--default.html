@@ -164,10 +164,10 @@
         <span class="hljs-string">'videoId'</span>: <span class="hljs-string">'pTRX8tFOYgU'</span>,
         <span class="hljs-string">'startSeconds'</span>: <span class="hljs-number">0</span>,
         <span class="hljs-string">'endSeconds'</span>: <span class="hljs-number">35</span>,
-        <span class="hljs-string">'suggestedQuality'</span>: <span class="hljs-string">'hd720'</span>
+        <span class="hljs-string">'suggestedQuality'</span>: <span class="hljs-string">'hd720'</span>,
+        <span class="hljs-string">'loop'</span>: <span class="hljs-number">1</span>
     }];
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero video-hero-black video-hero-search"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-container"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Image Hero - "</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-background-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/UG19Prosp-Keyvis-390.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-object-fit</span> /&gt;</span>
@@ -843,7 +843,11 @@
             }
         }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-black"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pause"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
+        Pause
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                        Pause
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-hero-scroll-to-content-arrow video-hero-scroll-to-content-arrow-animate video-hero-black"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-down-arrow"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -1103,7 +1107,8 @@
     <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Scarlet honey eater bird"</span>
   },
   <span class="hljs-attr">"breadcrumbs"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"video-hero-search"</span>
+  <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"video-hero-search"</span>,
+  <span class="hljs-attr">"initCode"</span>: <span class="hljs-string">"&lt;script&gt;self.vid  = [{'videoId': 'pTRX8tFOYgU','startSeconds': 0, 'endSeconds': 35, 'suggestedQuality': 'hd720', 'loop': 1}];&lt;/script&gt;"</span>
 }</pre>
             
         
@@ -1190,40 +1195,6 @@
             <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
         }
     }
-
-    &amp;<span class="hljs-selector-class">.new-campaign-poc</span> {
-
-        <span class="hljs-selector-class">.video-hero-text-column</span> {
-            <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-        }
-
-        <span class="hljs-selector-tag">h1</span> {
-            <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$pink</span>;
-            <span class="hljs-attribute">background</span>: <span class="hljs-number">#030303</span>;
-            <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#030303</span>, (<span class="hljs-number">7px</span> * -<span class="hljs-number">1</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#030303</span>;
-        }
-
-        <span class="hljs-selector-class">.video-hero-search-content-container</span> {
-
-            @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-                lost-offset: <span class="hljs-number">0</span>/<span class="hljs-number">16</span>;
-            }
-
-            @<span class="hljs-keyword">include</span> for-tablet-landscape-up { 
-                lost-column: <span class="hljs-number">10</span>/<span class="hljs-number">16</span>;
-                <span class="hljs-attribute">flex-basis</span>: auto;
-            }
-
-            @<span class="hljs-keyword">include</span> for-desktop-up {
-                lost-offset: <span class="hljs-number">0</span>/<span class="hljs-number">16</span>;
-                lost-column: <span class="hljs-number">9</span>/<span class="hljs-number">16</span>;
-                <span class="hljs-attribute">flex-basis</span>: auto;
-            }
-
-            <span class="hljs-attribute">max-width</span>: <span class="hljs-number">800px</span> <span class="hljs-meta">!important</span>;
-        }
-    }
 }
 </pre>
                             </code>
@@ -1241,7 +1212,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">1.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -1264,7 +1235,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(8)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(9)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="">
@@ -1295,8 +1266,12 @@
                     <span>Video Hero</span>
                 </a>, 
             
-                <a href="video-hero-search--new-campaign-poc.html">
-                    <span>New Campaign Poc</span>
+                <a href="video-hero-search--ug-2022-brand-heading.html">
+                    <span>UG 2022 brand heading</span>
+                </a>, 
+            
+                <a href="video-hero-search--ug-2022.html">
+                    <span>UG 2022 normal heading</span>
                 </a>
             
             </span>
@@ -4233,6 +4208,54 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -4470,6 +4493,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="image-hero-search--dark-green-scheme.html" data-pjax>
                 <span>Green scheme</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7164,8 +7235,32 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -7372,8 +7467,32 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="video-hero-search--new-campaign-poc.html" data-pjax>
-                <span>New Campaign Poc</span>
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022-brand-heading.html" data-pjax>
+                <span>UG 2022 brand heading</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="video-hero-search--ug-2022.html" data-pjax>
+                <span>UG 2022 normal heading</span>
                 
 
 <div class="Status Status--unlabelled">
