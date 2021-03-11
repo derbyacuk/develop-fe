@@ -1,4 +1,3 @@
-var openVideo = false;  // Global for triggering click on video.
 
 /**
  * Methods:
