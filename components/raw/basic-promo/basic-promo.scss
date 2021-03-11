@@ -13,7 +13,7 @@ $basic-promo-pattern-colours: (
     black: $black,
 );
 
-// pictures used should be fixed at a 4x3 ratio (0.66) so this value is used for the sake of readability in calculations
+// pictures used should be fixed at a 3x2 ratio (0.66) so this value is used for the sake of readability in calculations
 $image-aspect-ratio: .66;
 
 // the image and pattern backgrounds are positioned absolutely so that they can be overlapped by the panel itself
