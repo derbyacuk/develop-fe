@@ -484,4 +484,10 @@ $mobile-pattern-padding: 20px;
             }
         }
     }
+
+    &:not(.pattern-hero-with-calltoaction) .breadcrumbs {
+        @include for-largerthan-ipad-portrait {
+            @include margin-small;
+        }
+    }
 }

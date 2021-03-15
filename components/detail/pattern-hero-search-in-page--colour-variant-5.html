@@ -131,6 +131,12 @@
         
         
         
+        <li class="Browser-tab Browser-tab--resources" data-role="tab">
+            <a href="#browser-41a307084cda22faab96fcb83f08dcc3-panel-assets">Assets</a>
+        </li>
+        
+        
+        
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
@@ -183,6 +189,7 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pattern-hero-search-in-page-faux-background-fullbleed"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="actionscript">
             {
                 <span class="hljs-string">"@context"</span>: <span class="hljs-string">"http://schema.org"</span>,
@@ -213,6 +220,7 @@
 	            <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 	        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pattern-hero-search-in-page-faux-background-fullbleed"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
 	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></span></pre>
@@ -464,6 +472,83 @@
 
     
     
+
+
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-41a307084cda22faab96fcb83f08dcc3-panel-assets">
+    <div class="FileBrowser">
+
+        <div class="FileBrowser-selectWrapper">
+            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select">
+                
+                <option value="file-ae3176c9a44e7caef4cc3b06eded4ea4">pattern-hero-search-in-page.scss</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="FileBrowser-item is-active" id="file-ae3176c9a44e7caef4cc3b06eded4ea4" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-selector-class">.pattern-hero-search-in-page</span> {
+
+	<span class="hljs-selector-class">.pattern-hero-search-content</span> {
+		<span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+
+		&amp;-container {
+
+			@<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+                lost-offset: <span class="hljs-number">1</span>/<span class="hljs-number">16</span>;
+                lost-column: <span class="hljs-number">14</span>/<span class="hljs-number">16</span>;
+                <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">50px</span>;
+            }
+
+            @<span class="hljs-keyword">include</span> for-desktop-up {
+                lost-offset: <span class="hljs-number">3</span>/<span class="hljs-number">16</span>;
+                lost-column: <span class="hljs-number">10</span>/<span class="hljs-number">16</span>;
+            }
+		}
+	}
+
+	&amp;-faux-<span class="hljs-attribute">background</span>-fullbleed {
+		@<span class="hljs-keyword">include</span> background-container-full-bleed;
+
+		@<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$pattern_colours</span> {
+	        
+	        <span class="hljs-selector-class">.pattern-hero-</span>#{<span class="hljs-variable">$item</span>} &amp; {
+	            <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$colour</span>;
+	        }
+	    }
+	}
+}</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/pattern-hero-search-in-page/pattern-hero-search-in-page.scss"><span>/components/raw/pattern-hero-search-in-page/pattern-hero-search-in-page.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">components/components/heroes/pattern-hero-search-in-page/pattern-hero-search-in-page.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">614 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
 
 
     
@@ -3977,6 +4062,30 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--with-breadcrumbs-no-cta.html" data-pjax>
+                <span>With Breadcrumbs No Cta</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero--pattern-zigzag.html" data-pjax>
                 <span>Pattern Zigzag</span>
                 
@@ -4691,6 +4800,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero-search--with-breadcrumbs.html" data-pjax>
                 <span>With Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero-search--with-breadcrumbs-no-cta.html" data-pjax>
+                <span>With Breadcrumbs No Cta</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -6259,6 +6392,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="short-pattern-hero--with-breadcrumbs.html" data-pjax>
                 <span>With Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="short-pattern-hero--with-breadcrumbs-no-cta.html" data-pjax>
+                <span>With Breadcrumbs No Cta</span>
                 
 
 <div class="Status Status--unlabelled">

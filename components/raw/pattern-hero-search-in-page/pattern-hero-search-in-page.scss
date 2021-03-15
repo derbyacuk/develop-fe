@@ -1,0 +1,31 @@
+.pattern-hero-search-in-page {
+
+	.pattern-hero-search-content {
+		z-index: 1;
+
+		&-container {
+
+			@include for-tablet-portrait-up {
+                lost-offset: 1/16;
+                lost-column: 14/16;
+                margin-top: -50px;
+            }
+
+            @include for-desktop-up {
+                lost-offset: 3/16;
+                lost-column: 10/16;
+            }
+		}
+	}
+
+	&-faux-background-fullbleed {
+		@include background-container-full-bleed;
+
+		@each $item, $colour in $pattern_colours {
+	        
+	        .pattern-hero-#{$item} & {
+	            background-color: $colour;
+	        }
+	    }
+	}
+}
