@@ -126,6 +126,9 @@ body.modal-open {
 		grid-column: 1;
 		display: block;
 
+		p {
+			color: white;
+		}
 		&.active {
 			display: block;
 		}

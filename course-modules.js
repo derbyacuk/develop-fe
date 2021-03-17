@@ -135,6 +135,13 @@ function ModuleComponent() {
 					subTitle.setAttribute("class", "h3 module-list-menu-heading");
 					subTitle.textContent = category.title + " modules";
 					this.moduleSelectionMenu.appendChild(subTitle);
+					
+					if (stage.text) {
+						let text = document.createElement("p");
+						text.innerText = stage.text;
+						this.moduleSelectionMenu.appendChild(text);
+					}
+
 					let moduleList = document.createElement("ul");
 					moduleList.setAttribute("class", "module-list-menu-ul");
 					
