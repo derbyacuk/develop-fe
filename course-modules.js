@@ -125,6 +125,12 @@ function ModuleComponent() {
 	this.createMenu = function (stage) {
 		this.moduleSelectionMenu.innerHTML = "";
 		let loadModule = true;
+		
+		if (stage.text) {
+			let text = document.createElement("p");
+			text.innerText = stage.text;
+			this.moduleSelectionMenu.appendChild(text);
+		}
 
 		for( var categoryItr = 0; categoryItr < stage.categories.length; categoryItr ++) {
 			let category = stage.categories[categoryItr];
@@ -135,12 +141,6 @@ function ModuleComponent() {
 					subTitle.setAttribute("class", "h3 module-list-menu-heading");
 					subTitle.textContent = category.title + " modules";
 					this.moduleSelectionMenu.appendChild(subTitle);
-					
-					if (stage.text) {
-						let text = document.createElement("p");
-						text.innerText = stage.text;
-						this.moduleSelectionMenu.appendChild(text);
-					}
 
 					let moduleList = document.createElement("ul");
 					moduleList.setAttribute("class", "module-list-menu-ul");
