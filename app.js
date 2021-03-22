@@ -33331,7 +33331,7 @@ $(window).on('load', function () {
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-__webpack_require__(66);
+var _owl = _interopRequireDefault(__webpack_require__(66));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
