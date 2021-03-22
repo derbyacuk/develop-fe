@@ -33327,13 +33327,9 @@ $(window).on('load', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
-
-var _jquery = _interopRequireDefault(__webpack_require__(0));
-
-var _owl = _interopRequireDefault(__webpack_require__(66));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+__webpack_require__(66);
 
 var carouselContainers = document.querySelectorAll('.carousel');
 
@@ -33344,7 +33340,7 @@ var _loop = function _loop(i) {
   carouselContainers[i].insertAdjacentHTML('afterend', navButton);
   var carousel = carouselContainers[i].querySelector('.owl-carousel');
   carousel.classList.add(owlClass);
-  var owl = (0, _jquery.default)('.' + owlClass).owlCarousel({
+  var owl = $('.' + owlClass).owlCarousel({
     loop: true,
     margin: 0,
     nav: true,
@@ -33377,7 +33373,7 @@ var _loop = function _loop(i) {
       }
     }
   });
-  (0, _jquery.default)("#".concat(navId)).click(function (e) {
+  $("#".concat(navId)).click(function (e) {
     e.preventDefault();
     owl.trigger('next.owl.carousel');
   });
@@ -33390,6 +33386,7 @@ for (var i = 0; i < carouselContainers.length; i++) {
   e.preventDefault();
   owl.trigger('next.owl.carousel');
 })*/
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 66 */

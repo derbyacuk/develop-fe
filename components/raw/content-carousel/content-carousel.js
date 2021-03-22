@@ -1,5 +1,4 @@
-import $ from 'jquery'
-import owlCarousel from 'owl.carousel'
+import 'owl.carousel'
 
 let carouselContainers = document.querySelectorAll('.carousel');
 
