@@ -186,7 +186,8 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
 }
 // when a panel promo follows a hero (if first in main content wrapper) counter the margin
 .center-align > .panel-promo-container:first-child(),
-.center-align > .panel-promo-container + .panel-promo-container  {
+.center-align > .panel-promo-container + .panel-promo-container,
+.center-align > .panel-promo-container + .panel-carousel-container  {
     @include counter-margin-medium;
 
     @include for-tablet-portrait-up {
