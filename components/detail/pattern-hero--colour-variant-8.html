@@ -1261,20 +1261,21 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-variable">$pattern_colours</span>: (
-    primary-blue: <span class="hljs-number">#101d49</span>,
-    dark-grey: <span class="hljs-number">#b9b4b0</span>,
-    mid-grey: <span class="hljs-number">#d7d2cf</span>,
-    black: <span class="hljs-number">#000000</span>,
-    white: <span class="hljs-number">#ffffff</span>,
-    strawberry: <span class="hljs-number">#ee313e</span>,
-    mid-blue: <span class="hljs-number">#2041cb</span>,
-    light-grey: <span class="hljs-number">#eeeeee</span>,
-    orange: <span class="hljs-number">#f85220</span>,
-    turquoise: <span class="hljs-number">#018f99</span>,
-    green: <span class="hljs-number">#37d68e</span>,
-    yellow: <span class="hljs-number">#febf13</span>,
-    green-blue: <span class="hljs-number">#37ddd1</span>,
-    text-black: <span class="hljs-number">#333333</span>
+    primary-blue: <span class="hljs-variable">$primary-blue</span>,
+    dark-grey: <span class="hljs-variable">$dark-grey</span>,
+    mid-grey: <span class="hljs-variable">$mid-grey</span>,
+    black: <span class="hljs-variable">$black</span>,
+    white: <span class="hljs-variable">$white</span>,
+    strawberry: <span class="hljs-variable">$strawberry</span>,
+    mid-blue: <span class="hljs-variable">$mid-blue</span>,
+    light-grey: <span class="hljs-variable">$light-grey</span>,
+    orange: <span class="hljs-variable">$orange</span>,
+    turquoise: <span class="hljs-variable">$turquoise</span>,
+    green: <span class="hljs-variable">$green</span>,
+    yellow: <span class="hljs-variable">$yellow</span>,
+    green-blue: <span class="hljs-variable">$green-blue</span>,
+    text-black: <span class="hljs-variable">$text-black</span>,
+    pink: <span class="hljs-variable">$pink</span>,
 );
 
 <span class="hljs-variable">$desktop-pattern-padding</span>: <span class="hljs-number">60px</span>;
@@ -1294,6 +1295,12 @@
             <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$colour</span>;
             <span class="hljs-attribute">padding-bottom</span>: px-to-em(<span class="hljs-number">80</span>, <span class="hljs-number">17</span>);
         }
+    }
+
+    &amp;-purple-gradient {
+        <span class="hljs-attribute">background</span>: <span class="hljs-number">#7b0b77</span>;
+        <span class="hljs-attribute">background</span>: radial-gradient(circle, <span class="hljs-number">#7b0b77</span> <span class="hljs-number">0</span>, <span class="hljs-number">#071b56</span> <span class="hljs-number">100%</span>);
+        <span class="hljs-attribute">padding-bottom</span>: px-to-em(<span class="hljs-number">80</span>, <span class="hljs-number">17</span>);
     }
 
     <span class="hljs-comment">// &amp;-with-content, </span>
@@ -1323,17 +1330,6 @@
             <span class="hljs-attribute">position</span>: relative;
             <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto; <span class="hljs-comment">// for IE11</span>
             <span class="hljs-attribute">flex-direction</span>: column;
-            <span class="hljs-comment">// min-height: #{'calc(100vh - ' + $margin-medium + ')'};</span>
-
-            @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$pattern_colours</span> {
-                &amp;<span class="hljs-selector-class">.pattern-hero-</span>#{<span class="hljs-variable">$item</span>} {
-                    <span class="hljs-comment">// min-height: 100vh;</span>
-                }
-            }
-
-            &amp;<span class="hljs-selector-class">.pattern-hero-white</span> <span class="hljs-selector-class">.pattern-hero-text-column</span> {
-                <span class="hljs-comment">// min-height: #{'calc(100vh - ' + $margin-medium + ')'};</span>
-            }
         }
 
         <span class="hljs-selector-class">.pattern-hero</span> {
@@ -1377,7 +1373,8 @@
         }
 
         @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$pattern_colours</span> {
-            &amp;<span class="hljs-selector-class">.pattern-hero-</span>#{<span class="hljs-variable">$item</span>} {
+            &amp;<span class="hljs-selector-class">.pattern-hero-</span>#{<span class="hljs-variable">$item</span>},
+            &amp;<span class="hljs-selector-class">.pattern-hero-purple-gradient</span> {
                 <span class="hljs-selector-class">.pattern-hero-text-column</span> {
                     <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">160px</span>;
                 }
@@ -1769,7 +1766,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">12.9 KB</span>
+                    <span class="Meta-value">12.8 KB</span>
                 </li>
             </ul>
         </div>
@@ -1792,7 +1789,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(31)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(33)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="pattern-hero--default.html">
@@ -1905,6 +1902,14 @@
             
                 <a href="pattern-hero--colour-variant-10-(with-breadcrumbs).html">
                     <span>Colour Variant 10 (with Breadcrumbs)</span>
+                </a>, 
+            
+                <a href="pattern-hero--colour-variant-11.html">
+                    <span>Colour Variant 11</span>
+                </a>, 
+            
+                <a href="pattern-hero--colour-variant-11-(with-breadcrumbs).html">
+                    <span>Colour Variant 11 (with Breadcrumbs)</span>
                 </a>, 
             
                 <a href="pattern-hero--with-lots-of-content.html">
@@ -5963,6 +5968,54 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--colour-variant-11.html" data-pjax>
+                <span>Colour Variant 11</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero--colour-variant-11-(with-breadcrumbs).html" data-pjax>
+                <span>Colour Variant 11 (with Breadcrumbs)</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero--with-lots-of-content.html" data-pjax>
                 <span>With Lots Of Content</span>
                 
@@ -6723,6 +6776,54 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero-search--colour-variant-11.html" data-pjax>
+                <span>Colour Variant 11</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero-search--colour-variant-11-(with-breadcrumbs).html" data-pjax>
+                <span>Colour Variant 11 (with Breadcrumbs)</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero-search--with-lots-of-content.html" data-pjax>
                 <span>With Lots Of Content</span>
                 
@@ -7051,6 +7152,30 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="pattern-hero-search-in-page--colour-variant-11.html" data-pjax>
+                <span>Colour Variant 11</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="pattern-hero-search-in-page--in-context.html" data-pjax>
                 <span>In Context</span>
                 
@@ -7165,6 +7290,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="short-pattern-hero--colour-variant-10-(with-breadcrumbs).html" data-pjax>
                 <span>Colour Variant 10 (with Breadcrumbs)</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="short-pattern-hero--colour-variant-11.html" data-pjax>
+                <span>Colour Variant 11</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="short-pattern-hero--colour-variant-11-(with-breadcrumbs).html" data-pjax>
+                <span>Colour Variant 11 (with Breadcrumbs)</span>
                 
 
 <div class="Status Status--unlabelled">

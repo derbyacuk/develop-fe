@@ -1,18 +1,19 @@
 $pattern_colours: (
-    primary-blue: #101d49,
-    dark-grey: #b9b4b0,
-    mid-grey: #d7d2cf,
-    black: #000000,
-    white: #ffffff,
-    strawberry: #ee313e,
-    mid-blue: #2041cb,
-    light-grey: #eeeeee,
-    orange: #f85220,
-    turquoise: #018f99,
-    green: #37d68e,
-    yellow: #febf13,
-    green-blue: #37ddd1,
-    text-black: #333333
+    primary-blue: $primary-blue,
+    dark-grey: $dark-grey,
+    mid-grey: $mid-grey,
+    black: $black,
+    white: $white,
+    strawberry: $strawberry,
+    mid-blue: $mid-blue,
+    light-grey: $light-grey,
+    orange: $orange,
+    turquoise: $turquoise,
+    green: $green,
+    yellow: $yellow,
+    green-blue: $green-blue,
+    text-black: $text-black,
+    pink: $pink,
 );
 
 $desktop-pattern-padding: 60px;
@@ -32,6 +33,12 @@ $mobile-pattern-padding: 20px;
             background-color: $colour;
             padding-bottom: px-to-em(80, 17);
         }
+    }
+
+    &-purple-gradient {
+        background: #7b0b77;
+        background: radial-gradient(circle, #7b0b77 0, #071b56 100%);
+        padding-bottom: px-to-em(80, 17);
     }
 
     // &-with-content, 
@@ -61,17 +68,6 @@ $mobile-pattern-padding: 20px;
             position: relative;
             flex: 1 0 auto; // for IE11
             flex-direction: column;
-            // min-height: #{'calc(100vh - ' + $margin-medium + ')'};
-
-            @each $item, $colour in $pattern_colours {
-                &.pattern-hero-#{$item} {
-                    // min-height: 100vh;
-                }
-            }
-
-            &.pattern-hero-white .pattern-hero-text-column {
-                // min-height: #{'calc(100vh - ' + $margin-medium + ')'};
-            }
         }
 
         .pattern-hero {
@@ -115,7 +111,8 @@ $mobile-pattern-padding: 20px;
         }
 
         @each $item, $colour in $pattern_colours {
-            &.pattern-hero-#{$item} {
+            &.pattern-hero-#{$item},
+            &.pattern-hero-purple-gradient {
                 .pattern-hero-text-column {
                     margin-bottom: -160px;
                 }
