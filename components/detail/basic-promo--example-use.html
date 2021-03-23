@@ -10,10 +10,19 @@
     </script>
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/mandelbrot/favicon.ico" type="image/ico">
+<style>
+    :root {
+        
+        
+        
+    }
+</style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.5.1" type="text/css">
 
-<link rel="stylesheet" href="../../styles/ui.css?cachebust=1.2.0" type="text/css">
+<link rel="stylesheet" href="../../styles/ui.css?cachebust=1.5.1" type="text/css">
+
+<link rel="stylesheet" href="../../themes/mandelbrot/css/highlight.css?cachebust=1.5.1" type="text/css">
 
 
 <title>Basic Promo: Example Use | University of Derby</title>
@@ -28,16 +37,20 @@
     <div class="Frame-header">
         <div class="Header">
     <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
-        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <div class="Header-navToggleIcon Header-navToggleIcon--open">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
 </svg>
 
-        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        </div>
+        <div class="Header-navToggleIcon Header-navToggleIcon--closed">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
 </svg>
 
+        </div>
     </button>
     <a href="../../index.html" class="Header-title" data-pjax>University of Derby</a>
 </div>
@@ -60,7 +73,7 @@
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/basic-promo--example-use.html" title="Component preview">
+        <a class="Pen-previewLink" href="../preview/basic-promo--example-use.html" title="Preview">
             Basic Promo: Example Use
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -89,7 +102,6 @@
                 class="Preview-iframe"
                 data-role="window"
                 src="../preview/basic-promo--example-use.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
             </iframe>
@@ -112,19 +124,25 @@
         
         
         <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-html">HTML</a>
+            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-html">
+                HTML
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-view">View</a>
+            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-view">
+                View
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-context">Context</a>
+            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-context">
+                Context
+            </a>
         </li>
         
         
@@ -140,13 +158,17 @@
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-info">Info</a>
+            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-info">
+                Info
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--notes" data-role="tab">
-            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-notes">Notes</a>
+            <a href="#browser-14733d5892854c67099e0eae1e91cde6-panel-notes">
+                Notes
+            </a>
         </li>
         
         
@@ -157,25 +179,26 @@
     
     
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-14733d5892854c67099e0eae1e91cde6-panel-html">
-    <code class="Code Code--lang-html">
+    <code class="Code Code--lang-html hljs">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo basic-promo-right-align basic-promo-default"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-zigzag basic-promo-pattern-green-blue"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-image-container"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/UG19Prosp-Keyvis-292.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Man at the Gym"</span> /&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/UG19Prosp-Keyvis-292.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Man at the Gym"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel-inner"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Where better to learn than in our world-class spa in Buxton?<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all easy to get to by road and rail. Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all
-                    easy to get to by road and rail.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all easy to get to by road and rail. Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all easy to get to by road and rail.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-outline"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Where better to learn than in our world-class spa in Buxton?"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
-        View accomodation options
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
-                        View accomodation options
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    View accomodation options
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                            View accomodation options
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -184,17 +207,19 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-zigzag basic-promo-pattern-yellow"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-image-container"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/UG19Prosp-Keyvis-292.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Man at the Gym"</span> /&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/UG19Prosp-Keyvis-292.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Man at the Gym"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel-inner"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Living at the University of Derby<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all easy to get to by road and rail.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-white"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Living at the University of Derby"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
-        View accomodation options
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
-                        View accomodation options
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    View accomodation options
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                            View accomodation options
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -204,8 +229,8 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-14733d5892854c67099e0eae1e91cde6-panel-view">
-    <code class="Code Code--lang-twig">
-        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="basic-promo.html">@basic-promo</a>' with {
+    <code class="Code Code--lang-twig hljs">
+        <pre><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="basic-promo.html">@basic-promo</a>' with {
     imageAlignment: 'right',
     image: {
         path: '/images/UG19Prosp-Keyvis-292.jpg',
@@ -236,13 +261,13 @@
         label: 'View accomodation options',
         href: '#'
     }
-} %}</span><span class="xml"></span></pre>
+} %}</span></pre>
     </code>
 </div>
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-14733d5892854c67099e0eae1e91cde6-panel-context">
-    <code class="Code Code--lang-json">
+    <code class="Code Code--lang-json hljs">
         
             
             <pre>{
@@ -290,7 +315,7 @@
                     <span class="Meta-value">
                         <div class="FileBrowser-itemPreview">
                             
-                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                            <code class="Code Code--lang-SCSS FileBrowser-code hljs">
                                 <pre><span class="hljs-comment">// defining the colours as a collection allows us to loop through them and generate classnames based on the keys</span>
 <span class="hljs-variable">$basic-promo-pattern-colours</span>: (
     mid-blue: <span class="hljs-variable">$mid-blue</span>,
@@ -344,7 +369,7 @@
 <span class="hljs-variable">$image-height-large-desktop</span>: #{<span class="hljs-string">'calc(((('</span> + <span class="hljs-variable">$max-width</span> + <span class="hljs-string">' - (60px)) * ('</span> + <span class="hljs-variable">$width-ratio</span> + <span class="hljs-string">')) - '</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">') * '</span> + <span class="hljs-variable">$image-aspect-ratio</span> + <span class="hljs-string">')'</span>};
 
 <span class="hljs-comment">// use to size the content like the lost-grid columns logic, but without the pseudo-element creation to make things difficult.</span>
-@<span class="hljs-keyword">mixin</span> flexbox-width-without-columns(<span class="hljs-variable">$columns</span>, <span class="hljs-variable">$total</span>) {
+<span class="hljs-keyword">@mixin</span> flexbox-width-without-columns(<span class="hljs-variable">$columns</span>, <span class="hljs-variable">$total</span>) {
     <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> #{<span class="hljs-string">'calc(99.9% * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">' - ('</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">' - '</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">' * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">'))'</span>};
     <span class="hljs-attribute">width</span>: #{<span class="hljs-string">'calc(99.9% * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">' - ('</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">' - '</span>+<span class="hljs-variable">$gutter</span>+<span class="hljs-string">' * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">'))'</span>};
     <span class="hljs-attribute">max-width</span>: #{<span class="hljs-string">'calc(99.9% * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">' - ('</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">' - '</span> + <span class="hljs-variable">$gutter</span> + <span class="hljs-string">' * '</span> + (<span class="hljs-variable">$columns</span>/<span class="hljs-variable">$total</span>) + <span class="hljs-string">'))'</span>};
@@ -360,22 +385,22 @@
     
     <span class="hljs-comment">// on mobile (default) we don't need a minimum height, because we handle this with a margin top/bottom on the panel instead</span>
     
-    @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+    <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
         <span class="hljs-attribute">min-height</span>: <span class="hljs-variable">$image-height-tablet</span>;
     }
 
-    @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+    <span class="hljs-keyword">@include</span> for-largerthan-ipad-portrait {
         lost-offset: <span class="hljs-number">1</span>/<span class="hljs-number">16</span>;
         lost-column: <span class="hljs-number">14</span>/<span class="hljs-number">16</span>;
         <span class="hljs-attribute">min-height</span>: <span class="hljs-variable">$image-height-desktop</span>;
     }
 
-    @<span class="hljs-keyword">media</span> (min-width: 1780px) {
+    <span class="hljs-keyword">@media</span> (min-width: <span class="hljs-number">1780px</span>) {
         <span class="hljs-attribute">min-height</span>: <span class="hljs-variable">$image-height-large-desktop</span>;
     }
 
     &amp;-container {
-        @<span class="hljs-keyword">include</span> margin-medium;
+        <span class="hljs-keyword">@include</span> margin-medium;
         <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
     }
 
@@ -397,7 +422,7 @@
                     <span class="hljs-attribute">margin-bottom</span>: px-to-em(<span class="hljs-number">18</span>, <span class="hljs-number">16</span>);
                 }
 
-                @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+                <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
                     <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
                     <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
 
@@ -437,7 +462,7 @@
 
             <span class="hljs-comment">// for accessiblity we need to use an h2, but want it to look like an h3</span>
             <span class="hljs-selector-tag">h2</span> {
-                @<span class="hljs-keyword">extend</span> .h3;
+                <span class="hljs-keyword">@extend</span> .h3;
             }
 
             <span class="hljs-selector-class">.button</span> {
@@ -445,8 +470,8 @@
             }
         }
 
-        @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
-            @<span class="hljs-keyword">include</span> flexbox-width-without-columns(<span class="hljs-number">7.5</span>, 16);
+        <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
+            <span class="hljs-keyword">@include</span> flexbox-width-without-columns(<span class="hljs-number">7.5</span>, <span class="hljs-number">16</span>);
             <span class="hljs-attribute">margin-top</span>: <span class="hljs-variable">$margin-small</span>;
             <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span> <span class="hljs-number">30px</span>;
             <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20px</span>;
@@ -463,10 +488,10 @@
         }
 
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+        <span class="hljs-keyword">@include</span> for-largerthan-ipad-portrait {
             <span class="hljs-variable">$single-column-width</span>: #{<span class="hljs-string">"calc("</span> + <span class="hljs-number">1</span> / <span class="hljs-number">14</span> * <span class="hljs-number">100</span> + <span class="hljs-string">"% + (10px / 14))"</span>};
 
-            @<span class="hljs-keyword">include</span> flexbox-width-without-columns(<span class="hljs-number">6</span>, 14);
+            <span class="hljs-keyword">@include</span> flexbox-width-without-columns(<span class="hljs-number">6</span>, <span class="hljs-number">14</span>);
             <span class="hljs-attribute">margin-top</span>: <span class="hljs-variable">$margin-small</span>;
             <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span> <span class="hljs-number">40px</span>;
             <span class="hljs-attribute">margin-right</span>: <span class="hljs-variable">$single-column-width</span>;
@@ -486,7 +511,7 @@
         <span class="hljs-attribute">justify-content</span>: flex-start;
         <span class="hljs-attribute">display</span>: flex;
 
-        @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+        <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
             <span class="hljs-attribute">overflow</span>: hidden;
 
             <span class="hljs-selector-class">.basic-promo-right-align</span> &amp; {
@@ -494,15 +519,15 @@
             }
         }
 
-        @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+        <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
             <span class="hljs-attribute">max-height</span>: <span class="hljs-variable">$image-height-tablet</span>;
         }
 
-        @<span class="hljs-keyword">include</span> for-largerthan-ipad-portrait {
+        <span class="hljs-keyword">@include</span> for-largerthan-ipad-portrait {
             <span class="hljs-attribute">max-height</span>: <span class="hljs-variable">$image-height-desktop</span>;
         }
 
-        @<span class="hljs-keyword">media</span> (min-width: 1780px) {
+        <span class="hljs-keyword">@media</span> (min-width: <span class="hljs-number">1780px</span>) {
             <span class="hljs-attribute">max-height</span>: <span class="hljs-variable">$image-height-large-desktop</span>;
         }
     }
@@ -517,7 +542,7 @@
             <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
         }
 
-        @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+        <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
             lost-column: <span class="hljs-number">9</span>/<span class="hljs-number">14</span>;
             lost-align: right;
             <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
@@ -535,7 +560,7 @@
             <span class="hljs-attribute">right</span>: fluid-margin(true);
         }
 
-        @<span class="hljs-keyword">include</span> for-tablet-portrait-up {
+        <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
             &amp;-<span class="hljs-attribute">background</span> {
                 <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
                 <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
@@ -544,24 +569,24 @@
             }
         }
 
-        @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$basic-promo-pattern-colours</span> {
+        <span class="hljs-keyword">@each</span> <span class="hljs-variable">$item</span>, <span class="hljs-variable">$colour</span> in <span class="hljs-variable">$basic-promo-pattern-colours</span> {
             &amp;-#{<span class="hljs-variable">$item</span>} {
 
                 &amp;<span class="hljs-selector-class">.basic-promo-pattern-zigzag</span> {
                     <span class="hljs-selector-class">.basic-promo-pattern-background</span> {
-                        @<span class="hljs-keyword">include</span> pattern-zigzag(<span class="hljs-variable">$colour</span>);
+                        <span class="hljs-keyword">@include</span> pattern-zigzag(<span class="hljs-variable">$colour</span>);
                     }
                 }
 
                 &amp;<span class="hljs-selector-class">.basic-promo-pattern-diagonal</span> {
                     <span class="hljs-selector-class">.basic-promo-pattern-background</span> {
-                        @<span class="hljs-keyword">include</span> pattern-diagonal(<span class="hljs-variable">$colour</span>);
+                        <span class="hljs-keyword">@include</span> pattern-diagonal(<span class="hljs-variable">$colour</span>);
                     }
                 }
 
                 &amp;<span class="hljs-selector-class">.basic-promo-pattern-weave</span> {
                     <span class="hljs-selector-class">.basic-promo-pattern-background</span> {
-                        @<span class="hljs-keyword">include</span> pattern-weave(<span class="hljs-variable">$colour</span>);
+                        <span class="hljs-keyword">@include</span> pattern-weave(<span class="hljs-variable">$colour</span>);
                     }
                 }
             }
@@ -800,15 +825,22 @@
         </div>
 
         <div class="Frame-handle" data-role="frame-resize-handle"></div>
-        
+
         <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
             <nav class="Navigation">
-
     
+        
 <div class="Navigation-group">
 
 <div class="Tree" data-behaviour="tree" id="tree-docs">
-    <h3 class="Tree-title">documentation</h3>
+    <div class="Tree-header">
+        <h3 class="Tree-title">documentation</h3>
+
+        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="Collapse tree" aria-label="Collapse tree" hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 11c-.6 0-1 .4-1 1s.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1z"/><path d="m19 21h-14c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2zm-14-16v14h14v-14z"/></svg>
+
+        </button>
+    </div>
     <ul class="Tree-items Tree-depth-1">
         
     
@@ -843,21 +875,28 @@
 </div>
 
 
-
     
+        
 <div class="Navigation-group">
 
 <div class="Tree" data-behaviour="tree" id="tree-components">
-    <h3 class="Tree-title">components</h3>
+    <div class="Tree-header">
+        <h3 class="Tree-title">components</h3>
+
+        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="Collapse tree" aria-label="Collapse tree" hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 11c-.6 0-1 .4-1 1s.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1z"/><path d="m19 21h-14c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2zm-14-16v14h14v-14z"/></svg>
+
+        </button>
+    </div>
     <ul class="Tree-items Tree-depth-1">
         
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-style-guide">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Style Guide</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-style-guide-items">
+                Style Guide
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-style-guide-items">
             
             
             
@@ -1014,10 +1053,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-full-page-comps">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-full-page-comps-items">
+                Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-full-page-comps-items">
             
             
             
@@ -1606,10 +1645,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-listing">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>List Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-listing-items">
+                List Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-listing-items">
             
             
             
@@ -1886,10 +1925,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-components">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Components</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-components-items">
+                Components
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-components-items">
             
             
             
@@ -1921,10 +1960,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-accordion">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Accordion</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-accordion-items">
+                Accordion
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-accordion-items">
             
             
             
@@ -2081,10 +2120,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-anchor-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Anchor Links</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-anchor-links-items">
+                Anchor Links
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-anchor-links-items">
             
             
             
@@ -2169,10 +2208,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-calendar">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Calendar</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-calendar-items">
+                Calendar
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-calendar-items">
             
             
             
@@ -2377,10 +2416,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-forms">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Forms</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-forms-items">
+                Forms
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-forms-items">
             
             
             
@@ -2388,10 +2427,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-apply-online">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Apply online</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-apply-online-items">
+                Apply online
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-apply-online-items">
             
             
             
@@ -2596,10 +2635,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-quba-sign-up-form">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Quba Sign Up Form</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-quba-sign-up-form-items">
+                Quba Sign Up Form
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-quba-sign-up-form-items">
             
             
             
@@ -2665,10 +2704,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-full-width-image">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Full Width Image</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-full-width-image-items">
+                Full Width Image
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-full-width-image-items">
             
             
             
@@ -2777,10 +2816,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-heroes">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Heroes</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-heroes-items">
+                Heroes
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-heroes-items">
             
             
             
@@ -2788,10 +2827,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-academic-profile-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Academic Profile Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-academic-profile-hero-items">
+                Academic Profile Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-academic-profile-hero-items">
             
             
             
@@ -2996,10 +3035,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-course-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Course Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-course-hero-items">
+                Course Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-course-hero-items">
             
             
             
@@ -3252,10 +3291,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-image-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-hero-items">
+                Image Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-hero-items">
             
             
             
@@ -3772,10 +3811,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-image-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-hero-search-items">
+                Image Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-hero-search-items">
             
             
             
@@ -4076,10 +4115,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-items">
+                Pattern Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-items">
             
             
             
@@ -4884,10 +4923,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-search-items">
+                Pattern Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-search-items">
             
             
             
@@ -5668,10 +5707,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero-search-in-page">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero Search In Page</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-search-in-page-items">
+                Pattern Hero Search In Page
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-search-in-page-items">
             
             
             
@@ -5996,10 +6035,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-short-pattern-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Short Pattern Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-short-pattern-hero-items">
+                Short Pattern Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-short-pattern-hero-items">
             
             
             
@@ -6756,10 +6795,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-video-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Video Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-video-hero-items">
+                Video Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-video-hero-items">
             
             
             
@@ -7036,10 +7075,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-video-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Video Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-video-hero-search-items">
+                Video Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-video-hero-search-items">
             
             
             
@@ -7273,10 +7312,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-image-embed">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Embed</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-embed-items">
+                Image Embed
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-embed-items">
             
             
             
@@ -7361,10 +7400,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-image-group">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Group</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-group-items">
+                Image Group
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-group-items">
             
             
             
@@ -7449,10 +7488,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-induction-schedules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Induction Schedules</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-induction-schedules-items">
+                Induction Schedules
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-induction-schedules-items">
             
             
             
@@ -7537,10 +7576,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-landing-page-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Landing Page Links</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-landing-page-links-items">
+                Landing Page Links
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-landing-page-links-items">
             
             
             
@@ -7673,10 +7712,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-logo-group">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Logo Group</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-logo-group-items">
+                Logo Group
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-logo-group-items">
             
             
             
@@ -7929,10 +7968,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-media-gallery">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Media Gallery</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-media-gallery-items">
+                Media Gallery
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-media-gallery-items">
             
             
             
@@ -8137,10 +8176,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-module-component">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Module Component</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-module-component-items">
+                Module Component
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-module-component-items">
             
             
             
@@ -8249,10 +8288,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-promo">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Promo</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-promo-items">
+                Promo
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-promo-items">
             
             
             
@@ -8308,10 +8347,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-open-day-promo">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Open Day Promo</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-open-day-promo-items">
+                Open Day Promo
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-open-day-promo-items">
             
             
             
@@ -8617,10 +8656,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-search-results">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Results</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-results-items">
+                Search Results
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-results-items">
             
             
             
@@ -8628,10 +8667,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-basic-search-result">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Basic Search Result</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-basic-search-result-items">
+                Basic Search Result
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-basic-search-result-items">
             
             
             
@@ -9028,10 +9067,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-course-teaser">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Course Teaser</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-course-teaser-items">
+                Course Teaser
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-course-teaser-items">
             
             
             
@@ -9188,10 +9227,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-listing-result-types">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Listing Result Types</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-listing-result-types-items">
+                Listing Result Types
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-listing-result-types-items">
             
             
             
@@ -9468,10 +9507,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-search-filters">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Filters</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-filters-items">
+                Search Filters
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-filters-items">
             
             
             
@@ -9628,10 +9667,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-search-result-types">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Result Types</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-result-types-items">
+                Search Result Types
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-result-types-items">
             
             
             
@@ -9769,10 +9808,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-section-navigation">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Section Navigation</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-section-navigation-items">
+                Section Navigation
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-section-navigation-items">
             
             
             
@@ -9953,10 +9992,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-text-block">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Text Block</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-text-block-items">
+                Text Block
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-text-block-items">
             
             
             
@@ -10209,10 +10248,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-unistats">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Unistats</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-unistats-items">
+                Unistats
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-unistats-items">
             
             
             
@@ -10302,10 +10341,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-atoms">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Subcomponents</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-atoms-items">
+                Subcomponents
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-atoms-items">
             
             
             
@@ -10433,10 +10472,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-menu">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Menu</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-menu-items">
+                Menu
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-menu-items">
             
             
             
@@ -10521,10 +10560,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-pagination-controls">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pagination Controls</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pagination-controls-items">
+                Pagination Controls
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pagination-controls-items">
             
             
             
@@ -10609,10 +10648,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-site-search-items">
+                Site Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-site-search-items">
             
             
             
@@ -10702,10 +10741,10 @@
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-internal-page-comps">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Internal Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-internal-page-comps-items">
+                Internal Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-internal-page-comps-items">
             
             
             
@@ -10771,7 +10810,7 @@
 </div>
 
 
-
+    
 </nav>
 
         </div>
@@ -10781,7 +10820,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.5.1"></script>
 
 
 

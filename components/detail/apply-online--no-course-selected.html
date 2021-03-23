@@ -10,10 +10,19 @@
     </script>
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/mandelbrot/favicon.ico" type="image/ico">
+<style>
+    :root {
+        
+        
+        
+    }
+</style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.5.1" type="text/css">
 
-<link rel="stylesheet" href="../../styles/ui.css?cachebust=1.2.0" type="text/css">
+<link rel="stylesheet" href="../../styles/ui.css?cachebust=1.5.1" type="text/css">
+
+<link rel="stylesheet" href="../../themes/mandelbrot/css/highlight.css?cachebust=1.5.1" type="text/css">
 
 
 <title>Apply online: No course selected | University of Derby</title>
@@ -28,16 +37,20 @@
     <div class="Frame-header">
         <div class="Header">
     <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
-        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <div class="Header-navToggleIcon Header-navToggleIcon--open">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
 </svg>
 
-        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        </div>
+        <div class="Header-navToggleIcon Header-navToggleIcon--closed">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
 </svg>
 
+        </div>
     </button>
     <a href="../../index.html" class="Header-title" data-pjax>University of Derby</a>
 </div>
@@ -60,7 +73,7 @@
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/apply-online--no-course-selected.html" title="Component preview">
+        <a class="Pen-previewLink" href="../preview/apply-online--no-course-selected.html" title="Preview">
             Apply online: No course selected
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -89,7 +102,6 @@
                 class="Preview-iframe"
                 data-role="window"
                 src="../preview/apply-online--no-course-selected.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
             </iframe>
@@ -112,19 +124,25 @@
         
         
         <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-html">HTML</a>
+            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-html">
+                HTML
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-view">View</a>
+            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-view">
+                View
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-context">Context</a>
+            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-context">
+                Context
+            </a>
         </li>
         
         
@@ -140,13 +158,17 @@
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-info">Info</a>
+            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-info">
+                Info
+            </a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--notes" data-role="tab">
-            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-notes">Notes</a>
+            <a href="#browser-12b5732121da2adac191632fb71b9917-panel-notes">
+                Notes
+            </a>
         </li>
         
         
@@ -157,7 +179,7 @@
     
     
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-12b5732121da2adac191632fb71b9917-panel-html">
-    <code class="Code Code--lang-html">
+    <code class="Code Code--lang-html hljs">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-wrapper"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Apply now<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
@@ -166,13 +188,13 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"courseTypes"</span>&gt;</span>Select course type<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"courseTypes"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"courseTypes"</span> <span class="hljs-attr">required</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"undergraduate"</span>&gt;</span>Undergraduate<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"postgraduate"</span>&gt;</span>Postgraduate<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"professional"</span>&gt;</span>Professional<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"short-course"</span>&gt;</span>Short course<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"online"</span>&gt;</span>Online<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"undergraduate"</span>&gt;</span>Undergraduate<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"postgraduate"</span>&gt;</span>Postgraduate<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"professional"</span>&gt;</span>Professional<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"short-course"</span>&gt;</span>Short course<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"online"</span>&gt;</span>Online<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"apply-online-course-list"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"undergraduate-apply-online-course-list"</span>&gt;</span>
@@ -180,16 +202,16 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"undergraduate-courses"</span>&gt;</span>Select undergraduate course<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control apply-online-course-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"undergraduate-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"undergraduate"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"Y002"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">"AG"</span>&gt;</span>Accounting (Joint Honours)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"543"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N400"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"745"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N412,Undergraduate"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance Integrated Masters MAccFin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"586"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"J901,Without industrial year|H293,With industrial year"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Civil and Infrastructure Engineering BEng (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"Y002"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">"AG"</span>&gt;</span>Accounting (Joint Honours)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"543"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N400"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"745"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N412,Undergraduate"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance Integrated Masters MAccFin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"586"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"J901,Without industrial year|H293,With industrial year"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Civil and Infrastructure Engineering BEng (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -198,12 +220,12 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"postgraduate-courses"</span>&gt;</span>Select postgraduate course<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control apply-online-course-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"postgraduate-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"postgraduate"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2560"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MN4AB"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Computer Networks MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2560"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MN4AB"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Computer Networks MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -212,12 +234,12 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"professional-courses"</span>&gt;</span>Select professional course<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control apply-online-course-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"professional-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"professional"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3327"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Communication<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3328"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Technology<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3327"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Communication<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3328"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Technology<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -226,12 +248,12 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"short-course-courses"</span>&gt;</span>Select short course<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control apply-online-course-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"short-course-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"short-course"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"7622"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UN4AA"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>ACCA Revision Classes<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3331"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"CPDAZ,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>An Introduction to Art Therapy Supervision<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"7622"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UN4AA"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>ACCA Revision Classes<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3331"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"CPDAZ,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>An Introduction to Art Therapy Supervision<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -240,70 +262,77 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"online-courses"</span>&gt;</span>Select online course<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control apply-online-course-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"online-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"online"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N401"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons) Top-Up degree<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"13612"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UC8AG"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Psychology BSc (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N401"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons) Top-Up degree<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"13612"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UC8AG"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Psychology BSc (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-selector-class">.apply-online-course-list</span>{<span class="hljs-attribute">display</span>: none;}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-                                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group field-required"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"all-courses"</span>&gt;</span>Select course<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"all-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"section_id"</span> <span class="hljs-attr">required</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Undergraduate courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"Y002"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">"AG"</span>&gt;</span>Accounting (Joint Honours)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"543"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N400"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"745"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N412,Undergraduate"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance Integrated Masters MAccFin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"586"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"J901,Without industrial year|H293,With industrial year"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Civil and Infrastructure Engineering BEng (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Postgraduate courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2560"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MN4AB"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Computer Networks MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Professional courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3327"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Communication<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3328"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Technology<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Short courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"7622"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UN4AA"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>ACCA Revision Classes<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3331"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"CPDAZ,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>An Introduction to Art Therapy Supervision<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-															<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Online courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N401"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons) Top-Up degree<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-											 
-																																			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"13612"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UC8AG"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Psychology BSc (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+                <span class="hljs-selector-class">.apply-online-course-list</span> {
+                    <span class="hljs-attribute">display</span>: none;
+                }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group field-required"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"all-courses"</span>&gt;</span>Select course<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"all-courses"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"section_id"</span> <span class="hljs-attr">required</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>-- Please choose --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Undergraduate courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"Y002"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">"AG"</span>&gt;</span>Accounting (Joint Honours)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"543"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N400"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"745"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N412,Undergraduate"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance Integrated Masters MAccFin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"586"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"J901,Without industrial year|H293,With industrial year"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Civil and Infrastructure Engineering BEng (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Postgraduate courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2560"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MN4AB"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"2561"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Computer Networks MSc<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Professional courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3327"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Communication<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3328"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"MY0AF,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Advanced Technology<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Short courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"7622"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UN4AA"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>ACCA Revision Classes<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3331"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"CPDAZ,Level 7"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>An Introduction to Art Therapy Supervision<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>- Online courses -<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"132"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"N401"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Accounting and Finance BA (Hons) Top-Up degree<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"13612"</span> <span class="hljs-attr">data-program-code</span>=<span class="hljs-string">"UC8AG"</span> <span class="hljs-attr">data-joint-honours-code</span>=<span class="hljs-string">""</span>&gt;</span>Psychology BSc (Hons)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"submitButtons"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-blue"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
-        Submit
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                Submit
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
                         Submit
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>or continue an existing application<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>If you've started your application already, use the link on the right to access and complete your application form using your username and password.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://registration.derby.ac.uk/psp/HPRDOLA2/EMPLOYEE/EMPL/h/?tab=UD_OLA_LOGIN"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-blue button-large"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
-        Continue application
-    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-icon uod-icons uod-icons-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
-                        Continue application
-            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-icon uod-icons uod-icons-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            Continue application
+            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-icon uod-icons uod-icons-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                    Continue application
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-icon uod-icons uod-icons-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Forgotten your password or username?<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>If you've forgotten your username or password choose "Continue application" above and then "Forgot password?" to access your account.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
@@ -313,7 +342,7 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-12b5732121da2adac191632fb71b9917-panel-view">
-    <code class="Code Code--lang-twig">
+    <code class="Code Code--lang-twig hljs">
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-wrapper"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> courseName %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>You are applying for:<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span></span><span class="hljs-template-variable">{{ courseName }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
@@ -406,7 +435,7 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-12b5732121da2adac191632fb71b9917-panel-context">
-    <code class="Code Code--lang-json">
+    <code class="Code Code--lang-json hljs">
         
             
             <pre>{
@@ -440,7 +469,7 @@
       <span class="hljs-attr">"changeLabel"</span>: <span class="hljs-string">"Undergraduate courses"</span>,
       <span class="hljs-attr">"selectLabel"</span>: <span class="hljs-string">"Select undergraduate course"</span>,
       <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"apply-online-course-select"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
       <span class="hljs-attr">"courses"</span>: [
         {
           <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting (Joint Honours)"</span>,
@@ -466,7 +495,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -480,7 +509,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -494,7 +523,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         }
@@ -507,7 +536,7 @@
       <span class="hljs-attr">"changeLabel"</span>: <span class="hljs-string">"Postgraduate courses"</span>,
       <span class="hljs-attr">"selectLabel"</span>: <span class="hljs-string">"Select postgraduate course"</span>,
       <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"apply-online-course-select"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
       <span class="hljs-attr">"courses"</span>: [
         {
           <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting and Finance MSc"</span>,
@@ -519,7 +548,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -533,7 +562,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         }
@@ -546,7 +575,7 @@
       <span class="hljs-attr">"changeLabel"</span>: <span class="hljs-string">"Professional courses"</span>,
       <span class="hljs-attr">"selectLabel"</span>: <span class="hljs-string">"Select professional course"</span>,
       <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"apply-online-course-select"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
       <span class="hljs-attr">"courses"</span>: [
         {
           <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Advanced Communication"</span>,
@@ -558,7 +587,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -572,7 +601,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         }
@@ -585,7 +614,7 @@
       <span class="hljs-attr">"changeLabel"</span>: <span class="hljs-string">"Short courses"</span>,
       <span class="hljs-attr">"selectLabel"</span>: <span class="hljs-string">"Select short course"</span>,
       <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"apply-online-course-select"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
       <span class="hljs-attr">"courses"</span>: [
         {
           <span class="hljs-attr">"label"</span>: <span class="hljs-string">"ACCA Revision Classes"</span>,
@@ -597,7 +626,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -611,7 +640,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         }
@@ -624,7 +653,7 @@
       <span class="hljs-attr">"changeLabel"</span>: <span class="hljs-string">"Online courses"</span>,
       <span class="hljs-attr">"selectLabel"</span>: <span class="hljs-string">"Select online course"</span>,
       <span class="hljs-attr">"additionalClasses"</span>: <span class="hljs-string">"apply-online-course-select"</span>,
-      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"required"</span>: <span class="hljs-literal">false</span>,
       <span class="hljs-attr">"courses"</span>: [
         {
           <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting and Finance BA (Hons) Top-Up degree"</span>,
@@ -636,7 +665,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         },
@@ -650,7 +679,7 @@
             },
             {
               <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-              <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+              <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
             }
           ]
         }
@@ -666,7 +695,7 @@
     <span class="hljs-attr">"courses"</span>: [
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"- Undergraduate courses -"</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting (Joint Honours)"</span>,
@@ -692,7 +721,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -706,7 +735,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -720,13 +749,13 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"- Postgraduate courses -"</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting and Finance MSc"</span>,
@@ -738,7 +767,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -752,13 +781,13 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"- Professional courses -"</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Advanced Communication"</span>,
@@ -770,7 +799,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -784,13 +813,13 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"- Short courses -"</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"ACCA Revision Classes"</span>,
@@ -802,7 +831,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -816,13 +845,13 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"- Online courses -"</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
       },
       {
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Accounting and Finance BA (Hons) Top-Up degree"</span>,
@@ -834,7 +863,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       },
@@ -848,7 +877,7 @@
           },
           {
             <span class="hljs-attr">"key"</span>: <span class="hljs-string">"data-joint-honours-code"</span>,
-            <span class="hljs-attr">"value"</span>: <span class="hljs-literal">null</span>
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">""</span>
           }
         ]
       }
@@ -884,7 +913,7 @@
                     <span class="Meta-value">
                         <div class="FileBrowser-itemPreview">
                             
-                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                            <code class="Code Code--lang-JavaScript FileBrowser-code hljs">
                                 <pre>$(<span class="hljs-string">'.apply-online-course-list:not(.preselected)'</span>).hide();
 $(<span class="hljs-string">'.apply-online-course-list.preselected select'</span>).prop(<span class="hljs-string">'required'</span>,<span class="hljs-literal">true</span>); 
 $(<span class="hljs-string">'#courseTypes'</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
@@ -1087,15 +1116,22 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
         </div>
 
         <div class="Frame-handle" data-role="frame-resize-handle"></div>
-        
+
         <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
             <nav class="Navigation">
-
     
+        
 <div class="Navigation-group">
 
 <div class="Tree" data-behaviour="tree" id="tree-docs">
-    <h3 class="Tree-title">documentation</h3>
+    <div class="Tree-header">
+        <h3 class="Tree-title">documentation</h3>
+
+        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="Collapse tree" aria-label="Collapse tree" hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 11c-.6 0-1 .4-1 1s.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1z"/><path d="m19 21h-14c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2zm-14-16v14h14v-14z"/></svg>
+
+        </button>
+    </div>
     <ul class="Tree-items Tree-depth-1">
         
     
@@ -1130,21 +1166,28 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
 </div>
 
 
-
     
+        
 <div class="Navigation-group">
 
 <div class="Tree" data-behaviour="tree" id="tree-components">
-    <h3 class="Tree-title">components</h3>
+    <div class="Tree-header">
+        <h3 class="Tree-title">components</h3>
+
+        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="Collapse tree" aria-label="Collapse tree" hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 11c-.6 0-1 .4-1 1s.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1z"/><path d="m19 21h-14c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2zm-14-16v14h14v-14z"/></svg>
+
+        </button>
+    </div>
     <ul class="Tree-items Tree-depth-1">
         
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-style-guide">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Style Guide</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-style-guide-items">
+                Style Guide
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-style-guide-items">
             
             
             
@@ -1301,10 +1344,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-full-page-comps">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-full-page-comps-items">
+                Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-full-page-comps-items">
             
             
             
@@ -1893,10 +1936,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-listing">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>List Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-listing-items">
+                List Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-listing-items">
             
             
             
@@ -2173,10 +2216,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-components">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Components</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-components-items">
+                Components
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-components-items">
             
             
             
@@ -2208,10 +2251,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-accordion">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Accordion</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-accordion-items">
+                Accordion
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-accordion-items">
             
             
             
@@ -2368,10 +2411,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-anchor-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Anchor Links</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-anchor-links-items">
+                Anchor Links
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-anchor-links-items">
             
             
             
@@ -2456,10 +2499,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-calendar">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Calendar</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-calendar-items">
+                Calendar
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-calendar-items">
             
             
             
@@ -2664,10 +2707,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-forms">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Forms</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-forms-items">
+                Forms
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-forms-items">
             
             
             
@@ -2675,10 +2718,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-apply-online">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Apply online</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-apply-online-items">
+                Apply online
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-apply-online-items">
             
             
             
@@ -2883,10 +2926,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-quba-sign-up-form">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Quba Sign Up Form</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-quba-sign-up-form-items">
+                Quba Sign Up Form
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-quba-sign-up-form-items">
             
             
             
@@ -2952,10 +2995,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-full-width-image">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Full Width Image</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-full-width-image-items">
+                Full Width Image
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-full-width-image-items">
             
             
             
@@ -3064,10 +3107,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-heroes">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Heroes</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-heroes-items">
+                Heroes
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-heroes-items">
             
             
             
@@ -3075,10 +3118,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-academic-profile-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Academic Profile Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-academic-profile-hero-items">
+                Academic Profile Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-academic-profile-hero-items">
             
             
             
@@ -3283,10 +3326,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-course-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Course Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-course-hero-items">
+                Course Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-course-hero-items">
             
             
             
@@ -3539,10 +3582,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-image-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-hero-items">
+                Image Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-hero-items">
             
             
             
@@ -4059,10 +4102,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-image-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-hero-search-items">
+                Image Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-hero-search-items">
             
             
             
@@ -4363,10 +4406,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-items">
+                Pattern Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-items">
             
             
             
@@ -5171,10 +5214,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-search-items">
+                Pattern Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-search-items">
             
             
             
@@ -5955,10 +5998,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-pattern-hero-search-in-page">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pattern Hero Search In Page</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pattern-hero-search-in-page-items">
+                Pattern Hero Search In Page
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pattern-hero-search-in-page-items">
             
             
             
@@ -6283,10 +6326,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-short-pattern-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Short Pattern Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-short-pattern-hero-items">
+                Short Pattern Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-short-pattern-hero-items">
             
             
             
@@ -7043,10 +7086,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-video-hero">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Video Hero</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-video-hero-items">
+                Video Hero
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-video-hero-items">
             
             
             
@@ -7323,10 +7366,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-video-hero-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Video Hero Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-video-hero-search-items">
+                Video Hero Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-video-hero-search-items">
             
             
             
@@ -7560,10 +7603,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-image-embed">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Embed</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-embed-items">
+                Image Embed
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-embed-items">
             
             
             
@@ -7648,10 +7691,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-image-group">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Image Group</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-image-group-items">
+                Image Group
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-image-group-items">
             
             
             
@@ -7736,10 +7779,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-induction-schedules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Induction Schedules</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-induction-schedules-items">
+                Induction Schedules
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-induction-schedules-items">
             
             
             
@@ -7824,10 +7867,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-landing-page-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Landing Page Links</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-landing-page-links-items">
+                Landing Page Links
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-landing-page-links-items">
             
             
             
@@ -7960,10 +8003,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-logo-group">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Logo Group</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-logo-group-items">
+                Logo Group
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-logo-group-items">
             
             
             
@@ -8216,10 +8259,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-media-gallery">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Media Gallery</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-media-gallery-items">
+                Media Gallery
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-media-gallery-items">
             
             
             
@@ -8424,10 +8467,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-module-component">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Module Component</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-module-component-items">
+                Module Component
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-module-component-items">
             
             
             
@@ -8536,10 +8579,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-promo">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Promo</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-promo-items">
+                Promo
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-promo-items">
             
             
             
@@ -8595,10 +8638,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-open-day-promo">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Open Day Promo</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-open-day-promo-items">
+                Open Day Promo
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-open-day-promo-items">
             
             
             
@@ -8904,10 +8947,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-search-results">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Results</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-results-items">
+                Search Results
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-results-items">
             
             
             
@@ -8915,10 +8958,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-basic-search-result">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Basic Search Result</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-basic-search-result-items">
+                Basic Search Result
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-basic-search-result-items">
             
             
             
@@ -9315,10 +9358,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-course-teaser">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Course Teaser</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-course-teaser-items">
+                Course Teaser
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-course-teaser-items">
             
             
             
@@ -9475,10 +9518,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-listing-result-types">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Listing Result Types</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-listing-result-types-items">
+                Listing Result Types
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-listing-result-types-items">
             
             
             
@@ -9755,10 +9798,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-search-filters">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Filters</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-filters-items">
+                Search Filters
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-filters-items">
             
             
             
@@ -9915,10 +9958,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-search-result-types">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Search Result Types</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-search-result-types-items">
+                Search Result Types
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-search-result-types-items">
             
             
             
@@ -10056,10 +10099,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-section-navigation">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Section Navigation</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-section-navigation-items">
+                Section Navigation
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-section-navigation-items">
             
             
             
@@ -10240,10 +10283,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-text-block">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Text Block</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-text-block-items">
+                Text Block
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-text-block-items">
             
             
             
@@ -10496,10 +10539,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-unistats">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Unistats</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-unistats-items">
+                Unistats
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-unistats-items">
             
             
             
@@ -10589,10 +10632,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-atoms">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Subcomponents</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-atoms-items">
+                Subcomponents
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-atoms-items">
             
             
             
@@ -10720,10 +10763,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-menu">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Menu</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-menu-items">
+                Menu
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-menu-items">
             
             
             
@@ -10808,10 +10851,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-pagination-controls">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Pagination Controls</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-pagination-controls-items">
+                Pagination Controls
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-pagination-controls-items">
             
             
             
@@ -10896,10 +10939,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-search">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Search</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-site-search-items">
+                Site Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-site-search-items">
             
             
             
@@ -10989,10 +11032,10 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
     
         
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-internal-page-comps">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Internal Page Mockups</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-internal-page-comps-items">
+                Internal Page Mockups
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-internal-page-comps-items">
             
             
             
@@ -11058,7 +11101,7 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
 </div>
 
 
-
+    
 </nav>
 
         </div>
@@ -11068,7 +11111,7 @@ $(<span class="hljs-string">'#apply-online-form'</span>).submit(<span class="hlj
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.5.1"></script>
 
 
 
