@@ -13,7 +13,7 @@ for (let i = 0; i < carouselContainers.length; i++) {
   let carousel = carouselContainers[i].querySelector('.owl-carousel');
   carousel.classList.add(owlClass);
 
-let owl = $('.' + owlClass).owlCarousel({
+  let owl = $('.' + owlClass).owlCarousel({
     loop: true,
     margin: 0,
     nav: true,
@@ -45,12 +45,12 @@ let owl = $('.' + owlClass).owlCarousel({
         margin: 20,
       }
     }
-  })
+  });
 
   $(`#${navId}`).click((e) => {
     e.preventDefault();
     owl.trigger('next.owl.carousel');
-  })
+  });
 }
 
 

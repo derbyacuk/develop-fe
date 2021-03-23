@@ -318,7 +318,7 @@
   <span class="hljs-keyword">let</span> carousel = carouselContainers[i].querySelector(<span class="hljs-string">'.owl-carousel'</span>);
   carousel.classList.add(owlClass);
 
-<span class="hljs-keyword">let</span> owl = $(<span class="hljs-string">'.'</span> + owlClass).owlCarousel({
+  <span class="hljs-keyword">let</span> owl = $(<span class="hljs-string">'.'</span> + owlClass).owlCarousel({
     <span class="hljs-attr">loop</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">margin</span>: <span class="hljs-number">0</span>,
     <span class="hljs-attr">nav</span>: <span class="hljs-literal">true</span>,
@@ -350,12 +350,12 @@
         <span class="hljs-attr">margin</span>: <span class="hljs-number">20</span>,
       }
     }
-  })
+  });
 
   $(<span class="hljs-string">`#<span class="hljs-subst">${navId}</span>`</span>).click(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
     e.preventDefault();
     owl.trigger(<span class="hljs-string">'next.owl.carousel'</span>);
-  })
+  });
 }
 
 
