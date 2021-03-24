@@ -202,3 +202,19 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         margin-bottom: -20px;
     }
 }
+
+.homepage .panel-promo {
+
+    .panel-promo-panel-inner h2 {
+        text-transform: uppercase;
+        font-weight: normal;
+        
+        strong {
+            font-size: responsive 40px 50px;
+            font-range: $mobile-portrait $tablet-landscape;
+            font-family: flood-std, sans-serif; 
+            font-weight: bold;
+            color: $pink;
+        }
+    }
+}
