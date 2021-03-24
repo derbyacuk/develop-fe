@@ -483,7 +483,7 @@
          <span class="hljs-attribute">text-align</span>: right;
 
         <span class="hljs-selector-tag">h2</span> {
-            <span class="hljs-attribute">font-size</span>: responsive <span class="hljs-number">80px</span> <span class="hljs-number">180px</span>;
+            <span class="hljs-attribute">font-size</span>: responsive <span class="hljs-number">80px</span> <span class="hljs-number">160px</span>;
             <span class="hljs-attribute">font</span>-range: <span class="hljs-variable">$mobile-portrait</span> <span class="hljs-variable">$desktop</span>;
             <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
             <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
@@ -494,7 +494,7 @@
 
             <span class="hljs-keyword">@include</span> for-tablet-landscape-up {
                 <span class="hljs-attribute">position</span>: absolute;
-                <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+                <span class="hljs-attribute">bottom</span>: <span class="hljs-number">20px</span>; 
                 <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
                 <span class="hljs-attribute">text-align</span>: left;
             }
@@ -609,14 +609,14 @@
         <span class="hljs-keyword">@include</span> counter-margin-large;
     }
 }
-<span class="hljs-comment">// .center-align &gt; .panel-promo-container + .panel-promo-container {</span>
-<span class="hljs-comment">//     @include margin-medium-offset;</span>
-
-<span class="hljs-comment">//     @include for-tablet-portrait-up {</span>
-<span class="hljs-comment">//         @include margin-large-offset;</span>
-<span class="hljs-comment">//     }</span>
-<span class="hljs-comment">// }</span>
-</pre>
+<span class="hljs-comment">// when a panel promo carousel is the last element in the main wrapper close the margin between it and the footer</span>
+<span class="hljs-selector-class">.center-align</span> &gt; <span class="hljs-selector-class">.panel-promo-container</span><span class="hljs-selector-pseudo">:last-child</span>() {
+    <span class="hljs-attribute">margin-bottom</span>: -#{<span class="hljs-variable">$min-size</span>};
+    
+    <span class="hljs-keyword">@include</span> for-largerthan-ipad-portrait {
+        <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">20px</span>;
+    }
+}</pre>
                             </code>
                             
                         </div>
@@ -632,7 +632,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.2 KB</span>
+                    <span class="Meta-value">6.3 KB</span>
                 </li>
             </ul>
         </div>

@@ -1529,6 +1529,16 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
         
         strong {
             color: $pink;
+            //when the heading is pink need to layer up a boat load of shadows to get the contrast ok when the heading overlaps the images
+            text-shadow: rgb(34, 34, 34) 3px 3px 0px, 
+                rgb(34, 34, 34) -3px -3px 0px, 
+                rgb(34, 34, 34) 3px -3px 0px, 
+                rgb(34, 34, 34) -3px 3px 0px, 
+                rgb(34, 34, 34) 0px 0px 10px, 
+                rgb(34, 34, 34) 0px 0px 20px, 
+                rgb(34, 34, 34) 0px 0px 30px, 
+                rgb(34, 34, 34) 0px 0px 40px, 
+                rgb(34, 34, 34) 0px 0px 50px
         }
 
         &amp;::after {
@@ -1607,7 +1617,7 @@ $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">7.4 KB</span>
+                    <span class="Meta-value">8 KB</span>
                 </li>
             </ul>
         </div>

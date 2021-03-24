@@ -68,7 +68,7 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
          text-align: right;
 
         h2 {
-            font-size: responsive 80px 180px;
+            font-size: responsive 80px 160px;
             font-range: $mobile-portrait $desktop;
             margin-bottom: 0;
             color: $white;
@@ -79,7 +79,7 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
 
             @include for-tablet-landscape-up {
                 position: absolute;
-                bottom: 0;
+                bottom: 20px; 
                 left: 0;
                 text-align: left;
             }
@@ -194,10 +194,11 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         @include counter-margin-large;
     }
 }
-// .center-align > .panel-promo-container + .panel-promo-container {
-//     @include margin-medium-offset;
-
-//     @include for-tablet-portrait-up {
-//         @include margin-large-offset;
-//     }
-// }
+// when a panel promo carousel is the last element in the main wrapper close the margin between it and the footer
+.center-align > .panel-promo-container:last-child() {
+    margin-bottom: -#{$min-size};
+    
+    @include for-largerthan-ipad-portrait {
+        margin-bottom: -20px;
+    }
+}

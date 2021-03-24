@@ -1,6 +1,10 @@
 .image-hero-search {
     @include margin-medium;
 
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+
     &-content {
         @include full-bleed-inset;
 
