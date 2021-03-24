@@ -1,6 +1,7 @@
 .panel-carousel {
     --carousel-background: var(--black);
     --content-scheme: var(--white);
+    --content-scheme-opposite: var(--black); //used for button rollovers
     --slide-gold: var(--gold);
     --slide-pink: var(--pink);
     --slide-green: var(--green-blue);
@@ -21,11 +22,13 @@
     &.theme-dark-grey {
         --carousel-background: var(--dark-grey);
         --content-scheme: var(--text-black);
+        --content-scheme-opposite: var(--white);
     }
 
     &.theme-white {
         --carousel-background: var(--white);
         --content-scheme: var(--text-black);
+        --content-scheme-opposite: var(--white);
     }
 
     &-container {
@@ -138,8 +141,17 @@
             p {
                 line-height: 1.53;
             }
-            .button {
+
+            // as in T4 buttons are added in a WYSIWYG force the button style based on the content scheme
+            [class*="button"] {
                 margin-bottom: 0px;
+                border-color: var(--content-scheme);
+                color: var(--content-scheme);
+
+                .button-overlay {
+                    background: var(--content-scheme);
+                    color: var(--content-scheme-opposite);
+                }
             }
         }
     }
