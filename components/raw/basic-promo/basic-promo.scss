@@ -278,5 +278,5 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
 // a specific theme can be applied for UG2022 by adding ug-2022 class to the section
 .ug-2022 .basic-promo-black .basic-promo-pattern-black,
 .ug-2022 .basic-promo-black .basic-promo-panel {
-    background: #222222;
+    background: $black;
 }
