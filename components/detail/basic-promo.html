@@ -753,6 +753,33 @@
 
 </pre>
         
+            <pre><span class="hljs-comment">&lt;!-- Ug 2022 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ug-2022"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo basic-promo-right-align basic-promo-black"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-zigzag basic-promo-pattern-black"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-image-container"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/ug-2022-promo-kate.jpeg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Kate"</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel-inner"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Kate Henry: being inspired<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A moment of inspiration changed Kate Henry's life. Now, as a newly qualified nurse, she is on the front line. And she's using her creativity to inspire the next generation of nurses.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-white"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Kate Henry: being inspired"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
+                        Read Kate's story
+                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                                Read Kate's story
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -1317,7 +1344,27 @@
         label: 'View accomodation options',
         href: '#'
     }
-} %}</span></pre>
+} %}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Ug 2022 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ug-2022"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@basic-promo' with {
+        imageAlignment: 'right',
+        image: {
+            path: '/images/ug-2022-promo-kate.jpeg',
+            alt: 'Kate'
+        },
+        pattern: 'zigzag',
+        patternColour: 'black',
+        scheme: 'black',
+        title: 'Kate Henry: being inspired',
+        copy: "A moment of inspiration changed Kate Henry's life. Now, as a newly qualified nurse, she is on the front line. And she's using her creativity to inspire the next generation of nurses.",
+        callToAction: {
+            label: 'Read Kate\'s story',
+            href: '#'
+        }
+    } %}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -1850,6 +1897,27 @@
 
 </pre>
         
+            <pre>
+<span class="hljs-comment">/* Ug 2022 */</span>
+{
+  <span class="hljs-attr">"imageAlignment"</span>: <span class="hljs-string">"left"</span>,
+  <span class="hljs-attr">"image"</span>: {
+    <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/images/UG19Prosp-Keyvis-292.jpg"</span>,
+    <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Man at the Gym"</span>
+  },
+  <span class="hljs-attr">"pattern"</span>: <span class="hljs-string">"zigzag"</span>,
+  <span class="hljs-attr">"patternColour"</span>: <span class="hljs-string">"turquoise"</span>,
+  <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"default"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Living at the University of Derby"</span>,
+  <span class="hljs-attr">"copy"</span>: <span class="hljs-string">"Our three safe and friendly campuses are all located in the English county of Derbyshire. They're all easy to get to by road and rail."</span>,
+  <span class="hljs-attr">"callToAction"</span>: {
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"View accomodation options"</span>,
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+  }
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -2156,6 +2224,11 @@
         }
     }
 }
+<span class="hljs-comment">// a specific theme can be applied for UG2022 by adding ug-2022 class to the section</span>
+<span class="hljs-selector-class">.ug-2022</span> <span class="hljs-selector-class">.basic-promo-black</span> <span class="hljs-selector-class">.basic-promo-pattern-black</span>,
+<span class="hljs-selector-class">.ug-2022</span> <span class="hljs-selector-class">.basic-promo-black</span> <span class="hljs-selector-class">.basic-promo-panel</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#222222</span>;
+}
 </pre>
                             </code>
                             
@@ -2172,7 +2245,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">8.5 KB</span>
+                    <span class="Meta-value">8.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -2195,7 +2268,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(22)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(23)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="basic-promo--default.html">
@@ -2284,6 +2357,10 @@
             
                 <a href="basic-promo--example-use.html">
                     <span>Example Use</span>
+                </a>, 
+            
+                <a href="basic-promo--ug-2022.html">
+                    <span>Ug 2022</span>
                 </a>
             
             </span>
@@ -2322,7 +2399,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(12)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(13)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="full-page-comps--jobs-job-1.html">@<span>full-page-comps--jobs-job-1</span></a>, 
@@ -2347,7 +2424,9 @@
             
                 <a href="full-page-comps--section-page.html">@<span>full-page-comps--section-page</span></a>, 
             
-                <a href="basic-promo--example-use.html">@<span>basic-promo--example-use</span></a>
+                <a href="basic-promo--example-use.html">@<span>basic-promo--example-use</span></a>, 
+            
+                <a href="basic-promo--ug-2022.html">@<span>basic-promo--ug-2022</span></a>
             
             </span>
         </li>

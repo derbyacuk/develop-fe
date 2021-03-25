@@ -407,10 +407,9 @@
             <span class="hljs-attribute">justify-content</span>: center;
             lost-utility: clearfix;
 
-            <span class="hljs-comment">// use for left align image - not sure this really works in practice though</span>
-            <span class="hljs-comment">// .panel-promo-left-align &amp; {</span>
-            <span class="hljs-comment">//     flex-direction: row-reverse;</span>
-            <span class="hljs-comment">// }</span>
+            <span class="hljs-selector-class">.panel-promo-left-align</span> &amp; {
+                <span class="hljs-attribute">flex-direction</span>: row-reverse;
+            }
         }
     }
 
@@ -535,7 +534,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.7 KB</span>
+                    <span class="Meta-value">6.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -558,7 +557,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(4)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="">
@@ -571,6 +570,10 @@
             
                 <a href="panel-promo--no-title.html">
                     <span>No Title</span>
+                </a>, 
+            
+                <a href="panel-promo--image-left.html">
+                    <span>Image Left</span>
                 </a>
             
             </span>
@@ -626,7 +629,7 @@
         
         <h1 id="panel-promo-component">Panel Promo Component</h1>
 <p>A visual promotion component which combines lead text, a call to action button, a foreground and background image. The panel promo sits within the main content wrapper, but using a background container to give the fullbleed effect and is designed to be solely used on the new homepage design. </p>
-<p>The foreground image dimensions are fixed at a ratio of 3:4. The style of the foreground image is a cutout person/object. If the subject of the image reaches the bottom of the 3:4 canvas recommend a fade is applied towards the bottom of the image, either to transparent or to match the background.</p>
+<p>The foreground image dimensions are fixed and can be used a ratio of 3:4 or 1:1, (in T4 1500x2000 or 2000x2000). The style of the foreground image is a cutout person/object. If the subject of the image reaches the bottom of the 3:4 canvas recommend a fade is applied towards the bottom of the image, either to transparent or to match the background.</p>
 <p>Responsive images are supported through use of the <strong>srcset</strong> property, which combine an image path and a target screen width at which the image should be displayed.</p>
 <h2 id="key-features">Key Features</h2>
 <ul>

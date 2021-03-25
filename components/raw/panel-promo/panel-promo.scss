@@ -105,10 +105,9 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
             justify-content: center;
             lost-utility: clearfix;
 
-            // use for left align image - not sure this really works in practice though
-            // .panel-promo-left-align & {
-            //     flex-direction: row-reverse;
-            // }
+            .panel-promo-left-align & {
+                flex-direction: row-reverse;
+            }
         }
     }
 
