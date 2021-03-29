@@ -776,6 +776,27 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo basic-promo-right-align basic-promo-black"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-zigzag basic-promo-pattern-black"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-image-container"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/ug-2022-omar-up-promo.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Omar"</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-panel-inner"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Make it Real<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>at Derby<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>We want you to realise your vision for your future. The University of Derby is a place where you can take your passion and talent and use them to create a better world.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-white"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"&lt;span&gt;&lt;strong&gt;Make it Real&lt;/strong&gt;&lt;br&gt;at Derby&lt;/span&gt;"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-scroll</span>&gt;</span>
+                        Find out how we can make it real for you
+                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button-overlay"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+                                Find out how we can make it real for you
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 </pre>
@@ -1347,7 +1368,7 @@
 } %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Ug 2022 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ug-2022"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ug-2022"</span>&gt;</span></span><span class="hljs-comment">{# In T4 the ug-2022 class can be applied to the body #}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@basic-promo' with {
         imageAlignment: 'right',
         image: {
@@ -1361,6 +1382,22 @@
         copy: "A moment of inspiration changed Kate Henry's life. Now, as a newly qualified nurse, she is on the front line. And she's using her creativity to inspire the next generation of nurses.",
         callToAction: {
             label: 'Read Kate\'s story',
+            href: '#'
+        }
+    } %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@basic-promo' with {
+        imageAlignment: 'right',
+        image: {
+            path: '/images/ug-2022-omar-up-promo.jpg',
+            alt: 'Omar'
+        },
+        pattern: 'zigzag',
+        patternColour: 'black',
+        scheme: 'black',
+        title: '&lt;span&gt;&lt;strong&gt;Make it Real&lt;/strong&gt; &lt;br&gt;at Derby&lt;/span&gt;',
+        copy: "We want you to realise your vision for your future. The University of Derby is a place where you can take your passion and talent and use them to create a better world.",
+        callToAction: {
+            label: 'Find out how we can make it real for you',
             href: '#'
         }
     } %}</span><span class="xml">
@@ -2224,10 +2261,23 @@
         }
     }
 }
-<span class="hljs-comment">// a specific theme can be applied for UG2022 by adding ug-2022 class to the section</span>
+<span class="hljs-comment">// a specific theme can be applied for UG2022 by adding ug-2022 class to the section (body classes)</span>
 <span class="hljs-selector-class">.ug-2022</span> <span class="hljs-selector-class">.basic-promo-black</span> <span class="hljs-selector-class">.basic-promo-pattern-black</span>,
 <span class="hljs-selector-class">.ug-2022</span> <span class="hljs-selector-class">.basic-promo-black</span> <span class="hljs-selector-class">.basic-promo-panel</span> {
     <span class="hljs-attribute">background</span>: <span class="hljs-variable">$black</span>;
+
+    <span class="hljs-selector-tag">span</span> {
+        <span class="hljs-attribute">text-transform</span>: uppercase;
+        <span class="hljs-attribute">font-weight</span>: normal;
+
+        <span class="hljs-selector-tag">strong</span> {
+            <span class="hljs-attribute">font-size</span>: responsive <span class="hljs-number">40px</span> <span class="hljs-number">50px</span>;
+            <span class="hljs-attribute">font</span>-range: <span class="hljs-variable">$mobile-portrait</span> <span class="hljs-variable">$tablet-landscape</span>;
+            <span class="hljs-attribute">font-family</span>: flood-std, sans-serif; 
+            <span class="hljs-attribute">font-weight</span>: bold;
+            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$pink</span>;
+        }
+    }
 }
 </pre>
                             </code>
@@ -2245,7 +2295,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">8.7 KB</span>
+                    <span class="Meta-value">9.1 KB</span>
                 </li>
             </ul>
         </div>

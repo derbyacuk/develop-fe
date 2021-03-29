@@ -275,8 +275,21 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         }
     }
 }
-// a specific theme can be applied for UG2022 by adding ug-2022 class to the section
+// a specific theme can be applied for UG2022 by adding ug-2022 class to the section (body classes)
 .ug-2022 .basic-promo-black .basic-promo-pattern-black,
 .ug-2022 .basic-promo-black .basic-promo-panel {
     background: $black;
+
+    span {
+        text-transform: uppercase;
+        font-weight: normal;
+
+        strong {
+            font-size: responsive 40px 50px;
+            font-range: $mobile-portrait $tablet-landscape;
+            font-family: flood-std, sans-serif; 
+            font-weight: bold;
+            color: $pink;
+        }
+    }
 }
