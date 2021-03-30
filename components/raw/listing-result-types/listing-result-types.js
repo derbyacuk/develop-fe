@@ -2,7 +2,7 @@ import $ from 'jquery'
 import lightgallery from 'lightgallery'
 import '../../../../node_modules/lg-video/dist/lg-video.min.js'
 
-var openVideo = false;  // Global for triggering click on video.
+document.body.dataset.openvideo = "false";
 
 function applyLightGallery() {
     $('.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content').each(function(){
@@ -31,12 +31,12 @@ function applyLightGallery() {
         });
     });
 
-    if (openVideo) {
+    if (document.body.dataset.openvideo == "true") {
         
         if (document.querySelector('.search-page-results-grid-section > .search-result-wrapper > .search-result')) {
             if (document.querySelector('.search-page-results-grid-section > .search-result-wrapper > .search-result').classList.contains('search-result-video')) {
             document.querySelector('.search-result-video > .search-result-image > a').click();
-            openVideo = false;
+            document.body.dataset.openvideo = "false";
             }
         }
     }

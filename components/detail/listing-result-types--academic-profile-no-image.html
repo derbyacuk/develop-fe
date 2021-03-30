@@ -354,7 +354,7 @@
 <span class="hljs-keyword">import</span> lightgallery <span class="hljs-keyword">from</span> <span class="hljs-string">'lightgallery'</span>
 <span class="hljs-keyword">import</span> <span class="hljs-string">'../../../../node_modules/lg-video/dist/lg-video.min.js'</span>
 
-<span class="hljs-keyword">var</span> openVideo = <span class="hljs-literal">false</span>;  <span class="hljs-comment">// Global for triggering click on video.</span>
+<span class="hljs-built_in">document</span>.body.dataset.openvideo = <span class="hljs-string">"false"</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">applyLightGallery</span>(<span class="hljs-params"></span>) </span>{
     $(<span class="hljs-string">'.search-result-video .search-result-image, .search-result-video .search-result-content, .search-result-360-view .search-result-image, .search-result-360-view .search-result-content'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
@@ -383,12 +383,12 @@
         });
     });
 
-    <span class="hljs-keyword">if</span> (openVideo) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.dataset.openvideo == <span class="hljs-string">"true"</span>) {
         
         <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-page-results-grid-section &gt; .search-result-wrapper &gt; .search-result'</span>)) {
             <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-page-results-grid-section &gt; .search-result-wrapper &gt; .search-result'</span>).classList.contains(<span class="hljs-string">'search-result-video'</span>)) {
             <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.search-result-video &gt; .search-result-image &gt; a'</span>).click();
-            openVideo = <span class="hljs-literal">false</span>;
+            <span class="hljs-built_in">document</span>.body.dataset.openvideo = <span class="hljs-string">"false"</span>;
             }
         }
     }

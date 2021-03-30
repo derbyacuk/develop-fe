@@ -27,7 +27,7 @@ class DerbyOnDemand {
         this.subjectInput    = document.querySelector("select[name='subject']");
         this.categoryInputs  = document.querySelectorAll("input[name='category']");
 
-        this.FeedURL = 'https://derby.ac.uk/site-assets/feeds/derby-on-demand/feed.json';
+        this.FeedURL = 'https://www.derby.ac.uk/site-assets/feeds/derby-on-demand/feed.json';
         this.Year        = '';
         this.ParamString = '';
 
@@ -58,7 +58,7 @@ class DerbyOnDemand {
         }
 
         if (this.ParamString.has('id')) {
-            openVideo = true;
+            document.body.dataset.openvideo = "true";        
         }
         
         if (localStorage.getItem('testurl') !== null) {
