@@ -186,6 +186,7 @@
                 line-height: 1.53;
                 border: none;
                 color: var(--content-scheme);
+                margin-bottom: 0;
             }
             
             .slide-content {
@@ -231,6 +232,12 @@
 
             &.turquoise .slide-content {
                 border-color: var(--turquoise);
+            }
+
+            .open-days-list-arrow {
+                display: inline-block;
+                width: 100%;
+                text-align: right;
             }
         }
 
