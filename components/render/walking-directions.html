@@ -1,0 +1,86 @@
+
+
+<section class="form-wrapper">
+	<h2>Get directions</h2>
+	<p>Please choose below where you are travelling from and to. Clicking submit will open Google maps, or the map application on your phone.</p>
+	<form id="directions" action="https://www.google.com/maps/dir/" method="GET" target="_blank" onsubmit="doDirections(this, event)">
+        <div class="form-group" id="destination-group">
+    	<div class="form-group">
+	<label for="from">I am travelling from: </label>
+		<div>
+		<select class="form-control" id="from" name="origin">
+			<option value="">-- Please choose --</option>
+															<option value="52.9378129,-1.4965012" selected>Keddleston Road</option>
+															<option value="52.9370087,-1.4985748">Sports Centre</option>
+															<option value="52.9296511,-1.4973997">Markeaton Street</option>
+															<option value="52.9277481,-1.4979735">Chandos Pole Street</option>
+															<option value="52.9296511,-1.4973997">STEM Centre</option>
+															<option value="52.9281605,-1.4946441">Britannia Mill</option>
+															<option value="52.9245882,-1.4845141">One Friar Gate Square</option>
+															<option value="52.9265362,-1.4862168">Sixty Seven Bridge Street</option>
+															<option value="52.9360564,-1.4987574">Flamsteed Court</option>
+															<option value="52.9260569,-1.49473">St Christopher’s Court</option>
+															<option value="52.9266782,-1.4893471">Nunnery Court</option>
+															<option value="52.9267912,-1.483702">Peak Court</option>
+															<option value="52.9262534,-1.4849672">Darley Bank</option>
+															<option value="52.9253407,-1.4856674">Sir Peter Hilton Court</option>
+															<option value="52.9250953,-1.4795225">Cathedral Court</option>
+															<option value="52.9246191,-1.484791">Agard Court</option>
+					</select>
+	</div>
+	</div>
+		<div class="form-group">
+	<label for="to">I am travelling to: </label>
+		<div>
+		<select class="form-control" id="to" name="destination">
+			<option value="">-- Please choose --</option>
+															<option value="52.9378129,-1.4965012" selected>Keddleston Road</option>
+															<option value="52.9370087,-1.4985748">Sports Centre</option>
+															<option value="52.9296511,-1.4973997">Markeaton Street</option>
+															<option value="52.9277481,-1.4979735">Chandos Pole Street</option>
+															<option value="52.9296511,-1.4973997">STEM Centre</option>
+															<option value="52.9281605,-1.4946441">Britannia Mill</option>
+															<option value="52.9245882,-1.4845141">One Friar Gate Square</option>
+															<option value="52.9265362,-1.4862168">Sixty Seven Bridge Street</option>
+															<option value="52.9360564,-1.4987574">Flamsteed Court</option>
+															<option value="52.9260569,-1.49473">St Christopher’s Court</option>
+															<option value="52.9266782,-1.4893471">Nunnery Court</option>
+															<option value="52.9267912,-1.483702">Peak Court</option>
+															<option value="52.9262534,-1.4849672">Darley Bank</option>
+															<option value="52.9253407,-1.4856674">Sir Peter Hilton Court</option>
+															<option value="52.9250953,-1.4795225">Cathedral Court</option>
+															<option value="52.9246191,-1.484791">Agard Court</option>
+					</select>
+	</div>
+	</div>        </div> 
+        <input type="hidden" name="travelmode" value="walking">
+        <input type="hidden" name="api" value="1">
+        <input type="hidden" name="dir_action" value="navigate">
+
+        <div class="submitButtons">
+            <button class="button-yellow button-giant" role="button" type="submit" tabindex="0" data-scroll>
+        Get directions
+            <span class="button-overlay"><span>
+                        Get directions
+                    </span></span></button>        </div>
+	</form>
+	<script>
+		function doDirections(target, e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Basic Form error checking
+            if ( document.getElementById("from").value === document.getElementById("to").value ) {
+
+                let error = "<p class=\"help-block\"> The 'I am travelling from' and 'I am travelling to' fields must be different.</p>";
+                document.getElementById("destination-group").insertAdjacentHTML('beforeend', error);
+                document.getElementById("destination-group").classList.add('has-error');
+
+                return false;
+            }
+
+            target.submit();
+        }
+	</script>
+</section>
+
