@@ -13475,11 +13475,11 @@ __webpack_require__(38);
 
 __webpack_require__(39);
 
-__webpack_require__(40);
+__webpack_require__(41);
 
-__webpack_require__(42);
+__webpack_require__(43);
 
-__webpack_require__(44);
+__webpack_require__(57);
 
 __webpack_require__(58);
 
@@ -13493,13 +13493,11 @@ __webpack_require__(62);
 
 __webpack_require__(63);
 
-__webpack_require__(64);
+__webpack_require__(65);
 
 __webpack_require__(66);
 
 __webpack_require__(67);
-
-__webpack_require__(68);
 
 // styles
 // javascript
@@ -18443,228 +18441,6 @@ return ImagesLoaded;
 "use strict";
 
 
-var consentCookieName = "cookie-consent";
-var dataLayerKey = "OptanonActiveGroups";
-var expiry = 1825;
-var acceptAllButton = document.querySelectorAll(".banner-content .button-large")[0];
-var saveAndCloseButton = document.querySelectorAll(".banner-content .button-large")[1];
-var openCookiesDialog = document.querySelectorAll(".footer-submenu-three .footer-link")[4]; // This needs to be replaced on live with an ID
-
-/**
- * self-invoking function to boot all of our initial states, etc.
- * Some of this stuff doesn't need to be here, but I've put it in here
- * to keep it tidy. Effectively this is our "main" function.
- *
- * @return {object} Self reference for object chaining
- */
-
-(function () {
-  if (document.querySelectorAll(".cookie-overlay").length) {
-    var cookies = getCookie(consentCookieName);
-    acceptAllButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      setAllCookies();
-      location.reload();
-    });
-    saveAndCloseButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      setSelectedCookies();
-      location.reload();
-    });
-    openCookiesDialog.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      showBanner();
-    });
-
-    if (cookies) {
-      checkBoxesFromCookie();
-      hideBanner();
-      setDataLayerValue(dataLayerKey, cookies);
-    } else {
-      showBanner();
-    }
-  }
-
-  return this;
-})();
-/**
- * deleteCookies - delete all cookies from the users machine. Copypasta from
- * stackoverflow
- * @return {object} Self reference for chaining
- */
-
-
-function deleteCookies() {
-  var cookies = document.cookie.split("; ");
-
-  for (var c = 0; c < cookies.length; c++) {
-    var d = window.location.hostname.split(".");
-
-    while (d.length > 0) {
-      var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-      var p = location.pathname.split('/');
-      document.cookie = cookieBase + '/';
-
-      while (p.length > 0) {
-        document.cookie = cookieBase + p.join('/');
-        p.pop();
-      }
-
-      ;
-      d.shift();
-    }
-  }
-
-  return this;
-}
-/**
- * setCookie sets a cookie on the user's machine. Note that cookie
- * values must be a string.
- * @param {string} key    The name of the cookie to set
- * @param {string} value  The value contained within the cookie
- * @param {string} expiry The cookie lifetime in days
- */
-
-
-function setCookie(name, value, expiry) {
-  expiry = expiry || 0;
-  var expiryDate = new Date();
-  expiryDate.setTime(expiryDate.getTime() + expiry * 24 * 60 * 60 * 1000);
-  var expires = "expires=" + expiryDate.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-/**
- * getCookie return the current value of a cookie set on the
- * user's machine by the cookie name. Will return an empty string
- * if the cookie does not exist.
- * @param  {string} key The name of the cookie to be retrieved
- * @return {string}     The value of the cookie
- */
-
-
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
-  return "";
-}
-/**
- * setDataLayerValue inserts a key/value pair into the GTM DataLayer
- * this is used for determining which GTM tags should fire. This should
- * be in the same structure that's used by OneTrust to ensure compatability
- * (selected cookie types are a comma separated list of integers). Note that
- * dataLayer can only accept strings as values
- * @param {string} key   The key of the hash value to be set
- * @param {string} value The hash value
- */
-
-
-function setDataLayerValue(key, value) {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    key: value
-  });
-}
-/**
- * setAllCookies sets all available cookie options to 'on', this should
- * be used when the "Accept all Cookies" button is clicked
- * @return {object} Self reference for chaining
- */
-
-
-function setAllCookies() {
-  deleteCookies(); // If the user's preferences have chagned we should delete all current cookies
-
-  var cookieFields = document.querySelectorAll('[name="cookie"]');
-  var cookieString = ',';
-
-  for (var i = 0; i < cookieFields.length; i++) {
-    cookieString += cookieFields[i].value + ',';
-  }
-
-  setCookie(consentCookieName, cookieString, expiry);
-  return this;
-}
-/**
- * setSelectedCookies sets the cookie-consent string to match the selected
- * checkboxes from the cookie pop-up
- * @return {object} Self reference for chaining
- */
-
-
-function setSelectedCookies() {
-  deleteCookies(); // If the user's preferences have chagned we should delete all current cookies
-
-  var selectedFields = document.querySelectorAll('[name="cookie"]:checked');
-  var cookieString = ",";
-
-  for (var i = 0; i < selectedFields.length; i++) {
-    cookieString += selectedFields[i].value + ",";
-  }
-
-  setCookie(consentCookieName, cookieString, expiry);
-  setDataLayerValue(dataLayerKey, cookieString);
-  return this;
-}
-/**
- * checkBoxesFromCookie takes the current value stored in the cooker banner
- * user preferences cookies and checks the correct checkboxes based on the
- * content of the cookie
- * @return {object} Self reference for chaining
- */
-
-
-function checkBoxesFromCookie() {
-  var cookieValues = getCookie(consentCookieName);
-  cookieValues = cookieValues.split(',');
-
-  for (var i = 0; i < cookieValues.length; i++) {
-    var target = document.querySelectorAll('input[name="cookie"][value="' + cookieValues[i] + '"]')[0];
-
-    if (target) {
-      target.setAttribute("checked", "checked");
-    }
-  }
-
-  return this;
-}
-/**
- * hideBanner hides the cookie banner by removing a class from the body. We do it
- * this was so that the banner is "off" by default when a user doesn't have JavaScript
- * enabled.
- *
- * @return {object} Self reference for method chaining
- */
-
-
-function hideBanner() {
-  document.querySelectorAll(".cookie-overlay")[0].classList.remove("show-cookie-banner");
-  document.body.classList.remove("show-cookie-banner");
-  return this;
-}
-/**
- * showBanner hides the cookie banner by adding a class to the body. We add the class so
- * that the cookie banner is "off" by default when the user doesn't have JavaScript
- * @return {object} Self reference for method chaining
- */
-
-
-function showBanner() {
-  document.querySelectorAll(".cookie-overlay")[0].classList.add("show-cookie-banner");
-  document.body.classList.add("show-cookie-banner");
-  return this;
-}
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
 var _lightgallery = _interopRequireDefault(__webpack_require__(2));
@@ -18714,7 +18490,7 @@ applyLightGallery();
 });
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18722,7 +18498,7 @@ applyLightGallery();
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _chosenJs = _interopRequireDefault(__webpack_require__(41));
+var _chosenJs = _interopRequireDefault(__webpack_require__(40));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18735,7 +18511,7 @@ document.addEventListener('initchosen', function () {
 });
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {(function() {
@@ -20089,13 +19865,13 @@ document.addEventListener('initchosen', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var _objectFitVideos = _interopRequireDefault(__webpack_require__(43));
+var _objectFitVideos = _interopRequireDefault(__webpack_require__(42));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20132,7 +19908,7 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports) {
 
 /**
@@ -20404,7 +20180,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20412,7 +20188,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _youtubePlayer = _interopRequireDefault(__webpack_require__(45));
+var _youtubePlayer = _interopRequireDefault(__webpack_require__(44));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20560,7 +20336,7 @@ function vidRescale() {
 }
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20572,15 +20348,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _sister = __webpack_require__(46);
+var _sister = __webpack_require__(45);
 
 var _sister2 = _interopRequireDefault(_sister);
 
-var _loadYouTubeIframeApi = __webpack_require__(47);
+var _loadYouTubeIframeApi = __webpack_require__(46);
 
 var _loadYouTubeIframeApi2 = _interopRequireDefault(_loadYouTubeIframeApi);
 
-var _YouTubePlayer = __webpack_require__(49);
+var _YouTubePlayer = __webpack_require__(48);
 
 var _YouTubePlayer2 = _interopRequireDefault(_YouTubePlayer);
 
@@ -20659,7 +20435,7 @@ exports.default = function (maybeElementId) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20727,7 +20503,7 @@ module.exports = Sister;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20737,7 +20513,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _loadScript = __webpack_require__(48);
+var _loadScript = __webpack_require__(47);
 
 var _loadScript2 = _interopRequireDefault(_loadScript);
 
@@ -20782,7 +20558,7 @@ exports.default = function (emitter) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports) {
 
 
@@ -20853,7 +20629,7 @@ function ieOnEnd (script, cb) {
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20863,19 +20639,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _debug = __webpack_require__(50);
+var _debug = __webpack_require__(49);
 
 var _debug2 = _interopRequireDefault(_debug);
 
-var _functionNames = __webpack_require__(54);
+var _functionNames = __webpack_require__(53);
 
 var _functionNames2 = _interopRequireDefault(_functionNames);
 
-var _eventNames = __webpack_require__(55);
+var _eventNames = __webpack_require__(54);
 
 var _eventNames2 = _interopRequireDefault(_eventNames);
 
-var _FunctionStateMap = __webpack_require__(56);
+var _FunctionStateMap = __webpack_require__(55);
 
 var _FunctionStateMap2 = _interopRequireDefault(_FunctionStateMap);
 
@@ -21057,7 +20833,7 @@ exports.default = YouTubePlayer;
 module.exports = exports['default'];
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21066,7 +20842,7 @@ module.exports = exports['default'];
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(52);
+exports = module.exports = __webpack_require__(51);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -21246,10 +21022,10 @@ function localstorage() {
   } catch (e) {}
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -21439,7 +21215,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -21455,7 +21231,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(53);
+exports.humanize = __webpack_require__(52);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -21647,7 +21423,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports) {
 
 /**
@@ -21805,7 +21581,7 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21823,7 +21599,7 @@ exports.default = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 'loadVideoB
 module.exports = exports['default'];
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21843,7 +21619,7 @@ exports.default = ['ready', 'stateChange', 'playbackQualityChange', 'playbackRat
 module.exports = exports['default'];
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21853,7 +21629,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _PlayerStates = __webpack_require__(57);
+var _PlayerStates = __webpack_require__(56);
 
 var _PlayerStates2 = _interopRequireDefault(_PlayerStates);
 
@@ -21880,7 +21656,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21900,14 +21676,14 @@ exports.default = {
 module.exports = exports["default"];
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21941,14 +21717,14 @@ if (heroElementExistsOnPage) {
 }
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21988,7 +21764,7 @@ $('#apply-online-form').submit(function (e) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22061,7 +21837,7 @@ $('#select-1, #select-2').on('change', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22093,7 +21869,7 @@ $(window).on('load', function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22101,7 +21877,7 @@ $(window).on('load', function () {
 
 var _jquery = _interopRequireDefault(__webpack_require__(0));
 
-var _owl = _interopRequireDefault(__webpack_require__(65));
+var _owl = _interopRequireDefault(__webpack_require__(64));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22162,7 +21938,7 @@ for (var i = 0; i < carouselContainers.length; i++) {
 })*/
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery, jQuery) {/**
@@ -25617,13 +25393,13 @@ for (var i = 0; i < carouselContainers.length; i++) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(0)))
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports) {
 
 !function(){"use strict";if("undefined"!=typeof window){var t=window.navigator.userAgent.match(/Edge\/(\d{2})\./),n=!!t&&16<=parseInt(t[1],10);if(!("objectFit"in document.documentElement.style!=!1)||n){var o=function(t,e,i){var n,o,l,a,d;if((i=i.split(" ")).length<2&&(i[1]=i[0]),"x"===t)n=i[0],o=i[1],l="left",a="right",d=e.clientWidth;else{if("y"!==t)return;n=i[1],o=i[0],l="top",a="bottom",d=e.clientHeight}if(n!==l&&o!==l){if(n!==a&&o!==a)return"center"===n||"50%"===n?(e.style[l]="50%",void(e.style["margin-"+l]=d/-2+"px")):void(0<=n.indexOf("%")?(n=parseInt(n))<50?(e.style[l]=n+"%",e.style["margin-"+l]=d*(n/-100)+"px"):(n=100-n,e.style[a]=n+"%",e.style["margin-"+a]=d*(n/-100)+"px"):e.style[l]=n);e.style[a]="0"}else e.style[l]="0"},l=function(t){var e=t.dataset?t.dataset.objectFit:t.getAttribute("data-object-fit"),i=t.dataset?t.dataset.objectPosition:t.getAttribute("data-object-position");e=e||"cover",i=i||"50% 50%";var n=t.parentNode;return function(t){var e=window.getComputedStyle(t,null),i=e.getPropertyValue("position"),n=e.getPropertyValue("overflow"),o=e.getPropertyValue("display");i&&"static"!==i||(t.style.position="relative"),"hidden"!==n&&(t.style.overflow="hidden"),o&&"inline"!==o||(t.style.display="block"),0===t.clientHeight&&(t.style.height="100%"),-1===t.className.indexOf("object-fit-polyfill")&&(t.className=t.className+" object-fit-polyfill")}(n),function(t){var e=window.getComputedStyle(t,null),i={"max-width":"none","max-height":"none","min-width":"0px","min-height":"0px",top:"auto",right:"auto",bottom:"auto",left:"auto","margin-top":"0px","margin-right":"0px","margin-bottom":"0px","margin-left":"0px"};for(var n in i)e.getPropertyValue(n)!==i[n]&&(t.style[n]=i[n])}(t),t.style.position="absolute",t.style.width="auto",t.style.height="auto","scale-down"===e&&(e=t.clientWidth<n.clientWidth&&t.clientHeight<n.clientHeight?"none":"contain"),"none"===e?(o("x",t,i),void o("y",t,i)):"fill"===e?(t.style.width="100%",t.style.height="100%",o("x",t,i),void o("y",t,i)):(t.style.height="100%",void("cover"===e&&t.clientWidth>n.clientWidth||"contain"===e&&t.clientWidth<n.clientWidth?(t.style.top="0",t.style.marginTop="0",o("x",t,i)):(t.style.width="100%",t.style.height="auto",t.style.left="0",t.style.marginLeft="0",o("y",t,i))))},e=function(t){if(void 0===t||t instanceof Event)t=document.querySelectorAll("[data-object-fit]");else if(t&&t.nodeName)t=[t];else{if("object"!=typeof t||!t.length||!t[0].nodeName)return!1;t=t}for(var e=0;e<t.length;e++)if(t[e].nodeName){var i=t[e].nodeName.toLowerCase();if("img"===i){if(n)continue;t[e].complete?l(t[e]):t[e].addEventListener("load",function(){l(this)})}else"video"===i?0<t[e].readyState?l(t[e]):t[e].addEventListener("loadedmetadata",function(){l(this)}):l(t[e])}return!0};"loading"===document.readyState?document.addEventListener("DOMContentLoaded",e):e(),window.addEventListener("resize",e),window.objectFitPolyfill=e}else window.objectFitPolyfill=function(){return!1}}}();
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25653,7 +25429,7 @@ $(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
