@@ -243,7 +243,7 @@
 
 
 .ug-2022-hero.image-hero,
-.ug-2022-hero.video-hero, {
+.ug-2022-hero.video-hero {
 
     h1 {
         background: none;
@@ -303,6 +303,39 @@
     [class*="-hero-background-video"] {
         @media (max-width: #{$desktop - 1}) {
             max-height: 100vh;
+        }
+    }
+}
+
+.ug-2022-hero.ug-2022-event-hero {
+    h1 span {
+        display: inline-block;
+        color: $black;
+        background-color: $white;
+        border-radius: 50%;
+        padding: 0.9em 0.25em;
+        font-size: 0.6em;
+        position: relative;
+        bottom: 0.25em;
+        letter-spacing: 0.15em;
+        font-weight: 700;
+
+        &:first-letter {
+            margin-left: 0.15em;
+        }
+    }
+    .image-hero-text-column {
+        min-width: 100%;
+    }
+
+    .image-hero-feature-block-container {
+        display: inline-block;
+        width: auto;
+        margin: auto;
+        width: 50%;
+
+        @include for-phone-only {
+            width: 100%;
         }
     }
 }
