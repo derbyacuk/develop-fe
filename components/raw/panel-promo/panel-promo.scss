@@ -37,10 +37,21 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
 
 
 .panel-promo {
+
     lost-column: 8/8;
     display: flex;
     flex-wrap: wrap;
     lost-utility: clearfix;
+
+    --panel-content-scheme: var(--white);
+
+    &.panel-promo-white {
+        --panel-content-scheme: var(--white);
+    }
+
+    &.panel-promo-black {
+        --panel-content-scheme: var(--black);
+    }
 
     &-container {
         @include full-bleed;
@@ -71,7 +82,7 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
             font-size: responsive 80px 160px;
             font-range: $mobile-portrait $desktop;
             margin-bottom: 0;
-            color: $white;
+            color: var(--panel-content-scheme);
             position: relative; 
         }
 
@@ -87,7 +98,6 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
     }
 
     &-content {
-
         .panel-promo-no-title & {
             @include padding-medium('top');
         }
@@ -132,13 +142,13 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         }
 
         &-inner {
-            color: $white;
+            color: var(--panel-content-scheme);
             margin-top: 1.125rem;
 
             // for accessiblity we need to use an h2, but want it to look like an h3
             h2, .h2 {
                 @extend .h3;
-                color: $white;
+                color: var(--panel-content-scheme);
             }
 
             .button {

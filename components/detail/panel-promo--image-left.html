@@ -336,10 +336,21 @@
 
 
 <span class="hljs-selector-class">.panel-promo</span> {
+
     lost-column: <span class="hljs-number">8</span>/<span class="hljs-number">8</span>;
     <span class="hljs-attribute">display</span>: flex;
     <span class="hljs-attribute">flex-wrap</span>: wrap;
     lost-utility: clearfix;
+
+    --panel-<span class="hljs-attribute">content</span>-scheme: var(--white);
+
+    &amp;<span class="hljs-selector-class">.panel-promo-white</span> {
+        --panel-<span class="hljs-attribute">content</span>-scheme: var(--white);
+    }
+
+    &amp;<span class="hljs-selector-class">.panel-promo-black</span> {
+        --panel-<span class="hljs-attribute">content</span>-scheme: var(--black);
+    }
 
     &amp;-container {
         <span class="hljs-keyword">@include</span> full-bleed;
@@ -370,7 +381,7 @@
             <span class="hljs-attribute">font-size</span>: responsive <span class="hljs-number">80px</span> <span class="hljs-number">160px</span>;
             <span class="hljs-attribute">font</span>-range: <span class="hljs-variable">$mobile-portrait</span> <span class="hljs-variable">$desktop</span>;
             <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+            <span class="hljs-attribute">color</span>: var(--panel-content-scheme);
             <span class="hljs-attribute">position</span>: relative; 
         }
 
@@ -386,7 +397,6 @@
     }
 
     &amp;-<span class="hljs-attribute">content</span> {
-
         <span class="hljs-selector-class">.panel-promo-no-title</span> &amp; {
             <span class="hljs-keyword">@include</span> padding-medium(<span class="hljs-string">'top'</span>);
         }
@@ -431,13 +441,13 @@
         }
 
         &amp;-inner {
-            <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+            <span class="hljs-attribute">color</span>: var(--panel-content-scheme);
             <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1.125rem</span>;
 
             <span class="hljs-comment">// for accessiblity we need to use an h2, but want it to look like an h3</span>
             <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-class">.h2</span> {
                 <span class="hljs-keyword">@extend</span> .h3;
-                <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+                <span class="hljs-attribute">color</span>: var(--panel-content-scheme);
             }
 
             <span class="hljs-selector-class">.button</span> {
@@ -535,7 +545,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.8 KB</span>
+                    <span class="Meta-value">7 KB</span>
                 </li>
             </ul>
         </div>
@@ -558,11 +568,15 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(4)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(5)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="panel-promo--default.html">
                     <span>Default</span>
+                </a>, 
+            
+                <a href="panel-promo--theme-white.html">
+                    <span>Theme White</span>
                 </a>, 
             
                 <a href="panel-promo--title-bottom-left.html">
