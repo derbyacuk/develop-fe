@@ -43,7 +43,7 @@
 	}
 
 	&-img {
-		max-height: 100px;
+		max-height: 150px;
 		display: block;
 		margin: 0 auto;
 
@@ -51,7 +51,7 @@
 		.logo-group-2-per-row & {
 
 			@include for-tablet-landscape-up {
-				max-height: 125px;
+				max-height: 200px;
 			}
 		}
 	}
