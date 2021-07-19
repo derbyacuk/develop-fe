@@ -60,6 +60,7 @@ function ModuleComponent() {
 		let button = document.createElement('a');
 		button.setAttribute("class", "tab button-large button-blue");
 		button.setAttribute("role", "button");
+		button.setAttribute("href", "");
 		if (isActive) {this.makeActive(button)};
 		button.textContent = stage.title;
 		let overlay = document.createElement('span')
@@ -69,6 +70,7 @@ function ModuleComponent() {
 		overlay.appendChild(innerOverlay);
 		button.appendChild(overlay);
 		button.addEventListener("click", function (e) {
+			e.preventDefault();
 			self.createMenu(stage);
             self.makeActive(this);
 		});
