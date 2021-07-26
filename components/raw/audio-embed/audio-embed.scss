@@ -1,0 +1,244 @@
+.audio-embed {
+  --theme-bg: var(--black);
+  --theme-fg: var(--white);
+
+  &.pink {
+    --theme-bg: var(--text-black);
+    --theme-fg: var(--pink);
+  }
+
+  &.gold {
+    --theme-bg: var(--text-black);
+    --theme-fg: var(--gold);
+  }
+
+  &.blue {
+    --theme-bg: var(--primary-blue);
+    --theme-fg: var(--yellow);
+  }
+
+  &.strawberry {
+    --theme-bg: var(--white);
+    --theme-fg: var(--strawberry);
+  }
+}
+
+.audio-container {
+  position: relative;
+  display: inline-block;
+}
+
+.visualiser-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 18px;
+  padding-top: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.visualiser-container.mini {
+  position: static;
+  background: transparent;
+  border: 2px solid var(--theme-fg);
+}
+
+.visualiser-controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+
+  .right-column {
+    width: 100%;
+  }
+
+  .left-column {
+    margin-right: 18px;
+  }
+}
+
+.canvas {
+  width: 100%;
+  height: 60px;
+}
+
+.audio-controls {
+  margin-top: 12px;
+  border-left: 0px solid var(--theme-fg);
+}
+
+.scrub {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.time {
+  font-size: 17px;
+  display: inline;
+  color: var(--theme-fg);
+}
+
+/***************
+SCRUB BAR STYLES
+****************/
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="range"] {
+    overflow: hidden;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: var(--theme-bg);
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px;
+    -webkit-appearance: none;
+    color: var(--theme-fg);
+    margin-top: -1px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 12px;
+    -webkit-appearance: none;
+    height: 12px;
+    border-radius: 50%;
+    border: 5px solid var(--theme-fg);
+    cursor: ew-resize;
+    background: var(--theme-fg);
+    box-shadow: -1000px 0 0 1000px var(--theme-fg);
+  }
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: var(--theme-fg);
+}
+input[type="range"]::-moz-range-track {
+  background-color: var(--theme-bg);
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: var(--theme-fg);
+}
+
+input[type="range"]::-ms-fill-upper {
+  background-color: var(--theme-bg);
+}
+
+/** Animated play button **/
+.playpause {
+  position: relative;
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 100%;
+  overflow: hidden;
+  /*background: linear-gradient(
+      90deg,
+      rgba(229, 0, 112, 1) 0%,
+      rgba(40, 35, 92, 1) 100%
+    );*/
+  background: var(--theme-fg);
+}
+
+.playpause-clip {
+  will-change: transform;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.playpause.pause .playpause-clip {
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.clip-horiz {
+  position: absolute;
+  width: 101%;
+  height: 51%;
+  top: -0.5%;
+  left: -0.5%;
+  background-color: var(--theme-bg);
+}
+
+.clip-vert {
+  position: absolute;
+  width: 51%;
+  height: 51%;
+  top: 50%;
+  left: -1%;
+  background-color: var(--theme-bg);
+}
+
+
+.playpause-cap {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 100%;
+  background-color: var(--theme-bg);
+  top: 5px;
+  right: 5px;
+}
+
+.icon {
+  font-size: 35px;
+  color: var(--theme-fg);
+}
+
+.icon:after {
+  content: "\25B6";
+}
+
+.playpause.pause .icon:after {
+  font-weight: bold;
+  content: "=";
+}
+
+.playpause.pause .icon {
+  transform: rotate(90deg);
+}
+
+@include for-tablet-portrait-up {
+  
+  .visualiser-controls-container {
+    flex-direction: row;
+  }
+
+  /** Animated play button **/
+.playpause {
+  width: 76px;
+  height: 76px;
+}
+  .playpause-cap {
+    width: 66px;
+    height: 66px;
+  }
+}

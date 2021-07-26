@@ -37,6 +37,32 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
 
 
 .panel-promo {
+    --panel-background: var(--black);
+    --content-scheme: var(--white);
+    --content-scheme-opposite: var(--black); //used for button rollovers
+    --slide-gold: var(--gold);
+    --slide-pink: var(--pink);
+    --slide-green: var(--green-blue);
+
+    &.theme-purple {
+        --panel-background: var(--purple);
+    }
+
+    &.theme-pink {
+       --panel-background: var(--pink);
+    }
+
+    &.theme-dark-grey {
+        --panel-background: var(--dark-grey);
+        --content-scheme: var(--text-black);
+        --content-scheme-opposite: var(--white);
+    }
+
+    &.theme-white {
+        --panel-background: var(--white);
+        --content-scheme: var(--text-black);
+        --content-scheme-opposite: var(--white);
+    }
 
     lost-column: 8/8;
     display: flex;
