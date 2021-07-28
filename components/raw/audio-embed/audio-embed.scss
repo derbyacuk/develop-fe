@@ -130,6 +130,8 @@ input[type="range"]::-ms-fill-upper {
 
 /** Animated play button **/
 .playpause {
+  /* Ladies and gentlemen, I give you Safari: The new IE6 */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);  
   position: relative;
   cursor: pointer;
   width: 56px;
