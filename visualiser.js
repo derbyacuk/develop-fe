@@ -41,12 +41,11 @@ class Visualiser {
      */
     init() {
       const self = this;
-      this.audio.addEventListener('canplaythrough', () => {
-        console.log('I can play');
-        self.initControls();
-        self.initCanvas();
+      this.audio.addEventListener('loadedmetadata', () => {
+        console.log('loaded');
+        this.initControls();
+        this.initCanvas();
       });
-        //this.initAudio();
     }
 
     /**
@@ -113,10 +112,9 @@ class Visualiser {
             this.initDone = true;
           }
         });
-
+        self.setTotalTime()
         this.playPauseButton.addEventListener('click', (e) => self.playPause())
         this.audio.addEventListener('timeupdate', (e) => self.updateScrub())
-        this.audio.addEventListener('loadedmetadata', (e) => self.setTotalTime())
         this.audio.addEventListener('play', () => this.playPauseButton.classList.add('pause'));
         this.audio.addEventListener('pause', () => this.playPauseButton.classList.remove('pause'));
         this.barColor = getComputedStyle(this.controls).borderLeftColor;
