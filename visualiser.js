@@ -42,12 +42,17 @@ class Visualiser {
     init() {
       const self = this;
       this.audio.addEventListener('loadedmetadata', () => {
-        console.log('loaded');
         this.initControls();
         this.initCanvas();
       });
+
+      this.createAudio();
     }
 
+    createAudio() {
+      let source = this.audio.dataset.src;
+      this.audio.setAttribute('src', source);
+    }
     /**
      * initAudio - initialise the audio context and event listener to kick off 
      * the animation
@@ -112,6 +117,7 @@ class Visualiser {
             this.initDone = true;
           }
         });
+
         self.setTotalTime()
         this.playPauseButton.addEventListener('click', (e) => self.playPause())
         this.audio.addEventListener('timeupdate', (e) => self.updateScrub())
