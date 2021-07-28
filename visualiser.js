@@ -40,8 +40,12 @@ class Visualiser {
      * run once from the constructor.
      */
     init() {
-      this.initControls();
-      this.initCanvas();
+      const self = this;
+      this.audio.addEventListener('canplaythrough', () => {
+        console.log('I can play');
+        self.initControls();
+        self.initCanvas();
+      });
         //this.initAudio();
     }
 
