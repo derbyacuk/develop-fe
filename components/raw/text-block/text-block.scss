@@ -54,6 +54,16 @@
         // word-wrap: break-word;
         word-break: break-word;
     }
+
+    &-fade-in {
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out;
+    }
+
+    &-fade-out {
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+    }
 }
 
 body.blog .text-block:not(.ignore-overrides){
