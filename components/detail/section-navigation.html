@@ -184,7 +184,7 @@
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-link"</span>&gt;</span>In this section<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-wrapper"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-cross"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-cross"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-comment">&lt;!-- T4 generated syntax --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-title"</span>&gt;</span>Accommodation<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-wrapper-inner"</span>&gt;</span>
@@ -231,7 +231,7 @@
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-link"</span>&gt;</span>In this section<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-wrapper"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-cross"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uod-icons uod-icons-cross"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-comment">&lt;!-- T4 generated syntax --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section-navigation-wrapper-inner"</span>&gt;</span>
@@ -406,6 +406,7 @@ $(<span class="hljs-string">'.section-navigation-link'</span>).click(<span class
     e.preventDefault();
     $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideToggle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
     	$(<span class="hljs-string">'.section-navigation'</span>).toggleClass(<span class="hljs-string">'section-navigation-open'</span>);
+        $(<span class="hljs-string">'.section-navigation-wrapper &gt; .uod-icons-cross'</span>).focus();
     });
 });
 
@@ -413,6 +414,7 @@ $(<span class="hljs-string">'.section-navigation-wrapper &gt; .uod-icons-cross'<
     e.preventDefault();
     $(<span class="hljs-string">'.section-navigation-wrapper'</span>).slideUp(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
     	$(<span class="hljs-string">'.section-navigation'</span>).removeClass(<span class="hljs-string">'section-navigation-open'</span>);
+        $(<span class="hljs-string">'.section-navigation-link'</span>).focus();
     });
 });
 
@@ -434,7 +436,7 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>, { <span class
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">779 Bytes</span>
+                    <span class="Meta-value">895 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -542,6 +544,8 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>, { <span class
             <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;
             <span class="hljs-attribute">cursor</span>: pointer;
             <span class="hljs-keyword">@include</span> hover-rotate;
+            <span class="hljs-attribute">background</span>: transparent;
+            <span class="hljs-attribute">border</span>: none;
         }
 
         &amp;-inner {
@@ -665,7 +669,7 @@ stickybits(<span class="hljs-string">'.section-navigation'</span>, { <span class
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.4 KB</span>
+                    <span class="Meta-value">5.5 KB</span>
                 </li>
             </ul>
         </div>

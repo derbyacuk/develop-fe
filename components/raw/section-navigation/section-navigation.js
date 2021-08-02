@@ -12,6 +12,7 @@ $('.section-navigation-link').click(function (e) {
     e.preventDefault();
     $('.section-navigation-wrapper').slideToggle(function(){
     	$('.section-navigation').toggleClass('section-navigation-open');
+        $('.section-navigation-wrapper > .uod-icons-cross').focus();
     });
 });
 
@@ -19,6 +20,7 @@ $('.section-navigation-wrapper > .uod-icons-cross').click(function (e) {
     e.preventDefault();
     $('.section-navigation-wrapper').slideUp(function(){
     	$('.section-navigation').removeClass('section-navigation-open');
+        $('.section-navigation-link').focus();
     });
 });
 

@@ -14249,12 +14249,14 @@ if (!(0, _jquery.default)(".section-navigation-wrapper-inner-ul").length) {
   e.preventDefault();
   (0, _jquery.default)('.section-navigation-wrapper').slideToggle(function () {
     (0, _jquery.default)('.section-navigation').toggleClass('section-navigation-open');
+    (0, _jquery.default)('.section-navigation-wrapper > .uod-icons-cross').focus();
   });
 });
 (0, _jquery.default)('.section-navigation-wrapper > .uod-icons-cross').click(function (e) {
   e.preventDefault();
   (0, _jquery.default)('.section-navigation-wrapper').slideUp(function () {
     (0, _jquery.default)('.section-navigation').removeClass('section-navigation-open');
+    (0, _jquery.default)('.section-navigation-link').focus();
   });
 });
 (0, _stickybits.default)('.section-navigation', {

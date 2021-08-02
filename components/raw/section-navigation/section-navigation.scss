@@ -93,6 +93,8 @@
             padding: 8px;
             cursor: pointer;
             @include hover-rotate;
+            background: transparent;
+            border: none;
         }
 
         &-inner {
