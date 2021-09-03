@@ -1,74 +1,54 @@
 .footer {
 
-    &-subjects-list {
-        line-height: 1.36;
-        font-size: 14px;
-
-        a {
-            @include underline-only-on-hover;
-        }
-
-        ul {
-            column-gap: 16px;
-            column-count: 1;
-            list-style-type: none;
-
-            li {
-                list-style-type: none; 
-            }
-
-            @include for-tablet-portrait-up {
-                column-gap: 30px;
-                column-count: 2;
-            }
-
-            @include for-desktop-up {
-                column-gap: 40px;
-                column-count: 3;
-            }
-        }
-
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            margin: 0 0 1em;
-        }
-    }
-
-    .accordion,
-    .accordion-tab {
-        margin-bottom: 0;
-    }
-
-    .accordion-tab-content-inner {
-        padding-bottom: 40px;
-    }
-
-    .accordion-tab-content.active {
-        margin-bottom: 0;
-        border-bottom: 0;
-    }
-
     &-dark-container {
-        background: $primary-blue;
-        color: $white;
+        background: var(--theme-background);
+        color: var(--theme-foreground);
     }
 
     &-inner {
         @include full-bleed-inset;
 
-        background-image: url(../images/derby-footer-map.svg);
         background-repeat: no-repeat;
         background-position: right 30px top 0;
         background-size: 280px 442px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "menu1 map"
+            "menu2 map"
+            "menusocial map"
+            "menu3 map";
+
         padding-top: 16px;
         padding-bottom: 16px;
         min-height: 443px;
+        
+        @include footer-menu-break {
+            grid-template-areas:
+            "menu1 menu1"
+            "menu2 map"
+            "menusocial menusocial"
+            "menu3 menu3";
+        }
 
+        .footer-inner-map {
+            grid-area: map;
+        }
+
+        .footer-submenu-one {
+            grid-area: menu1;
+        }
+
+        .footer-submenu-two {
+            grid-area: menu2;
+        }
+        .footer-submenu-three {
+            grid-area: menu3;
+        }
+        .footer-submenu-social-media {
+            grid-area: menusocial;
+        }
         a {
             @include underline-only-on-hover;
             @include link-colour($white);
@@ -115,11 +95,15 @@
     }
 
     &-brand-logo {
-        margin-right: 40px;
+        margin-right: max(40px, 0px);
         margin-bottom: 40px;
 
         @include for-desktop-up {
             margin-bottom: 26px;
+        }
+
+        @include footer-menu-break {
+            margin-right: 0px;
         }
 
         @include for-up-to-ipad-portrait {
@@ -135,8 +119,7 @@
 
     &-link-separator {
         display: inline-block;
-        opacity: .3;
-        border-left: dashed 1px $light-grey;
+        border-left: solid 2px var(--theme-accent);
         width: 1px;
         height: 1.5em;
         vertical-align: middle;
@@ -144,26 +127,36 @@
     }
 
     &-submenu-one {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: auto 1fr;
         line-height: 1.69;
         font-size: 16px;
         font-weight: bold;
+        align-items: start;
 
         &-menu {
             display: flex;
             flex-wrap: wrap;
+            column-gap: 8px;
             margin: 0;
-            margin-right: -1em;
             margin-bottom: 40px;
-            margin-left: -1em;
             padding: 0;
-
+            
+            @include footer-menu-break {
+                column-gap: 8px;
+                font-size: 0.8rem;
+            }
+            .button.v2, .button.v2 .button-text {
+                @include footer-menu-break {
+                    column-gap: 8px;
+                    font-size: 0.8rem;
+                }
+            }
             .footer-menuitem > a {
                 margin: 0 1em;
                 text-transform: uppercase;
             }
+            
         }
     }
 
@@ -185,7 +178,7 @@
             }
 
             @include for-tablet-portrait-up {
-                padding-right: 8em;
+                //padding-right: 8em;
             }
         }
     }
@@ -196,13 +189,13 @@
         font-size: 18px;
         font-weight: bold;
 
-        @include for-phone-only {
+        @include footer-menu-break {
             margin-bottom: 0;
 
             &-menu {
                 flex-direction: column;
                 margin-bottom: 26px;
-                width: 50%;
+                width: 100%;
 
                 .footer-menuitem > a {
                     display: block;
@@ -212,7 +205,7 @@
                         position: absolute;
                         bottom: 0;
                         opacity: .3;
-                        border-bottom: dashed 1px $light-grey;
+                        border-bottom: solid 1px $light-grey;
                         width: 100%;
                         content: '';
                     }
@@ -268,4 +261,16 @@
             @include disable-underlines;
         }
     }
+}
+
+#footer-map {
+    fill: var(--theme-accent);
+}
+
+#london-circle, #derby-circle {
+    fill: var(--theme-foreground);
+}
+
+.footer-image-text {
+    fill: var(--theme-background);
 }

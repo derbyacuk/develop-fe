@@ -72,3 +72,100 @@
         } 
     }
 }
+
+/*********
+V2 BUTTONS
+**********/
+.button.v2 {
+    background: linear-gradient(
+      90deg,
+      var(--buttondefault) 0%,
+      var(--buttondefault) 50%,
+      var(--buttonhover) 50%,
+      var(--buttonhover) 100%
+    );
+    background-color: orange;
+    background-size: 201% 100%; // 201% because at 200% you can get a teeny-weeny overlap on the right.
+    background-position: 0% 0%;
+    border: 2px solid var(--buttonborder);
+    border-radius: 2px;
+    color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .button.v2 .button-text {
+    background: linear-gradient(
+      90deg,
+      var(--buttontextdefault) 0%,
+      var(--buttontextdefault) 50%,
+      var(--buttontexthover) 50%,
+      var(--buttontexthover) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    color: transparent;
+    position: static;
+    z-index: -1;
+  }
+  
+  .button.v2:hover,
+  .button.v2:hover > .button-text {
+    animation: buttonin 0.15s cubic-bezier(0.8, 0.37, 0.21, 0.8) 0s forwards;
+  }
+  
+  .button.v2,
+  .button.v2 .button-text {
+    animation: buttonout 0.15s cubic-bezier(0.8, 0.37, 0.21, 0.8) 0s forwards;
+  }
+  
+  .footer-link.button-text {
+      line-height: 1.25;
+  }
+
+  @keyframes buttonin {
+    0% {
+      background-position: 0% 0%;
+    }
+  
+    100% {
+      background-position: -100% 0%;
+    }
+  }
+  
+  @keyframes buttonout {
+    0% {
+      background-position: -100% 0%;
+    }
+  
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .theme-pink .button.v2 {
+    --buttondefault: var(--pink);
+    --buttonhover: var(--white);
+    --buttonborder: var(--pink);
+  }
+  
+  .theme-pink .button.v2 .button-text {
+    --buttontextdefault: var(--white);
+    --buttontexthover: var(--pink);
+  }
+
+  .theme-gold .button.v2 {
+    --buttondefault: var(--gold);
+    --buttonhover: var(--text-black);
+    --buttonborder: var(--gold);
+  }
+  
+  footer.theme-gold .button.v2 .button-text {
+    --buttontextdefault: var(--text-black);
+    --buttontexthover: var(--gold);
+  }

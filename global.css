@@ -1,0 +1,55 @@
+
+/* CSS Vars */
+:root {
+    /* Monochrome */
+    --white:            #ffffff;
+    --light-grey:       #eeeeee;
+    --mid-grey:         #d7d2cf;
+    --dark-grey:        #b9b4b0;
+    --text-black:       #333333;
+    --very-dark-grey:   #262626;
+    --black:            #000000;
+
+    /* Colors */
+    --dark-green:       #238527;
+    --dark-orange:      #BE4F0E;
+    --dark-strawberry:  #E71321; 
+    --gold:             #B5984B;
+    --green:            #37d68e;
+    --green-blue:       #37ddd1;
+    --mid-blue:         #2041cb;
+    --orange:           #f85220;
+    --pink:             #DA2F5F;
+    --primary-blue:     #101d49;
+    --purple:           #2a0169;
+    --strawberry:       #ee313e;
+    --turquoise:        #018089;
+    --yellow:           #febf13;
+
+    --light-grey-hover: var(--mid-grey);
+
+	/* Page level themeing */
+	--theme-accent:     var(--turquoise);
+	--theme-background: var(--primary-blue);
+  --theme-foreground: var(--white);
+
+    /** Button colours **/
+    --buttontextdefault:  var(--black);
+    --buttontexthover:    var(--black);
+    --buttondefault:      var(--yellow);
+    --buttonhover:        var(--white);
+    --buttonborder:       var(--yellow);
+}
+
+/* Themes */
+.theme-pink {
+	--theme-accent:     var(--pink);
+  --theme-background: var(--very-dark-grey);
+  --theme-foreground: var(--white);
+}
+
+.theme-gold {
+  --theme-accent:     var(--gold);
+  --theme-background: var(--black);
+  --theme-foreground: var(--text-black);
+}
