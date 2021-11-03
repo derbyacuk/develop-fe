@@ -1,0 +1,19 @@
+.search-input-group.search-input-group-quick-search {
+
+	margin-bottom: $margin-small;
+
+	.search-button {
+		background-color: #fff;
+		border-color: #fff;
+		cursor: auto;
+	}
+}
+
+.quick-search-list .text-block {
+	border-bottom: 1px dashed var(--dark-grey);
+	padding-bottom: 2em;
+}
+
+.search-listing-error {
+	display: none;
+}
