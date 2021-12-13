@@ -1,19 +1,53 @@
-.search-input-group.search-input-group-quick-search {
+.component.quick-search {
+	position: relative;
+   // mixin that sets a consistent columns width
+    @include uod-text-column;
+    
+    // start: set default intra-component spacing (units are responsive and based on em values)
+    @include margin-medium;
+    
+    @include for-tablet-portrait-up {
+        @include margin-large;
+    }
+    // end: set default intra-component spacing (units are responsive and based on em values)
 
-	margin-bottom: $margin-small;
-
-	.search-button {
-		background-color: #fff;
-		border-color: #fff;
-		cursor: auto;
+    @include for-desktop-up {
+        table {
+            lost-offset: -2/16;
+            lost-column: 20/16;
+        }
 	}
-}
 
-.quick-search-list .text-block {
-	border-bottom: 1px dashed var(--dark-grey);
-	padding-bottom: 2em;
-}
+	ul li.hidden {
+		display:  none;
+	}
 
-.search-listing-error {
-	display: none;
+	.quick-search-results-container {
+		padding: 0;
+		margin: 0;
+		border:  2px solid var(--primary-blue);
+		border-top:  0;
+		margin-top:  0;
+	    position:  absolute;
+	    width:  100%;
+	    max-height: 25vh;
+	    z-index: 3;
+	    background-color: white;
+	    overflow: scroll;
+	}
+
+	.search-result-text {
+		display:  flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 12px;
+		border-bottom: 1px dashed var(--light-grey);
+		margin: 0;
+	}
+
+	.prospectus-add {
+		margin-left: auto;
+		justify-self: flex-end;
+	}
+
 }
