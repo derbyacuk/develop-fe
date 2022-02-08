@@ -312,7 +312,7 @@
     &amp;-<span class="hljs-attribute">outline</span> {
         <span class="hljs-keyword">@extend</span> %button;
         <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$mid-blue</span>;
-        <span class="hljs-attribute">background</span>: transparent;
+        <span class="hljs-attribute">background-color</span>: transparent;
 
         &amp;,
         &amp;<span class="hljs-selector-pseudo">:link</span> {
@@ -324,15 +324,17 @@
 <span class="hljs-comment">/*********
 V2 BUTTONS
 **********/</span>
+<span class="hljs-comment">// WOO! !important declaration escalation! Thanks everybody!</span>
 <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> {
-    <span class="hljs-attribute">background</span>: linear-gradient(
+    <span class="hljs-attribute">background-image</span>: linear-gradient(
       <span class="hljs-number">90deg</span>,
       var(--buttondefault) <span class="hljs-number">0%</span>,
       var(--buttondefault) <span class="hljs-number">50%</span>,
       var(--buttonhover) <span class="hljs-number">50%</span>,
       var(--buttonhover) <span class="hljs-number">100%</span>
-    );
-    <span class="hljs-attribute">background-color</span>: orange;
+    ) <span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">background-repeat</span>: repeat;
+    <span class="hljs-attribute">background-color</span>: transparent;
     <span class="hljs-attribute">background-size</span>: <span class="hljs-number">201%</span> <span class="hljs-number">100%</span>; <span class="hljs-comment">// 201% because at 200% you can get a teeny-weeny overlap on the right.</span>
     <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
     <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid var(--buttonborder);
@@ -416,6 +418,28 @@ V2 BUTTONS
   <span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.theme-gold</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
     --buttontextdefault: var(--text-black);
     --buttontexthover: var(--gold);
+  }
+
+  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-blue</span> {
+    --buttondefault: var(--mid-blue);
+    --buttonhover: var(--white);
+    --buttonborder: var(--mid-blue);
+  }
+
+  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-blue</span> <span class="hljs-selector-class">.button-text</span>{
+    --buttontextdefault: var(--white);
+    --buttontexthover: var(--mid-blue);
+  }
+
+  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> {
+    --buttondefault: transparent;
+    --buttonhover: var(--mid-blue);
+    --buttonborder: var(--mid-blue);
+  }
+
+  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> <span class="hljs-selector-class">.button-text</span>{
+    --buttontextdefault: var(--mid-blue);
+    --buttontexthover: var(--white);
   }</pre>
                             </code>
                             
@@ -432,7 +456,7 @@ V2 BUTTONS
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4 KB</span>
+                    <span class="Meta-value">4.7 KB</span>
                 </li>
             </ul>
         </div>

@@ -64,7 +64,7 @@
     &-outline {
         @extend %button;
         border-color: $mid-blue;
-        background: transparent;
+        background-color: transparent;
 
         &,
         &:link {
@@ -76,15 +76,17 @@
 /*********
 V2 BUTTONS
 **********/
+// WOO! !important declaration escalation! Thanks everybody!
 .button.v2 {
-    background: linear-gradient(
+    background-image: linear-gradient(
       90deg,
       var(--buttondefault) 0%,
       var(--buttondefault) 50%,
       var(--buttonhover) 50%,
       var(--buttonhover) 100%
-    );
-    background-color: orange;
+    ) !important;
+    background-repeat: repeat;
+    background-color: transparent;
     background-size: 201% 100%; // 201% because at 200% you can get a teeny-weeny overlap on the right.
     background-position: 0% 0%;
     border: 2px solid var(--buttonborder);
@@ -168,4 +170,26 @@ V2 BUTTONS
   footer.theme-gold .button.v2 .button-text {
     --buttontextdefault: var(--text-black);
     --buttontexthover: var(--gold);
+  }
+
+  .button.v2.button-blue {
+    --buttondefault: var(--mid-blue);
+    --buttonhover: var(--white);
+    --buttonborder: var(--mid-blue);
+  }
+
+  .button.v2.button-blue .button-text{
+    --buttontextdefault: var(--white);
+    --buttontexthover: var(--mid-blue);
+  }
+
+  .button.v2.button-outline {
+    --buttondefault: transparent;
+    --buttonhover: var(--mid-blue);
+    --buttonborder: var(--mid-blue);
+  }
+
+  .button.v2.button-outline .button-text{
+    --buttontextdefault: var(--mid-blue);
+    --buttontexthover: var(--white);
   }

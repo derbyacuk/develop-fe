@@ -10,6 +10,13 @@ var loadedDependencies = [];
 var queuedDependencies = [];
 
 function loadDependencies() {
+
+	// If there aren't any dependencies,
+	// we can just load the components.
+	if (!queuedDependencies.length) {
+		loadComponents();
+		return;
+	}
 	// First of all, load all of our dependencies...
 	queuedDependencies.forEach(dependency => {
 		let scriptElem = document.createElement('script');
@@ -49,23 +56,28 @@ function loadComponents() {
 // loading of our component javascripts.
 (() => {
 
-	const components = document.querySelectorAll('[data-component]');
-
+	const componentsElems = document.querySelectorAll('[data-component]');
+	const dependenciesElems = document.querySelectorAll('[data-dependencies]');
+	
 	// Create arrays which contain all of the stuff that we're going to be loading
-	components.forEach( component => {
-		const componentName = component.dataset.component;
-		const dependencies = component.dataset.dependencies.split(',');
-		const hasJS = component.dataset.hasjs;
-		const hasCSS = component.dataset.hascss;
+	dependenciesElems.forEach( dependencyElem => {
 
-		if (dependencies.length) {
+		dependencyArray = dependencyElem.dataset.dependencies.split(',');
 
-			dependencies.forEach(dependency => {
-				if (!queuedDependencies.includes(`/media/global/system/js/dependencies/${dependency}.js`)) {
-					queuedDependencies.push(`/media/global/system/js/dependencies/${dependency}.js`);
+		if (dependencyArray.length) {
+
+			dependencyArray.forEach(dependencyItem => {
+				if (!queuedDependencies.includes(`/media/global/system/js/dependencies/${dependencyItem}.js`)) {
+					queuedDependencies.push(`/media/global/system/js/dependencies/${dependencyItem}.js`);
 				}
 			})
 		}
+	});
+
+	componentsElems.forEach( componentElem => {
+		const componentName = componentElem.dataset.component;
+		const hasJS = componentElem.dataset.hasjs;
+		const hasCSS = componentElem.dataset.hascss;
 
 		if (hasJS) {
 			if (!queuedComponents.includes(`/media/global/system/js/components/${componentName}/${componentName}.js`)) {
