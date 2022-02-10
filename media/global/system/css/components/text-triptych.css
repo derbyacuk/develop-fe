@@ -1,0 +1,63 @@
+.link-list {
+    background-color: var(--component-background);
+    color: var(--component-text);
+}
+
+.link-list-links-container
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.link-list-link-item .h3, .link-list .h2 {
+    color: var(--component-heading);
+}
+
+.link-list-link-item p {
+    color: var(--component-text);
+}
+
+.link-list-link-item {
+    background-image: none;
+    padding-left: 0.5em;
+    margin-left: 0.5em;
+    border-left: 4px solid var(--component-accent);
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.triptych-list-arrow {
+    align-items: self-end;
+    justify-content: right;
+    flex-direction: row;
+    display: flex;
+    margin-right: 0;
+    font-size: 30px;
+
+}
+.triptych-list-arrow .uod-icons.uod-icons-up-arrow {
+    color: var(--component-text);
+    transform: rotate(90deg);
+}
+
+
+.link-list-link-item:first-child {
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 700px) {
+    .link-list-links-container
+    {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .link-list-link-item {
+        background-image: none;
+        margin-left: 0;
+    }
+    
+}
+
+/* Theme Variants */

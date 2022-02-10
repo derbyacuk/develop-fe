@@ -293,3 +293,17 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         }
     }
 }
+
+// This is for the new page-level themes and removes the
+// Chevrons and stuff.
+.theme {
+    .basic-promo {
+
+        background: var(--component-accent);
+        // Get rid of the chevrons
+        .basic-promo-pattern-background {
+            display: none;
+        }
+
+    }
+}

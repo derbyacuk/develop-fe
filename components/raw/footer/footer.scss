@@ -1,8 +1,10 @@
 .footer {
+    --component-background: var(--theme-accent);
+    --component-text:       var(--theme-background);
+    --component-accent:     var(--theme-accent-alt);
 
     &-dark-container {
-        background: var(--theme-background);
-        color: var(--theme-foreground);
+        background: var(--component-background);
     }
 
     &-inner {
@@ -12,7 +14,7 @@
         background-position: right 30px top 0;
         background-size: 280px 442px;
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr 50%;
         grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "menu1 map"
@@ -62,6 +64,7 @@
         }
 
         @include for-tablet-portrait-up {
+            grid-template-columns: 1fr 17.5%;
             padding-top: 30px;
             padding-bottom: 30px;
             background-position-x: calc(100% - 30px);
@@ -119,7 +122,7 @@
 
     &-link-separator {
         display: inline-block;
-        border-left: solid 2px var(--theme-accent);
+        border-left: solid 2px var(--component-accent-alt);
         width: 1px;
         height: 1.5em;
         vertical-align: middle;
@@ -146,6 +149,12 @@
                 column-gap: 8px;
                 font-size: 0.8rem;
             }
+
+            .button.v2 {
+                padding: 0.2rem 0.3rem;
+                margin-bottom: 8px;
+            }
+
             .button.v2, .button.v2 .button-text {
                 @include footer-menu-break {
                     column-gap: 8px;
@@ -264,13 +273,27 @@
 }
 
 #footer-map {
-    fill: var(--theme-accent);
+    fill: var(--component-accent);
 }
 
 #london-circle, #derby-circle {
-    fill: var(--theme-foreground);
+    fill: var(--component-text);
 }
 
 .footer-image-text {
-    fill: var(--theme-background);
+    fill: var(--component-text);
+}
+
+.theme-pink .footer {
+    /** Button colours **/
+    --buttontextdefault:  var(--white);
+    --buttontexthover:    var(--pink);
+    --buttondefault:      var(--pink);
+    --buttonhover:        var(--white);
+    --buttonborder:       var(--pink);
+
+    --component-background: var(--theme-text);
+    --component-text:       var(--theme-background);
+    --component-accent:     var(--theme-accent);
+    --component-accent-alt: var(--theme-accent-alt);
 }

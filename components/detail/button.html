@@ -326,15 +326,28 @@ V2 BUTTONS
 **********/</span>
 <span class="hljs-comment">// WOO! !important declaration escalation! Thanks everybody!</span>
 <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> {
+    <span class="hljs-comment">// to make the make targetting a specific button height easier, </span>
+    <span class="hljs-comment">// here's some math to work out the padding needed for the button variants</span>
+    <span class="hljs-comment">// WHAAAAAT IS THIS?!</span>
+    <span class="hljs-variable">$line-height</span>: <span class="hljs-number">1.3</span>;
+    <span class="hljs-variable">$small-vertical-padding</span>: (<span class="hljs-number">43</span> - <span class="hljs-number">4</span> - <span class="hljs-number">16</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">16</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
+    <span class="hljs-variable">$normal-vertical-padding</span>: (<span class="hljs-number">49</span> - <span class="hljs-number">4</span> - <span class="hljs-number">18</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">18</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
+    <span class="hljs-variable">$large-vertical-padding</span>: (<span class="hljs-number">54</span> - <span class="hljs-number">4</span> - <span class="hljs-number">18</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">18</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
+
+    <span class="hljs-attribute">padding</span>: <span class="hljs-variable">$small-vertical-padding</span> <span class="hljs-number">1em</span>;
+
+    <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
+      <span class="hljs-attribute">padding</span>: <span class="hljs-variable">$normal-vertical-padding</span> <span class="hljs-number">1em</span>;
+    }
+
     <span class="hljs-attribute">background-image</span>: linear-gradient(
       <span class="hljs-number">90deg</span>,
       var(--buttondefault) <span class="hljs-number">0%</span>,
       var(--buttondefault) <span class="hljs-number">50%</span>,
       var(--buttonhover) <span class="hljs-number">50%</span>,
       var(--buttonhover) <span class="hljs-number">100%</span>
-    ) <span class="hljs-meta">!important</span>;
-    <span class="hljs-attribute">background-repeat</span>: repeat;
-    <span class="hljs-attribute">background-color</span>: transparent;
+    );
+    <span class="hljs-attribute">background-color</span>: var(--white);
     <span class="hljs-attribute">background-size</span>: <span class="hljs-number">201%</span> <span class="hljs-number">100%</span>; <span class="hljs-comment">// 201% because at 200% you can get a teeny-weeny overlap on the right.</span>
     <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
     <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid var(--buttonborder);
@@ -348,7 +361,8 @@ V2 BUTTONS
   }
   
   <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
-    <span class="hljs-attribute">background</span>: linear-gradient(
+
+    <span class="hljs-attribute">background-image</span>: linear-gradient(
       <span class="hljs-number">90deg</span>,
       var(--buttontextdefault) <span class="hljs-number">0%</span>,
       var(--buttontextdefault) <span class="hljs-number">50%</span>,
@@ -357,13 +371,35 @@ V2 BUTTONS
     );
     -webkit-<span class="hljs-attribute">background-clip</span>: text;
     <span class="hljs-attribute">background-clip</span>: text;
-    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">200%</span> <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">201%</span> <span class="hljs-number">100%</span>;
     <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
     <span class="hljs-attribute">color</span>: transparent;
     <span class="hljs-attribute">position</span>: static;
     <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
   }
   
+  <span class="hljs-comment">// Button outline just reverses the</span>
+  <span class="hljs-comment">// Colour relationship.</span>
+  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> {
+    <span class="hljs-attribute">background-image</span>: linear-gradient(
+      <span class="hljs-number">90deg</span>,
+      var(--buttonhover) <span class="hljs-number">0%</span>,
+      var(--buttonhover) <span class="hljs-number">50%</span>,
+      var(--buttondefault) <span class="hljs-number">50%</span>,
+      var(--buttondefault) <span class="hljs-number">100%</span>
+    ) <span class="hljs-meta">!important</span>;
+
+    <span class="hljs-selector-class">.button-text</span> {
+      <span class="hljs-attribute">background-image</span>: linear-gradient(
+        <span class="hljs-number">90deg</span>,
+        var(--buttontexthover) <span class="hljs-number">0%</span>,
+        var(--buttontexthover) <span class="hljs-number">50%</span>,
+        var(--buttontextdefault) <span class="hljs-number">50%</span>,
+        var(--buttontextdefault) <span class="hljs-number">100%</span>
+      );
+    }
+  }
+
   <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-pseudo">:hover</span>,
   <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-pseudo">:hover</span> &gt; <span class="hljs-selector-class">.button-text</span> {
     <span class="hljs-attribute">animation</span>: buttonin <span class="hljs-number">0.15s</span> cubic-bezier(<span class="hljs-number">0.8</span>, <span class="hljs-number">0.37</span>, <span class="hljs-number">0.21</span>, <span class="hljs-number">0.8</span>) <span class="hljs-number">0s</span> forwards;
@@ -396,50 +432,6 @@ V2 BUTTONS
     100% {
       <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
     }
-  }
-
-  <span class="hljs-selector-class">.theme-pink</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> {
-    --buttondefault: var(--pink);
-    --buttonhover: var(--white);
-    --buttonborder: var(--pink);
-  }
-  
-  <span class="hljs-selector-class">.theme-pink</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
-    --buttontextdefault: var(--white);
-    --buttontexthover: var(--pink);
-  }
-
-  <span class="hljs-selector-class">.theme-gold</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> {
-    --buttondefault: var(--gold);
-    --buttonhover: var(--text-black);
-    --buttonborder: var(--gold);
-  }
-  
-  <span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.theme-gold</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
-    --buttontextdefault: var(--text-black);
-    --buttontexthover: var(--gold);
-  }
-
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-blue</span> {
-    --buttondefault: var(--mid-blue);
-    --buttonhover: var(--white);
-    --buttonborder: var(--mid-blue);
-  }
-
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-blue</span> <span class="hljs-selector-class">.button-text</span>{
-    --buttontextdefault: var(--white);
-    --buttontexthover: var(--mid-blue);
-  }
-
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> {
-    --buttondefault: transparent;
-    --buttonhover: var(--mid-blue);
-    --buttonborder: var(--mid-blue);
-  }
-
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> <span class="hljs-selector-class">.button-text</span>{
-    --buttontextdefault: var(--mid-blue);
-    --buttontexthover: var(--white);
   }</pre>
                             </code>
                             
@@ -722,7 +714,7 @@ V2 BUTTONS
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(175)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(176)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="style-guide.html">@<span>style-guide</span></a>, 
@@ -1004,6 +996,8 @@ V2 BUTTONS
                 <a href="panel-promo--no-title.html">@<span>panel-promo--no-title</span></a>, 
             
                 <a href="panel-promo--image-left.html">@<span>panel-promo--image-left</span></a>, 
+            
+                <a href="panel-video.html">@<span>panel-video</span></a>, 
             
                 <a href="course-teaser.html">@<span>course-teaser</span></a>, 
             
@@ -1967,6 +1961,30 @@ V2 BUTTONS
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="full-page-comps--ug-prospectus.html" data-pjax>
+                <span>Ug Prospectus</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -2676,6 +2694,30 @@ V2 BUTTONS
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="content-carousel.html" data-pjax>
                 <span>Content Carousel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="divider.html" data-pjax>
+                <span>Divider</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -4487,6 +4529,30 @@ V2 BUTTONS
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-v2.html" data-pjax>
+                <span>Image Hero V 2</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF3333;" title="Prototype"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     
@@ -9026,6 +9092,30 @@ V2 BUTTONS
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="panel-video.html" data-pjax>
+                <span>Panel Video</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -10644,6 +10734,30 @@ V2 BUTTONS
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="text-triptych.html" data-pjax>
+                <span>Text Triptych</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     

@@ -1,5 +1,5 @@
 
-/* CSS Vars */
+/* CSS Var defaults */
 :root {
     /* Monochrome */
     --white:            #ffffff;
@@ -28,11 +28,37 @@
 
     --light-grey-hover: var(--mid-grey);
 
-	/* Page level themeing */
-	--theme-accent:     var(--turquoise);
-	--theme-background: var(--primary-blue);
-  --theme-foreground: var(--white);
+    --component-narrow-width: 60%;
 
+	/* Page level themeing 
+      These are a bit tricky to administrate, so
+      by default we say colour one is the main BG
+
+  */
+
+  --theme-background: var(--white);
+  --theme-text: var(--black);
+  --theme-heading: var(--black);
+  --theme-accent: var(--primary-blue);
+  --theme-accent-alt: var(--turquoise);
+
+  --theme-color-one:    var(--primary-blue);
+  --theme-color-two:    var(--white);
+  --theme-color-three:  var(--yellow);
+  --theme-color-four:   var(--turquoise);
+
+  --component-background: var(--theme-background);
+  --component-heading: var(--theme-heading);
+  --component-text: var(--theme-text);
+  --component-accent: var(--theme-accent);
+  --component-accent-alt: var(--theme-accent-alt);
+
+  /** Old for the footer - replace these */
+	/*--theme-accent:     var(--turquoise);
+	--theme-background: var(--primary-blue);
+  --theme-foreground: var(--white);*/
+
+  
     /** Button colours **/
     --buttontextdefault:  var(--black);
     --buttontexthover:    var(--black);
@@ -43,13 +69,50 @@
 
 /* Themes */
 .theme-pink {
-	--theme-accent:     var(--pink);
-  --theme-background: var(--very-dark-grey);
-  --theme-foreground: var(--white);
+  --theme-background: var(--white);
+  --theme-text: var(--black);
+  --theme-heading: var(--pink);
+  --theme-accent: var(--pink);
+  --theme-accent-alt: var(--pink);
+
+  /** Button colours **/
+  --buttontextdefault:  var(--white);
+  --buttontexthover:    var(--pink);
+  --buttondefault:      var(--pink);
+  --buttonhover:        var(--white);
+  --buttonborder:       var(--pink);
 }
 
 .theme-gold {
-  --theme-accent:     var(--gold);
-  --theme-background: var(--black);
-  --theme-foreground: var(--text-black);
+  --theme-background: var(--white);
+  --theme-text: var(--text-black);
+  --theme-heading: var(--text-black);
+  --theme-accent: var(--gold);
+  --theme-accent-alt: var(--gold);
+
 }
+
+.component {
+  --component-background: var(--theme-background);
+  --component-heading: var(--theme-heading);
+  --component-text: var(--theme-text);
+  --component-accent: var(--theme-accent);
+  --component-accent-alt: var(--theme-accent-alt);
+}
+
+.component.variant-one {
+  --component-background: var(--theme-accent);
+  --component-heading: var(--theme-background);
+  --component-text: var(--theme-background);
+  --component-accent: var(--theme-background);
+  --component-accent-alt: var(--theme-bg);
+}
+
+.component.variant-two {
+  --component-background: var(--theme-text);
+  --component-heading: var(--theme-accent);
+  --component-text: var(--theme-accent);
+  --component-accent: var(--theme-background);
+  --component-accent-alt: var(--theme-background);
+}
+

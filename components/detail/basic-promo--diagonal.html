@@ -181,7 +181,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-1fb339f78eb41ea0ad5785fc53cb853d-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-container"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"component basic-promo-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo basic-promo-left-align basic-promo-default"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-diagonal basic-promo-pattern-turquoise"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -209,7 +209,7 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-1fb339f78eb41ea0ad5785fc53cb853d-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-container"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"component basic-promo-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> imageAlignment %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> basic-promo-</span></span></span><span class="hljs-template-variable">{{ imageAlignment }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">-align</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> scheme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> basic-promo-</span></span></span><span class="hljs-template-variable">{{ scheme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> pattern %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> basic-promo-pattern basic-promo-pattern-</span></span></span><span class="hljs-template-variable">{{ pattern }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> patternColour %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> basic-promo-pattern-</span></span></span><span class="hljs-template-variable">{{ patternColour }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
             </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> pattern %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-pattern-background"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
@@ -581,7 +581,20 @@
         }
     }
 }
-</pre>
+
+<span class="hljs-comment">// This is for the new page-level themes and removes the</span>
+<span class="hljs-comment">// Chevrons and stuff.</span>
+<span class="hljs-selector-class">.theme</span> {
+    <span class="hljs-selector-class">.basic-promo</span> {
+
+        <span class="hljs-attribute">background</span>: var(--component-accent);
+        <span class="hljs-comment">// Get rid of the chevrons</span>
+        <span class="hljs-selector-class">.basic-promo-pattern-background</span> {
+            <span class="hljs-attribute">display</span>: none;
+        }
+
+    }
+}</pre>
                             </code>
                             
                         </div>
@@ -597,7 +610,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">9.1 KB</span>
+                    <span class="Meta-value">9.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -1678,6 +1691,30 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="full-page-comps--ug-prospectus.html" data-pjax>
+                <span>Ug Prospectus</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -2387,6 +2424,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="content-carousel.html" data-pjax>
                 <span>Content Carousel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="divider.html" data-pjax>
+                <span>Divider</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -4198,6 +4259,30 @@
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="image-hero-v2.html" data-pjax>
+                <span>Image Hero V 2</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF3333;" title="Prototype"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     
@@ -8737,6 +8822,30 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="panel-video.html" data-pjax>
+                <span>Panel Video</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -10355,6 +10464,30 @@
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="text-triptych.html" data-pjax>
+                <span>Text Triptych</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     

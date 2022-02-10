@@ -1,0 +1,57 @@
+$margin: $max-size;
+
+.panel-video {
+    position: relative;
+    padding: $max-size 0;
+
+}
+
+.panel-video-container {
+    background-color: var(--component-accent);
+}
+
+.panel-video {
+    width: 80%;
+    margin: auto;
+
+    @include for-phone-only {
+        width: 90%;
+    }
+
+}
+
+.panel-video-content {
+    color: var(--component-background);
+    display: grid;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    gap: 2.36%;
+    grid-template-columns: 1fr 66%;
+
+    .h2 {
+        color: var(--component-background);
+    }
+}
+
+.panel-video-text {
+    align-self: right;
+}
+
+.panel-video-video {
+    min-width: 100%;
+    aspect-ratio: 16/9;
+    align-self: center;
+}
+
+@media (max-width: 950px) {
+    .panel-video-content {
+        display: grid;
+        width: 100%;
+        margin: auto;
+        display: grid;
+        gap: 12px;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+    }
+}

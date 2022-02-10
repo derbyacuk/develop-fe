@@ -275,8 +275,12 @@ function hideLocation(targetLocation = '')
  */
 function buildResult(course) {
 
-	let subjectTest = course.subject.toLowerCase();
+	let subjectTest = ''
 	
+	if (course.hasOwnProperty('subject')) {
+		subjectTest = course.subject.toLowerCase();
+	}
+
 	let location  = course.location;
 	
 	if (subjectTest.includes('business')) {
@@ -312,13 +316,14 @@ function buildResult(course) {
 												<div class="course-teaser-key-stat-content">${course.entryMonths}</div>
 											</div>` : ''}
 			</div>
-				<div class="course-teaser-calltoaction">
+			<div class="course-teaser-calltoaction">
 				<a href="" class="button v2 button-outline prospectus-remove" title="Remove ${course.azname} from prospectus list" role="button" tabindex="0" data-scroll>
 					<span class="button-text" >Remove from list</span>
 				</a>
-				<a  href="${course.url}" class="button v2 button-yellow" role="button" tabindex="0" data-scroll>
+				<a  href="${course.url}" class="button v2" role="button" tabindex="0" data-scroll>
 					<span class="button-text" title="View ${course.azname} course details">View course</span>
 				</a>
+			</div>
 		</div>
 	</section>
 	`;
@@ -340,9 +345,11 @@ function saveResult(course) {
 	// Here we're saving subject interest levels for
 	// further personalisation purposes.
 	let subjects = dataStorage.get('subjects');
-
-	if (!subjects.hasOwnProperty(course.subject)) {
-		subjects[course.subject] = 1;
+	if (course.hasOwnProperty('subject')) {
+		
+		if (!subjects.hasOwnProperty(course.subject)) {
+			subjects[course.subject] = 1;
+		}
 	}
 
 	let locations = dataStorage.get('locations');

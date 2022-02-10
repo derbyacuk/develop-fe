@@ -1,0 +1,137 @@
+.image-hero-v2 {
+    color: white;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-width: 100vw;
+    min-height: 95vh;
+    max-height: 95vh;
+    background-image: url("/images/ug-prospectus-images/ug-prospectus-background.jpg");
+    background-color: #262726;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+    h1 small {
+      font-weight: normal;
+    }
+
+    .image-hero-background-container {
+      max-height: 100%;
+      min-height: 100%;
+    }
+}
+  
+.image-hero-v2 .hero-content-container {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: end;
+}
+
+.image-hero-v2 .image-hero-content {
+  min-height: auto;
+}
+
+.image-hero-v2 .image-hero-navigation {
+  margin-bottom: 0;
+  z-index: 6;
+}
+
+// Flat peeps;
+.image-hero-peeps-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+
+  img {
+    max-width: 30%;
+    position: absolute;
+  }
+
+  #omar {
+    left: 0;
+  }
+
+  #tom {
+    left: 25%;
+  }
+
+  #jessica {
+    left: 50%
+  }
+
+  #arvin {
+    right: 0;
+  }
+}
+
+// Diamond peeps
+@media only screen and (max-width: 600px) {
+  
+  .image-hero-peeps-container {
+    img {
+      max-width: 50%;
+    }
+
+    // Bottom middle peep
+    #omar {
+      left: 50%;
+      top: 40%;
+      transform: translateX(-50%);
+      z-index: 4;
+    }
+
+    // Peep left
+    #tom {
+      left: 0;
+      top: 20%;
+      z-index: 3;
+    }
+
+    // Top middle peep
+    #jessica {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0%;
+    }
+
+    // Right peep
+    #arvin {
+      right: 0;
+      top: 20%;
+    }
+  }
+}
+.ug-2022-hero.image-hero-v2 [class*=-hero-text-column] {
+  display: grid;
+
+  min-width: 100%;
+  margin: 0;
+  justify-content: center;
+  margin-bottom: 5%;
+  align-content: end;
+}
+
+.image-hero-v2-feature-block-container {
+  // Diamond peeps
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0;
+  }
+
+  position: relative;
+  margin-left: 40px;
+  width: 61.8%;
+  .feature-block {
+
+    margin-top: -4%;
+    background-color: var(--pink);
+  }
+  z-index: 5;
+}
+
+.image-hero-text-column {
+  z-index: 5;
+}

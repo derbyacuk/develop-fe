@@ -1,0 +1,26 @@
+.dividerContainer {
+    position: relative;
+    min-width: 100%;
+    height: 30px;
+    margin: 2em 0;
+  }
+  
+  .fade {
+    display: block;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 20%;
+    bottom: 0;
+  }
+  
+  .diagonalHatch {
+    /* No variant - uses primary theme colour only */
+    stroke: var(--component-accent);
+  }
+  
