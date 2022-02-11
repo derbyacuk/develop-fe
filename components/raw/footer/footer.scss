@@ -150,12 +150,12 @@
                 font-size: 0.8rem;
             }
 
-            .button.v2 {
+            .button-v2 {
                 padding: 0.2rem 0.3rem;
                 margin-bottom: 8px;
             }
 
-            .button.v2, .button.v2 .button-text {
+            .button-v2, .button-v2 .button-text {
                 @include footer-menu-break {
                     column-gap: 8px;
                     font-size: 0.8rem;

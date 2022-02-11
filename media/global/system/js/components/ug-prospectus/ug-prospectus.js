@@ -317,10 +317,10 @@ function buildResult(course) {
 											</div>` : ''}
 			</div>
 			<div class="course-teaser-calltoaction">
-				<a href="" class="button v2 button-outline prospectus-remove" title="Remove ${course.azname} from prospectus list" role="button" tabindex="0" data-scroll>
+				<a href="" class="button-v2 prospectus-remove" title="Remove ${course.azname} from prospectus list" role="button" tabindex="0" data-scroll>
 					<span class="button-text" >Remove from list</span>
 				</a>
-				<a  href="${course.url}" class="button v2" role="button" tabindex="0" data-scroll>
+				<a  href="${course.url}" class="button-v2" role="button" tabindex="0" data-scroll>
 					<span class="button-text" title="View ${course.azname} course details">View course</span>
 				</a>
 			</div>

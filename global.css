@@ -116,3 +116,110 @@
   --component-accent-alt: var(--theme-background);
 }
 
+/*********
+V2 BUTTONS
+**********/
+/* WOO! Specificity ramping! Thanks everybody!*/
+a.button-v2, .footer .footer-submenu-one a.button-v2 {
+  background-image: linear-gradient(
+    90deg,
+    var(--buttonhover) 0%,
+    var(--buttonhover) 50%,
+    var(--buttondefault) 50%,
+    var(--buttondefault) 100%
+  );
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  border: 2px solid var(--buttonborder);
+  border-radius: 2px;
+  color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 1em;
+  padding: 0.6em 1em;
+  position: relative;
+}
+
+.footer .footer-submenu-one a.button-v2 {
+  padding: 0.1em 0.4em;
+  margin: 0;
+  margin-bottom: 8px;
+}
+.button-text {
+  background: linear-gradient(
+    90deg,
+    var(--buttontexthover) 0%,
+    var(--buttontexthover) 50%,
+    var(--buttontextdefault) 50%,
+    var(--buttontextdefault) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  z-index: -1;
+  color: transparent;
+  font-family: 'NeuzeitGro', sans-serif;
+}
+  
+.button-v2.invert {
+  background-image: linear-gradient(
+    90deg,
+    var(--buttondefault) 0%,
+    var(--buttondefault) 50%,
+    var(--buttonhover) 50%,
+    var(--buttonhover) 100%
+  );
+}
+
+.button-v2.invert .button-text {
+  background-image: linear-gradient(
+    90deg,
+    var(--buttontextdefault) 0%,
+    var(--buttontextdefault) 50%,
+    var(--buttontexthover) 50%,
+    var(--buttontexthover) 100%
+  );
+}
+
+  .button-v2:hover,
+  .button-v2:hover > .button-text {
+    animation: buttonin 0.15s cubic-bezier(0.8, 0.37, 0.21, 0.8) 0s forwards;
+    background-size: 200% 100%;
+
+  }
+  
+  .button-v2,
+  .button-v2 .button-text {
+    animation: buttonout 0.15s cubic-bezier(0.8, 0.37, 0.21, 0.8) 0s forwards;
+    background-size: 200% 100%;
+  }
+  
+  .footer-link.button-text {
+      line-height: 1.25;
+  }
+
+  @keyframes buttonin {
+    0% {
+      background-position: 100% 0%;
+    }
+  
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  @keyframes buttonout {
+    0% {
+      background-position: 0% 0%;
+    }
+  
+    100% {
+      background-position: 100% 0%;
+    }
+  }

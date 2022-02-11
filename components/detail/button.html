@@ -321,118 +321,7 @@
     }
 }
 
-<span class="hljs-comment">/*********
-V2 BUTTONS
-**********/</span>
-<span class="hljs-comment">// WOO! !important declaration escalation! Thanks everybody!</span>
-<span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> {
-    <span class="hljs-comment">// to make the make targetting a specific button height easier, </span>
-    <span class="hljs-comment">// here's some math to work out the padding needed for the button variants</span>
-    <span class="hljs-comment">// WHAAAAAT IS THIS?!</span>
-    <span class="hljs-variable">$line-height</span>: <span class="hljs-number">1.3</span>;
-    <span class="hljs-variable">$small-vertical-padding</span>: (<span class="hljs-number">43</span> - <span class="hljs-number">4</span> - <span class="hljs-number">16</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">16</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
-    <span class="hljs-variable">$normal-vertical-padding</span>: (<span class="hljs-number">49</span> - <span class="hljs-number">4</span> - <span class="hljs-number">18</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">18</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
-    <span class="hljs-variable">$large-vertical-padding</span>: (<span class="hljs-number">54</span> - <span class="hljs-number">4</span> - <span class="hljs-number">18</span> * <span class="hljs-variable">$line-height</span>) / <span class="hljs-number">18</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0em</span>;
-
-    <span class="hljs-attribute">padding</span>: <span class="hljs-variable">$small-vertical-padding</span> <span class="hljs-number">1em</span>;
-
-    <span class="hljs-keyword">@include</span> for-tablet-portrait-up {
-      <span class="hljs-attribute">padding</span>: <span class="hljs-variable">$normal-vertical-padding</span> <span class="hljs-number">1em</span>;
-    }
-
-    <span class="hljs-attribute">background-image</span>: linear-gradient(
-      <span class="hljs-number">90deg</span>,
-      var(--buttondefault) <span class="hljs-number">0%</span>,
-      var(--buttondefault) <span class="hljs-number">50%</span>,
-      var(--buttonhover) <span class="hljs-number">50%</span>,
-      var(--buttonhover) <span class="hljs-number">100%</span>
-    );
-    <span class="hljs-attribute">background-color</span>: var(--white);
-    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">201%</span> <span class="hljs-number">100%</span>; <span class="hljs-comment">// 201% because at 200% you can get a teeny-weeny overlap on the right.</span>
-    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
-    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid var(--buttonborder);
-    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
-    <span class="hljs-attribute">color</span>: transparent;
-    <span class="hljs-attribute">cursor</span>: pointer;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
-    <span class="hljs-attribute">font-family</span>: sans-serif;
-    <span class="hljs-attribute">font-weight</span>: bold;
-    <span class="hljs-attribute">position</span>: relative;
-  }
-  
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
-
-    <span class="hljs-attribute">background-image</span>: linear-gradient(
-      <span class="hljs-number">90deg</span>,
-      var(--buttontextdefault) <span class="hljs-number">0%</span>,
-      var(--buttontextdefault) <span class="hljs-number">50%</span>,
-      var(--buttontexthover) <span class="hljs-number">50%</span>,
-      var(--buttontexthover) <span class="hljs-number">100%</span>
-    );
-    -webkit-<span class="hljs-attribute">background-clip</span>: text;
-    <span class="hljs-attribute">background-clip</span>: text;
-    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">201%</span> <span class="hljs-number">100%</span>;
-    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
-    <span class="hljs-attribute">color</span>: transparent;
-    <span class="hljs-attribute">position</span>: static;
-    <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
-  }
-  
-  <span class="hljs-comment">// Button outline just reverses the</span>
-  <span class="hljs-comment">// Colour relationship.</span>
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-class">.button-outline</span> {
-    <span class="hljs-attribute">background-image</span>: linear-gradient(
-      <span class="hljs-number">90deg</span>,
-      var(--buttonhover) <span class="hljs-number">0%</span>,
-      var(--buttonhover) <span class="hljs-number">50%</span>,
-      var(--buttondefault) <span class="hljs-number">50%</span>,
-      var(--buttondefault) <span class="hljs-number">100%</span>
-    ) <span class="hljs-meta">!important</span>;
-
-    <span class="hljs-selector-class">.button-text</span> {
-      <span class="hljs-attribute">background-image</span>: linear-gradient(
-        <span class="hljs-number">90deg</span>,
-        var(--buttontexthover) <span class="hljs-number">0%</span>,
-        var(--buttontexthover) <span class="hljs-number">50%</span>,
-        var(--buttontextdefault) <span class="hljs-number">50%</span>,
-        var(--buttontextdefault) <span class="hljs-number">100%</span>
-      );
-    }
-  }
-
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-pseudo">:hover</span>,
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span><span class="hljs-selector-pseudo">:hover</span> &gt; <span class="hljs-selector-class">.button-text</span> {
-    <span class="hljs-attribute">animation</span>: buttonin <span class="hljs-number">0.15s</span> cubic-bezier(<span class="hljs-number">0.8</span>, <span class="hljs-number">0.37</span>, <span class="hljs-number">0.21</span>, <span class="hljs-number">0.8</span>) <span class="hljs-number">0s</span> forwards;
-  }
-  
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span>,
-  <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.v2</span> <span class="hljs-selector-class">.button-text</span> {
-    <span class="hljs-attribute">animation</span>: buttonout <span class="hljs-number">0.15s</span> cubic-bezier(<span class="hljs-number">0.8</span>, <span class="hljs-number">0.37</span>, <span class="hljs-number">0.21</span>, <span class="hljs-number">0.8</span>) <span class="hljs-number">0s</span> forwards;
-  }
-  
-  <span class="hljs-selector-class">.footer-link</span><span class="hljs-selector-class">.button-text</span> {
-      <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.25</span>;
-  }
-
-  <span class="hljs-keyword">@keyframes</span> buttonin {
-    0% {
-      <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
-    }
-  
-    100% {
-      <span class="hljs-attribute">background-position</span>: -<span class="hljs-number">100%</span> <span class="hljs-number">0%</span>;
-    }
-  }
-  
-  <span class="hljs-keyword">@keyframes</span> buttonout {
-    0% {
-      <span class="hljs-attribute">background-position</span>: -<span class="hljs-number">100%</span> <span class="hljs-number">0%</span>;
-    }
-  
-    100% {
-      <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0%</span> <span class="hljs-number">0%</span>;
-    }
-  }</pre>
+</pre>
                             </code>
                             
                         </div>
@@ -448,7 +337,7 @@ V2 BUTTONS
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.7 KB</span>
+                    <span class="Meta-value">1.9 KB</span>
                 </li>
             </ul>
         </div>
