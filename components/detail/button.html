@@ -321,7 +321,35 @@
     }
 }
 
-</pre>
+<span class="hljs-selector-class">.theme</span> {
+    <span class="hljs-selector-class">.button-outline</span> {
+        <span class="hljs-attribute">border-color</span>: var(--component-accent);
+    }
+    <span class="hljs-selector-class">.button-outline</span><span class="hljs-selector-pseudo">:link</span> {
+        <span class="hljs-attribute">color</span>: var(--component-accent);
+    }
+
+    <span class="hljs-selector-class">.button-outline</span> <span class="hljs-selector-class">.button-overlay</span> { 
+        <span class="hljs-attribute">color</span>: var(--component-background);
+        <span class="hljs-attribute">background-color</span>: var(--component-accent);
+    }
+    <span class="hljs-comment">// Please forgive me for this horrible, horrible hack.</span>
+    <span class="hljs-comment">// Blue buttons are treated as default and pick up the</span>
+    <span class="hljs-comment">// Theme colour.</span>
+    <span class="hljs-selector-class">.button-blue</span> {
+        <span class="hljs-attribute">border-color</span>: var(--component-accent);
+        <span class="hljs-attribute">background-color</span>: var(--component-accent);
+    }
+
+    <span class="hljs-selector-class">.button-blue</span><span class="hljs-selector-pseudo">:link</span> {
+        <span class="hljs-attribute">color</span>: var(--component-background);
+    }
+
+    <span class="hljs-selector-class">.button-blue</span> <span class="hljs-selector-class">.button-overlay</span> {
+        <span class="hljs-attribute">color</span>: var(--component-accent);
+        <span class="hljs-attribute">background-color</span>: var(--component-background);
+    }
+}</pre>
                             </code>
                             
                         </div>
@@ -337,7 +365,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.9 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>

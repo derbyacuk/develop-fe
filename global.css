@@ -69,11 +69,19 @@
 
 /* Themes */
 .theme-pink {
+  /* Theme Colours */
   --theme-background: var(--white);
   --theme-text: var(--black);
   --theme-heading: var(--pink);
   --theme-accent: var(--pink);
   --theme-accent-alt: var(--pink);
+
+  /* Default Component Colours */
+  --component-background: var(--theme-background);
+  --component-text: var(--theme-text);
+  --component-heading: var(--theme-heading);
+  --component-accent: var(--theme-accent);
+  --component-accent-alt: var(--theme-accent-alt);
 
   /** Button colours **/
   --buttontextdefault:  var(--white);
@@ -84,12 +92,19 @@
 }
 
 .theme-gold {
+  /* Default Theme Colours */
   --theme-background: var(--white);
   --theme-text: var(--text-black);
   --theme-heading: var(--text-black);
   --theme-accent: var(--gold);
   --theme-accent-alt: var(--gold);
 
+  /* Default Component Colours */
+  --component-background: var(--theme-background);
+  --component-text: var(--theme-text);
+  --component-heading: var(--theme-heading);
+  --component-accent: var(--theme-accent);
+  --component-accent-alt: var(--theme-accent-alt);
 }
 
 .component {

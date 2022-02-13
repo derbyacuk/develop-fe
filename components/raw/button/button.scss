@@ -73,3 +73,32 @@
     }
 }
 
+.theme {
+    .button-outline {
+        border-color: var(--component-accent);
+    }
+    .button-outline:link {
+        color: var(--component-accent);
+    }
+
+    .button-outline .button-overlay { 
+        color: var(--component-background);
+        background-color: var(--component-accent);
+    }
+    // Please forgive me for this horrible, horrible hack.
+    // Blue buttons are treated as default and pick up the
+    // Theme colour.
+    .button-blue {
+        border-color: var(--component-accent);
+        background-color: var(--component-accent);
+    }
+
+    .button-blue:link {
+        color: var(--component-background);
+    }
+
+    .button-blue .button-overlay {
+        color: var(--component-accent);
+        background-color: var(--component-background);
+    }
+}
