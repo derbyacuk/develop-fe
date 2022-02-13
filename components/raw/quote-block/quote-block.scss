@@ -187,6 +187,7 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
     }
 
     &-backdrop {
+
         position: absolute;
         left: 0;
         top: 0;
@@ -305,3 +306,15 @@ $image-height-large-desktop: #{'calc((((' + $max-width + ' - (60px)) * (' + $wid
         }
     }
 }
+
+// DAMMIT PETE
+.theme .basic-quote .basic-quote-backdrop .basic-quote-pattern-background, .theme .basic-quote .basic-quote-mobile-backdrop .basic-quote-pattern-mobile-background {
+    background-image: none;
+    background-color: var(--theme-accent);
+}
+
+.theme .basic-quote .basic-quote-backdrop {
+    background-color: var(--theme-accent);
+}
+
+
