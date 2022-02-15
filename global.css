@@ -135,7 +135,7 @@
 V2 BUTTONS
 **********/
 /* WOO! Specificity ramping! Thanks everybody!*/
-a.button-v2, .footer .footer-submenu-one a.button-v2 {
+button.button-v2, a.button-v2, .footer .footer-submenu-one a.button-v2 {
   background-image: linear-gradient(
     90deg,
     var(--buttonhover) 0%,
