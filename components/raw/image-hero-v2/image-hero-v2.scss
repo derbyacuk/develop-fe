@@ -4,12 +4,13 @@
     grid-template-rows: auto 1fr;
     min-width: 100vw;
     min-height: 95vh;
-    max-height: 95vh;
+    max-height: 100%;
     background-image: url("/images/ug-prospectus-images/ug-prospectus-background.jpg");
     background-color: #262726;
     background-size: cover;
     background-position: center;
-    margin-bottom: 0;
+    margin-bottom: 80px;
+    
     h1 small {
       font-weight: normal;
     }
@@ -28,7 +29,7 @@
 }
 
 .image-hero-v2 .image-hero-content {
-  min-height: auto;
+  min-height: 600px;  // This is narsty, but creates minimum bound for the hero height.
 }
 
 .image-hero-v2 .image-hero-navigation {
@@ -39,7 +40,7 @@
 // Flat peeps;
 .image-hero-peeps-container {
   position: absolute;
-  top: 0;
+  top: -10%;
   left: 0;
   bottom: 0;
   right: 0;
@@ -71,6 +72,8 @@
 @media only screen and (max-width: 600px) {
   
   .image-hero-peeps-container {
+    top: -30%;
+
     img {
       max-width: 50%;
     }
@@ -124,6 +127,8 @@
   position: relative;
   margin-left: 40px;
   width: 61.8%;
+  margin-bottom: -40px;
+
   .feature-block {
 
     margin-top: -4%;
