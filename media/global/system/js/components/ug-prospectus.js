@@ -216,7 +216,6 @@ function showLocation(targetLocation = '')
 		if (Array.isArray(locationData)) {
 
 			locationData.forEach(location => {
-				console.log(`Location: ${location.location}`);
 
 				if (location.hasOwnProperty('location')) {
 
