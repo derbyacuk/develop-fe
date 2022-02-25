@@ -194,6 +194,7 @@ function removeCourseEvent(e) {
 
 	if (target.dataset.hasOwnProperty('location')) {
 		hideLocation(target.dataset.location);
+		checkKedleston();
 	}
 
 	target.parentNode.removeChild(target);
@@ -268,6 +269,28 @@ function hideLocation(targetLocation = '')
 		})
 	}
 }
+/**
+ * checkKedleston block - toggle the 'There's also' Kedleston Road block
+ * if Kedleston Road is not included in the location data. Should be hidden
+ * if there are already courses with Kedleston Road as a location.
+ */
+ function checkKedleston()
+ {
+	 const kedlestonTitleElement  = document.querySelector('#text-block-152973');
+	 const kedlestonVideoElement  = document.querySelector('#content-id-152973');
+	 const kedlestonTextElement   = document.querySelector('#text-block-152974');
+	 let elems = document.querySelectorAll(`[data-location*="Kedleston"]`);
+ 
+	 if (elems.length == 0) {
+		 kedlestonTitleElement.style.display = 'block';
+		 kedlestonTextElement.style.display = 'block';
+		 kedlestonVideoElement.style.display = 'block';
+	 } else {
+		kedlestonTitleElement.style.display = 'none';
+		kedlestonTextElement.style.display = 'none';
+		kedlestonVideoElement.style.display = 'none';
+	 }
+ }
 /**
  * buildResult - create the HTML for the selected course
  * @param {Object} course 
