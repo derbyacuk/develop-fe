@@ -75,7 +75,9 @@ var options = {
 	 */
 	preselectedCourses.forEach(course => {
 
-		addCourseToProspectus(String(course));
+		if (!courseHasBeenSelected(course)) {
+			addCourseToProspectus(String(course));
+		}
 	})
 })()
 
@@ -278,11 +280,12 @@ function hideLocation(targetLocation = '')
 	 const kedlestonTitleElement  = document.querySelector('#text-block-152973');
 	 const kedlestonVideoElement  = document.querySelector('#content-id-152973');
 	 const kedlestonTextElement   = document.querySelector('#text-block-152974');
+
 	 let elems = document.querySelectorAll(`[data-location*="Kedleston"]`);
  
 	 if (elems.length == 0) {
 		 kedlestonTitleElement.style.display = 'block';
-		 kedlestonTextElement.style.display = 'block';
+		 kedlestonTextElement.style.display  = 'block';
 		 kedlestonVideoElement.style.display = 'block';
 	 } else {
 		kedlestonTitleElement.style.display = 'none';
