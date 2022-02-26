@@ -179,6 +179,8 @@ function addCourseToProspectus(courseId) {
 			}
 		}
 	})
+
+	checkKedleston();
 }
 
 /**
@@ -196,10 +198,10 @@ function removeCourseEvent(e) {
 
 	if (target.dataset.hasOwnProperty('location')) {
 		hideLocation(target.dataset.location);
-		checkKedleston();
 	}
 
 	target.parentNode.removeChild(target);
+	checkKedleston();
 }
 
 /**
@@ -240,6 +242,8 @@ function showLocation(targetLocation = '')
 		}
 	}
 
+	checkKedleston();
+
 	return true;
 }
 
@@ -251,10 +255,7 @@ function hideLocation(targetLocation = '')
 {
 	let elems = document.querySelectorAll(`[data-location="${targetLocation}"]`);
 
-	if (elems.length !== 1) {
-		return;
-
-	} else {
+	if (elems.length == 1) {
 
 		locationData.forEach(location => {
 
@@ -269,7 +270,12 @@ function hideLocation(targetLocation = '')
 			}
 		})
 	}
+
+	checkKedleston();
+
+	return true;
 }
+
 /**
  * checkKedleston block - toggle the 'There's also' Kedleston Road block
  * if Kedleston Road is not included in the location data. Should be hidden
@@ -282,7 +288,7 @@ function hideLocation(targetLocation = '')
 	 const kedlestonTextElement   = document.querySelector('#text-block-152974');
 
 	 let elems = document.querySelectorAll(`[data-location*="Kedleston"]`);
- 
+		 
 	 if (elems.length == 0) {
 		 kedlestonTitleElement.style.display = 'block';
 		 kedlestonTextElement.style.display  = 'block';
