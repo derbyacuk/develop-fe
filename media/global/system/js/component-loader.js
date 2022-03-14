@@ -12,6 +12,9 @@
  var queuedDependencies = [];
  
  function loadDependencies() {
+	 if (!queuedDependencies.length) {
+		 loadComponents();
+	 }
 	 // First of all, load all of our dependencies...
 	 queuedDependencies.forEach(dependency => {
 		 let scriptElem = document.createElement('script');

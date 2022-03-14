@@ -876,6 +876,11 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">rect</span> <span class="hljs-attr">x</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">y</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"url(#diagonalHatch)"</span> /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"component component-map"</span> <span class="hljs-attr">data-component</span>=<span class="hljs-string">"ug-map"</span> <span class="hljs-attr">data-hascss</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">data-hasjs</span>=<span class="hljs-string">"true"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"map"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"map"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#skip-map"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button button-white skip-map-link"</span>&gt;</span>Skip Map<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"skip-map"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"component basic-promo-container"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo basic-promo-right-align basic-promo-default"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"basic-promo-backdrop basic-promo-pattern basic-promo-pattern-weave basic-promo-pattern-green-blue"</span>&gt;</span>
@@ -3182,7 +3187,7 @@
         }
     } %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="divider.html">@divider</a>' %}</span><span class="xml">
-
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="ug-map.html">@ug-map</a>' %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '<a href="basic-promo.html">@basic-promo</a>' with {
         image: {
             path: 'https://via.placeholder.com/2000x1333.jpg',
@@ -3682,7 +3687,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(27)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(26)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="full-page-comps--course-page.html">
@@ -3787,10 +3792,6 @@
             
                 <a href="">
                     <span>Ug Digital Prospectus</span>
-                </a>, 
-            
-                <a href="full-page-comps--ug-prospectus.html">
-                    <span>Ug Prospectus</span>
                 </a>
             
             </span>
@@ -3819,7 +3820,7 @@
         </li>
         
         <li class="Meta-item">
-            <strong class="Meta-key">References <em class="Meta-count">(9)</em>:</strong>
+            <strong class="Meta-key">References <em class="Meta-count">(10)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="image-hero-v2.html">@<span>image-hero-v2</span></a>, 
@@ -3827,6 +3828,8 @@
                 <a href="panel-video.html">@<span>panel-video</span></a>, 
             
                 <a href="divider.html">@<span>divider</span></a>, 
+            
+                <a href="ug-map.html">@<span>ug-map</span></a>, 
             
                 <a href="basic-promo.html">@<span>basic-promo</span></a>, 
             
@@ -4714,30 +4717,6 @@
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 <span>Ug Digital Prospectus</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="full-page-comps--ug-prospectus.html" data-pjax>
-                <span>Ug Prospectus</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -13514,6 +13493,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="text-triptych.html" data-pjax>
                 <span>Text Triptych</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ug-map.html" data-pjax>
+                <span>Ug Map</span>
                 
 
 <div class="Status Status--unlabelled">

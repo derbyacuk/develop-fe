@@ -1,0 +1,76 @@
+.map-label {
+    text-shadow:
+           -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px 1px 0 #000,
+          1px 1px 0 #000;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'NeuzeitGro', sans-serif !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--pink) !important;
+    z-index: 80 !important;
+}
+/* Set the size of the div element that contains the map */
+.component-map {
+    position: relative;
+    width: 100%;
+    /* The width is the width of the web page */
+    aspect-ratio: 16/6;
+    height: auto;
+    margin-bottom: 7rem;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.component-map .button.skip-map-link {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .component-map {
+        height: 80vh;
+        max-height: 80vh;
+    }
+    .component-map .button.skip-map-link {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+}
+
+/* Trying to override Google's styles for the infoWindow... Wish me luck. */
+.component-map .gm-style-iw {
+    background-color: var(--pink);
+    color: white;
+    font-family: 'NeuzeitGro', sans-serif;
+    font-size: 16px;
+    border-radius: 0;
+
+}
+
+.component-map .gm-style-iw .h3 {
+    color: white;
+}
+
+.component-map .gm-style .gm-style-iw-t:after {
+    background: linear-gradient(45deg, var(--pink) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
+    box-shadow: none;
+}
+
+.component-map .gm-style-iw-d {
+    overflow: auto !important;
+    padding: 1em;
+    margin-top: 12px;   /* To clear the close button */
+}
+
+.component-map .gm-style-iw-d .button {
+    outline: none;
+}
