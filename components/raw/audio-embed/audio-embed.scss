@@ -137,110 +137,37 @@ input[type="range"]::-ms-fill-upper {
   width: 56px;
   height: 56px;
   border: none;
-  border-radius: 100%;
+  border-radius: 50%;
   overflow: hidden;
-  /*background: linear-gradient(
-      90deg,
-      rgba(229, 0, 112, 1) 0%,
-      rgba(40, 35, 92, 1) 100%
-    );*/
-  background: var(--theme-fg);
-}
-
-.playpause-clip {
-  will-change: transform;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.playpause.pause .playpause-clip {
-  -webkit-animation: spin 2s linear infinite;
-  -moz-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.clip-horiz {
-  position: absolute;
-  width: 101%;
-  height: 51%;
-  top: -0.5%;
-  left: -0.5%;
-  background-color: var(--theme-bg);
-}
-
-.clip-vert {
-  position: absolute;
-  width: 51%;
-  height: 51%;
-  top: 50%;
-  left: -1%;
-  background-color: var(--theme-bg);
-}
-
-
-.playpause-cap {
-  position: absolute;
-  display: flex;
-  justify-content: center;
+  border: 4px solid var(--theme-fg);
+  background: var(--theme-bg);
+  display: grid;
   align-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 100%;
-  background-color: var(--theme-bg);
-  top: 5px;
-  right: 5px;
+  justify-items: center;
 }
 
 .icon {
-  font-size: 35px;
   color: var(--theme-fg);
-}
-
-.icon:after {
-  content: "\25B6";
-}
-
-.playpause.pause .icon:after {
-  font-weight: bold;
-  content: "=";
+  border: 18px solid var(--theme-fg);
+  border-left: 24px solid var(--theme-fg);
+  border-color: transparent transparent transparent var(--theme-fg);
+  height: 0px;
+  width: 0px;
+  transform: translateX(25%);
 }
 
 .playpause.pause .icon {
-  transform: rotate(90deg);
+  border: none;
+  border-left: 8px solid var(--theme-fg);
+  border-right: 8px solid var(--theme-fg);
+  height: 36px;
+  width: 24px;
+  transform: none;
 }
 
 @include for-tablet-portrait-up {
   
   .visualiser-controls-container {
     flex-direction: row;
-  }
-
-  /** Animated play button **/
-.playpause {
-  width: 76px;
-  height: 76px;
-}
-  .playpause-cap {
-    width: 66px;
-    height: 66px;
   }
 }
