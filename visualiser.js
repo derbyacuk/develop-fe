@@ -215,7 +215,7 @@ class Visualiser {
           }
         })
         let scrubContainer = this.controls.getElementsByClassName('scrub')[0];
-        scrubContainer.appendChild(this.scrub);
+        scrubContainer.prepend(this.scrub);
 
     }
     updateScrub() {
