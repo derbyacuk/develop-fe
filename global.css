@@ -202,8 +202,8 @@ button.button-v2, a.button-v2, .footer .footer-submenu-one a.button-v2 {
   );
 }
 
-  .button-v2:hover,
-  .button-v2:hover > .button-text {
+  .button-v2:hover, .button-v2:focus,
+  .button-v2:hover > .button-text, .button-v2:focus > .button-text {
     animation: buttonin 0.15s cubic-bezier(0.8, 0.37, 0.21, 0.8) 0s forwards;
     background-size: 200% 100%;
 
