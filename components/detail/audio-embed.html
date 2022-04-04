@@ -184,13 +184,15 @@
         
             <pre><span class="hljs-comment">&lt;!-- Audio Embed With Image Pink Theme --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed pink "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/Richard-Gerver-3x2.jpeg"</span> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"(min-width: 40em) 80vw, 100vw"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Richard Gerver at a talk"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+				&lt;img class="media-embed-img" src="../../images/Richard-Gerver-3x2.jpeg"  data-sizes="(min-width: 40em) 80vw, 100vw" alt="Richard Gerver at a talk"/&gt;
+			&lt;/figure--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E01_Richard_Gerver.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -198,7 +200,6 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -206,8 +207,15 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
+                            Inspired Business S1-E1: Richard Gerver
+                            audio transcript
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -217,13 +225,15 @@
         
             <pre><span class="hljs-comment">&lt;!-- Audio Embed Gold Theme --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed gold "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/yeomans-3-4.jpg"</span> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"(min-width: 40em) 80vw, 100vw"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Richard Gerver at a talk"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+				&lt;img class="media-embed-img" src="../../images/yeomans-3-4.jpg"  data-sizes="(min-width: 40em) 80vw, 100vw" alt="Richard Gerver at a talk"/&gt;
+			&lt;/figure--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E2: Nicole Yeomans<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -231,7 +241,6 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -239,8 +248,11 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -250,13 +262,15 @@
         
             <pre><span class="hljs-comment">&lt;!-- Audio Embed Gold Theme --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed blue "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../images/yeomans-3-4.jpg"</span> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"(min-width: 40em) 80vw, 100vw"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Richard Gerver at a talk"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+				&lt;img class="media-embed-img" src="../../images/yeomans-3-4.jpg"  data-sizes="(min-width: 40em) 80vw, 100vw" alt="Richard Gerver at a talk"/&gt;
+			&lt;/figure--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E2: Nicole Yeomans<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -264,7 +278,6 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -272,8 +285,11 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -283,12 +299,14 @@
         
             <pre><span class="hljs-comment">&lt;!-- Mini Player Pink --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed pink "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+			&lt;/figure--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container mini "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E01_Richard_Gerver.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -296,7 +314,6 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -304,17 +321,18 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
+                            Inspired Business S1-E1: Richard Gerver
+                            audio transcript
+                            and description
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'#'</span>&gt;</span>View
-                Inspired Business S1-E1: Richard Gerver
-                audio transcript
-                and description
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
@@ -322,12 +340,14 @@
         
             <pre><span class="hljs-comment">&lt;!-- Mini Player Gold --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed gold "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+			&lt;/figure--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container mini "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E2: Nicole Yeomans<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -335,7 +355,6 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -343,8 +362,11 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -367,15 +389,17 @@
 	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> theme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ theme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> path %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-img"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcset %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> src in srcset %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ src.path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ src.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ path | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"(min-width: 40em) 80vw, 100vw"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>/&gt;</span>
-		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-	<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+	<span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+		</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> path %}</span><span class="xml"><span class="hljs-comment">
+		&lt;img class="media-embed-img" src="</span></span><span class="hljs-template-variable">{{ path | path }}</span><span class="xml"><span class="hljs-comment">" </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcset %}</span><span class="xml"><span class="hljs-comment"> srcset="</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> src in srcset %}</span><span class="xml"><span class="hljs-comment"></span></span><span class="hljs-template-variable">{{ src.path | path }}</span><span class="xml"><span class="hljs-comment"> </span></span><span class="hljs-template-variable">{{ src.width }}</span><span class="xml"><span class="hljs-comment">w, </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-comment"></span></span><span class="hljs-template-variable">{{ path | path }}</span><span class="xml"><span class="hljs-comment">" </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-comment"> data-sizes="(min-width: 40em) 80vw, 100vw" alt="</span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-comment">"/&gt;
+		</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-comment">
+	&lt;/figure--&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not path %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">mini </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ audio | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span><span class="hljs-template-variable">{{mediaName}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
 				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -383,29 +407,29 @@
 				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-
+					
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time"</span>&gt;</span>
 								<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> transcript %}</span><span class="xml">
+							<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
+								</span><span class="hljs-template-variable">{{ mediaName }}</span><span class="xml">
+								audio transcript
+								</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> audioDescription %}</span><span class="xml">
+									and description
+								</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+							<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> transcript %}</span><span class="xml">
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'</span></span></span><span class="hljs-template-variable">{{ transcript }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">'</span>&gt;</span>View
-					</span><span class="hljs-template-variable">{{ mediaName }}</span><span class="xml">
-					audio transcript
-					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> audioDescription %}</span><span class="xml">
-						and description
-					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-				<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span></pre>
     </code>
@@ -423,7 +447,9 @@
   <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/images/Richard-Gerver-3x2.jpeg"</span>,
   <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Richard Gerver at a talk"</span>,
   <span class="hljs-attr">"audio"</span>: <span class="hljs-string">"/audio/IB_S01_E01_Richard_Gerver.mp3"</span>,
-  <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"pink"</span>
+  <span class="hljs-attr">"mediaName"</span>: <span class="hljs-string">"Inspired Business S1-E1: Richard Gerver"</span>,
+  <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"pink"</span>,
+  <span class="hljs-attr">"transcript"</span>: <span class="hljs-string">"#"</span>
 }
 
 </pre>
@@ -435,6 +461,7 @@
   <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/images/yeomans-3-4.jpg"</span>,
   <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Richard Gerver at a talk"</span>,
   <span class="hljs-attr">"audio"</span>: <span class="hljs-string">"/audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span>,
+  <span class="hljs-attr">"mediaName"</span>: <span class="hljs-string">"Inspired Business S1-E2: Nicole Yeomans"</span>,
   <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"gold"</span>
 }
 
@@ -447,6 +474,7 @@
   <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/images/yeomans-3-4.jpg"</span>,
   <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Richard Gerver at a talk"</span>,
   <span class="hljs-attr">"audio"</span>: <span class="hljs-string">"/audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span>,
+  <span class="hljs-attr">"mediaName"</span>: <span class="hljs-string">"Inspired Business S1-E2: Nicole Yeomans"</span>,
   <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"blue"</span>
 }
 
@@ -474,6 +502,7 @@
   <span class="hljs-attr">"path"</span>: <span class="hljs-string">""</span>,
   <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Richard Gerver at a talk"</span>,
   <span class="hljs-attr">"audio"</span>: <span class="hljs-string">"/audio/IB_S01_E02_Nicole_Yeomans updated.mp3"</span>,
+  <span class="hljs-attr">"mediaName"</span>: <span class="hljs-string">"Inspired Business S1-E2: Nicole Yeomans"</span>,
   <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"gold"</span>
 }
 
@@ -585,10 +614,18 @@
   <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid var(--theme-fg);
 }
 
-<span class="hljs-selector-class">.visualiser-container</span> <span class="hljs-selector-class">.media-embed-transcript-p</span> <span class="hljs-selector-tag">a</span>,
-<span class="hljs-selector-class">.visualiser-container</span> <span class="hljs-selector-class">.media-embed-transcript-p</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {
+<span class="hljs-selector-class">.volume-transcript</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.media-embed-transcript-p</span>,
+<span class="hljs-selector-class">.volume-transcript</span> <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.media-embed-transcript-p</span><span class="hljs-selector-pseudo">:link</span> {
   <span class="hljs-attribute">color</span>: var(--theme-fg);
   <span class="hljs-attribute">background-image</span>: linear-gradient(transparent calc(<span class="hljs-number">100%</span> - <span class="hljs-number">0.1em</span>),var(--theme-fg) <span class="hljs-number">0.1em</span>);
+}
+
+<span class="hljs-selector-class">.volume-transcript</span> <span class="hljs-selector-class">.volume</span> <span class="hljs-selector-tag">label</span> {
+  <span class="hljs-attribute">color</span>: var(--theme-fg);
+}
+<span class="hljs-selector-class">.volume-transcript</span> <span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type="range"]</span>{
+  <span class="hljs-attribute">width</span>: auto;
+
 }
 
 <span class="hljs-selector-class">.visualiser-container</span> <span class="hljs-selector-tag">h1</span> {
@@ -726,6 +763,12 @@ SCRUB BAR STYLES
   <span class="hljs-selector-class">.visualiser-controls-container</span> {
     <span class="hljs-attribute">flex-direction</span>: row;
   }
+}
+
+<span class="hljs-keyword">@media</span> (prefers-reduced-motion) {
+  <span class="hljs-selector-class">.canvas</span> {
+    <span class="hljs-attribute">visibility</span>: hidden;
+  }
 }</pre>
                             </code>
                             
@@ -742,7 +785,7 @@ SCRUB BAR STYLES
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.8 KB</span>
+                    <span class="Meta-value">4 KB</span>
                 </li>
             </ul>
         </div>
@@ -841,20 +884,16 @@ SCRUB BAR STYLES
         
         <h1 id="audio-embed">Audio Embed</h1>
 <p>Based upon the media embed, the audio embed is designed to allow podcasts or other audio media to be embedded
-within pages on the website. It has two forms, a large player, which is used when
-an image is added to the component, and a miniplayer (for quotes or short-form
-audio content) which is displayed when no image is used.</p>
+within pages on the website. Accepts an .ogg and .mp3 file. Uses a canvas-based visualiser, which can
+be disabled for users who have ‘prefers-reduced-motion’ set on their systems.</p>
 <h2 id="key-features">Key features</h2>
 <ul>
 <li>Themeable, adding custom classes will change the colours of the player</li>
 <li>srcset support</li>
 <li>fully accessible custom controls</li>
-<li>new animated css/html play/pause button</li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><strong>path</strong> [optional string] - the path to the image to be displayed</li>
-<li><strong>alt</strong> [optional string] - the alt text for the image</li>
 <li><strong>audio</strong> [required string] - the path to the audio source</li>
 <li><strong>theme</strong> [optional string] - a theme class</li>
 </ul>

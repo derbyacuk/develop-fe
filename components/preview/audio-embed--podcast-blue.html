@@ -30,13 +30,15 @@
 
     <main class="center-align">
         <section class="media-embed audio-embed blue ">
-	<figure class="media-embed-fig">
+	<!--figure class="media-embed-fig">
 				<img class="media-embed-img" src="../../images/yeomans-3-4.jpg"  data-sizes="(min-width: 40em) 80vw, 100vw" alt="Richard Gerver at a talk"/>
-			</figure>
+			</figure-->
 		<div class="visualiser-container " id="audio-1">
 			<audio src="" data-src="../../audio/IB_S01_E02_Nicole_Yeomans updated.mp3" id="audio">audio element not supported</audio>
-			<h1>Inspired Business S1-EP1: Richard Gerver</h1>
+			<h1>Inspired Business S1-E2: Nicole Yeomans</h1>
+			<canvas id='audioBars' class="canvas"></canvas>
 			<div class="visualiser-controls-container">
+
 				<div class="left-column">
 					<button class="playpause">
 						<div class="icon"></div>
@@ -44,19 +46,21 @@
 				</div>
 
 				<div class="right-column">
-					<canvas id='audioBars' class="canvas"></canvas>
-
+					
 					<div class="audio-controls">
 						<div class="scrub">
 							<div class="time">
 								<span class="time-current">00:00</span>/<span class="time-total">00:00</span>
 							</div>
 						</div>
-					</div>
+						<div class="volume-transcript">
+							<div class="volume"></div>
+													</div>
 
+					</div>
 				</div>
 			</div>
-				</div>
+		</div>
 </section>
 
     </main>

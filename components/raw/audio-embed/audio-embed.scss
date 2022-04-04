@@ -44,10 +44,18 @@
   border: 2px solid var(--theme-fg);
 }
 
-.visualiser-container .media-embed-transcript-p a,
-.visualiser-container .media-embed-transcript-p a:link {
+.volume-transcript a.media-embed-transcript-p,
+.volume-transcript a.media-embed-transcript-p:link {
   color: var(--theme-fg);
   background-image: linear-gradient(transparent calc(100% - 0.1em),var(--theme-fg) 0.1em);
+}
+
+.volume-transcript .volume label {
+  color: var(--theme-fg);
+}
+.volume-transcript input[type="range"]{
+  width: auto;
+
 }
 
 .visualiser-container h1 {
@@ -184,5 +192,11 @@ input[type="range"]::-ms-fill-upper {
   
   .visualiser-controls-container {
     flex-direction: row;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .canvas {
+    visibility: hidden;
   }
 }

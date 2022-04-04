@@ -914,12 +914,14 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed audio-embed blue "</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-fig"</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--figure class="media-embed-fig"&gt;
+			&lt;/figure--&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-container mini "</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio-1"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"../../audio/IB_S01_E01_Richard_Gerver.mp3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"audio"</span>&gt;</span>audio element not supported<span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-EP1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Inspired Business S1-E1: Richard Gerver<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visualiser-controls-container"</span>&gt;</span>
+
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left-column"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"playpause"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -927,7 +929,6 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right-column"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'audioBars'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
 
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"audio-controls"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"scrub"</span>&gt;</span>
@@ -935,17 +936,18 @@
                                 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-current"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time-total"</span>&gt;</span>00:00<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
                             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume-transcript"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"volume"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
+                                Inspired Business S1-E1: Richard Gerver
+                                audio transcript
+                                and description
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-embed-transcript-p small"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'#'</span>&gt;</span>View
-                    Inspired Business S1-E1: Richard Gerver
-                    audio transcript
-                    and description
-                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
